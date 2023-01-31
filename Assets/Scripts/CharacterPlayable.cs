@@ -24,7 +24,6 @@ public class CharacterPlayable : MonoBehaviour {
                 bulletSpawnPoint.position,
                 bulletSpawnPoint.rotation
             );
-            // b.GetComponent<Projectile>().SetAngle(bulletSpawnPoint.eulerAngles);
         }
 
 		// Rotation facing towards mouse cursor

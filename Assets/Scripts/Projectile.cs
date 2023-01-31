@@ -2,26 +2,34 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     public float flySpeed = 12.0f;
-    public float lifetime = 10.0f;
+    public float lifetime = 4.0f;
 
     private Rigidbody2D bulletPhysics;
+    private float lifetimeElapsed = 0.0f;
 
 	// Start is called before the first frame update
 	void Start() {
         bulletPhysics = GetComponent<Rigidbody2D>();
 	}
 
-	// Update is called once per frame
+    void Update() {
+        Life();
+    }
+
 	void FixedUpdate() {
+        // Fly with defined speed during its lifetime
         bulletPhysics.velocity = transform.up * flySpeed * 32.0f * Time.deltaTime;
 	}
 
-    void OnCollisionEnter(Collision collision) {
-        Debug.Log("bullet murdered");
+    void OnCollisionEnter2D(Collision2D collision) {
         Destroy(this.gameObject);
     }
 
-    public void SetAngle(Vector3 direction) {
-        transform.eulerAngles = direction;
+    void Life() {
+        // Destroy projectile once it exceeds its lifetime
+        lifetimeElapsed += Time.deltaTime;
+        if (lifetimeElapsed >= lifetime) {
+            Destroy(this.gameObject);
+        }
     }
 }
