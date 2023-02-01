@@ -5,10 +5,6 @@ public class CharacterPlayable : MonoBehaviour {
 	public float moveSpeed = 8.0f;
 	public Vector3 mouseWorldSpace = Vector3.zero;
 
-    [Header("Shooting Properties")]
-    public GameObject[] bulletTypes;
-    public Transform bulletSpawnPoint;
-
 	private Rigidbody2D characterPhysics;
 	private Vector2 velocity = Vector2.zero;
 
@@ -17,15 +13,6 @@ public class CharacterPlayable : MonoBehaviour {
 	}
 
 	void Update() {
-        // Spawn bullet projectile
-        if (Input.GetMouseButtonDown(0)) {
-            GameObject b = Instantiate(
-                bulletTypes[0],
-                bulletSpawnPoint.position,
-                bulletSpawnPoint.rotation
-            );
-        }
-
 		// Rotation facing towards mouse cursor
 		mouseWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(
 			Input.mousePosition.x,

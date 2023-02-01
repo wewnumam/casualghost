@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
+    [Header("Behaviour")]
     public float flySpeed = 12.0f;
     public float lifetime = 4.0f;
 
