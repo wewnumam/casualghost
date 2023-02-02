@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10.28
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3fe6d5a1306c988c9192dbaf083331f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followTarget: {fileID: 1598983423}
+  followTarget: {fileID: 0}
   followSpeed: 1
 --- !u!1 &670028999
 GameObject:
@@ -560,11 +560,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1598983423 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 76095765284571588, guid: bc8ccf80145333fb78cadb93b108861a, type: 3}
-  m_PrefabInstance: {fileID: 76095765379430545}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1633691158
 GameObject:
   m_ObjectHideFlags: 0
