@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
 	public GameObject[] bulletTypes;
 	public Transform bulletSpawnPoint;
+	public Text playerBulletText;
 
 	[Header("Weapon Properties")]
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
@@ -36,6 +38,7 @@ public class CharacterShooting : MonoBehaviour {
 		}
 
         WeaponSelect();
+		SetBulletText();
 	}
 
 	private void WeaponSwitch(int idx) {
@@ -71,6 +74,18 @@ public class CharacterShooting : MonoBehaviour {
             WeaponSwitch(1);
         }
     }
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.gameObject.CompareTag(Tags.COOLDOWN_AREA)) {
+			StartCoroutine(ReloadSequence(reloadTime));
+			GetComponent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
+		}
+	}
+
+	void SetBulletText() {
+		playerBulletText.text = $"BULLET: {roundsLeft.ToString()}";
+	}
+
 }
 
 public enum WeaponType {
