@@ -6,7 +6,6 @@ public class CharacterShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
 	public GameObject[] bulletTypes;
 	public Transform bulletSpawnPoint;
-	public Text playerBulletText;
 
 	[Header("Weapon Properties")]
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
@@ -22,6 +21,9 @@ public class CharacterShooting : MonoBehaviour {
 		// Spawn bullet projectile
 		if (Input.GetMouseButtonDown(0)) {
 			if (roundsLeft > 0) {
+				
+				SoundManager.Instance.PlayHijaiyahAlifSFX();
+
 				GameObject b = Instantiate(
 					bulletTypes[(int)currentWeaponType],
 					bulletSpawnPoint.position,
@@ -83,7 +85,7 @@ public class CharacterShooting : MonoBehaviour {
 	}
 
 	void SetBulletText() {
-		playerBulletText.text = $"BULLET: {roundsLeft.ToString()}";
+		GetComponentInChildren<TextMesh>().text = $"BULLET: {roundsLeft.ToString()}";
 	}
 
 }

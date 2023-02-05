@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private Transform player;
     [SerializeField] private float moveSpeed;
+    private Transform player;
     private float playerDefaultMoveSpeed;
     private bool hasAttack;
 
