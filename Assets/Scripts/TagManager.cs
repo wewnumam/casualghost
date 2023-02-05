@@ -6,6 +6,7 @@ public class Tags {
     public const string PLAYER = "Player";
     public const string COOLDOWN_AREA = "CooldownArea";
     public const string ENEMY = "Enemy";
+    public const string BULLET_LV1_ALIF = "BulletLV1Alif";
 }
 
 public class AnimationTags {

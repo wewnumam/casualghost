@@ -11,7 +11,7 @@ public class CharacterShooting : MonoBehaviour {
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
 	[SerializeField] private int maxRound = 0;
 	[SerializeField] private int roundsLeft = 0;
-	[SerializeField] private float reloadTime = 3.0f;
+	[SerializeField] private float reloadTime = 1.5f;
 
 	void Start() {
         WeaponSwitch(0);
@@ -51,7 +51,7 @@ public class CharacterShooting : MonoBehaviour {
 				.weaponType) {
 			case WeaponType.DEFAULT:
 				maxRound = 5;
-				reloadTime = 3.0f;
+				reloadTime = 1.5f;
 				break;
 			case WeaponType.RIFLE:
 				maxRound = 31;
@@ -77,7 +77,7 @@ public class CharacterShooting : MonoBehaviour {
         }
     }
 
-	void OnTriggerEnter2D(Collider2D collider) {
+	void OnTriggerStay2D(Collider2D collider) {
 		if (collider.gameObject.CompareTag(Tags.COOLDOWN_AREA)) {
 			StartCoroutine(ReloadSequence(reloadTime));
 			GetComponent<Animator>().Play(AnimationTags.PLAYER_RELOAD);

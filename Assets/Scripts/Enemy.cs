@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private int health = 5;
     [SerializeField] private float moveSpeed;
     private Transform player;
     private float playerDefaultMoveSpeed;
@@ -21,6 +22,8 @@ public class Enemy : MonoBehaviour
 
     void FollowPlayer() {
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        transform.LookAt(player.position, Vector3.forward);
+        transform.eulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -37,6 +40,15 @@ public class Enemy : MonoBehaviour
             // Deactivate attack on delay
             float attackTime = 5f;
             Invoke("DeactivateAttack", attackTime);
+        } 
+        
+        else if (collision.gameObject.CompareTag(Tags.BULLET_LV1_ALIF)) {
+            const int BULLET_DAMAGE = 1;
+            health -= BULLET_DAMAGE;
+
+            if (health == 0) {
+                Destroy(gameObject);
+            }
         }
     }
     
