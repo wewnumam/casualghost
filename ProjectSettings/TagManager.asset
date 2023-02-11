@@ -7,7 +7,6 @@ TagManager:
   - CooldownArea
   - Enemy
   - BulletLV1Alif
-  - Kids
   layers:
   - Default
   - TransparentFX

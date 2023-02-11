@@ -50,18 +50,6 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-        if (collision.gameObject.CompareTag(Tags.KIDS)) {
-            collision.gameObject.GetComponent<SpriteRenderer>().color = new Color(.5f, 0f, 0f, 1f);
-            
-            // Enemy attack behavior
-            moveSpeed = 0f;
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 0f, .5f);
-            
-            // Deactivate attack on delay
-            float attackTime = 5f;
-            Invoke("DeactivateAttack", attackTime);
-        } 
     }
     
     void DeactivateAttack() {
