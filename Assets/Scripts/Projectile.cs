@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour {
 
 	void FixedUpdate() {
 		// Fly with defined speed during its lifetime
-		bulletPhysics.velocity = transform.up * flySpeed * 32.0f * Time.deltaTime;
+		bulletPhysics.velocity = transform.right * flySpeed * 32.0f * Time.deltaTime;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {

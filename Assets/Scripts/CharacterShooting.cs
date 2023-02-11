@@ -22,7 +22,7 @@ public class CharacterShooting : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)) {
 			if (roundsLeft > 0) {
 				
-				SoundManager.Instance.PlayHijaiyahAlifSFX();
+				SoundManager.Instance.PlayShootSFX();
 
 				GameObject b = Instantiate(
 					bulletTypes[(int)currentWeaponType],
@@ -33,9 +33,10 @@ public class CharacterShooting : MonoBehaviour {
 				roundsLeft--;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.R)) {
+		if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space)) {
 			if (roundsLeft < maxRound) {
                 StartCoroutine(ReloadSequence(reloadTime));
+				GetComponent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
 			}
 		}
 
@@ -77,15 +78,8 @@ public class CharacterShooting : MonoBehaviour {
         }
     }
 
-	void OnTriggerStay2D(Collider2D collider) {
-		if (collider.gameObject.CompareTag(Tags.COOLDOWN_AREA)) {
-			StartCoroutine(ReloadSequence(reloadTime));
-			GetComponent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
-		}
-	}
-
 	void SetBulletText() {
-		GetComponentInChildren<TextMesh>().text = $"BULLET: {roundsLeft.ToString()}";
+		GetComponentInChildren<TextMesh>().text = $"HEALTH: {GetComponent<CharacterMain>().health.ToString()}\nBULLET: {roundsLeft.ToString()}";
 	}
 
 }

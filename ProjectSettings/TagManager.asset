@@ -6,7 +6,7 @@ TagManager:
   tags:
   - CooldownArea
   - Enemy
-  - BulletLV1Alif
+  - BulletTypeOne
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour
     
 
     [SerializeField] private AudioSource audioSourceComponent;
-    [SerializeField] private AudioClip hijaiyahAlifSFX;
+    [SerializeField] private AudioClip shootSFX;
 
     void Awake()
     {
@@ -16,9 +16,9 @@ public class SoundManager : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    public void PlayHijaiyahAlifSFX()
+    public void PlayShootSFX()
     {
-        audioSourceComponent.clip = hijaiyahAlifSFX;
+        audioSourceComponent.clip = shootSFX;
         audioSourceComponent.Play();
     }
 }

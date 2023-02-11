@@ -14,13 +14,9 @@ public class CharacterPlayable : MonoBehaviour {
 
 	void Update() {
 		// Rotation facing towards mouse cursor
-		mouseWorldSpace = Camera.main.ScreenToWorldPoint(new Vector3(
-			Input.mousePosition.x,
-			Input.mousePosition.y,
-			transform.position.z
-		));
-		transform.LookAt(mouseWorldSpace, Vector3.forward);
-		transform.eulerAngles = new Vector3(0, 0, -transform.eulerAngles.z);
+		Vector3 aimDirection = (UtilsClass.GetMouseWorldPosition() - transform.position).normalized;
+		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
+		transform.eulerAngles = new Vector3(0, 0, angle);
 	}
 
 	// Update is called once per frame
