@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterShooting : MonoBehaviour {
+public class PlayerShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
 	public GameObject[] bulletTypes;
 	public Transform bulletSpawnPoint;
@@ -10,7 +10,7 @@ public class CharacterShooting : MonoBehaviour {
 	[Header("Weapon Properties")]
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
 	[SerializeField] private int maxRound = 0;
-	[SerializeField] private int roundsLeft = 0;
+	public int roundsLeft = 0;
 	[SerializeField] private float reloadTime = 1.5f;
 
 	void Start() {
@@ -36,12 +36,27 @@ public class CharacterShooting : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space)) {
 			if (roundsLeft < maxRound) {
                 StartCoroutine(ReloadSequence(reloadTime));
-				GetComponent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
+				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
 			}
 		}
-
+		
+		AimRotation();
         WeaponSelect();
-		SetBulletText();
+	}
+
+	void AimRotation() {
+		// Rotation facing towards mouse cursor
+		Vector3 aimDirection = (UtilsClass.GetMouseWorldPosition() - transform.position).normalized;
+		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
+		transform.eulerAngles = new Vector3(0, 0, angle);
+		
+		Vector3 localScale = transform.localScale;
+		if (angle > 90 && angle < 270) {
+			localScale.y = -1f;
+		} else {
+			localScale.y = +1f;
+		}
+		transform.localScale = localScale;
 	}
 
 	private void WeaponSwitch(int idx) {
@@ -77,10 +92,6 @@ public class CharacterShooting : MonoBehaviour {
             WeaponSwitch(1);
         }
     }
-
-	void SetBulletText() {
-		GetComponentInChildren<TextMesh>().text = $"HEALTH: {GetComponent<CharacterMain>().health.ToString()}\nBULLET: {roundsLeft.ToString()}";
-	}
 
 }
 

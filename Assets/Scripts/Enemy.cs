@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int health = 1;
     [SerializeField] private float moveSpeed;
     private Transform player;
     private float playerDefaultMoveSpeed;
@@ -13,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     void Start() {
         player = GameObject.FindWithTag(Tags.PLAYER).transform;
-        playerDefaultMoveSpeed = player.GetComponent<CharacterPlayable>().moveSpeed;
+        playerDefaultMoveSpeed = player.GetComponent<PlayerMovement>().moveSpeed;
     }
 
     void Update() {
@@ -23,15 +22,22 @@ public class Enemy : MonoBehaviour
     void FollowPlayer() {
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
         float angle = UtilsClass.GetAngleFromVectorFloat((player.position - transform.position).normalized);
-        transform.eulerAngles = new Vector3(0, 0, angle - 90f);
+        
+        Vector3 localScale = Vector3.one;
+		if (angle > 90 && angle < 270) {
+			localScale.x *= -1f;
+		} else {
+			localScale.x *= +1f;
+		}
+		transform.localScale = localScale;
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag(Tags.BULLET_TYPE_ONE)) {
             const int BULLET_DAMAGE = 1;
-            health -= BULLET_DAMAGE;
+            GetComponent<HealthSystem>().TakeDamage(BULLET_DAMAGE);
 
-            if (health == 0) {
+            if (GetComponent<HealthSystem>().currentHealth == 0) {
                 Destroy(gameObject);
             }
         }

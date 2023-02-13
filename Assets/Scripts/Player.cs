@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CharacterMain : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("Player Properties")]
-	public float health = 5f;
     private bool canAttacked = true;
+    [SerializeField] private TextMesh playerInfoText;
 
     void Update() {
-        if (health == 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (GetComponent<HealthSystem>().currentHealth == 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SetPlayerInfo();
     }
 
     void OnCollisionStay2D(Collision2D collision) {
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
-            GetComponent<Animator>().Play(AnimationTags.PLAYER_TRANCE);
 			StartCoroutine(Attacked());
 		}
 	}
@@ -23,7 +23,11 @@ public class CharacterMain : MonoBehaviour
 	IEnumerator Attacked() {
         canAttacked = false;
         yield return new WaitForSeconds(1f);
-		health--;
+		GetComponent<HealthSystem>().TakeDamage(1);
         canAttacked = true;
+	}
+
+    void SetPlayerInfo() {
+		playerInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\nBULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
 	}
 }

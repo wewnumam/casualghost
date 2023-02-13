@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterPlayable : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 	[Header("Movement Properties")]
 	public float moveSpeed = 8.0f;
 	public Vector3 mouseWorldSpace = Vector3.zero;
@@ -10,13 +10,6 @@ public class CharacterPlayable : MonoBehaviour {
 
 	void Start() {
 		characterPhysics = GetComponent<Rigidbody2D>();
-	}
-
-	void Update() {
-		// Rotation facing towards mouse cursor
-		Vector3 aimDirection = (UtilsClass.GetMouseWorldPosition() - transform.position).normalized;
-		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
-		transform.eulerAngles = new Vector3(0, 0, angle);
 	}
 
 	// Update is called once per frame
