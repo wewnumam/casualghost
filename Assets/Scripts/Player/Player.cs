@@ -2,18 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class Player : MonoBehaviour
 {
-    [Header("Player Properties")]
     private bool canAttacked = true;
-    [SerializeField] private TextMesh playerInfoText;
+    [Header("UI Properties")]
     private int coin;
+    [SerializeField] private TextMesh playerInfoText;
     [SerializeField] private TextMeshProUGUI coinInfoText;
+    [SerializeField] private GameObject inventoryPanel;
+
+    void Start() {
+        inventoryPanel.SetActive(false);
+    }
 
     void Update() {
         if (GetComponent<HealthSystem>().currentHealth == 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (Input.GetKeyDown(KeyCode.F)) {
+            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+        }
         SetPlayerInfo();
     }
 
