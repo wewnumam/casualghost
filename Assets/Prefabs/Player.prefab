@@ -251,6 +251,8 @@ GameObject:
   - component: {fileID: 2099510498463802632}
   - component: {fileID: 8000310739092722076}
   - component: {fileID: 1931610926}
+  - component: {fileID: 8084116614742148950}
+  - component: {fileID: 1558253534916493819}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -350,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfoText: {fileID: 2099510497646268816}
+  coinInfoText: {fileID: 0}
 --- !u!114 &2099510498463802632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +439,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &8084116614742148950
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099510498463802679}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
+--- !u!250 &1558253534916493819
+PointEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099510498463802679}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceMagnitude: -100
+  m_ForceVariation: 0
+  m_DistanceScale: 0.0001
+  m_ForceSource: 0
+  m_ForceTarget: 0
+  m_ForceMode: 1
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!1 &2099510499442370859
 GameObject:
   m_ObjectHideFlags: 0

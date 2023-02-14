@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private Transform player;
     private float playerDefaultMoveSpeed;
     private bool hasAttack;
+    [SerializeField] private GameObject coin;
 
     void Start() {
         player = GameObject.FindWithTag(Tags.PLAYER).transform;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
             GetComponent<HealthSystem>().TakeDamage(BULLET_DAMAGE);
 
             if (GetComponent<HealthSystem>().currentHealth == 0) {
+                Instantiate(coin, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }
