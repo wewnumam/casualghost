@@ -49,7 +49,8 @@ public class PlayerShooting : MonoBehaviour {
 		Vector3 aimDirection = (UtilsClass.GetMouseWorldPosition() - transform.position).normalized;
 		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
 		transform.eulerAngles = new Vector3(0, 0, angle);
-		
+
+		// Flip weapon vertically
 		Vector3 localScale = transform.localScale;
 		if (angle > 90 && angle < 270) {
 			localScale.y = -1f;

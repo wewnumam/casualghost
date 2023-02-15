@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2.5
-  coin: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
+  coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}

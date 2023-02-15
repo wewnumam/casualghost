@@ -7,7 +7,6 @@ public class Tags {
     public const string WAGON = "Wagon";
     public const string ENEMY = "Enemy";
     public const string BULLET_TYPE_ONE = "BulletTypeOne";
-
     public const string COIN = "Coin";
 }
 

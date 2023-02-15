@@ -352,8 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfoText: {fileID: 2099510497646268816}
-  coinInfoText: {fileID: 0}
-  inventoryPanel: {fileID: 0}
 --- !u!114 &2099510498463802632
 MonoBehaviour:
   m_ObjectHideFlags: 0
