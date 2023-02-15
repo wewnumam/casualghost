@@ -21,7 +21,7 @@ public class PlayerShooting : MonoBehaviour {
 		// Spawn bullet projectile
 		if (Input.GetMouseButtonDown(0)) {
 			if (roundsLeft > 0) {
-				
+				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT);
 				SoundManager.Instance.PlayShootSFX();
 
 				GameObject b = Instantiate(

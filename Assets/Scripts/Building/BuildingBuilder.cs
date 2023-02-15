@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuildingBuilder : MonoBehaviour
-{
+public class BuildingBuilder : MonoBehaviour {
     [SerializeField] private GameObject building;
     private GameObject currentBuilding;
     [SerializeField] private int buildCost;

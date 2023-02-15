@@ -13,4 +13,8 @@ public class Tags {
 public class AnimationTags {
     public const string PLAYER_IDLE = "PlayerIdle";
     public const string PLAYER_RELOAD = "PlayerReload";
+    public const string PLAYER_SHOOT = "PlayerShoot";
+    public const string PLAYER_HURT = "PlayerHurt";
+    public const string ENEMY_IDLE = "EnemyIdle";
+    public const string ENEMY_HURT = "EnemyHurt";
 }

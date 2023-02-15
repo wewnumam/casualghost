@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CoinSystem : MonoBehaviour
-{
+public class CoinSystem : MonoBehaviour {
     public static CoinSystem Instance { get; private set; }
     private int currentCoin;
     [SerializeField] private TextMeshProUGUI coinInfoText;

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    [SerializeField] private float moveSpeed;
+public class Enemy : MonoBehaviour {
+    public float maxSpeed;
     private Transform player;
     [SerializeField] private GameObject coinPrefab;
 
@@ -14,11 +13,25 @@ public class Enemy : MonoBehaviour
 
     void Update() {
         FollowPlayer();
+
+        // Enemy health check
+        if (GetComponent<HealthSystem>().currentHealth <= 0) {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     void FollowPlayer() {
         // Enemy follow player
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        // transform.position = Vector2.MoveTowards(transform.position, player.position, maxSpeed * Time.deltaTime);
+        Vector3 moveDir = (player.position - transform.position).normalized;
+        GetComponent<Rigidbody2D>().AddForce(moveDir * maxSpeed);
+
+        // Limit the velocity to a maximum value
+        float currentSpeed = GetComponent<Rigidbody2D>().velocity.magnitude;
+        if (currentSpeed > maxSpeed) {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxSpeed;
+        }
 
         // Enemy look at player
         float angle = UtilsClass.GetAngleFromVectorFloat((player.position - transform.position).normalized);
@@ -34,14 +47,8 @@ public class Enemy : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         // Enemy take damage from bullet
         if (collision.gameObject.CompareTag(Tags.BULLET_TYPE_ONE)) {
-            const int BULLET_DAMAGE = 1;
+            const float BULLET_DAMAGE = 1f;
             GetComponent<HealthSystem>().TakeDamage(BULLET_DAMAGE);
-
-            // Enemy health check
-            if (GetComponent<HealthSystem>().currentHealth == 0) {
-                Instantiate(coinPrefab, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
         }
     }
 }

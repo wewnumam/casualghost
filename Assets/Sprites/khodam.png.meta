@@ -120,10 +120,10 @@ TextureImporter:
       name: khodam_0
       rect:
         serializedVersion: 2
-        x: 73
-        y: 142
-        width: 378
-        height: 783
+        x: 0
+        y: 21
+        width: 451
+        height: 683
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,12 +141,12 @@ TextureImporter:
       name: khodam_1
       rect:
         serializedVersion: 2
-        x: 563
-        y: 696
-        width: 407
-        height: 211
+        x: 423
+        y: 568
+        width: 596
+        height: 446
       alignment: 9
-      pivot: {x: 0.0921124, y: 0.69189686}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,10 +162,10 @@ TextureImporter:
       name: khodam_2
       rect:
         serializedVersion: 2
-        x: 692
-        y: 350
-        width: 158
-        height: 152
+        x: 499
+        y: 250
+        width: 509
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

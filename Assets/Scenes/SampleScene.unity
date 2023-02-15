@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6741b903e83d42b48abce7176f852b86, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2daff02850bad934da0802215713fa9a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2597,7 +2597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6542620954404899966, guid: a09bf52f10e38fd478fc070a49780764, type: 3}
       propertyPath: m_Name
-      value: Wagon
+      value: Banyan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09bf52f10e38fd478fc070a49780764, type: 3}

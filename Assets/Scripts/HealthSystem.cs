@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
-{
-    public int maxHealth;
-    [HideInInspector] public int currentHealth;
+public class HealthSystem : MonoBehaviour {
+    public float maxHealth;
+    [HideInInspector] public float currentHealth;
 
     void Start() {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int amount) {
-        currentHealth -= amount;
+    public void TakeDamage(float amount) {
+        if (currentHealth > 0f) {
+            currentHealth -= amount;
+        } else {
+            currentHealth = 0f;
+        }
     }
 }
