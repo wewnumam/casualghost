@@ -184,3 +184,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 2.5
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
+  coinParent: {fileID: 0}

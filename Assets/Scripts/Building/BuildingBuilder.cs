@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BuildingBuilder : MonoBehaviour {
     [SerializeField] private GameObject building;
+    [SerializeField] private Transform buildingParent;
     private GameObject currentBuilding;
     [SerializeField] private int buildCost;
 
@@ -26,7 +27,7 @@ public class BuildingBuilder : MonoBehaviour {
 
     void OnMouseDown() {
         if (CanBuild()) {
-            currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity);
+            currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity, buildingParent);
         }
     }
 

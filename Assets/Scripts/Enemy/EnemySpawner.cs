@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Transform enemyParent;
     [SerializeField] private float spawnDelayTime;
 
     void Start() {
@@ -12,7 +13,7 @@ public class EnemySpawner : MonoBehaviour {
 
     IEnumerator SpawnEnemy() {
         yield return new WaitForSecondsRealtime(spawnDelayTime);
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyParent);
 
         StartCoroutine(SpawnEnemy());
     }
