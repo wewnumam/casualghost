@@ -33,7 +33,7 @@ public class PlayerShooting : MonoBehaviour {
 				roundsLeft--;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space)) {
+		if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space)) {
 			if (roundsLeft < maxRound) {
                 StartCoroutine(ReloadSequence(reloadTime));
 				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
