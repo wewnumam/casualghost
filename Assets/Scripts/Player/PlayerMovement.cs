@@ -14,13 +14,15 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate() {
-		// Movement from input axis
-		velocity = new Vector3(
-			Input.GetAxis("Horizontal") * moveSpeed,
-			Input.GetAxis("Vertical") * moveSpeed,
-			0
-		);
-		// transform.Translate(velocity * Time.deltaTime, Space.World);
-		characterPhysics.velocity = velocity * 32.0f * Time.deltaTime;
+		if (GamePanelManager.Instance.GetGameState() == GameState.GAMEPLAY) {	
+			// Movement from input axis
+			velocity = new Vector3(
+				Input.GetAxis("Horizontal") * moveSpeed,
+				Input.GetAxis("Vertical") * moveSpeed,
+				0
+			);
+			// transform.Translate(velocity * Time.deltaTime, Space.World);
+			characterPhysics.velocity = velocity * 32.0f * Time.deltaTime;
+		}
 	}
 }

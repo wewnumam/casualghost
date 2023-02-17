@@ -26,6 +26,11 @@ public class GamePanelManager : MonoBehaviour {
             Time.timeScale = 0f;
         }
         gameOverPanel.SetActive(false);
+        pauseMenuPanel.SetActive(false);
+    }
+
+    void Update() {
+        Pause();
     }
 
     public GameState GetGameState() => gameState;
@@ -33,6 +38,22 @@ public class GamePanelManager : MonoBehaviour {
     public void PlayGame() {
         gameState = GameState.GAMEPLAY;
         mainMenuPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    void Pause() {
+        if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.GAMEPLAY) {
+            gameState = GameState.PAUSE;
+            pauseMenuPanel.SetActive(true);
+            Time.timeScale = 0f;
+        } else if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.PAUSE) {
+            Resume();
+        }
+    }
+
+    public void Resume() {
+        gameState = GameState.GAMEPLAY;
+        pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
