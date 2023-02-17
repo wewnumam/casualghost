@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - BulletTypeOne
   - Coin
+  - Banyan
   layers:
   - Default
   - TransparentFX

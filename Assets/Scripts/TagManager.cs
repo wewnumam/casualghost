@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tags {
     public const string PLAYER = "Player";
-    public const string WAGON = "Wagon";
+    public const string BANYAN = "Banyan";
     public const string ENEMY = "Enemy";
     public const string BULLET_TYPE_ONE = "BulletTypeOne";
     public const string COIN = "Coin";

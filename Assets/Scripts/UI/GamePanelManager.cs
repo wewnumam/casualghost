@@ -21,12 +21,14 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void Start () {
+        mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
             gameState = GameState.MAINMENU;
             Time.timeScale = 0f;
         }
         gameOverPanel.SetActive(false);
         pauseMenuPanel.SetActive(false);
+        rewardPanel.SetActive(false);
     }
 
     void Update() {
@@ -60,6 +62,13 @@ public class GamePanelManager : MonoBehaviour {
     public void GameOver() {
         gameState = GameState.GAMEOVER;
         gameOverPanel.SetActive(true);
+    }
+
+    public void Reward() {
+        Time.timeScale = 0f;
+        gameState = GameState.REWARD;
+        gameOverPanel.SetActive(false);
+        rewardPanel.SetActive(true);
     }
 
     public void MainMenu() {
