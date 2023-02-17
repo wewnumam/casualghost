@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     IEnumerator SpawnEnemy() {
-        yield return new WaitForSecondsRealtime(spawnDelayTime);
+        yield return new WaitForSeconds(spawnDelayTime);
         Instantiate(enemyPrefab, transform.position, Quaternion.identity, enemyParent);
 
         StartCoroutine(SpawnEnemy());

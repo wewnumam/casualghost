@@ -19,7 +19,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Update() {
 		// Spawn bullet projectile
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && GamePanelManager.Instance.GetGameState() == GameState.GAMEPLAY) {
 			if (roundsLeft > 0) {
 				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT);
 				SoundManager.Instance.PlayShootSFX();

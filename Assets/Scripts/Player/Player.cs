@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     [Header("UI Properties")]
@@ -10,7 +9,9 @@ public class Player : MonoBehaviour {
 
     void Update() {
         // Player health check
-        if (GetComponent<HealthSystem>().currentHealth <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (GetComponent<HealthSystem>().currentHealth <= 0) {
+            GamePanelManager.Instance.GameOver();
+        }
 
         SetPlayerInfo();
     }
