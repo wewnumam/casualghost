@@ -7,7 +7,9 @@ public class GamePanelManager : MonoBehaviour {
     public static GamePanelManager Instance { get; private set; }
 
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject levelTransitionPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject rewardPanel;
     private GameState gameState;
@@ -26,13 +28,16 @@ public class GamePanelManager : MonoBehaviour {
             gameState = GameState.MAINMENU;
             Time.timeScale = 0f;
         }
-        gameOverPanel.SetActive(false);
+        inventoryPanel.SetActive(false);
         pauseMenuPanel.SetActive(false);
+        levelTransitionPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
         rewardPanel.SetActive(false);
     }
 
     void Update() {
         Pause();
+        InventoryPanel();
     }
 
     public GameState GetGameState() => gameState;
@@ -41,6 +46,12 @@ public class GamePanelManager : MonoBehaviour {
         gameState = GameState.GAMEPLAY;
         mainMenuPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    void InventoryPanel() {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+        }
     }
 
     void Pause() {
@@ -57,6 +68,12 @@ public class GamePanelManager : MonoBehaviour {
         gameState = GameState.GAMEPLAY;
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void LevelTransition() {
+        Time.timeScale = 0f;
+        gameState = GameState.LEVELTRANSITION;
+        levelTransitionPanel.SetActive(true);
     }
 
     public void GameOver() {
@@ -81,6 +98,7 @@ public enum GameState {
     MAINMENU,
     GAMEPLAY,
     PAUSE,
+    LEVELTRANSITION,
     GAMEOVER,
     REWARD
 }

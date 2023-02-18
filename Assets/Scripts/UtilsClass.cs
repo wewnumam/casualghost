@@ -26,4 +26,20 @@ public static class UtilsClass {
 
         return n;
     }
+    
+    public static Transform FindClosestTransform(Transform transform, Transform[] targets) {
+        Transform closestTarget = null;
+        float closestDistance = Mathf.Infinity;
+    
+        foreach (Transform t in targets) 
+        {
+            float distanceToTarget = Vector3.Distance(t.position, transform.position);
+            if (distanceToTarget < closestDistance) {
+                closestTarget = t;
+                closestDistance = distanceToTarget;
+            }
+        }
+    
+        return closestTarget;
+    }
 }

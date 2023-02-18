@@ -15,29 +15,13 @@ public class Enemy : MonoBehaviour {
     }
 
     void Update() {
-        FollowTarget(FindClosestTransform(targetToFollow));
+        FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
 
         // Enemy health check
         if (GetComponent<HealthSystem>().currentHealth <= 0) {
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-    }
-
-    Transform FindClosestTransform(Transform[] transforms) {
-        Transform closestTransform = null;
-        float closestDistance = Mathf.Infinity;
-    
-        foreach (Transform t in transforms) 
-        {
-            float distanceToTarget = Vector3.Distance(t.position, transform.position);
-            if (distanceToTarget < closestDistance) {
-                closestTransform = t;
-                closestDistance = distanceToTarget;
-            }
-        }
-    
-        return closestTransform;
     }
 
     void FollowTarget(Transform target) {
