@@ -5,16 +5,27 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+    private GameState gameState;
+
     [SerializeField] private float playTimeInSeconds;
     private float currentTime;
     [SerializeField] private TextMeshProUGUI timerText;
+
+    void Awake () {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     void Start() {
         currentTime = playTimeInSeconds;    
     }
 
     void Update() {
-        if (GamePanelManager.Instance.GetGameState() == GameState.GAMEPLAY) {
+        if (IsGameStateGameplay()) {
             currentTime -= Time.deltaTime;
 
             if (currentTime <= 0) {
@@ -24,6 +35,13 @@ public class GameManager : MonoBehaviour
         SetTimerInfo();
     }
 
+    public void SetGameState(GameState gameState) {
+        this.gameState = gameState;
+    }
+
+    public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
+    public bool IsGameStatePause() => gameState == GameState.PAUSE;
+
     void SetTimerInfo() {
         int minutes = Mathf.FloorToInt(currentTime / 60);
         int remainingSeconds = Mathf.FloorToInt(currentTime % 60);
@@ -32,4 +50,13 @@ public class GameManager : MonoBehaviour
         timerText.text = $"TIMER: {timeString}";
     }
 
+}
+
+public enum GameState {
+    MAINMENU,
+    GAMEPLAY,
+    PAUSE,
+    LEVELTRANSITION,
+    GAMEOVER,
+    REWARD
 }

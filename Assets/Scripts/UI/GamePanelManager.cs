@@ -12,7 +12,7 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject levelTransitionPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject rewardPanel;
-    private GameState gameState;
+    
 
     void Awake() {
         if (Instance == null) {
@@ -25,7 +25,7 @@ public class GamePanelManager : MonoBehaviour {
     void Start () {
         mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
-            gameState = GameState.MAINMENU;
+            GameManager.Instance.SetGameState(GameState.MAINMENU);
             Time.timeScale = 0f;
         }
         inventoryPanel.SetActive(false);
@@ -40,10 +40,8 @@ public class GamePanelManager : MonoBehaviour {
         InventoryPanel();
     }
 
-    public GameState GetGameState() => gameState;
-
     public void PlayGame() {
-        gameState = GameState.GAMEPLAY;
+        GameManager.Instance.SetGameState(GameState.GAMEPLAY);
         mainMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -55,50 +53,41 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void Pause() {
-        if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.GAMEPLAY) {
-            gameState = GameState.PAUSE;
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStateGameplay()) {
+            GameManager.Instance.SetGameState(GameState.PAUSE);
             pauseMenuPanel.SetActive(true);
             Time.timeScale = 0f;
-        } else if (Input.GetKeyDown(KeyCode.Escape) && gameState == GameState.PAUSE) {
+        } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause()) {
             Resume();
         }
     }
 
     public void Resume() {
-        gameState = GameState.GAMEPLAY;
+        GameManager.Instance.SetGameState(GameState.GAMEPLAY);
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void LevelTransition() {
         Time.timeScale = 0f;
-        gameState = GameState.LEVELTRANSITION;
+        GameManager.Instance.SetGameState(GameState.LEVELTRANSITION);
         levelTransitionPanel.SetActive(true);
     }
 
     public void GameOver() {
-        gameState = GameState.GAMEOVER;
+        GameManager.Instance.SetGameState(GameState.GAMEOVER);
         gameOverPanel.SetActive(true);
     }
 
     public void Reward() {
         Time.timeScale = 0f;
-        gameState = GameState.REWARD;
+        GameManager.Instance.SetGameState(GameState.REWARD);
         gameOverPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
 
     public void MainMenu() {
-        gameState = GameState.MAINMENU;
+        GameManager.Instance.SetGameState(GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-}
-
-public enum GameState {
-    MAINMENU,
-    GAMEPLAY,
-    PAUSE,
-    LEVELTRANSITION,
-    GAMEOVER,
-    REWARD
 }

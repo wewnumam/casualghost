@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 
     void Update() {
         // Player health check
-        if (GetComponent<HealthSystem>().currentHealth <= 0 && GamePanelManager.Instance.GetGameState() == GameState.GAMEPLAY) {
+        if (GetComponent<HealthSystem>().currentHealth <= 0 && GameManager.Instance.IsGameStateGameplay()) {
             GamePanelManager.Instance.GameOver();
         }
 
