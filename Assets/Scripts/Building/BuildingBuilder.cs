@@ -25,6 +25,14 @@ public class BuildingBuilder : MonoBehaviour {
         GetComponent<Image>().color = imageColor;
     }
 
+    void OnMouseEnter() {
+        Player.Instance.SetPlayerState(PlayerState.BUILD);
+    }
+
+    void OnMouseExit() {
+        Player.Instance.SetPlayerState(PlayerState.SHOOT);
+    }
+
     void OnMouseDown() {
         if (CanBuild()) {
             currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity, buildingParent);

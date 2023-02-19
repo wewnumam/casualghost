@@ -9,6 +9,8 @@ TagManager:
   - BulletTypeOne
   - Coin
   - Banyan
+  - ThornMine
+  - Root
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy
   - Bullet
   - Coin
-  - 
+  - Root
   - 
   - 
   - 
