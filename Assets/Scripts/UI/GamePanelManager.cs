@@ -82,6 +82,7 @@ public class GamePanelManager : MonoBehaviour {
     public void Reward() {
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameState.REWARD);
+        pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
