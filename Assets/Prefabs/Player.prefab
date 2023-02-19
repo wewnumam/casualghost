@@ -449,8 +449,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c63273d0885f3b18879b3e64cbf98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  mouseWorldSpace: {x: 0, y: 0, z: 0}
+  normalSpeed: 8
+  boostSpeed: 16
+  boostDuration: 1
+  boostCooldown: 3
 --- !u!212 &8000310739092722076
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using EZCameraShake;
 
 public class PlayerShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
@@ -21,6 +22,7 @@ public class PlayerShooting : MonoBehaviour {
 		// Spawn bullet projectile
 		if (Input.GetMouseButtonDown(0) && GameManager.Instance.IsGameStateGameplay() && Player.Instance.IsPlayerStateShoot()) {
 			if (roundsLeft > 0) {
+				 CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
 				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT);
 				SoundManager.Instance.PlayShootSFX();
 
