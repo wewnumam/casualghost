@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 11843458}
   - component: {fileID: 11843460}
   - component: {fileID: 11843461}
+  - component: {fileID: 11843462}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playTimeInSeconds: 100
   timerText: {fileID: 1222450398}
+  levelInfoText: {fileID: 503245030}
 --- !u!4 &11843459
 Transform:
   m_ObjectHideFlags: 0
@@ -197,6 +199,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: 0fd00ba192c15eb4c8f3fd8c9df3848d, type: 3}
+--- !u!114 &11843462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11843457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541d1fb04df476d429cd71b1709f79e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - levelState: 0
+    enemyAmount: 20
+  - levelState: 1
+    enemyAmount: 40
+  enemies:
+  - {fileID: 6493536287298976991, guid: e01652549009020418aeab2f87b8134d, type: 3}
+  enemySpawners:
+  - {fileID: 1873506600}
+  - {fileID: 2006122290}
+  - {fileID: 1193551041}
+  - {fileID: 1449590215}
+  enemyParent: {fileID: 455748994}
 --- !u!1 &47196299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,7 +1469,7 @@ GameObject:
   - component: {fileID: 503245031}
   - component: {fileID: 503245030}
   m_Layer: 5
-  m_Name: RewardText
+  m_Name: LevelTransitionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2291,7 +2318,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808213830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331398556}
+        m_TargetAssemblyTypeName: GamePanelManager, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808213830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3219,7 +3258,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193551040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced1dfbd1d79f734cb061f6479fbf1d3, type: 3}
   m_Name: 
@@ -3860,7 +3899,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449590214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced1dfbd1d79f734cb061f6479fbf1d3, type: 3}
   m_Name: 
@@ -4806,7 +4845,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873506599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced1dfbd1d79f734cb061f6479fbf1d3, type: 3}
   m_Name: 
@@ -5290,7 +5329,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1989775976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331398556}
+        m_TargetAssemblyTypeName: GamePanelManager, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1989775976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5353,7 +5404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006122288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ced1dfbd1d79f734cb061f6479fbf1d3, type: 3}
   m_Name: 
@@ -6000,7 +6051,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2122019544}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331398556}
+        m_TargetAssemblyTypeName: GamePanelManager, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2122019544
 MonoBehaviour:
   m_ObjectHideFlags: 0

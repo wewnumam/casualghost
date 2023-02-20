@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private GameState gameState;
+    private LevelState levelState;
 
-    [SerializeField] private float playTimeInSeconds;
+    public float playTimeInSeconds;
     private float currentTime;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI levelInfoText;
 
     void Awake () {
         if (Instance == null) {
@@ -21,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Start() {
-        currentTime = playTimeInSeconds;    
+        ResetGameplay(LevelState.LEVEL_1);
     }
 
     void Update() {
@@ -33,11 +36,28 @@ public class GameManager : MonoBehaviour
             }
         }
         SetTimerInfo();
+        SetLevelInfo();
+    }
+
+    public void ResetGameplay(LevelState levelState) {
+        currentTime = playTimeInSeconds;
+        SetLevelState(levelState);
+        if (levelState == LevelState.LEVEL_1) {
+            LevelManager.Instance.StartLevel(LevelManager.Instance.levels[0].enemyAmount);
+        } else if (levelState == LevelState.LEVEL_2) {
+            LevelManager.Instance.StartLevel(LevelManager.Instance.levels[1].enemyAmount);
+        }
     }
 
     public void SetGameState(GameState gameState) {
         this.gameState = gameState;
     }
+
+    public void SetLevelState(LevelState levelState) {
+        this.levelState = levelState;
+    }
+
+    public LevelState GetCurrentLevelState() => levelState;
 
     public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
     public bool IsGameStatePause() => gameState == GameState.PAUSE;
@@ -48,6 +68,10 @@ public class GameManager : MonoBehaviour
 
         string timeString = string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
         timerText.text = $"TIMER: {timeString}";
+    }
+
+    void SetLevelInfo() {
+        levelInfoText.text = $"{Enum.GetName(typeof(LevelState), GetCurrentLevelState())} DONE!";
     }
 
 }

@@ -69,6 +69,10 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void LevelTransition() {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
+        foreach (var enemy in enemies) {
+            Destroy(enemy);
+        }
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameState.LEVELTRANSITION);
         levelTransitionPanel.SetActive(true);
@@ -90,5 +94,17 @@ public class GamePanelManager : MonoBehaviour {
     public void MainMenu() {
         GameManager.Instance.SetGameState(GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void NextLevel() {
+        Time.timeScale = 1f;
+        if (GameManager.Instance.GetCurrentLevelState() == LevelState.LEVEL_1) {
+            levelTransitionPanel.SetActive(false);
+            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+            GameManager.Instance.ResetGameplay(LevelState.LEVEL_2);
+        } else {
+            GameManager.Instance.SetGameState(GameState.MAINMENU);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
