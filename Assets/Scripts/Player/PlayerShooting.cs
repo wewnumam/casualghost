@@ -12,16 +12,19 @@ public class PlayerShooting : MonoBehaviour {
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
 	[SerializeField] private int maxRound = 0;
 	public int roundsLeft = 0;
-	[SerializeField] private float reloadTime = 1.5f;
+	public float reloadTime = 1.5f;
+	public float pullTriggerTime = 1f;
+	private bool canShoot;
 
 	void Start() {
         WeaponSwitch(0);
+		canShoot = true;
 	}
 
 	void Update() {
 		// Spawn bullet projectile
 		if (Input.GetMouseButtonDown(0) && GameManager.Instance.IsGameStateGameplay() && Player.Instance.IsPlayerStateShoot()) {
-			if (roundsLeft > 0) {
+			if (roundsLeft > 0 && canShoot) {
 				 CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
 				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT);
 				SoundManager.Instance.PlayShootSFX();
@@ -33,6 +36,8 @@ public class PlayerShooting : MonoBehaviour {
 				);
 
 				roundsLeft--;
+				canShoot = false;
+				StartCoroutine(PullTrigger(pullTriggerTime));
 			}
 		}
 		if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space)) {
@@ -85,6 +90,11 @@ public class PlayerShooting : MonoBehaviour {
     private IEnumerator ReloadSequence(float time) {
         yield return new WaitForSeconds(time);
         roundsLeft = maxRound;
+    }
+
+	private IEnumerator PullTrigger(float time) {
+        yield return new WaitForSeconds(time);
+        canShoot = true;
     }
 
     private void WeaponSelect() {
