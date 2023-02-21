@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour {
 
     public void StartLevel(float enemyAmount) {
         for (int i = 0; i < enemyAmount; i++) {
-            StartCoroutine(SpawnEnemy(Random.Range(0, GameManager.Instance.playTimeInSeconds)));
+            StartCoroutine(SpawnEnemy(Random.Range(0, GameManager.Instance.playTimeInSeconds * 0.9f)));
         }
     }
 

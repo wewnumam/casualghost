@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool isBoosting = false;  // Whether the boost is currently active.
 
 	private Rigidbody2D characterPhysics;
-	private Vector2 velocity = Vector2.zero;
+	private Vector2 movement;
 
 	void Start() {
 		characterPhysics = GetComponent<Rigidbody2D>();
@@ -24,21 +24,36 @@ public class PlayerMovement : MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftShift) && !isBoosting){
             StartCoroutine(Boost());
         }
+
+		// Read input
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        // Set movement vector
+        if (Mathf.Approximately(horizontal, 0f) && Mathf.Approximately(vertical, 0f)) {
+            // Player is not moving, set movement vector to zero
+            movement = Vector2.zero;
+        }
+        else {
+            // Player is moving, set movement vector based on input
+            movement = new Vector2(horizontal, vertical).normalized;
+        }
 	}
 
 	// Update is called once per frame
 	void FixedUpdate() {
 		if (GameManager.Instance.IsGameStateGameplay()) {	
-			// Movement from input axis
-			velocity = new Vector3(
-				Input.GetAxis("Horizontal") * currentSpeed,
-				Input.GetAxis("Vertical") * currentSpeed,
-				0
-			);
+			// Move player
+			characterPhysics.MovePosition(characterPhysics.position + movement * currentSpeed * Time.fixedDeltaTime);
+
+			 // Reset velocity if player is not moving
+			if (movement == Vector2.zero) {
+				characterPhysics.velocity = Vector2.zero;
+			}
 		}
 		
 		// transform.Translate(velocity * Time.deltaTime, Space.World);
-		characterPhysics.velocity = velocity * 32.0f * Time.deltaTime;
+		// characterPhysics.velocity = velocity * 32.0f * Time.deltaTime;
 	}
 
 	private IEnumerator Boost()
