@@ -98,13 +98,16 @@ public class GamePanelManager : MonoBehaviour {
 
     public void NextLevel() {
         Time.timeScale = 1f;
-        if (GameManager.Instance.GetCurrentLevelState() == LevelState.LEVEL_1) {
-            levelTransitionPanel.SetActive(false);
-            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
-            GameManager.Instance.ResetGameplay(LevelState.LEVEL_2);
-        } else {
+
+        if (LevelManager.Instance.levelStateIndex >= LevelManager.Instance.levelStates.Length - 1) {
             GameManager.Instance.SetGameState(GameState.MAINMENU);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else if (GameManager.Instance.GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
+            levelTransitionPanel.SetActive(false);
+            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+            GameManager.Instance.ResetGameplay(LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex + 1]);
+            LevelManager.Instance.levelStateIndex++;
         }
+
     }
 }

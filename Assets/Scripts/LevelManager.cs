@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<Transform> enemySpawners;
     [SerializeField] private Transform enemyParent;
+    public LevelState[] levelStates;
+    public int levelStateIndex;
 
     void Awake () {
         if (Instance == null) {
@@ -16,6 +18,8 @@ public class LevelManager : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
+        levelStates = (LevelState[])System.Enum.GetValues(typeof(LevelState));
     }
 
     public void StartLevel(float enemyAmount) {
@@ -47,5 +51,6 @@ public class Level {
 
 public enum LevelState {
     LEVEL_1,
-    LEVEL_2
+    LEVEL_2,
+    LEVEL_3
 }
