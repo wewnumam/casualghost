@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Banyan : MonoBehaviour
+public class BuildingBody : MonoBehaviour
 {
     [Header("UI Properties")]
-    [SerializeField] private TextMesh banyanInfoText;
+    [SerializeField] private bool isBanyan;
+    [SerializeField] private TextMesh buildingInfoText;
     private bool canAttacked = true;
 
     void Update() {
-        // Banyan health check
+        // BuildingBody health check
         if (GetComponent<HealthSystem>().currentHealth <= 0 && GameManager.Instance.IsGameStateGameplay()) {
-            GamePanelManager.Instance.GameOver();
+            if (isBanyan) {
+                GamePanelManager.Instance.GameOver();
+            } else {
+                Destroy(gameObject);
+            }
         }
 
-        SetBanyanInfo();
+        SetBuildingInfo();
     }
 
     void OnCollisionStay2D(Collision2D collision) {
-        // Banyan attacked by enemy
+        // BuildingBody attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
 			StartCoroutine(Attacked(1f, 1f));
 		}
@@ -31,7 +36,7 @@ public class Banyan : MonoBehaviour
         canAttacked = true;
 	}
 
-    void SetBanyanInfo() {
-		banyanInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
+    void SetBuildingInfo() {
+		buildingInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
 	}
 }

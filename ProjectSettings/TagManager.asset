@@ -11,6 +11,8 @@ TagManager:
   - Banyan
   - ThornMine
   - Root
+  - Decoy
+  - Canon
   layers:
   - Default
   - TransparentFX

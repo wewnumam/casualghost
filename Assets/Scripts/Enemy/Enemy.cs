@@ -8,14 +8,41 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private GameObject coinPrefab;
 
     void Start() {
-        targetToFollow = new Transform[] {
-            GameObject.FindWithTag(Tags.PLAYER).transform,
-            GameObject.FindWithTag(Tags.BANYAN).transform
-        };
+        
     }
 
     void Update() {
-        FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
+        GameObject[] decoys = GameObject.FindGameObjectsWithTag(Tags.DECOY);
+
+        // Prioritize to follow decoy
+        if (decoys.Length > 0) {
+            Transform[] decoyToFollow = new Transform[decoys.Length];
+
+            for (int i = 0; i < decoys.Length; i++) {
+                decoyToFollow[i] = decoys[i].transform;
+            }
+
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, decoyToFollow));
+        } else {
+            GameObject[] canons = GameObject.FindGameObjectsWithTag(Tags.CANON);
+            
+            // Check if any canons were found 
+            if (canons.Length > 0) {
+                targetToFollow = new Transform[canons.Length + 2];
+                for (int i = 0; i < canons.Length; i++) {
+                    targetToFollow[i] = canons[i].transform;
+                }
+                targetToFollow[canons.Length] = GameObject.FindWithTag(Tags.PLAYER).transform;
+                targetToFollow[canons.Length + 1] = GameObject.FindWithTag(Tags.BANYAN).transform;
+            } else {
+                targetToFollow = new Transform[] {
+                    GameObject.FindWithTag(Tags.PLAYER).transform,
+                    GameObject.FindWithTag(Tags.BANYAN).transform
+                };
+            }
+
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
+        }
 
         // Enemy health check
         if (GetComponent<HealthSystem>().currentHealth <= 0) {

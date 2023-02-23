@@ -6,7 +6,7 @@ public class HealthSystem : MonoBehaviour {
     public float maxHealth;
     [HideInInspector] public float currentHealth;
 
-    void Start() {
+    void Awake() {
         currentHealth = maxHealth;
     }
 

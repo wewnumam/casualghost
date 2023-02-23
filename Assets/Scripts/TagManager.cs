@@ -10,6 +10,8 @@ public class Tags {
     public const string COIN = "Coin";
     public const string THORN_MINE = "ThornMine";
     public const string ROOT = "Root";
+    public const string DECOY = "Decoy";
+    public const string CANON = "Canon";
 }
 
 public class AnimationTags {

@@ -259,4 +259,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbad22661d70e847a9fc86372e85a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  banyanInfoText: {fileID: 2848619743411938646}
+  isBanyan: 1
+  buildingInfoText: {fileID: 2848619743411938646}
