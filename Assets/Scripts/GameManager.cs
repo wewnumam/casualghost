@@ -9,11 +9,17 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     private GameState gameState;
     private LevelState levelState;
+    private int currentGems;
+    [HideInInspector] public int gemsObtainedFromLevel;
+    [HideInInspector] public int gemsObtainedFromLeftoverCoin;
+    [HideInInspector] public int gemsObtainedFromLeftoverHealth;
 
     public float playTimeInSeconds;
     private float currentTime;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI levelInfoText;
+    [SerializeField] private TextMeshProUGUI gemsInfoText;
+    [SerializeField] private TextMeshProUGUI rewardInfoText;
 
     void Awake () {
         if (Instance == null) {
@@ -24,6 +30,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Start() {
+        currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
         ResetGameplay(LevelState.LEVEL_1);
     }
 
@@ -34,9 +41,14 @@ public class GameManager : MonoBehaviour
             if (currentTime <= 0) {
                 GamePanelManager.Instance.LevelTransition();
             }
+        } else if (IsGameStateGameOver()) {
+            
         }
+
         SetTimerInfo();
         SetLevelInfo();
+        SetGemsInfo();
+        SetRewardInfo();
     }
 
     public void ResetGameplay(LevelState levelState) {
@@ -62,6 +74,22 @@ public class GameManager : MonoBehaviour
     public bool IsGameStateMainMenu() => gameState == GameState.MAINMENU;
     public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
     public bool IsGameStatePause() => gameState == GameState.PAUSE;
+    public bool IsGameStateGameOver() => gameState == GameState.GAMEOVER;
+
+    public void SetGemsRewardFromCoinAndHealth() {
+        gemsObtainedFromLeftoverCoin = CoinSystem.Instance.GetCurrentCoin();
+
+        if (levelState != LevelState.LEVEL_1) {
+            gemsObtainedFromLeftoverHealth = (int)(
+                GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>().currentHealth +
+                GameObject.FindWithTag(Tags.BANYAN).GetComponent<HealthSystem>().currentHealth
+            );
+        }
+    }
+    
+    public void ClaimReward() {
+        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, currentGems + gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth);
+    }
 
     void SetTimerInfo() {
         int minutes = Mathf.FloorToInt(currentTime / 60);
@@ -73,6 +101,14 @@ public class GameManager : MonoBehaviour
 
     void SetLevelInfo() {
         levelInfoText.text = $"{Enum.GetName(typeof(LevelState), GetCurrentLevelState())} DONE!";
+    }
+
+    void SetGemsInfo() {
+        gemsInfoText.text = $"GEMS: {PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS)}";
+    }
+
+    void SetRewardInfo() {
+        rewardInfoText.text = $"Gems x Level: {gemsObtainedFromLevel}\n Gems x Leftover Coin: {gemsObtainedFromLeftoverCoin}\n Gems x Leftover Health: {gemsObtainedFromLeftoverHealth}\n";
     }
 
     // Cheat feature

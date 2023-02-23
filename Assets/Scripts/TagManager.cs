@@ -22,3 +22,11 @@ public class AnimationTags {
     public const string ENEMY_IDLE = "EnemyIdle";
     public const string ENEMY_HURT = "EnemyHurt";
 }
+
+public class PlayerPrefsKeys {
+    public const string GEMS = "gems";
+    public const string IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED = "isIntroStoryCutsceneAlreadyPlayed";
+    public const string IS_THORNMINE_UNLOCKED = "isThornMineUnlocked";
+    public const string IS_DECOY_UNLOCKED = "isDecoyUnlocked";
+    public const string IS_CANON_UNLOCKED = "isCanonUnlocked";
+}

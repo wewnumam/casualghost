@@ -49,7 +49,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void InventoryPanel() {
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.F)) {
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         }
     }
@@ -88,12 +88,15 @@ public class GamePanelManager : MonoBehaviour {
     public void Reward() {
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameState.REWARD);
+        GameManager.Instance.SetGemsRewardFromCoinAndHealth();
         pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        levelTransitionPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
 
-    public void MainMenu() {
+    public void ClaimReward() {
+        GameManager.Instance.ClaimReward();        
         GameManager.Instance.SetGameState(GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -124,14 +127,17 @@ public class GamePanelManager : MonoBehaviour {
         Time.timeScale = 1f;
 
         if (LevelManager.Instance.levelStateIndex >= LevelManager.Instance.levelStates.Length - 1) {
-            GameManager.Instance.SetGameState(GameState.MAINMENU);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Reward();
         } else if (GameManager.Instance.GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
+            GameManager.Instance.gemsObtainedFromLevel += LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].gemsObtained;
             levelTransitionPanel.SetActive(false);
             GameManager.Instance.SetGameState(GameState.GAMEPLAY);
             GameManager.Instance.ResetGameplay(LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex + 1]);
             LevelManager.Instance.levelStateIndex++;
         }
+    }
 
+    public void DeleteAllData() {
+        PlayerPrefs.DeleteAll();
     }
 }

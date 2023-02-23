@@ -42,10 +42,12 @@ public class LevelManager : MonoBehaviour {
 public class Level {
     public LevelState levelState;
     public float enemyAmount;
+    public int gemsObtained;
 
-    public Level(LevelState levelState, float enemyAmount) {
+    public Level(LevelState levelState, float enemyAmount, int gemsObtained) {
         this.levelState = levelState;
         this.enemyAmount = enemyAmount;
+        this.gemsObtained = gemsObtained;
     }
 }
 
