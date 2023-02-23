@@ -17,4 +17,8 @@ public class HealthSystem : MonoBehaviour {
             currentHealth = 0f;
         }
     }
+
+    public void Heal(float amount) {
+        currentHealth += amount;
+    }
 }

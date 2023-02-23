@@ -74,6 +74,11 @@ public class GameManager : MonoBehaviour
         levelInfoText.text = $"{Enum.GetName(typeof(LevelState), GetCurrentLevelState())} DONE!";
     }
 
+    // Cheat feature
+    public void FastForwardPlayTime(float fastForwardPlayTimeBy) {
+        currentTime -= fastForwardPlayTimeBy;
+    }
+
 }
 
 public enum GameState {

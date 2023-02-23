@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 11843461}
   - component: {fileID: 11843462}
   - component: {fileID: 11843463}
+  - component: {fileID: 11843464}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -251,6 +252,20 @@ MonoBehaviour:
   - {fileID: 9061113753036232230, guid: 5cdb81acfc9932746b972d1ab7f05fae, type: 3}
   - {fileID: 2518697753649405352, guid: 897d51ef65050084da5ed948a6430c9f, type: 3}
   skillParent: {fileID: 1340764704}
+--- !u!114 &11843464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11843457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb19aeed4b661e742abba9328b1c72cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fastForwardPlayTimeBy: 10
+  addCoinAmount: 10
 --- !u!1 &47196299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,7 +3333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193551040}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17, y: 13, z: 0}
+  m_LocalPosition: {x: -20, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3935,7 +3950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449590214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17, y: -13, z: 0}
+  m_LocalPosition: {x: 20, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4730,7 +4745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873506599}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17, y: 13, z: 0}
+  m_LocalPosition: {x: 20, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5156,7 +5171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006122288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17, y: -13, z: 0}
+  m_LocalPosition: {x: -20, y: -15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5358,7 +5373,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "---Tutorial---\nMove\t\t: W A S D or Arrow Key\nSprint\t\t: SHIFT\nAim\t\t:
     Mouse Position\nShoot\t\t: Mouse Button Left\nReload\t\t: SPACE or R\nInventory\t:
-    F\nBuild\t\t: Drag & Drop Inventory\nPause\t\t: ESC"
+    F\nBuild\t\t: Drag & Drop Inventory\nPause\t\t: ESC\n\n---Cheat Feature (For
+    Developer)---\nFast Forward Time\t: MINUS ( - )\nAdd Coind\t\t: EQUALS ( = )\nClear
+    Enemy\t\t: DELETE\nHeal Player\t\t: LEFT_BRACKET ( [ )\nHeal Banyan\t\t: RIGHT_BRACKET
+    ( ] )\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
   m_sharedMaterial: {fileID: -4269012119901558640, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
