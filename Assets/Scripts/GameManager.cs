@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public LevelState GetCurrentLevelState() => levelState;
 
+    public bool IsGameStateMainMenu() => gameState == GameState.MAINMENU;
     public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
     public bool IsGameStatePause() => gameState == GameState.PAUSE;
 

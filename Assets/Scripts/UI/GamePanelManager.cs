@@ -12,6 +12,7 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject levelTransitionPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject rewardPanel;
+    [SerializeField] private GameObject optionMenuPanel;
     
 
     void Awake() {
@@ -33,6 +34,7 @@ public class GamePanelManager : MonoBehaviour {
         levelTransitionPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         rewardPanel.SetActive(false);
+        optionMenuPanel.SetActive(false);
     }
 
     void Update() {
@@ -94,6 +96,28 @@ public class GamePanelManager : MonoBehaviour {
     public void MainMenu() {
         GameManager.Instance.SetGameState(GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Option() {
+        optionMenuPanel.SetActive(true);
+        if (GameManager.Instance.IsGameStateMainMenu()) {
+            mainMenuPanel.SetActive(false);
+        } else if (GameManager.Instance.IsGameStatePause()) {
+            pauseMenuPanel.SetActive(false);
+        }
+    }
+
+    public void Back() {
+        optionMenuPanel.SetActive(false);
+        if (GameManager.Instance.IsGameStateMainMenu()) {
+            mainMenuPanel.SetActive(true);
+        } else if (GameManager.Instance.IsGameStatePause()) {
+            pauseMenuPanel.SetActive(true);
+        }
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 
     public void NextLevel() {
