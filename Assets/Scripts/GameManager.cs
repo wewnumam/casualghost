@@ -88,7 +88,8 @@ public class GameManager : MonoBehaviour
     }
     
     public void ClaimReward() {
-        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, currentGems + gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth);
+        currentGems += gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth;
+        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, currentGems);
     }
 
     void SetTimerInfo() {

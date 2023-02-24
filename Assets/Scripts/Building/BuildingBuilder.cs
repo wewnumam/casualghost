@@ -2,17 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BuildingBuilder : MonoBehaviour {
+    [SerializeField] private BuildingType buildingType;
     [SerializeField] private GameObject building;
     [SerializeField] private Transform buildingParent;
     private GameObject currentBuilding;
     [SerializeField] private int buildCost;
+    [SerializeField] private bool isBuildingLocked;
+    private string initialTextInfo;
 
-    bool CanBuild() => CoinSystem.Instance.GetCurrentCoin() >= buildCost;
+    void Awake ()  {
+        initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
+    }
+
+    bool CanBuild() {
+        if (buildingType == BuildingType.THORN_MINE && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED) == PlayerPrefsValues.FALSE) {
+            return false;
+        } else if (buildingType == BuildingType.DECOY && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED) == PlayerPrefsValues.FALSE) {
+            return false;
+        } else if (buildingType == BuildingType.CANON && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED) == PlayerPrefsValues.FALSE) {
+            return false;
+        }
+
+        isBuildingLocked = false;
+        return CoinSystem.Instance.GetCurrentCoin() >= buildCost;
+    } 
 
     void Update() {
         ModifyImageColorAlpha();
+
+        if (isBuildingLocked) {
+            GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
+        } else {
+            GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
+        }
     }
 
     void ModifyImageColorAlpha() {

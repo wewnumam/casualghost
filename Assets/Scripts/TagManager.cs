@@ -30,3 +30,8 @@ public class PlayerPrefsKeys {
     public const string IS_DECOY_UNLOCKED = "isDecoyUnlocked";
     public const string IS_CANON_UNLOCKED = "isCanonUnlocked";
 }
+
+public class PlayerPrefsValues {
+    public const int FALSE = 0;
+    public const int TRUE = 1;
+}
