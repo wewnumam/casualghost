@@ -43,9 +43,13 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void PlayGame() {
-        GameManager.Instance.SetGameState(GameState.GAMEPLAY);
-        mainMenuPanel.SetActive(false);
-        Time.timeScale = 1f;
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
+            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+            mainMenuPanel.SetActive(false);
+            Time.timeScale = 1f;
+        } else {
+            SceneManager.LoadScene(SceneNames.INTRO_STORY);
+        }
     }
 
     void InventoryPanel() {

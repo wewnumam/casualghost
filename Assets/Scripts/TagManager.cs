@@ -21,6 +21,8 @@ public class AnimationTags {
     public const string PLAYER_HURT = "PlayerHurt";
     public const string ENEMY_IDLE = "EnemyIdle";
     public const string ENEMY_HURT = "EnemyHurt";
+    public const string SWITCH_FIRST = "SwitchFirst";
+    public const string SWITCH_SECOND = "SwitchSecond";
 }
 
 public class PlayerPrefsKeys {
@@ -34,4 +36,9 @@ public class PlayerPrefsKeys {
 public class PlayerPrefsValues {
     public const int FALSE = 0;
     public const int TRUE = 1;
+}
+
+public class SceneNames {
+    public const string INTRO_STORY = "IntroStory";
+    public const string GAMEPLAY = "Gameplay";
 }
