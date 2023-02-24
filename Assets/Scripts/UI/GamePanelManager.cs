@@ -81,6 +81,7 @@ public class GamePanelManager : MonoBehaviour {
         }
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(GameState.LEVELTRANSITION);
+        SkillEnhancer.Instance.InstantiateRandomSkill();
         levelTransitionPanel.SetActive(true);
     }
 

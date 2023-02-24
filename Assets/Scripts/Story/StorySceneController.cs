@@ -22,10 +22,11 @@ public class StorySceneController : MonoBehaviour {
                     if (currentScene.isLastScene) {
                         PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
                         SceneManager.LoadScene(SceneNames.GAMEPLAY);
+                    } else {
+                        currentScene = currentScene.nextScene;
+                        bottomBar.PlayScene(currentScene);
+                        backgroundController.SwitchImage(currentScene.background);
                     }
-                    currentScene = currentScene.nextScene;
-                    bottomBar.PlayScene(currentScene);
-                    backgroundController.SwitchImage(currentScene.background);
                 } else {
                     bottomBar.PlayNextSentence();
                 }

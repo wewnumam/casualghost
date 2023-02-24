@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: Scene8
   m_EditorClassIdentifier: 
   sentences:
-  - text: Preketek, preketek, preketek.
+  - text: Populasi para genderuwo berkembang semakin pesat ketika wilayah mereka
+      semakin mendekati ke arah timur laut; yaitu menuju arah pohon beringin.
+  - text: Namun ketika keberadaan mereka semakin mendekat, pohon beringin juga sadar
+      ada sekelompok makhluk kotor yang mendekat dalam jumlah yang semakin membesar.
+  - text: 'Pohon mulai merasa khawatir akan wilayah hutannya yang dapat dikotori
+      oleh para genderuwo. Sesekali, pohon beringin menemukan beberapa genderuwo
+      yang sesekali melewati pohon beringin selama beberapa hari terakhir. '
   background: {fileID: 21300000, guid: c2385f53c5a2e5e4bb0c45b392075c34, type: 3}
   nextScene: {fileID: 11400000, guid: db757e33f7de411438bd16fd8482f5ed, type: 2}
+  isLastScene: 0

@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Scene3
   m_EditorClassIdentifier: 
   sentences:
-  - text: Omaleketek, rataketeketeketek, kotakorek.
+  - text: Namun sejak itu kondisi tubuh mereka semakin parah. Luka yang mereka alami
+      tidak dapat mereka sembuhkan sehingga jatuh ke kondisi lumpuh setelah 2 minggu.
+  - text: 'Sesuatu telah menggerogoti tubuh mereka sejak tinggal di bawah pohon beringin
+      itu. '
+  - text: Di suatu pagi, seorang dari mereka mulai jatuh ke kondisi lumpuh. Tidak
+      lama kemudian, kondisi keempat orang lainnya juga memburuk. Setelah 50 jam
+      tidak dapat bergerak banyak, mereka semua tewas di sebuah senja.
   background: {fileID: 21300000, guid: 96fb9dfbc57f7ee48876171629a32164, type: 3}
   nextScene: {fileID: 11400000, guid: d42036d596512694d93c1ed0ba123ef3, type: 2}
   isLastScene: 0

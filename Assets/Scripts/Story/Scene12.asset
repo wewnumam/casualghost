@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scene12
   m_EditorClassIdentifier: 
   sentences:
-  - text: Rajatek shetotek, urakutuk.
+  - text: ...
   background: {fileID: 21300000, guid: 886b28bfa1649d244842065e42bfea0d, type: 3}
   nextScene: {fileID: 0}
   isLastScene: 1

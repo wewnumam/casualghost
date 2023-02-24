@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: Scene1
   m_EditorClassIdentifier: 
   sentences:
-  - text: Preketek, preketek.
+  - text: Beberapa abad yang lalu, ada 5 orang prajurit Majapahit yang melarikan
+      diri dari perang ke dalam sebuah hutan.
+  - text: Mereka melarikan diri karena mereka merasa tidak sanggup bertarung setelah
+      terluka pada bagian atas tubuh mereka.
+  - text: Setelah berlari selama lima jam, ketakutan mereka akan dikejar oleh musuh
+      dikalahkan oleh rasa lelah, sehingga mereka memutuskan untuk berhenti di sebuah
+      pohon...
   background: {fileID: 21300000, guid: 1886a2b3da10f424d8ded2b62879acde, type: 3}
   nextScene: {fileID: 11400000, guid: 0edb2eb5512250347993f4b7275361b1, type: 2}
+  isLastScene: 0

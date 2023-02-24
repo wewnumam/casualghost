@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Scene6
   m_EditorClassIdentifier: 
   sentences:
-  - text: Raketeketeketek, kotekorek.
+  - text: Dengan imitasi emosi dan nyawa manusia, pohon beringin hidup dan memiliki
+      kesadaran atas dirinya sendiri.
+  - text: Selama puluhan tahun kemudian, pohon dapat melindungi dirinya dari berbagai
+      macam bencana alam. Cara berpikir secara manusia membantu pohon untuk mencari
+      cara agar dapat bertahan hidup.
   background: {fileID: 21300000, guid: 391a76b40bc4d894b8558f6a43fbbc10, type: 3}
   nextScene: {fileID: 11400000, guid: 12da86579d05b224ea538ffa064bc1ef, type: 2}
+  isLastScene: 0

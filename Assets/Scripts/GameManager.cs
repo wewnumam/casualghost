@@ -54,10 +54,11 @@ public class GameManager : MonoBehaviour
     public void ResetGameplay(LevelState levelState) {
         currentTime = playTimeInSeconds;
         SetLevelState(levelState);
-        if (levelState == LevelState.LEVEL_1) {
-            LevelManager.Instance.StartLevel(LevelManager.Instance.levels[0].enemyAmount);
-        } else if (levelState == LevelState.LEVEL_2) {
-            LevelManager.Instance.StartLevel(LevelManager.Instance.levels[1].enemyAmount);
+        for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
+            if (levelState == (LevelState)i) {
+                LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
+                break;
+            }
         }
     }
 

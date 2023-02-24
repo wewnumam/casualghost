@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Scene2
   m_EditorClassIdentifier: 
   sentences:
-  - text: Prakotek, raketek, orakutuk, raketek, raketeketek.
+  - text: 'Mereka menemukan bahwa pohon ini adalah sesuatu yang belum pernah mereka
+      lihat. Pohon beringin ini adalah satu-satunya pohon beringin yang ada di hutan
+      yang mereka telusuri. '
+  - text: Selain itu mereka juga menemukan bahwa kondisi di sekitar pohon beringin
+      ini cukup mendukung agar mereka dapat menetap.
   background: {fileID: 21300000, guid: bd9c066bd039252419b83f8bd880539a, type: 3}
   nextScene: {fileID: 11400000, guid: 3495ee2235e95894d8afa9d5fec4b884, type: 2}
+  isLastScene: 0

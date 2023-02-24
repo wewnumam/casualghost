@@ -228,6 +228,27 @@ MonoBehaviour:
   - levelState: 2
     enemyAmount: 30
     gemsObtained: 30
+  - levelState: 3
+    enemyAmount: 40
+    gemsObtained: 40
+  - levelState: 4
+    enemyAmount: 50
+    gemsObtained: 50
+  - levelState: 5
+    enemyAmount: 60
+    gemsObtained: 60
+  - levelState: 6
+    enemyAmount: 70
+    gemsObtained: 70
+  - levelState: 7
+    enemyAmount: 80
+    gemsObtained: 80
+  - levelState: 7
+    enemyAmount: 90
+    gemsObtained: 90
+  - levelState: 8
+    enemyAmount: 100
+    gemsObtained: 100
   enemies:
   - {fileID: 6493536287298976991, guid: e01652549009020418aeab2f87b8134d, type: 3}
   - {fileID: 6493536287298976991, guid: f1774d23610e3394598484e24d69a1e6, type: 3}

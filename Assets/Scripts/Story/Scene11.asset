@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Scene11
   m_EditorClassIdentifier: 
   sentences:
-  - text: Rakatek, orakutuk, rakotek.
+  - text: 'Pada suatu malam, para genderuwo memulai invasi mereka terhadap pohon
+      beringin. Namun entah selama berapa malam invasi tersebut akan bertahan. '
   background: {fileID: 21300000, guid: ae848600d9c1a51438acc70f5332c109, type: 3}
   nextScene: {fileID: 11400000, guid: ed361a074c78bb4459d7b53025b71bef, type: 2}
   isLastScene: 0

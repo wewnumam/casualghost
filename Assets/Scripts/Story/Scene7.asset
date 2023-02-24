@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Scene7
   m_EditorClassIdentifier: 
   sentences:
-  - text: Rokutek, morakutek, syaketek, rakutuk emathetet, rokutukutuk.
+  - text: Lima dekade kemudian, jauh di barat daya dari wilayah pohon beringin, ada
+      sebuah koloni genderuwo.
+  - text: Mereka dikenal memiliki sifat yang destruktif, kotor, dan pemarah.
+  - text: Wilayah hutan yang telah mereka tinggali selama puluhan tahun memiliki
+      suasana yang berbeda dari wilayah hutan lainnya. Hutan mereka terasa gelap,
+      kotor, dan memiliki aura yang tidak nyaman.
   background: {fileID: 21300000, guid: 0d7433827f83d1441ae748574c78c1f7, type: 3}
   nextScene: {fileID: 11400000, guid: 76bf0b5c771f02c44961707feb36d4af, type: 2}
+  isLastScene: 0

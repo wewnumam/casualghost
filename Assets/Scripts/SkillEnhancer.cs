@@ -19,7 +19,11 @@ public class SkillEnhancer : MonoBehaviour {
         }
     }
 
-    void Start() {
+    public void InstantiateRandomSkill() {
+        foreach (Transform child in skillParent.transform) {
+            Destroy(child.gameObject);
+        }
+
         Instantiate(skills[Random.Range(0, skills.Count)], skillParent);
         Instantiate(skills[Random.Range(0, skills.Count)], skillParent);
         Instantiate(skills[Random.Range(0, skills.Count)], skillParent);

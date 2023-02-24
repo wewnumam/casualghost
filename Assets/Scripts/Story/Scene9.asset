@@ -13,6 +13,13 @@ MonoBehaviour:
   m_Name: Scene9
   m_EditorClassIdentifier: 
   sentences:
-  - text: Pakotek, raketek, orakutuk, raketek, raketeketek.
+  - text: Pohon beringin tidak ingin wilayahnya dikotori oleh para genderuwo. Sehingga
+      setiap ada genderuwo yang mecoba untuk tinggal di pohon beringin akan berujung
+      terbunuh.
+  - text: 'Sebagai mekanisme pertahanan, pohon beringin menemukan bahwa dapat menumbuhkan
+      akarnya ke permukaan tanah. '
+  - text: 'Akar tersebut kemudian tumbuh dengan sebagian nyawa pohon beringin menjadi
+      sebuah makhluk yang dapat bergerak ke sekitar pohon beringin. '
   background: {fileID: 21300000, guid: d160b97f030846a4ebebb223a3d4196f, type: 3}
   nextScene: {fileID: 11400000, guid: c759373519e3a8d46822aa8880ac6b36, type: 2}
+  isLastScene: 0
