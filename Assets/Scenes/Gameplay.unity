@@ -222,37 +222,47 @@ MonoBehaviour:
   - levelState: 0
     enemyAmount: 10
     gemsObtained: 10
+    spawnPrecentageByEnemyType: 500000000f00000005000000
   - levelState: 1
     enemyAmount: 20
     gemsObtained: 20
+    spawnPrecentageByEnemyType: 46000000140000000a000000
   - levelState: 2
     enemyAmount: 30
     gemsObtained: 30
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   - levelState: 3
     enemyAmount: 40
     gemsObtained: 40
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   - levelState: 4
     enemyAmount: 50
     gemsObtained: 50
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   - levelState: 5
     enemyAmount: 60
     gemsObtained: 60
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   - levelState: 6
     enemyAmount: 70
     gemsObtained: 70
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   - levelState: 7
     enemyAmount: 80
     gemsObtained: 80
-  - levelState: 7
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
+  - levelState: 8
     enemyAmount: 90
     gemsObtained: 90
-  - levelState: 8
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
+  - levelState: 9
     enemyAmount: 100
     gemsObtained: 100
+    spawnPrecentageByEnemyType: 3c000000190000000f000000
   enemies:
   - {fileID: 6493536287298976991, guid: e01652549009020418aeab2f87b8134d, type: 3}
-  - {fileID: 6493536287298976991, guid: f1774d23610e3394598484e24d69a1e6, type: 3}
   - {fileID: 6493536287298976991, guid: 7e79d10505aa89f44b7f3410999394e9, type: 3}
+  - {fileID: 6493536287298976991, guid: f1774d23610e3394598484e24d69a1e6, type: 3}
   enemySpawners:
   - {fileID: 1873506600}
   - {fileID: 2006122290}
@@ -480,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1616,7 +1626,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Delete All Data
+  m_text: Reset Game Data
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
   m_sharedMaterial: {fileID: -4269012119901558640, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
@@ -4141,8 +4151,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4495,8 +4505,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4643,7 +4653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7301,8 +7311,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8555,8 +8565,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

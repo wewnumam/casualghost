@@ -31,6 +31,9 @@ public class StorySceneController : MonoBehaviour {
                     bottomBar.PlayNextSentence();
                 }
             }
+        } else if (Input.GetKeyDown(KeyCode.Escape)) {
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
+            SceneManager.LoadScene(SceneNames.GAMEPLAY);
         }
     }
 }

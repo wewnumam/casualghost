@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
     public bool IsGameStatePause() => gameState == GameState.PAUSE;
     public bool IsGameStateGameOver() => gameState == GameState.GAMEOVER;
+    public bool IsGameStateLevelTransition() => gameState == GameState.LEVELTRANSITION;
 
     public void SetGemsRewardFromCoinAndHealth() {
         gemsObtainedFromLeftoverCoin = CoinSystem.Instance.GetCurrentCoin();

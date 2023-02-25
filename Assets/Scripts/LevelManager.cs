@@ -31,10 +31,19 @@ public class LevelManager : MonoBehaviour {
     IEnumerator SpawnEnemy(float waitForSeconds) {
         yield return new WaitForSeconds(waitForSeconds);
 
-        Instantiate(enemies[Random.Range(0, enemies.Count)],
-                    enemySpawners[Random.Range(0, enemySpawners.Count)].position,
-                    Quaternion.identity,
-                    enemyParent);
+        int randomNum = UnityEngine.Random.Range(0, 100);
+        int cumulativePercentage = 0;
+
+        for (int i = 0; i < levels[levelStateIndex].spawnPrecentageByEnemyType.Count; i++) {
+            cumulativePercentage += levels[levelStateIndex].spawnPrecentageByEnemyType[i];
+            if (randomNum < cumulativePercentage) {
+                Instantiate(enemies[i],
+                            enemySpawners[Random.Range(0, enemySpawners.Count)].position,
+                            Quaternion.identity,
+                            enemyParent);
+                break;
+            }
+        }
     }
 }
 
@@ -43,11 +52,13 @@ public class Level {
     public LevelState levelState;
     public float enemyAmount;
     public int gemsObtained;
+    public List<int> spawnPrecentageByEnemyType;
 
-    public Level(LevelState levelState, float enemyAmount, int gemsObtained) {
+    public Level(LevelState levelState, float enemyAmount, int gemsObtained, List<int> spawnPrecentageByEnemyType) {
         this.levelState = levelState;
         this.enemyAmount = enemyAmount;
         this.gemsObtained = gemsObtained;
+        this.spawnPrecentageByEnemyType = spawnPrecentageByEnemyType;
     }
 }
 
