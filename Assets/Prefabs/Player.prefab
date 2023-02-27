@@ -411,9 +411,10 @@ MonoBehaviour:
   - {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
   bulletSpawnPoint: {fileID: 2099510497912396388}
   currentWeaponType: 0
-  maxRound: 0
+  maxRound: 5
   roundsLeft: 0
   reloadTime: 1.5
+  pullTriggerTime: 1
 --- !u!1 &2099510498463802679
 GameObject:
   m_ObjectHideFlags: 0

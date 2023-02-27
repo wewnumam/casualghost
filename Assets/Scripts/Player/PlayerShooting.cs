@@ -7,6 +7,7 @@ public class PlayerShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
 	public GameObject[] bulletTypes;
 	public Transform bulletSpawnPoint;
+	public float bulletDamage = 1f;
 
 	[Header("Weapon Properties")]
     [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
@@ -34,6 +35,8 @@ public class PlayerShooting : MonoBehaviour {
 					bulletSpawnPoint.position,
 					bulletSpawnPoint.rotation
 				);
+
+				b.GetComponent<Projectile>().bulletDamage = bulletDamage;
 
 				roundsLeft--;
 				canShoot = false;

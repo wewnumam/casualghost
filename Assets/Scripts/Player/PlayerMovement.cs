@@ -69,4 +69,8 @@ public class PlayerMovement : MonoBehaviour {
 
         isBoosting = false;
     }
+
+    public void SetCurrentSpeed(float currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
 }

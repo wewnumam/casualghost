@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 	[Header("Bullet Type")]
 	public WeaponType weaponType = WeaponType.DEFAULT;
+	public float bulletDamage = 1f;
 
 	[Header("Behaviour")]
 	public float flySpeed = 12.0f;

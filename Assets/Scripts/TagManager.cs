@@ -19,6 +19,7 @@ public class AnimationTags {
     public const string PLAYER_RELOAD = "PlayerReload";
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";
+    public const string PLAYER_RELOAD_TIME = "reloadTime";
     public const string ENEMY_IDLE = "EnemyIdle";
     public const string ENEMY_HURT = "EnemyHurt";
     public const string SWITCH_FIRST = "SwitchFirst";

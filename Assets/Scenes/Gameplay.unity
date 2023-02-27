@@ -283,13 +283,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0222862ed1ac7408f0e8aeb9a5901a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplyBy: 1.5
+  speedAddBy: 4
   reloadTimeDivideBy: 2
   pullTriggerTimeDivideBy: 3
+  coinCollectionRadiusAddBy: 5
+  maxHealthAddBy: 5
+  bulletDamageAddBy: 1
   skills:
   - {fileID: 4327994734802937823, guid: 430ed0a3d7d541b408dc6db8188cb6ab, type: 3}
   - {fileID: 9061113753036232230, guid: 5cdb81acfc9932746b972d1ab7f05fae, type: 3}
   - {fileID: 2518697753649405352, guid: 897d51ef65050084da5ed948a6430c9f, type: 3}
+  - {fileID: 4327994734802937823, guid: f3599088bf66d854f8e0dabaedf32063, type: 3}
+  - {fileID: 4327994734802937823, guid: d107b498beb39af42a9c5756d31db0d5, type: 3}
+  - {fileID: 4327994734802937823, guid: 2e6148ccccea9de4da0dd11f9b30081d, type: 3}
   skillParent: {fileID: 1340764704}
 --- !u!114 &11843464
 MonoBehaviour:
