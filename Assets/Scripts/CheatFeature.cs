@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheatFeature : MonoBehaviour {
-    [SerializeField] float fastForwardPlayTimeBy;
-    [SerializeField] int addCoinAmount;
+    [SerializeField] private float fastForwardPlayTimeBy;
+    [SerializeField] private int addCoinAmount;
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Minus)) {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraTarget : MonoBehaviour {
     [SerializeField] private Transform player;
-    [SerializeField] float threshold;
+    [SerializeField] private float threshold;
 
     void Update() {
         Vector3 targetPosition = (player.position + UtilsClass.GetMouseWorldPosition()) / 2f;

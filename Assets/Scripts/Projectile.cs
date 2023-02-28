@@ -1,4 +1,5 @@
 using UnityEngine;
+using static EnumsManager;
 
 public class Projectile : MonoBehaviour {
 	[Header("Bullet Type")]

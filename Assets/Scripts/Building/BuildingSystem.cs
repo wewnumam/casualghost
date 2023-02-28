@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class BuildingSystem : MonoBehaviour {
-    [SerializeField] private BuildingType buildingType;
+    [SerializeField] private EnumsManager.BuildingType buildingType;
     [SerializeField] private int unlockCost;
     [SerializeField] private TextMeshProUGUI costInfoText;
     private string intialCostInfoText;
@@ -13,19 +13,29 @@ public class BuildingSystem : MonoBehaviour {
         intialCostInfoText = costInfoText.text;    
     }
 
-    bool CanUnlock() => PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) >= unlockCost;
-
     void Update() {
-        if (buildingType == BuildingType.THORN_MINE && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED) == PlayerPrefsValues.TRUE) {
-            costInfoText.text = "";
-        } else if (buildingType == BuildingType.DECOY && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED) == PlayerPrefsValues.TRUE) {
-            costInfoText.text = "";
-        } else if (buildingType == BuildingType.CANON && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED) == PlayerPrefsValues.TRUE) {
-            costInfoText.text = "";
-        } else {
-            costInfoText.text = intialCostInfoText;
+        SetCostInfoText();
+    }
+
+    void SetCostInfoText() {
+        switch (buildingType) {
+            case EnumsManager.BuildingType.THORN_MINE when IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED):
+                costInfoText.text = "";
+                break;
+            case EnumsManager.BuildingType.DECOY when IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
+                costInfoText.text = "";
+                break;
+            case EnumsManager.BuildingType.CANON when IsBuildingUnlocked(PlayerPrefsKeys.IS_CANON_UNLOCKED):
+                costInfoText.text = "";
+                break;
+            default:
+                costInfoText.text = intialCostInfoText;
+                break;
         }
     }
+
+    bool IsBuildingUnlocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.TRUE;
+    bool CanUnlock() => PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) >= unlockCost;
 
     public void Unlock() {
         if (!CanUnlock()) return;
@@ -33,20 +43,12 @@ public class BuildingSystem : MonoBehaviour {
         PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) - unlockCost);
         costInfoText.text = "";
 
-        if (buildingType == BuildingType.THORN_MINE) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED, 1);
-        } else if (buildingType == BuildingType.DECOY) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED, 1);
-        } else if (buildingType == BuildingType.CANON) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, 1);
+        if (buildingType == EnumsManager.BuildingType.THORN_MINE) {
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED, PlayerPrefsValues.TRUE);
+        } else if (buildingType == EnumsManager.BuildingType.DECOY) {
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED, PlayerPrefsValues.TRUE);
+        } else if (buildingType == EnumsManager.BuildingType.CANON) {
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, PlayerPrefsValues.TRUE);
         }
     }
-}
-
-public enum BuildingType {
-    ROOT,
-    CLEAR_BUILDING,
-    THORN_MINE,
-    DECOY,
-    CANON
 }

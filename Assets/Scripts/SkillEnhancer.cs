@@ -62,8 +62,8 @@ public class SkillEnhancer : MonoBehaviour {
     public void IncreaseMaxHealth() {
         GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
 
-        player.GetComponent<HealthSystem>().maxHealth += maxHealthAddBy;
-        player.GetComponent<HealthSystem>().currentHealth = player.GetComponent<HealthSystem>().maxHealth;
+        player.GetComponent<HealthSystem>().SetMaxHealth(player.GetComponent<HealthSystem>().maxHealth + maxHealthAddBy);
+        player.GetComponent<HealthSystem>().SetCurrentHealth(GetComponent<HealthSystem>().maxHealth);
     }
 
     public void IncreaseBulletDamage() {

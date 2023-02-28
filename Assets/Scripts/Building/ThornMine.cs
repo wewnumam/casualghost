@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ThornMine : MonoBehaviour {
     [SerializeField] private float damageAmount;
-    [SerializeField] private float moveSpeedModification;
+    [SerializeField] private float moveSpeedDivideBy;
     private float initialSpeed;
     private bool canAttack;
 
@@ -12,8 +12,8 @@ public class ThornMine : MonoBehaviour {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             canAttack = true;
             // Make enemy slower
-            initialSpeed = collider.GetComponent<Enemy>().maxSpeed;
-            collider.GetComponent<Enemy>().maxSpeed = moveSpeedModification;
+            initialSpeed = collider.GetComponent<EnemyMovement>().maxSpeed;
+            collider.GetComponent<EnemyMovement>().SetMaxSpeed(collider.GetComponent<EnemyMovement>().maxSpeed / moveSpeedDivideBy);
         }
     }
 
@@ -27,7 +27,7 @@ public class ThornMine : MonoBehaviour {
     void OnTriggerExit2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             // Restore enemy speed
-            collider.GetComponent<Enemy>().maxSpeed = initialSpeed;
+            collider.GetComponent<EnemyMovement>().SetMaxSpeed(initialSpeed);
         }
     }
 

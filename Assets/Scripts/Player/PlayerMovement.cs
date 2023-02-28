@@ -51,9 +51,6 @@ public class PlayerMovement : MonoBehaviour {
 				characterPhysics.velocity = Vector2.zero;
 			}
 		}
-		
-		// transform.Translate(velocity * Time.deltaTime, Space.World);
-		// characterPhysics.velocity = velocity * 32.0f * Time.deltaTime;
 	}
 
 	private IEnumerator Boost()

@@ -7,6 +7,15 @@ using UnityEngine.UI;
 public class SkillButton : MonoBehaviour {
     [SerializeField] Skill skillType;
 
+    private enum Skill {
+        SPEED_UP,
+        FAST_RELOAD,
+        FAST_TRIGGER,
+        EXPAND_COIN_COLLECTION_AREA,
+        INCREASE_MAX_HEALTH,
+        INCREASE_BULLET_DAMAGE
+    }
+
     void Awake() {
         GetComponent<Button>().onClick.AddListener(() => GamePanelManager.Instance.NextLevel());
 
@@ -26,11 +35,4 @@ public class SkillButton : MonoBehaviour {
     }
 }
 
-public enum Skill {
-    SPEED_UP,
-    FAST_RELOAD,
-    FAST_TRIGGER,
-    EXPAND_COIN_COLLECTION_AREA,
-    INCREASE_MAX_HEALTH,
-    INCREASE_BULLET_DAMAGE
-}
+

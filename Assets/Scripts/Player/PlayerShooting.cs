@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using EZCameraShake;
+using static EnumsManager;
 
 public class PlayerShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
@@ -50,24 +51,8 @@ public class PlayerShooting : MonoBehaviour {
 			}
 		}
 		
-		AimRotation();
+		UtilsClass.AimRotation(transform, UtilsClass.GetMouseWorldPosition());
         WeaponSelect();
-	}
-
-	void AimRotation() {
-		// Rotation facing towards mouse cursor
-		Vector3 aimDirection = (UtilsClass.GetMouseWorldPosition() - transform.position).normalized;
-		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
-		transform.eulerAngles = new Vector3(0, 0, angle);
-
-		// Flip weapon vertically
-		Vector3 localScale = transform.localScale;
-		if (angle > 90 && angle < 270) {
-			localScale.y = -1f;
-		} else {
-			localScale.y = +1f;
-		}
-		transform.localScale = localScale;
 	}
 
 	private void WeaponSwitch(int idx) {
@@ -109,9 +94,4 @@ public class PlayerShooting : MonoBehaviour {
         }
     }
 
-}
-
-public enum WeaponType {
-	DEFAULT,
-	RIFLE
 }

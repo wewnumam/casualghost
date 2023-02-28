@@ -7,8 +7,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    private GameState gameState;
-    private LevelState levelState;
+    private EnumsManager.GameState gameState;
+    private EnumsManager.LevelState levelState;
     private int currentGems;
     [HideInInspector] public int gemsObtainedFromLevel;
     [HideInInspector] public int gemsObtainedFromLeftoverCoin;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
-        ResetGameplay(LevelState.LEVEL_1);
+        ResetGameplay(EnumsManager.LevelState.LEVEL_1);
     }
 
     void Update() {
@@ -51,37 +51,37 @@ public class GameManager : MonoBehaviour
         SetRewardInfo();
     }
 
-    public void ResetGameplay(LevelState levelState) {
+    public void ResetGameplay(EnumsManager.LevelState levelState) {
         currentTime = playTimeInSeconds;
         SetLevelState(levelState);
         for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
-            if (levelState == (LevelState)i) {
+            if (levelState == (EnumsManager.LevelState)i) {
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
                 break;
             }
         }
     }
 
-    public void SetGameState(GameState gameState) {
+    public void SetGameState(EnumsManager.GameState gameState) {
         this.gameState = gameState;
     }
 
-    public void SetLevelState(LevelState levelState) {
+    public void SetLevelState(EnumsManager.LevelState levelState) {
         this.levelState = levelState;
     }
 
-    public LevelState GetCurrentLevelState() => levelState;
+    public EnumsManager.LevelState GetCurrentLevelState() => levelState;
 
-    public bool IsGameStateMainMenu() => gameState == GameState.MAINMENU;
-    public bool IsGameStateGameplay() => gameState == GameState.GAMEPLAY;
-    public bool IsGameStatePause() => gameState == GameState.PAUSE;
-    public bool IsGameStateGameOver() => gameState == GameState.GAMEOVER;
-    public bool IsGameStateLevelTransition() => gameState == GameState.LEVELTRANSITION;
+    public bool IsGameStateMainMenu() => gameState == EnumsManager.GameState.MAINMENU;
+    public bool IsGameStateGameplay() => gameState == EnumsManager.GameState.GAMEPLAY;
+    public bool IsGameStatePause() => gameState == EnumsManager.GameState.PAUSE;
+    public bool IsGameStateGameOver() => gameState == EnumsManager.GameState.GAMEOVER;
+    public bool IsGameStateLevelTransition() => gameState == EnumsManager.GameState.LEVELTRANSITION;
 
     public void SetGemsRewardFromCoinAndHealth() {
         gemsObtainedFromLeftoverCoin = CoinSystem.Instance.GetCurrentCoin();
 
-        if (levelState != LevelState.LEVEL_1) {
+        if (levelState != EnumsManager.LevelState.LEVEL_1) {
             gemsObtainedFromLeftoverHealth = (int)(
                 GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>().currentHealth +
                 GameObject.FindWithTag(Tags.BANYAN).GetComponent<HealthSystem>().currentHealth
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     }
 
     void SetLevelInfo() {
-        levelInfoText.text = $"{Enum.GetName(typeof(LevelState), GetCurrentLevelState())} DONE!";
+        levelInfoText.text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
     }
 
     void SetGemsInfo() {
@@ -121,11 +121,3 @@ public class GameManager : MonoBehaviour
 
 }
 
-public enum GameState {
-    MAINMENU,
-    GAMEPLAY,
-    PAUSE,
-    LEVELTRANSITION,
-    GAMEOVER,
-    REWARD
-}

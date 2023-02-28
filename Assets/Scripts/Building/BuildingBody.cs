@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingBody : MonoBehaviour
-{
-    [Header("UI Properties")]
+public class BuildingBody : MonoBehaviour {
     [SerializeField] private bool isBanyan;
     [SerializeField] private TextMesh buildingInfoText;
     private bool canAttacked = true;
 
     void Update() {
-        // BuildingBody health check
-        if (GetComponent<HealthSystem>().currentHealth <= 0 && GameManager.Instance.IsGameStateGameplay()) {
+        if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             if (isBanyan) {
                 GamePanelManager.Instance.GameOver();
             } else {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class BuildingBuilder : MonoBehaviour {
-    [SerializeField] private BuildingType buildingType;
+    [SerializeField] private EnumsManager.BuildingType buildingType;
     [SerializeField] private GameObject building;
     [SerializeField] private Transform buildingParent;
     private GameObject currentBuilding;
@@ -17,27 +17,9 @@ public class BuildingBuilder : MonoBehaviour {
         initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
     }
 
-    bool CanBuild() {
-        if (buildingType == BuildingType.THORN_MINE && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED) == PlayerPrefsValues.FALSE) {
-            return false;
-        } else if (buildingType == BuildingType.DECOY && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED) == PlayerPrefsValues.FALSE) {
-            return false;
-        } else if (buildingType == BuildingType.CANON && PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED) == PlayerPrefsValues.FALSE) {
-            return false;
-        }
-
-        isBuildingLocked = false;
-        return CoinSystem.Instance.GetCurrentCoin() >= buildCost;
-    } 
-
     void Update() {
         ModifyImageColorAlpha();
-
-        if (isBuildingLocked) {
-            GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
-        } else {
-            GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
-        }
+        SetLockedInfoText();
     }
 
     void ModifyImageColorAlpha() {
@@ -50,12 +32,36 @@ public class BuildingBuilder : MonoBehaviour {
         GetComponent<Image>().color = imageColor;
     }
 
+    void SetLockedInfoText() {
+        if (isBuildingLocked) {
+            GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
+        } else {
+            GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
+        }
+    }
+
+    bool CanBuild() {
+        switch (buildingType) {
+            case EnumsManager.BuildingType.THORN_MINE when IsBuildingLocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED):
+                return false;
+            case EnumsManager.BuildingType.DECOY when IsBuildingLocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
+                return false;
+            case EnumsManager.BuildingType.CANON when IsBuildingLocked(PlayerPrefsKeys.IS_CANON_UNLOCKED):
+                return false;
+        }
+
+        isBuildingLocked = false;
+        return CoinSystem.Instance.GetCurrentCoin() >= buildCost;
+    } 
+
+    bool IsBuildingLocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.FALSE;
+
     void OnMouseEnter() {
-        Player.Instance.SetPlayerState(PlayerState.BUILD);
+        Player.Instance.SetPlayerState(EnumsManager.PlayerState.BUILD);
     }
 
     void OnMouseExit() {
-        Player.Instance.SetPlayerState(PlayerState.SHOOT);
+        Player.Instance.SetPlayerState(EnumsManager.PlayerState.SHOOT);
     }
 
     void OnMouseDown() {

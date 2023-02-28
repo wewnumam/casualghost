@@ -26,7 +26,7 @@ public class GamePanelManager : MonoBehaviour {
     void Start () {
         mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
-            GameManager.Instance.SetGameState(GameState.MAINMENU);
+            GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
             Time.timeScale = 0f;
         }
         inventoryPanel.SetActive(false);
@@ -44,7 +44,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void PlayGame() {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
-            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+            GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             mainMenuPanel.SetActive(false);
             Time.timeScale = 1f;
         } else {
@@ -60,7 +60,7 @@ public class GamePanelManager : MonoBehaviour {
 
     void Pause() {
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStateGameplay()) {
-            GameManager.Instance.SetGameState(GameState.PAUSE);
+            GameManager.Instance.SetGameState(EnumsManager.GameState.PAUSE);
             pauseMenuPanel.SetActive(true);
             Time.timeScale = 0f;
         } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause()) {
@@ -69,7 +69,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void Resume() {
-        GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+        GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -80,19 +80,19 @@ public class GamePanelManager : MonoBehaviour {
             Destroy(enemy);
         }
         Time.timeScale = 0f;
-        GameManager.Instance.SetGameState(GameState.LEVELTRANSITION);
+        GameManager.Instance.SetGameState(EnumsManager.GameState.LEVELTRANSITION);
         SkillEnhancer.Instance.InstantiateRandomSkill();
         levelTransitionPanel.SetActive(true);
     }
 
     public void GameOver() {
-        GameManager.Instance.SetGameState(GameState.GAMEOVER);
+        GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
         gameOverPanel.SetActive(true);
     }
 
     public void Reward() {
         Time.timeScale = 0f;
-        GameManager.Instance.SetGameState(GameState.REWARD);
+        GameManager.Instance.SetGameState(EnumsManager.GameState.REWARD);
         GameManager.Instance.SetGemsRewardFromCoinAndHealth();
         pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
@@ -102,7 +102,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void ClaimReward() {
         GameManager.Instance.ClaimReward();        
-        GameManager.Instance.SetGameState(GameState.MAINMENU);
+        GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -136,7 +136,7 @@ public class GamePanelManager : MonoBehaviour {
         } else if (GameManager.Instance.GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
             GameManager.Instance.gemsObtainedFromLevel += LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].gemsObtained;
             levelTransitionPanel.SetActive(false);
-            GameManager.Instance.SetGameState(GameState.GAMEPLAY);
+            GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             GameManager.Instance.ResetGameplay(LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex + 1]);
             LevelManager.Instance.levelStateIndex++;
         }

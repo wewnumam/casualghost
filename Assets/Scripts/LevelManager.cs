@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<Transform> enemySpawners;
     [SerializeField] private Transform enemyParent;
-    public LevelState[] levelStates;
+    public EnumsManager.LevelState[] levelStates;
     public int levelStateIndex;
 
     void Awake () {
@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        levelStates = (LevelState[])System.Enum.GetValues(typeof(LevelState));
+        levelStates = (EnumsManager.LevelState[])System.Enum.GetValues(typeof(EnumsManager.LevelState));
     }
 
     public void StartLevel(float enemyAmount) {
@@ -49,28 +49,15 @@ public class LevelManager : MonoBehaviour {
 
 [System.Serializable]
 public class Level {
-    public LevelState levelState;
+    public EnumsManager.LevelState levelState;
     public float enemyAmount;
     public int gemsObtained;
     public List<int> spawnPrecentageByEnemyType;
 
-    public Level(LevelState levelState, float enemyAmount, int gemsObtained, List<int> spawnPrecentageByEnemyType) {
+    public Level(EnumsManager.LevelState levelState, float enemyAmount, int gemsObtained, List<int> spawnPrecentageByEnemyType) {
         this.levelState = levelState;
         this.enemyAmount = enemyAmount;
         this.gemsObtained = gemsObtained;
         this.spawnPrecentageByEnemyType = spawnPrecentageByEnemyType;
     }
-}
-
-public enum LevelState {
-    LEVEL_1,
-    LEVEL_2,
-    LEVEL_3,
-    LEVEL_4,
-    LEVEL_5,
-    LEVEL_6,
-    LEVEL_7,
-    LEVEL_8,
-    LEVEL_9,
-    LEVEL_10
 }

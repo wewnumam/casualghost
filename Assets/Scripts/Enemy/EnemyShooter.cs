@@ -20,7 +20,7 @@ public class EnemyShooter : MonoBehaviour {
 
         if (canShoot) {
             Transform targetToAim = UtilsClass.FindClosestTransform(this.transform, targetToShoot);
-            AimRotation(targetToAim);
+            UtilsClass.AimRotation(transform, targetToAim.position);
 
             SoundManager.Instance.PlayShootSFX();
 
@@ -34,22 +34,6 @@ public class EnemyShooter : MonoBehaviour {
 			StartCoroutine(PullTrigger(pullTriggerTime));
         }
     }
-
-    void AimRotation(Transform transformToAim) {
-		// Rotation facing towards mouse cursor
-		Vector3 aimDirection = (transformToAim.position - transform.position).normalized;
-		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
-		transform.eulerAngles = new Vector3(0, 0, angle);
-
-		// Flip weapon vertically
-		Vector3 localScale = transform.localScale;
-		if (angle > 90 && angle < 270) {
-			localScale.y = -1f;
-		} else {
-			localScale.y = +1f;
-		}
-		transform.localScale = localScale;
-	}
 
 	private IEnumerator PullTrigger(float time) {
         yield return new WaitForSeconds(time);

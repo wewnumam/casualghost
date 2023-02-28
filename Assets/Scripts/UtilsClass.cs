@@ -31,8 +31,7 @@ public static class UtilsClass {
         Transform closestTarget = null;
         float closestDistance = Mathf.Infinity;
     
-        foreach (Transform t in targets) 
-        {
+        foreach (Transform t in targets)  {
             float distanceToTarget = Vector3.Distance(t.position, transform.position);
             if (distanceToTarget < closestDistance) {
                 closestTarget = t;
@@ -41,5 +40,31 @@ public static class UtilsClass {
         }
     
         return closestTarget;
+    }
+
+    public static void AimRotation(Transform transform, Vector3 positionToAim) {
+		// Rotation facing towards mouse cursor
+		Vector3 aimDirection = (positionToAim - transform.position).normalized;
+		float angle = UtilsClass.GetAngleFromVectorFloat(aimDirection);
+		transform.eulerAngles = new Vector3(0, 0, angle);
+
+		// Flip weapon vertically
+		Vector3 localScale = transform.localScale;
+		if (angle > 90 && angle < 270) {
+			localScale.y = -1f;
+		} else {
+			localScale.y = +1f;
+		}
+		transform.localScale = localScale;
+	}
+
+    public static Transform[] GetGameObjectsTransform(GameObject[] gameObjects, int indexOffset = 0) {
+        Transform[] gameObjectsTransfrom = new Transform[gameObjects.Length + indexOffset];
+
+        for (int i = 0; i < gameObjects.Length; i++) {
+            gameObjectsTransfrom[i] = gameObjects[i].transform;
+        }
+
+        return gameObjectsTransfrom;
     }
 }

@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public static Player Instance { get;  private set; }
-    private PlayerState playerState;
-
-    [Header("UI Properties")]
+    private EnumsManager.PlayerState playerState;
     [SerializeField] private TextMesh playerInfoText;
     private bool canAttacked = true;
 
@@ -17,20 +15,20 @@ public class Player : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        playerState = PlayerState.SHOOT;
+        playerState = EnumsManager.PlayerState.SHOOT;
     }
 
     void Update() {
         // Player health check
-        if (GetComponent<HealthSystem>().currentHealth <= 0 && GameManager.Instance.IsGameStateGameplay()) {
+        if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             GamePanelManager.Instance.GameOver();
         }
 
         SetPlayerInfo();
     }
 
-    public void SetPlayerState(PlayerState playerState) => this.playerState = playerState;
-    public bool IsPlayerStateShoot() => playerState == PlayerState.SHOOT;
+    public void SetPlayerState(EnumsManager.PlayerState playerState) => this.playerState = playerState;
+    public bool IsPlayerStateShoot() => playerState == EnumsManager.PlayerState.SHOOT;
 
     void OnCollisionEnter2D(Collision2D collision) {
         // Player collect coin
@@ -65,7 +63,3 @@ public class Player : MonoBehaviour {
 	}
 }
 
-public enum PlayerState {
-    SHOOT,
-    BUILD
-}
