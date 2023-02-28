@@ -12,6 +12,7 @@ public class Tags {
     public const string ROOT = "Root";
     public const string DECOY = "Decoy";
     public const string CANON = "Canon";
+    public const string ENEMY_BULLET = "EnemyBullet";
 }
 
 public class AnimationTags {

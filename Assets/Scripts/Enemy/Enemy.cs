@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
+    public EnemyType enemyType;
     public float maxSpeed;
     private Transform[] targetToFollow;
     [SerializeField] private GameObject coinPrefab;
-
-    void Start() {
-        
-    }
 
     void Update() {
         GameObject[] decoys = GameObject.FindGameObjectsWithTag(Tags.DECOY);
@@ -81,4 +78,11 @@ public class Enemy : MonoBehaviour {
             GetComponent<HealthSystem>().TakeDamage(bulletDamage);
         }
     }
+}
+
+public enum EnemyType {
+	THE_DEFAULT,
+	THE_SPRINTER,
+    THE_INVULNERABLE,
+    THE_SHOOTER
 }

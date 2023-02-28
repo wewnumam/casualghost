@@ -182,5 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca3859b585fb643bb97e138ce89336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 2
   maxSpeed: 1
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}

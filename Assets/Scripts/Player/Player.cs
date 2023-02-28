@@ -38,6 +38,11 @@ public class Player : MonoBehaviour {
             CoinSystem.Instance.AddCoin(1);
 			Destroy(collision.gameObject);
 		}
+
+        // Player shoot by enemy
+        if (collision.gameObject.CompareTag(Tags.ENEMY_BULLET)) {
+            StartCoroutine(Attacked(collision.gameObject.GetComponent<Projectile>().bulletDamage, 0f));
+		}
     }
 
     void OnCollisionStay2D(Collision2D collision) {

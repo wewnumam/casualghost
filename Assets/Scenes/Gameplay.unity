@@ -222,47 +222,48 @@ MonoBehaviour:
   - levelState: 0
     enemyAmount: 10
     gemsObtained: 10
-    spawnPrecentageByEnemyType: 500000000f00000005000000
+    spawnPrecentageByEnemyType: 500000000f0000000500000000000000
   - levelState: 1
     enemyAmount: 20
     gemsObtained: 20
-    spawnPrecentageByEnemyType: 46000000140000000a000000
+    spawnPrecentageByEnemyType: 46000000140000000a00000000000000
   - levelState: 2
     enemyAmount: 30
     gemsObtained: 30
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 3c000000190000000f00000000000000
   - levelState: 3
     enemyAmount: 40
     gemsObtained: 40
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 3c000000190000000f00000000000000
   - levelState: 4
     enemyAmount: 50
     gemsObtained: 50
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 3c000000190000000f00000000000000
   - levelState: 5
     enemyAmount: 60
     gemsObtained: 60
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 37000000190000000f00000005000000
   - levelState: 6
     enemyAmount: 70
     gemsObtained: 70
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 37000000190000000f00000005000000
   - levelState: 7
     enemyAmount: 80
     gemsObtained: 80
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 37000000190000000f00000005000000
   - levelState: 8
     enemyAmount: 90
     gemsObtained: 90
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 37000000190000000f00000005000000
   - levelState: 9
     enemyAmount: 100
     gemsObtained: 100
-    spawnPrecentageByEnemyType: 3c000000190000000f000000
+    spawnPrecentageByEnemyType: 32000000190000000f0000000a000000
   enemies:
   - {fileID: 6493536287298976991, guid: e01652549009020418aeab2f87b8134d, type: 3}
   - {fileID: 6493536287298976991, guid: 7e79d10505aa89f44b7f3410999394e9, type: 3}
   - {fileID: 6493536287298976991, guid: f1774d23610e3394598484e24d69a1e6, type: 3}
+  - {fileID: 3891970519477386913, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
   enemySpawners:
   - {fileID: 1873506600}
   - {fileID: 2006122290}
@@ -287,7 +288,7 @@ MonoBehaviour:
   reloadTimeDivideBy: 2
   pullTriggerTimeDivideBy: 3
   coinCollectionRadiusAddBy: 5
-  maxHealthAddBy: 5
+  maxHealthAddBy: 3
   bulletDamageAddBy: 1
   skills:
   - {fileID: 4327994734802937823, guid: 430ed0a3d7d541b408dc6db8188cb6ab, type: 3}
@@ -9383,6 +9384,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
+--- !u!1001 &3389971819237129415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3891970519477386913, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_Name
+      value: EnemyGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786514972907019634, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d3f0fe61e3c53d45b82e65448f4ad26, type: 3}
 --- !u!1001 &6542620953332545351
 PrefabInstance:
   m_ObjectHideFlags: 0

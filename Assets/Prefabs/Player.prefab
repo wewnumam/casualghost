@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 9149185195998114201}
   - component: {fileID: 370212141735608214}
   m_Layer: 0
-  m_Name: Spare
+  m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,6 +410,7 @@ MonoBehaviour:
   bulletTypes:
   - {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
   bulletSpawnPoint: {fileID: 2099510497912396388}
+  bulletDamage: 1
   currentWeaponType: 0
   maxRound: 5
   roundsLeft: 0
@@ -650,7 +651,7 @@ PointEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_ForceMagnitude: -100
-  m_ForceVariation: 0
+  m_ForceVariation: -100
   m_DistanceScale: 0.0001
   m_ForceSource: 0
   m_ForceTarget: 0
