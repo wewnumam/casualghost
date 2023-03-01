@@ -9,8 +9,8 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<Transform> enemySpawners;
     [SerializeField] private Transform enemyParent;
-    public EnumsManager.LevelState[] levelStates;
-    public int levelStateIndex;
+    [HideInInspector] public EnumsManager.LevelState[] levelStates;
+    [HideInInspector] public int levelStateIndex;
 
     void Awake () {
         if (Instance == null) {
@@ -45,6 +45,8 @@ public class LevelManager : MonoBehaviour {
             }
         }
     }
+
+    public bool IsLastLevel() => levelStateIndex >= levelStates.Length - 1;
 }
 
 [System.Serializable]

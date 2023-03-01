@@ -5,14 +5,18 @@ using UnityEngine;
 public class SkillEnhancer : MonoBehaviour {
     public static SkillEnhancer Instance { get; private set; }
 
+    [SerializeField] List<GameObject> skills;
+    [SerializeField] Transform skillParent;
+
+    [Header("Enhancer Properties")]
     [SerializeField] private float speedAddBy;
     [SerializeField] private float reloadTimeDivideBy;
     [SerializeField] private float pullTriggerTimeDivideBy;
     [SerializeField] private float coinCollectionRadiusAddBy;
     [SerializeField] private float maxHealthAddBy;
     [SerializeField] private float bulletDamageAddBy;
-    [SerializeField] List<GameObject> skills;
-    [SerializeField] Transform skillParent;
+
+    
 
     void Awake () {
         if (Instance == null) {
@@ -33,42 +37,41 @@ public class SkillEnhancer : MonoBehaviour {
     }
 
     public void SpeedUp() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<PlayerMovement>();
 
-        player.GetComponent<PlayerMovement>().normalSpeed += speedAddBy;
-        player.GetComponent<PlayerMovement>().SetCurrentSpeed(player.GetComponent<PlayerMovement>().normalSpeed);
-        player.GetComponent<PlayerMovement>().boostSpeed = player.GetComponent<PlayerMovement>().normalSpeed * 2;
+        playerMovement.SpeedUp(speedAddBy);
     }
 
     public void FastReload() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
+        playerShooting.SetReloadTime(playerShooting.reloadTime / reloadTimeDivideBy);
 
-        player.GetComponentInChildren<PlayerShooting>().reloadTime /= reloadTimeDivideBy;
-        player.GetComponent<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 + reloadTimeDivideBy); 
+        Animator playerAnimator = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<Animator>();
+        playerAnimator.SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 + reloadTimeDivideBy); 
     }
 
     public void FastTrigger() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
-        player.GetComponentInChildren<PlayerShooting>().pullTriggerTime /= pullTriggerTimeDivideBy;
+        playerShooting.SetPullTriggerTime(playerShooting.pullTriggerTime / pullTriggerTimeDivideBy);
     }
 
     public void ExpandCoinCollectionArea() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        CircleCollider2D playerCollider = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<CircleCollider2D>();
 
-        player.GetComponent<CircleCollider2D>().radius += coinCollectionRadiusAddBy; 
+        playerCollider.radius += coinCollectionRadiusAddBy; 
     }
 
     public void IncreaseMaxHealth() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        HealthSystem playerHealthSystem = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<HealthSystem>();
 
-        player.GetComponent<HealthSystem>().SetMaxHealth(player.GetComponent<HealthSystem>().maxHealth + maxHealthAddBy);
-        player.GetComponent<HealthSystem>().SetCurrentHealth(GetComponent<HealthSystem>().maxHealth);
+        playerHealthSystem.SetMaxHealth(playerHealthSystem.maxHealth + maxHealthAddBy);
+        playerHealthSystem.SetCurrentHealth(playerHealthSystem.maxHealth);
     }
 
     public void IncreaseBulletDamage() {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
+        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
-        player.GetComponentInChildren<PlayerShooting>().bulletDamage += bulletDamageAddBy;
+        playerShooting.SetBulletDamage(playerShooting.bulletDamage + bulletDamageAddBy);
     }
 }

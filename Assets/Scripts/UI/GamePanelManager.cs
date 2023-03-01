@@ -23,13 +23,12 @@ public class GamePanelManager : MonoBehaviour {
         }
     }
 
-    void Start () {
+    void Start() {
         mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
             Time.timeScale = 0f;
         }
-        inventoryPanel.SetActive(false);
         pauseMenuPanel.SetActive(false);
         levelTransitionPanel.SetActive(false);
         gameOverPanel.SetActive(false);
@@ -131,15 +130,13 @@ public class GamePanelManager : MonoBehaviour {
     public void NextLevel() {
         Time.timeScale = 1f;
 
-        if (LevelManager.Instance.levelStateIndex >= LevelManager.Instance.levelStates.Length - 1) {
+        if (LevelManager.Instance.IsLastLevel()) {
             Reward();
-        } else if (GameManager.Instance.GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
-            GameManager.Instance.gemsObtainedFromLevel += LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].gemsObtained;
-            levelTransitionPanel.SetActive(false);
-            GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
-            GameManager.Instance.ResetGameplay(LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex + 1]);
-            LevelManager.Instance.levelStateIndex++;
+        } else {
+            GameManager.Instance.NextLevel();
         }
+        
+        levelTransitionPanel.SetActive(false);
     }
 
     public void DeleteAllData() {

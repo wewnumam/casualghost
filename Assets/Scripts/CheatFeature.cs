@@ -44,12 +44,12 @@ public class CheatFeature : MonoBehaviour {
     }
 
     void HealPlayer() {
-        GameObject player = GameObject.FindWithTag(Tags.PLAYER);
-        player.GetComponent<HealthSystem>().Heal(player.GetComponent<HealthSystem>().maxHealth - player.GetComponent<HealthSystem>().currentHealth);
+        HealthSystem playerHealthSystem = GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>();
+        playerHealthSystem.Heal(playerHealthSystem.maxHealth - playerHealthSystem.currentHealth);
     }
 
     void HealBanyan() {
-        GameObject banyan = GameObject.FindWithTag(Tags.BANYAN);
-        banyan.GetComponent<HealthSystem>().Heal(banyan.GetComponent<HealthSystem>().maxHealth - banyan.GetComponent<HealthSystem>().currentHealth);
+        HealthSystem banyanHealthSystem = GameObject.FindWithTag(Tags.BANYAN).GetComponent<HealthSystem>();
+        banyanHealthSystem.Heal(banyanHealthSystem.maxHealth - banyanHealthSystem.currentHealth);
     }
 }

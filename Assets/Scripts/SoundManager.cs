@@ -8,14 +8,12 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] private AudioSource audioSourceComponent;
     [SerializeField] private AudioClip shootSFX;
 
-    void Awake()
-    {
+    void Awake() {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
-    public void PlayShootSFX()
-    {
+    public void PlayShootSFX() {
         audioSourceComponent.clip = shootSFX;
         audioSourceComponent.Play();
     }

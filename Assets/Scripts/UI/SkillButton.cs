@@ -19,18 +19,26 @@ public class SkillButton : MonoBehaviour {
     void Awake() {
         GetComponent<Button>().onClick.AddListener(() => GamePanelManager.Instance.NextLevel());
 
-        if (skillType == Skill.SPEED_UP) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.SpeedUp());
-        } else if (skillType == Skill.FAST_RELOAD) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.FastReload());
-        } else if (skillType == Skill.FAST_TRIGGER) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.FastTrigger());
-        } else if (skillType == Skill.EXPAND_COIN_COLLECTION_AREA) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.ExpandCoinCollectionArea());
-        } else if (skillType == Skill.INCREASE_MAX_HEALTH) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseMaxHealth());
-        } else if (skillType == Skill.INCREASE_BULLET_DAMAGE) {
-            GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseBulletDamage());
+        switch (skillType)
+        {
+            case Skill.SPEED_UP:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.SpeedUp());
+                break;
+            case Skill.FAST_RELOAD:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.FastReload());
+                break;
+            case Skill.FAST_TRIGGER:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.FastTrigger());
+                break;
+            case Skill.EXPAND_COIN_COLLECTION_AREA:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.ExpandCoinCollectionArea());
+                break;
+            case Skill.INCREASE_MAX_HEALTH:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseMaxHealth());
+                break;
+            case Skill.INCREASE_BULLET_DAMAGE:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseBulletDamage());
+                break;
         }
     }
 }

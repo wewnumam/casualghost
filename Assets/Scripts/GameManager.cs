@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
     private EnumsManager.GameState gameState;
     private EnumsManager.LevelState levelState;
@@ -16,10 +15,18 @@ public class GameManager : MonoBehaviour
 
     public float playTimeInSeconds;
     private float currentTime;
+
+    [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI levelInfoText;
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
+
+    [ContextMenu("Do Something")]
+    void DoSomething()
+    {
+        Debug.Log("Perform operation");
+    }
 
     void Awake () {
         if (Instance == null) {
@@ -59,6 +66,15 @@ public class GameManager : MonoBehaviour
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
                 break;
             }
+        }
+    }
+
+    public void NextLevel() {
+        if (GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
+            gemsObtainedFromLevel += LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].gemsObtained;
+            SetGameState(EnumsManager.GameState.GAMEPLAY);
+            ResetGameplay(LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex + 1]);
+            LevelManager.Instance.levelStateIndex++;
         }
     }
 

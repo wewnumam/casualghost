@@ -4,11 +4,12 @@ using static EnumsManager;
 public class Projectile : MonoBehaviour {
 	[Header("Bullet Type")]
 	public WeaponType weaponType = WeaponType.DEFAULT;
-	public float bulletDamage = 1f;
+	[SerializeField] private float _bulletDamage = 1f;
+	public float bulletDamage { get => _bulletDamage; }
 
 	[Header("Behaviour")]
-	public float flySpeed = 12.0f;
-	public float lifetime = 4.0f;
+	[SerializeField] private float flySpeed = 12.0f;
+	[SerializeField] private float lifetime = 4.0f;
 
 	private Rigidbody2D bulletPhysics;
 	private float lifetimeElapsed = 0.0f;
@@ -26,6 +27,8 @@ public class Projectile : MonoBehaviour {
 		// Fly with defined speed during its lifetime
 		bulletPhysics.velocity = transform.right * flySpeed * 32.0f * Time.deltaTime;
 	}
+
+	public void SetBulletDamage(float bulletDamage) => _bulletDamage = bulletDamage;
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		Destroy(this.gameObject);

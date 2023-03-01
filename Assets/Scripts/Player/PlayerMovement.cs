@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	[Header("Movement Properties")]
-	public float normalSpeed = 8f;  // The normal movement speed.
-    public float boostSpeed = 16f;  // The boosted movement speed.
-    public float boostDuration = 1f;  // The duration of the boost in seconds.
-    public float boostCooldown = 3f;  // The time it takes for the boost to recharge in seconds.
+	[SerializeField] private float normalSpeed = 8f;  // The normal movement speed.
+    [SerializeField] private float boostSpeed = 16f;  // The boosted movement speed.
+    [SerializeField] private float boostDuration = 1f;  // The duration of the boost in seconds.
+    [SerializeField] private float boostCooldown = 3f;  // The time it takes for the boost to recharge in seconds.
 
     private float currentSpeed;  // The current movement speed.
     private bool isBoosting = false;  // Whether the boost is currently active.
@@ -67,7 +67,10 @@ public class PlayerMovement : MonoBehaviour {
         isBoosting = false;
     }
 
-    public void SetCurrentSpeed(float currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    // Skill enhancer
+    public void SpeedUp(float speedAddBy) {
+        normalSpeed += speedAddBy;
+        currentSpeed = normalSpeed;
+        boostSpeed = normalSpeed * 2;
     }
 }

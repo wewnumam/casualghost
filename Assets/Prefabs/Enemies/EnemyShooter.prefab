@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 5786514972907019634}
   - component: {fileID: 2899214022033596091}
   - component: {fileID: 5677351273909216239}
+  - component: {fileID: 277892204413082335}
   - component: {fileID: 8458341612162530762}
   - component: {fileID: 2324728461730443966}
   - component: {fileID: 833955541886858464}
@@ -302,6 +303,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &277892204413082335
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3891970519477386913}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0b53768baaa7654a80f2b72f33a51a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &8458341612162530762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 1.5
-  targetToFollow: []
 --- !u!1 &7920840261309238605
 GameObject:
   m_ObjectHideFlags: 0
