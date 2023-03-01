@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThornMine : MonoBehaviour {
+    [Header("Health Attack Settings")]
     [SerializeField] private float damageAmount;
+    private bool canAttack;
+
+    [Header("Move Attack Settings")]
     [SerializeField] private float moveSpeedDivideBy;
     private float initialSpeed;
-    private bool canAttack;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             canAttack = true;
-            // Make enemy slower
             initialSpeed = collider.GetComponent<EnemyMovement>().maxSpeed;
-            collider.GetComponent<EnemyMovement>().SetMaxSpeed(collider.GetComponent<EnemyMovement>().maxSpeed / moveSpeedDivideBy);
+            // Make enemy slower
+            collider.GetComponent<EnemyMovement>().SetMaxSpeed(collider.GetComponent<EnemyMovement>().maxSpeed / moveSpeedDivideBy); 
         }
     }
 
@@ -26,18 +29,18 @@ public class ThornMine : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
-            // Restore enemy speed
+            // Restore the enemy's initial speed
             collider.GetComponent<EnemyMovement>().SetMaxSpeed(initialSpeed);
         }
     }
 
     IEnumerator AttackEnemy(GameObject gameObject, float waitForSeconds) {
-        canAttack = false;
+        canAttack = false; // Prevent attacking during the delay
         yield return new WaitForSecondsRealtime(waitForSeconds);
         if (gameObject != null) {
             gameObject.GetComponent<Animator>().Play(AnimationTags.ENEMY_HURT);
             gameObject.GetComponent<HealthSystem>().TakeDamage(damageAmount);
         }
-        canAttack = true;
+        canAttack = true; // Allow attacking again
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     [SerializeField] private EnemyType enemyType;
+
+    [Header("Coin Instantiate Properties")]
     [SerializeField] private GameObject coinPrefab;
 
     private enum EnemyType {

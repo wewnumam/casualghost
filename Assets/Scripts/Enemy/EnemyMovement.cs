@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
-{
-    [SerializeField] private float _maxSpeed;
+public class EnemyMovement : MonoBehaviour {
+    [Header("Follow Target Properties")]
     private Transform[] targetToFollow;
 
+    [Header("Movement Settings")]
+    [SerializeField] private float _maxSpeed;
     public float maxSpeed { get => _maxSpeed; }
     public void SetMaxSpeed(float maxSpeed) => _maxSpeed = maxSpeed;
 

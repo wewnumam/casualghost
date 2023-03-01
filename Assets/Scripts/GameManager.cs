@@ -6,14 +6,20 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
+
+    [Header("State Properties")]
     private EnumsManager.GameState gameState;
     private EnumsManager.LevelState levelState;
+
+    [Header("Gems Properties")]
     private int currentGems;
     [HideInInspector] public int gemsObtainedFromLevel;
     [HideInInspector] public int gemsObtainedFromLeftoverCoin;
     [HideInInspector] public int gemsObtainedFromLeftoverHealth;
 
-    public float playTimeInSeconds;
+    [Header("Time Settings")]
+    [SerializeField] private float _playTimeInSeconds;
+    public float playTimeInSeconds { get => _playTimeInSeconds; }
     private float currentTime;
 
     [Header("UI Properties")]
@@ -21,12 +27,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI levelInfoText;
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
-
-    [ContextMenu("Do Something")]
-    void DoSomething()
-    {
-        Debug.Log("Perform operation");
-    }
 
     void Awake () {
         if (Instance == null) {
@@ -37,29 +37,30 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        // Initializes the gem count and starts the first level
         currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
         ResetGameplay(EnumsManager.LevelState.LEVEL_1);
     }
 
     void Update() {
+        // Updates the game timer and checks the game state to trigger level transitions or game over
         if (IsGameStateGameplay()) {
             currentTime -= Time.deltaTime;
-
             if (currentTime <= 0) {
                 GamePanelManager.Instance.LevelTransition();
             }
-        } else if (IsGameStateGameOver()) {
-            
         }
 
+        // Updates the UI text components
         SetTimerInfo();
         SetLevelInfo();
         SetGemsInfo();
         SetRewardInfo();
     }
 
+    // Sets the timer and level state, and starts the corresponding level
     public void ResetGameplay(EnumsManager.LevelState levelState) {
-        currentTime = playTimeInSeconds;
+        currentTime = _playTimeInSeconds;
         SetLevelState(levelState);
         for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
             if (levelState == (EnumsManager.LevelState)i) {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    // Adds up all the gems earned and resets the gameplay for the next level
     public void NextLevel() {
         if (GetCurrentLevelState() == LevelManager.Instance.levelStates[LevelManager.Instance.levelStateIndex]) {
             gemsObtainedFromLevel += LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].gemsObtained;
@@ -78,14 +80,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void SetGameState(EnumsManager.GameState gameState) {
-        this.gameState = gameState;
-    }
-
-    public void SetLevelState(EnumsManager.LevelState levelState) {
-        this.levelState = levelState;
-    }
-
+    // Setters and getters for game and level state
+    public void SetGameState(EnumsManager.GameState gameState) => this.gameState = gameState;
+    public void SetLevelState(EnumsManager.LevelState levelState) => this.levelState = levelState;
     public EnumsManager.LevelState GetCurrentLevelState() => levelState;
 
     public bool IsGameStateMainMenu() => gameState == EnumsManager.GameState.MAINMENU;
@@ -94,9 +91,11 @@ public class GameManager : MonoBehaviour {
     public bool IsGameStateGameOver() => gameState == EnumsManager.GameState.GAMEOVER;
     public bool IsGameStateLevelTransition() => gameState == EnumsManager.GameState.LEVELTRANSITION;
 
+    // Obtain gems from leftover coin and health
     public void SetGemsRewardFromCoinAndHealth() {
         gemsObtainedFromLeftoverCoin = CoinSystem.Instance.GetCurrentCoin();
 
+        // Prevent obtain gems from leftover health at level 1
         if (levelState != EnumsManager.LevelState.LEVEL_1) {
             gemsObtainedFromLeftoverHealth = (int)(
                 GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>().currentHealth +
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour {
         }
     }
     
+    // Adds the total number of gems obtained, saves the to PlayerPrefs
     public void ClaimReward() {
         currentGems += gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth;
         PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, currentGems);

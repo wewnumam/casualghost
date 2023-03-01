@@ -5,12 +5,15 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
     public static LevelManager Instance { get; private set; }
 
+    [Header("Level Properties")]
     public List<Level> levels;
-    [SerializeField] private List<GameObject> enemies;
-    [SerializeField] private List<Transform> enemySpawners;
-    [SerializeField] private Transform enemyParent;
     [HideInInspector] public EnumsManager.LevelState[] levelStates;
     [HideInInspector] public int levelStateIndex;
+
+    [Header("Enemy Porperties")]
+    [SerializeField] private Transform enemyParent;
+    [SerializeField] private List<GameObject> enemies;
+    [SerializeField] private List<Transform> enemySpawners;
 
     void Awake () {
         if (Instance == null) {

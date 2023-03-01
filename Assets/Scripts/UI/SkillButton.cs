@@ -19,8 +19,7 @@ public class SkillButton : MonoBehaviour {
     void Awake() {
         GetComponent<Button>().onClick.AddListener(() => GamePanelManager.Instance.NextLevel());
 
-        switch (skillType)
-        {
+        switch (skillType) {
             case Skill.SPEED_UP:
                 GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.SpeedUp());
                 break;

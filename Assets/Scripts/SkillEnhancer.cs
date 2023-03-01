@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillEnhancer : MonoBehaviour {
     public static SkillEnhancer Instance { get; private set; }
 
+    [Header("Skill Button Instantiate Properties")]
     [SerializeField] List<GameObject> skills;
     [SerializeField] Transform skillParent;
 
@@ -15,8 +16,6 @@ public class SkillEnhancer : MonoBehaviour {
     [SerializeField] private float coinCollectionRadiusAddBy;
     [SerializeField] private float maxHealthAddBy;
     [SerializeField] private float bulletDamageAddBy;
-
-    
 
     void Awake () {
         if (Instance == null) {

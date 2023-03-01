@@ -5,7 +5,11 @@ using TMPro;
 
 public class BuildingSystem : MonoBehaviour {
     [SerializeField] private EnumsManager.BuildingType buildingType;
+
+    [Header("Economic Settings")]
     [SerializeField] private int unlockCost;
+
+    [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI costInfoText;
     private string intialCostInfoText;
 
@@ -14,10 +18,13 @@ public class BuildingSystem : MonoBehaviour {
     }
 
     void Update() {
+        // Updates the cost information text in the UI
         SetCostInfoText();
     }
 
+    // Helper method for updating the cost information text in the UI based on the building type and unlock status
     void SetCostInfoText() {
+         // If the building type is THORN_MINE and it is already unlocked, then hide the cost information text
         switch (buildingType) {
             case EnumsManager.BuildingType.THORN_MINE when IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED):
                 costInfoText.text = "";
@@ -29,26 +36,39 @@ public class BuildingSystem : MonoBehaviour {
                 costInfoText.text = "";
                 break;
             default:
+                // Otherwise, display the initial value of the cost information text
                 costInfoText.text = intialCostInfoText;
                 break;
         }
     }
 
+    // Helper method for checking if the building is already unlocked based on the player preferences key
     bool IsBuildingUnlocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.TRUE;
+
+    // Helper method for checking if the player has enough gems to unlock the building
     bool CanUnlock() => PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) >= unlockCost;
 
     public void Unlock() {
+        // If the player doesn't have enough gems to unlock the building, then return
         if (!CanUnlock()) return;
 
+        // Deduct the unlock cost from the player's gems
         PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) - unlockCost);
+
+        // Hide the cost information text in the UI
         costInfoText.text = "";
 
-        if (buildingType == EnumsManager.BuildingType.THORN_MINE) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED, PlayerPrefsValues.TRUE);
-        } else if (buildingType == EnumsManager.BuildingType.DECOY) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED, PlayerPrefsValues.TRUE);
-        } else if (buildingType == EnumsManager.BuildingType.CANON) {
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, PlayerPrefsValues.TRUE);
+        // Update the player preferences based on the building type
+        switch (buildingType) {
+            case EnumsManager.BuildingType.THORN_MINE:
+                PlayerPrefs.SetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED, PlayerPrefsValues.TRUE);
+                break;
+            case EnumsManager.BuildingType.DECOY:
+                PlayerPrefs.SetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED, PlayerPrefsValues.TRUE);
+                break;
+            case EnumsManager.BuildingType.CANON:
+                PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, PlayerPrefsValues.TRUE);
+                break;
         }
     }
 }

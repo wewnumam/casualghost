@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingBody : MonoBehaviour {
+    [Tooltip("The game will be over if the banyan dies")]
     [SerializeField] private bool isBanyan;
+
+    [Header("UI Properties")]
     [SerializeField] private TextMesh buildingInfoText;
+
     private bool canAttacked = true;
 
     void Update() {
@@ -19,6 +23,10 @@ public class BuildingBody : MonoBehaviour {
         SetBuildingInfo();
     }
 
+    void SetBuildingInfo() {
+		buildingInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
+	}
+
     void OnCollisionStay2D(Collision2D collision) {
         // BuildingBody attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
@@ -27,13 +35,9 @@ public class BuildingBody : MonoBehaviour {
 	}
 
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
-        canAttacked = false;
+        canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
-        canAttacked = true;
-	}
-
-    void SetBuildingInfo() {
-		buildingInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
+        canAttacked = true; // Allow enemy attack again
 	}
 }

@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKey(KeyCode.LeftShift) && !isBoosting){
+		if (Input.GetKey(KeyCode.LeftShift) && !isBoosting) {
             StartCoroutine(Boost());
         }
 
@@ -53,8 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	private IEnumerator Boost()
-    {
+	private IEnumerator Boost() {
         isBoosting = true;
         currentSpeed = boostSpeed;
 

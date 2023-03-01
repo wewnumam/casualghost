@@ -5,7 +5,11 @@ using TMPro;
 
 public class CoinSystem : MonoBehaviour {
     public static CoinSystem Instance { get; private set; }
+
+    [Header("Coin Settings")]
     private int currentCoin;
+
+    [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI coinInfoText;
 
     void Awake() {

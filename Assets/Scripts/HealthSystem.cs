@@ -23,6 +23,7 @@ public class HealthSystem : MonoBehaviour {
         if (IsAlive()) {
             _currentHealth -= damageAmount;
         } else {
+            // Preventing health from going beyond the minimum health limit
             _currentHealth = 0f;
         }
     }
@@ -30,6 +31,7 @@ public class HealthSystem : MonoBehaviour {
     public void Heal(float healAmount) {
         _currentHealth += healAmount;
 
+        // Preventing health from going beyond the maximum health limit
         if (_currentHealth > _maxHealth) {
             _currentHealth = _maxHealth;
         }

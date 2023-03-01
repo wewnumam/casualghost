@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public static Player Instance { get;  private set; }
+
+    [Header("Player State Properties")]
     private EnumsManager.PlayerState playerState;
-    [SerializeField] private TextMesh playerInfoText;
     private bool canAttacked = true;
+
+    [Header("UI Properties")]
+    [SerializeField] private TextMesh playerInfoText;
 
     void Awake() {
         if (Instance == null) {
@@ -19,7 +23,6 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        // Player health check
         if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             GamePanelManager.Instance.GameOver();
         }
@@ -51,11 +54,11 @@ public class Player : MonoBehaviour {
 	}
 
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
-        canAttacked = false;
+        canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
         GetComponent<Animator>().Play(AnimationTags.PLAYER_HURT);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
-        canAttacked = true;
+        canAttacked = true; // Allow enemy attack again
 	}
 
     void SetPlayerInfo() {

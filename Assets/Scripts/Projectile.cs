@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour {
 
 	public void SetBulletDamage(float bulletDamage) => _bulletDamage = bulletDamage;
 
+	// Destroy projectiles when they collide with objects with collision
 	void OnCollisionEnter2D(Collision2D collision) {
 		Destroy(this.gameObject);
 	}
