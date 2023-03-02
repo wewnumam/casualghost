@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -111,11 +109,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void SetTimerInfo() {
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int remainingSeconds = Mathf.FloorToInt(currentTime % 60);
-
-        string timeString = string.Format("{0:00}:{1:00}", minutes, remainingSeconds);
-        timerText.text = $"TIMER: {timeString}";
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        timerText.text = $"{time:mm\\:ss}";
     }
 
     void SetLevelInfo() {
