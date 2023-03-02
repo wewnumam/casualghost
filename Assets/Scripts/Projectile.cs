@@ -10,20 +10,33 @@ public class Projectile : MonoBehaviour {
 	[Header("Behaviour")]
 	[SerializeField] private float flySpeed = 12.0f;
 	[SerializeField] private float lifetime = 4.0f;
+	public bool isDrawingLine = false;
+
+	[Header("Line Renderer Properties")]
+	private LineRenderer lineRenderer;
+	private Vector3 spawnPoint;
 
 	private Rigidbody2D bulletPhysics;
 	private float lifetimeElapsed = 0.0f;
 
 	// Start is called before the first frame update
-	void Start() {
+	private void Start() {
 		bulletPhysics = GetComponent<Rigidbody2D>();
+		lineRenderer = GetComponentInChildren<LineRenderer>();
+
+		// Save where was the bullet spawned for LineRenderer
+		spawnPoint = transform.position;
+
+		// LineRenderer setup: size of 2 for start and end position each
+		lineRenderer.positionCount = 2;
 	}
 
-	void Update() {
+	private void Update() {
 		Life();
+		DrawLineRenderer();
 	}
 
-	void FixedUpdate() {
+	private void FixedUpdate() {
 		// Fly with defined speed during its lifetime
 		bulletPhysics.velocity = transform.right * flySpeed * 32.0f * Time.deltaTime;
 	}
@@ -35,11 +48,22 @@ public class Projectile : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
-	void Life() {
+	private void Life() {
 		// Destroy projectile once it exceeds its lifetime
 		lifetimeElapsed += Time.deltaTime;
 		if (lifetimeElapsed >= lifetime) {
 			Destroy(this.gameObject);
 		}
+	}
+
+	// Draws LineRenderer when needed, set isDrawingLine after instantiating.
+	private void DrawLineRenderer() {
+		// If the spawned Projectile isn't set to draw, return
+		if (!isDrawingLine) {
+			return;
+		}
+
+		lineRenderer.SetPosition(0, spawnPoint);
+		lineRenderer.SetPosition(1, transform.position);
 	}
 }

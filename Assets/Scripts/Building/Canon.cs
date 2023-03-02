@@ -41,6 +41,9 @@ public class Canon : MonoBehaviour {
                 bulletSpawnPoint.rotation
             );
 
+            // Draw LineRenderer
+            b.GetComponent<Projectile>().isDrawingLine = true;
+
             // The canon can't shoot again until a certain amount of time has passed
             canShoot = false;
 

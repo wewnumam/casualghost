@@ -129,9 +129,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b471d6b09223e7a4c8133b24330c62e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pullTriggerTime: 2
   bulletPrefab: {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
   bulletSpawnPoint: {fileID: 2323315833806629865}
-  pullTriggerTime: 2
+  lineRenderer: {fileID: 0}
+  linePoints:
+  - {fileID: 4614478877292810542}
 --- !u!1 &4568252636758225230
 GameObject:
   m_ObjectHideFlags: 0
