@@ -32,7 +32,7 @@ public class Canon : MonoBehaviour {
             UtilsClass.AimRotation(transform, enemyToAim.position);
 
             // Play the shooting sound effect
-            SoundManager.Instance.PlayShootSFX();
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.CANON_SHOOT);
 
             // Instantiate a bullet prefab at the bullet spawn point
             GameObject b = Instantiate(

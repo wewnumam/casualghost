@@ -30,7 +30,7 @@ public class EnemyShooter : MonoBehaviour {
             UtilsClass.AimRotation(transform, targetToAim.position);
 
              // Play the shooting sound effect
-            SoundManager.Instance.PlayShootSFX();
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SHOOT);
 
             // Instantiate a bullet prefab at the bullet spawn point
             GameObject b = Instantiate(

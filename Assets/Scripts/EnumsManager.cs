@@ -38,6 +38,16 @@ public static class EnumsManager {
         BUILD
     }
 
+    public enum SoundEffect {
+        BUILDING_DROP,
+        CANON_SHOOT,
+        ENEMY_SHOOT,
+        ENEMY_SPAWN_DEFAULT,
+        ENEMY_SPAWN_SMALL,
+        ENEMY_SPAWN_BIG,
+        PLAYER_SHOOT_WEAPON_DEFAULT
+    }
+
     public enum WeaponType {
         DEFAULT,
         RIFLE
