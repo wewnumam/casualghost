@@ -37,7 +37,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void Update() {
-        Pause();
+        PauseInput();
         InventoryPanel();
     }
 
@@ -57,14 +57,18 @@ public class GamePanelManager : MonoBehaviour {
         }
     }
 
-    void Pause() {
+    void PauseInput() {
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStateGameplay()) {
-            GameManager.Instance.SetGameState(EnumsManager.GameState.PAUSE);
-            pauseMenuPanel.SetActive(true);
-            Time.timeScale = 0f;
+            Pause();
         } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause()) {
             Resume();
         }
+    }
+
+    public void Pause() {
+        GameManager.Instance.SetGameState(EnumsManager.GameState.PAUSE);
+        pauseMenuPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Resume() {

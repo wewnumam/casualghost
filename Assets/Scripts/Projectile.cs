@@ -22,13 +22,16 @@ public class Projectile : MonoBehaviour {
 	// Start is called before the first frame update
 	private void Start() {
 		bulletPhysics = GetComponent<Rigidbody2D>();
-		lineRenderer = GetComponentInChildren<LineRenderer>();
 
-		// Save where was the bullet spawned for LineRenderer
-		spawnPoint = transform.position;
+		if (isDrawingLine) {
+			lineRenderer = GetComponentInChildren<LineRenderer>();
 
-		// LineRenderer setup: size of 2 for start and end position each
-		lineRenderer.positionCount = 2;
+			// Save where was the bullet spawned for LineRenderer
+			spawnPoint = transform.position;
+
+			// LineRenderer setup: size of 2 for start and end position each
+			lineRenderer.positionCount = 2;
+		}
 	}
 
 	private void Update() {

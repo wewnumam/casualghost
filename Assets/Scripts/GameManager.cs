@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private TextMeshProUGUI levelInfoText;
+    [SerializeField] private TextMeshProUGUI[] levelInfoText;
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
 
@@ -114,7 +114,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void SetLevelInfo() {
-        levelInfoText.text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
+        levelInfoText[0].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
+        levelInfoText[1].text = $"WAVE: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
     }
 
     void SetGemsInfo() {
