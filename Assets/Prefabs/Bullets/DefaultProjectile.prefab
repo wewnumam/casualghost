@@ -143,6 +143,8 @@ MonoBehaviour:
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
+  particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
+  particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
 --- !u!1 &3968877426232459336
 GameObject:
   m_ObjectHideFlags: 0

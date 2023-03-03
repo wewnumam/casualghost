@@ -12,6 +12,10 @@ public class Projectile : MonoBehaviour {
 	[SerializeField] private float lifetime = 4.0f;
 	public bool isDrawingLine = false;
 
+	[Header("Hit Particle Properties")]
+	public GameObject particleHitBlood;
+	public GameObject particleHitNonBlood;
+
 	[Header("Line Renderer Properties")]
 	private LineRenderer lineRenderer;
 	private Vector3 spawnPoint;
@@ -48,6 +52,22 @@ public class Projectile : MonoBehaviour {
 
 	// Destroy projectiles when they collide with objects with collision
 	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.tag == "Enemy") {
+			GameObject ps = Instantiate(
+				particleHitBlood,
+				transform.position,
+				transform.rotation
+			);
+			ps.GetComponentInChildren<ParticleSystem>().Play();
+		} else {
+			GameObject ps = Instantiate(
+				particleHitNonBlood,
+				transform.position,
+				transform.rotation
+			);
+			ps.GetComponentInChildren<ParticleSystem>().Play();
+		}
+
 		Destroy(this.gameObject);
 	}
 

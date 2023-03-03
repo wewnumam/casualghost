@@ -191,6 +191,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticleHitBlood
       objectReference: {fileID: 0}
+    - target: {fileID: 4293073376873104708, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0110804355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293073376873104708, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.08794011
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293073376873104708, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.7830189
+      objectReference: {fileID: 0}
     - target: {fileID: 4293073376873104709, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
       propertyPath: m_RootOrder
       value: 0

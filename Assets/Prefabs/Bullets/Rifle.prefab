@@ -121,8 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
+  _bulletDamage: 1
   flySpeed: 96
   lifetime: 2
+  isDrawingLine: 0
+  particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
+  particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
 --- !u!58 &-1869673473883895526
 CircleCollider2D:
   m_ObjectHideFlags: 0
