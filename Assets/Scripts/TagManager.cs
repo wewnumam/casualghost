@@ -25,6 +25,8 @@ public class AnimationTags {
     public const string ENEMY_HURT = "EnemyHurt";
     public const string SWITCH_FIRST = "SwitchFirst";
     public const string SWITCH_SECOND = "SwitchSecond";
+    public const string INVENTORY_OPEN = "InventoryOpen";
+    public const string INVENTORY_CLOSE = "InventoryClose";
 }
 
 public class PlayerPrefsKeys {

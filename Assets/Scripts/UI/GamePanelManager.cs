@@ -13,6 +13,9 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject rewardPanel;
     [SerializeField] private GameObject optionMenuPanel;
+    [SerializeField] private GameObject lastLevelPanel;
+
+    private bool isInventoryOpen = true;
     
 
     void Awake() {
@@ -34,6 +37,7 @@ public class GamePanelManager : MonoBehaviour {
         gameOverPanel.SetActive(false);
         rewardPanel.SetActive(false);
         optionMenuPanel.SetActive(false);
+        lastLevelPanel.SetActive(false);
     }
 
     void Update() {
@@ -53,7 +57,7 @@ public class GamePanelManager : MonoBehaviour {
 
     void InventoryPanel() {
         if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.F)) {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+            OpenInventory();
         }
     }
 
@@ -62,6 +66,16 @@ public class GamePanelManager : MonoBehaviour {
             Pause();
         } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause()) {
             Resume();
+        }
+    }
+
+    public void OpenInventory() {
+        if (isInventoryOpen) {
+            inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_CLOSE);
+            isInventoryOpen = false;
+        } else {
+            inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_OPEN);
+            isInventoryOpen = true;
         }
     }
 
@@ -100,6 +114,7 @@ public class GamePanelManager : MonoBehaviour {
         pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelTransitionPanel.SetActive(false);
+        lastLevelPanel.SetActive(false);
         rewardPanel.SetActive(true);
     }
 
@@ -135,7 +150,7 @@ public class GamePanelManager : MonoBehaviour {
         Time.timeScale = 1f;
 
         if (LevelManager.Instance.IsLastLevel()) {
-            Reward();
+            LastLevel();
         } else {
             GameManager.Instance.NextLevel();
         }
@@ -143,7 +158,15 @@ public class GamePanelManager : MonoBehaviour {
         levelTransitionPanel.SetActive(false);
     }
 
+    void LastLevel() {
+        Time.timeScale = 0f;
+
+        levelTransitionPanel.SetActive(false);
+        lastLevelPanel.SetActive(true);
+    }
+
     public void DeleteAllData() {
         PlayerPrefs.DeleteAll();
     }
+
 }
