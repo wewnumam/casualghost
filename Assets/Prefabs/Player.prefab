@@ -380,7 +380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 33622fdffd8f0be459165b88ceb65fe1, type: 3}
+  - {fileID: 2100000, guid: 828fa19ce1f06ff4c95607d08d9b2a30, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,7 +422,7 @@ TextMesh:
   m_FontSize: 0
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 33622fdffd8f0be459165b88ceb65fe1, type: 3}
+  m_Font: {fileID: 12800000, guid: 828fa19ce1f06ff4c95607d08d9b2a30, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -556,14 +556,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850f3b71172485f639f78607dd09c7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeaponType: 0
+  maxRound: 5
+  _bulletDamage: 1
+  _reloadTime: 1.5
+  _pullTriggerTime: 1
   bulletTypes:
   - {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
   bulletSpawnPoint: {fileID: 2099510497912396388}
-  _bulletDamage: 1
-  currentWeaponType: 0
-  maxRound: 5
-  _reloadTime: 1.5
-  _pullTriggerTime: 1
 --- !u!1 &2099510498463802679
 GameObject:
   m_ObjectHideFlags: 0

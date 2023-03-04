@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Increase Max Health
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
-  m_sharedMaterial: {fileID: -4269012119901558640, guid: 789f889122a2e4545903a9394d1f7217, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
+  m_sharedMaterial: {fileID: -3074382457947513100, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -167,6 +167,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void DeleteAllData() {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
 }
