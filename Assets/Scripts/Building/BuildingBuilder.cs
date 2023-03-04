@@ -96,6 +96,7 @@ public class BuildingBuilder : MonoBehaviour {
         // When the mouse is pressed up on the building UI element, subtracts the building cost from the current coin value if the building can be built.
         if (CanBuild()) {
             CoinSystem.Instance.SubstractCoin(buildCost);
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUILDING_DROP);
         }
     }
 }

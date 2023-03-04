@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         // Enemy take damage from bullet
         if (collision.gameObject.CompareTag(Tags.BULLET_TYPE_ONE)) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_BLOOD);
             float bulletDamage = collision.gameObject.GetComponent<Projectile>().bulletDamage;
             GetComponent<HealthSystem>().TakeDamage(bulletDamage);
         }

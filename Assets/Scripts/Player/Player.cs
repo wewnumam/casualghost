@@ -36,6 +36,7 @@ public class Player : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         // Player collect coin
         if (collision.gameObject.CompareTag(Tags.COIN)) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.COLLECT_COIN);
             CoinSystem.Instance.AddCoin(1);
 			Destroy(collision.gameObject);
 		}

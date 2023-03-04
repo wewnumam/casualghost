@@ -77,24 +77,36 @@ public class TutorialManager : MonoBehaviour {
         // Move Tutorial
         if (isMoveDone && isSprintDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_MOVE_DONE, PlayerPrefsValues.TRUE);
+            if (moveTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+            }
             moveTutorial.SetActive(false);
         }
 
         // Shoot Tutorial
         if (GameObject.FindGameObjectsWithTag(Tags.BULLET_TYPE_ONE).Length > 1 || isShootDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE, PlayerPrefsValues.TRUE);
+            if (shootTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+            }
             shootTutorial.SetActive(false);
         }
 
         // Coin Tutorial
         if (CoinSystem.Instance.GetCurrentCoin() > 0 || isCoinDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_COIN_DONE, PlayerPrefsValues.TRUE);
+            if (coinTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+            }
             coinTutorial.SetActive(false);
         }
 
         // Build Tutorial
         if (buildingParent.transform.childCount > 1 || isBuildDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_BUILD_DONE, PlayerPrefsValues.TRUE);
+            if (buildTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+            }
             buildTutorial.SetActive(false);
         }
 
@@ -104,6 +116,9 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED) == PlayerPrefsValues.TRUE ||
             isUnlockDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE, PlayerPrefsValues.TRUE);
+            if (unlockTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+            }
             unlockTutorial.SetActive(false);
         }
     }

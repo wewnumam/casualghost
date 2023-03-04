@@ -42,7 +42,7 @@ public class Canon : MonoBehaviour {
             );
 
             // Draw LineRenderer
-            b.GetComponent<Projectile>().isDrawingLine = true;
+            b.GetComponentInChildren<Projectile>().isDrawingLine = true;
 
             // The canon can't shoot again until a certain amount of time has passed
             canShoot = false;

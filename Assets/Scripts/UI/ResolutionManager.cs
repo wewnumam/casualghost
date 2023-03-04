@@ -15,10 +15,12 @@ public class ResolutionManager : MonoBehaviour {
     }
 
     public void SetResolution() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         Screen.SetResolution(width, height, false);
     }
 
     public void SetResolutionMaximized() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         // Get the maximum supported resolution of the display device
         Resolution maxResolution = Screen.currentResolution;
 

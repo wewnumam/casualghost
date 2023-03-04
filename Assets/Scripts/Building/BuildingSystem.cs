@@ -52,6 +52,8 @@ public class BuildingSystem : MonoBehaviour {
         // If the player doesn't have enough gems to unlock the building, then return
         if (!CanUnlock()) return;
 
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
+
         // Deduct the unlock cost from the player's gems
         PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) - unlockCost);
 

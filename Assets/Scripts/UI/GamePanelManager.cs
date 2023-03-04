@@ -46,6 +46,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void PlayGame() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             mainMenuPanel.SetActive(false);
@@ -70,6 +71,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void OpenInventory() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         if (isInventoryOpen) {
             inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_CLOSE);
             isInventoryOpen = false;
@@ -80,18 +82,21 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void Pause() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.SetGameState(EnumsManager.GameState.PAUSE);
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Resume() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void LevelTransition() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
         foreach (var enemy in enemies) {
             Destroy(enemy);
@@ -116,15 +121,18 @@ public class GamePanelManager : MonoBehaviour {
         levelTransitionPanel.SetActive(false);
         lastLevelPanel.SetActive(false);
         rewardPanel.SetActive(true);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.REWARD_PANEL);
     }
 
     public void ClaimReward() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.ClaimReward();        
         GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Option() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         optionMenuPanel.SetActive(true);
         if (GameManager.Instance.IsGameStateMainMenu()) {
             mainMenuPanel.SetActive(false);
@@ -134,6 +142,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void Back() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         optionMenuPanel.SetActive(false);
         if (GameManager.Instance.IsGameStateMainMenu()) {
             mainMenuPanel.SetActive(true);
@@ -143,10 +152,12 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void Quit() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         Application.Quit();
     }
 
     public void NextLevel() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         Time.timeScale = 1f;
 
         if (LevelManager.Instance.IsLastLevel()) {
@@ -166,6 +177,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void DeleteAllData() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
     }
