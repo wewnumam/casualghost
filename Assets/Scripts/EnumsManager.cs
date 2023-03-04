@@ -50,6 +50,7 @@ public static class EnumsManager {
 
     public enum WeaponType {
         DEFAULT,
+        SHOTGUN,
         RIFLE
     }
 }

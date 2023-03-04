@@ -2,13 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using EZCameraShake;
-using static EnumsManager;
 
 public class PlayerShooting : MonoBehaviour {
-	
-
 	[Header("Weapon Properties")]
-    [SerializeField] private WeaponType currentWeaponType = WeaponType.DEFAULT;
+    [SerializeField] private EnumsManager.WeaponType _currentWeaponType = EnumsManager.WeaponType.DEFAULT;
+    public EnumsManager.WeaponType currentWeaponType { get => _currentWeaponType; }
 	[SerializeField] private int maxRound = 0;
 
 	[Header("Shooting Properties")]
@@ -27,7 +25,11 @@ public class PlayerShooting : MonoBehaviour {
 	[SerializeField] private Transform bulletSpawnPoint;
 
 	void Start() {
-        WeaponSwitch(0); // Set default weapon type
+		if (PlayerPrefs.GetInt(PlayerPrefsKeys.WEAPON) == PlayerPrefsValues.WEAPON_DEFAULT) {
+        	WeaponSwitch(0); // Set default weapon type
+		} else if (PlayerPrefs.GetInt(PlayerPrefsKeys.WEAPON) == PlayerPrefsValues.WEAPON_SHOTGUN) {
+        	WeaponSwitch(1); // Set default weapon type
+		}
 		canShoot = true;
 	}
 
@@ -47,21 +49,22 @@ public class PlayerShooting : MonoBehaviour {
 		}
 		
 		UtilsClass.AimRotation(transform, UtilsClass.GetMouseWorldPosition()); // Rotate player towards the mouse cursor
-        WeaponSelect(); // Switch between different weapons
 	}
 
 	void Shoot() {
 		CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f); // Shake camera when shooting
 		GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
 		SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SHOOT_WEAPON_DEFAULT); // Play shooting sound effect
-
+		
 		GameObject b = Instantiate(
-			bulletTypes[(int)currentWeaponType], // Instantiate bullet of current weapon type
+			bulletTypes[(int)_currentWeaponType], // Instantiate bullet of current weapon type
 			bulletSpawnPoint.position,
 			bulletSpawnPoint.rotation
 		);
 
-		b.GetComponent<Projectile>().SetBulletDamage(_bulletDamage); // Set bullet damage based on bullet damage property
+		for (int i = 0; i < b.transform.childCount; i++) {
+			b.GetComponentsInChildren<Projectile>()[i].SetBulletDamage(_bulletDamage); // Set bullet damage based on bullet damage property
+		}
 
 		_roundsLeft--;
 		canShoot = false;
@@ -74,17 +77,25 @@ public class PlayerShooting : MonoBehaviour {
 	public void SetPullTriggerTime(float pullTriggerTime) => _pullTriggerTime = pullTriggerTime; 
 
 	// Switch between different weapon types
-	private void WeaponSwitch(int idx) {
-        currentWeaponType = bulletTypes[idx].GetComponent<Projectile>().weaponType;
+	public void WeaponSwitch(int idx) {
+        _currentWeaponType = bulletTypes[idx].GetComponentInChildren<Projectile>().weaponType;
 		switch (
 			bulletTypes[idx]
-				.GetComponent<Projectile>()
+				.GetComponentInChildren<Projectile>()
 				.weaponType) {
-			case WeaponType.DEFAULT:
+			case EnumsManager.WeaponType.DEFAULT:
 				maxRound = 5;
 				_reloadTime = 1.5f;
+				_pullTriggerTime = 1.5f;
+				_bulletDamage = bulletTypes[idx].GetComponentInChildren<Projectile>().bulletDamage;
 				break;
-			case WeaponType.RIFLE:
+			case EnumsManager.WeaponType.SHOTGUN:
+				maxRound = 1;
+				_reloadTime = 3f;
+				_pullTriggerTime = 2f;
+				_bulletDamage = bulletTypes[idx].GetComponentInChildren<Projectile>().bulletDamage;
+				break;
+			case EnumsManager.WeaponType.RIFLE:
 				maxRound = 31;
 				_reloadTime = 1.3f;
 				break;
@@ -103,14 +114,4 @@ public class PlayerShooting : MonoBehaviour {
         yield return new WaitForSeconds(time);
         canShoot = true;
     }
-
-    private void WeaponSelect() {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            WeaponSwitch(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            WeaponSwitch(1);
-        }
-    }
-
 }
