@@ -65,7 +65,7 @@ public class GamePanelManager : MonoBehaviour {
     void PauseInput() {
         if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStateGameplay()) {
             Pause();
-        } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause()) {
+        } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause() && !optionMenuPanel.activeSelf) {
             Resume();
         }
     }

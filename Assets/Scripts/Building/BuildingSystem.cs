@@ -52,6 +52,10 @@ public class BuildingSystem : MonoBehaviour {
         // If the player doesn't have enough gems to unlock the building, then return
         if (!CanUnlock()) return;
 
+        if (buildingType == EnumsManager.BuildingType.THORN_MINE && IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED)) return;
+        if (buildingType == EnumsManager.BuildingType.DECOY && IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED)) return;
+        if (buildingType == EnumsManager.BuildingType.CANON && IsBuildingUnlocked(PlayerPrefsKeys.IS_CANON_UNLOCKED)) return;
+
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
 
         // Deduct the unlock cost from the player's gems
@@ -72,5 +76,6 @@ public class BuildingSystem : MonoBehaviour {
                 PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, PlayerPrefsValues.TRUE);
                 break;
         }
+
     }
 }

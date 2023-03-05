@@ -12788,7 +12788,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1908973536
 GameObject:
   m_ObjectHideFlags: 0
@@ -14642,11 +14641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099510498463802678, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.07
       objectReference: {fileID: 0}
     - target: {fileID: 2099510498463802678, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: -8.13
       objectReference: {fileID: 0}
     - target: {fileID: 2099510498463802678, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
       propertyPath: m_LocalPosition.z
