@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3788749783215074403}
   m_Layer: 8
-  m_Name: DefaultProjectile
+  m_Name: CanonProjectile
   m_TagString: BulletTypeOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 780e96b69123c2a44acf29f9d7dff7d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.66176414
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -137,8 +137,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0.5019608}
-      key1: {r: 1, g: 1, b: 1, a: 0.1254902}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3987,7 +3987,7 @@ ParticleSystem:
     enabled: 1
     ratio: 1
     light: {fileID: 7798910535280871210, guid: c036eed70b8eeae7e846c52d43c6315b, type: 3}
-    randomDistribution: 1
+    randomDistribution: 0
     color: 1
     range: 1
     intensity: 1
@@ -5062,7 +5062,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
+  m_Sprite: {fileID: -1376789532, guid: cf2f6c574722d764ca0824d1aeb3e3f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5086,7 +5086,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
 --- !u!50 &2280118231368176525

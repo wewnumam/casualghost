@@ -2854,6 +2854,7 @@ MonoBehaviour:
   buildingParent: {fileID: 2102259470}
   buildCost: 6
   isBuildingLocked: 1
+  particleDropBuilding: {fileID: 5099569532635885842, guid: 2d2cc3ed6ac04f7288dbf315ea60ac93, type: 3}
 --- !u!61 &301079178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5408,6 +5409,7 @@ MonoBehaviour:
   buildingParent: {fileID: 2102259470}
   buildCost: 3
   isBuildingLocked: 1
+  particleDropBuilding: {fileID: 5099569532635885842, guid: 2d2cc3ed6ac04f7288dbf315ea60ac93, type: 3}
 --- !u!61 &786098533
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9839,6 +9841,7 @@ MonoBehaviour:
   buildingParent: {fileID: 2102259470}
   buildCost: 5
   isBuildingLocked: 1
+  particleDropBuilding: {fileID: 5099569532635885842, guid: 2d2cc3ed6ac04f7288dbf315ea60ac93, type: 3}
 --- !u!1 &1418070390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11031,6 +11034,7 @@ MonoBehaviour:
   buildingParent: {fileID: 2102259470}
   buildCost: 3
   isBuildingLocked: 0
+  particleDropBuilding: {fileID: 5099569532635885842, guid: 2d2cc3ed6ac04f7288dbf315ea60ac93, type: 3}
 --- !u!61 &1534838818
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12571,6 +12575,7 @@ MonoBehaviour:
   buildingParent: {fileID: 2102259470}
   buildCost: 2
   isBuildingLocked: 0
+  particleDropBuilding: {fileID: 5099569532635885842, guid: 2d2cc3ed6ac04f7288dbf315ea60ac93, type: 3}
 --- !u!1 &1894319802
 GameObject:
   m_ObjectHideFlags: 0
@@ -14213,7 +14218,7 @@ Transform:
   m_Children:
   - {fileID: 391760877}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2107704762
 GameObject:
@@ -14632,7 +14637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2099510498463802678, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2099510498463802678, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
       propertyPath: m_LocalPosition.x

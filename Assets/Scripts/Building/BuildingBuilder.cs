@@ -19,6 +19,9 @@ public class BuildingBuilder : MonoBehaviour {
     [Header("UI Properties")]
     private string initialTextInfo;
 
+    [Header("Particle Properties")]
+    [SerializeField] private GameObject particleDropBuilding; 
+
     void Awake ()  {
         // Get the initial text of the UI element that displays information about the building.
         initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
@@ -101,6 +104,12 @@ public class BuildingBuilder : MonoBehaviour {
             CoinSystem.Instance.SubstractCoin(buildCost);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUILDING_DROP);
             GameCursor.Instance.SetDefaultCursor();
+            GameObject ps = Instantiate(
+				particleDropBuilding,
+				UtilsClass.GetMouseWorldPosition(),
+				transform.rotation
+			);
+			ps.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 }

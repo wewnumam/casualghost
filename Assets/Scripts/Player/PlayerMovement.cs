@@ -41,22 +41,21 @@ public class PlayerMovement : MonoBehaviour {
             movement = new Vector2(horizontal, vertical).normalized;
         }
 
-        if (horizontal < 0) {
-            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_LEFT);
-        } else if (horizontal > 0) {
-            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_RIGHT);
+        if (horizontal != 0 || vertical != 0) {
+            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK);
         } else {
             playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
-            // Player look at mouse
-            float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition() - transform.position).normalized);
-            Vector3 localScale = Vector3.one;
-            if (angle > 90 && angle < 270) {
-                localScale.x *= -1f;
-            } else {
-                localScale.x *= +1f;
-            }
-                playerBody.transform.localScale = localScale;
-            }
+        }
+        
+        // Player look at mouse
+        float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition() - transform.position).normalized);
+        Vector3 localScale = Vector3.one;
+        if (angle > 90 && angle < 270) {
+            localScale.x *= -1f;
+        } else {
+            localScale.x *= +1f;
+        }
+        playerBody.transform.localScale = localScale;
 	}
 
 	// Update is called once per frame
