@@ -48,6 +48,12 @@ public class EnemyMovement : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * _maxSpeed;
         }
 
+        if (currentSpeed == 0) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_IDLE);
+        } else {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_WALK);
+        }
+
         // Enemy look at target
         float angle = UtilsClass.GetAngleFromVectorFloat((target.position - transform.position).normalized);
         Vector3 localScale = Vector3.one;

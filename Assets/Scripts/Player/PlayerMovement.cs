@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	[Header("Movement Properties")]
+    [SerializeField] private GameObject playerBody;
 	[SerializeField] private float normalSpeed = 8f;  // The normal movement speed.
     [SerializeField] private float boostSpeed = 16f;  // The boosted movement speed.
     [SerializeField] private float boostDuration = 1f;  // The duration of the boost in seconds.
@@ -33,11 +34,29 @@ public class PlayerMovement : MonoBehaviour {
         if (Mathf.Approximately(horizontal, 0f) && Mathf.Approximately(vertical, 0f)) {
             // Player is not moving, set movement vector to zero
             movement = Vector2.zero;
+            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
         }
         else {
             // Player is moving, set movement vector based on input
             movement = new Vector2(horizontal, vertical).normalized;
         }
+
+        if (horizontal < 0) {
+            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_LEFT);
+        } else if (horizontal > 0) {
+            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_RIGHT);
+        } else {
+            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
+            // Player look at mouse
+            float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition() - transform.position).normalized);
+            Vector3 localScale = Vector3.one;
+            if (angle > 90 && angle < 270) {
+                localScale.x *= -1f;
+            } else {
+                localScale.x *= +1f;
+            }
+                playerBody.transform.localScale = localScale;
+            }
 	}
 
 	// Update is called once per frame

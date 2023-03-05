@@ -1,8 +1,19 @@
 using UnityEngine;
 
 public class GameCursor : MonoBehaviour {
-	public Texture2D defaultCursorTexture;
-	public Texture2D onEnemyCursorTexture;
+	public static GameCursor Instance { get; private set; }
+
+	[SerializeField] private Texture2D defaultCursorTexture;
+	[SerializeField] private Texture2D onEnemyCursorTexture;
+	[SerializeField] private Texture2D onBuildCursorTexture;
+
+	void Awake () {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
 	void Start() {
 		SetCursor(defaultCursorTexture);
@@ -23,15 +34,7 @@ public class GameCursor : MonoBehaviour {
 		);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.CompareTag(Tags.ENEMY)) {
-			SetCursor(onEnemyCursorTexture);
-		}
-	}
-
-	void OnTriggerExit2D(Collider2D collider) {
-		if (collider.gameObject.CompareTag(Tags.ENEMY)) {
-			SetCursor(defaultCursorTexture);
-		}
-	}
+	public void SetDefaultCursor() => SetCursor(defaultCursorTexture);
+	public void SetEnemyCursor() => SetCursor(onEnemyCursorTexture);
+	public void SetBuildCursor() => SetCursor(onBuildCursorTexture);
 }

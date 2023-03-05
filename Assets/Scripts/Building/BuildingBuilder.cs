@@ -71,11 +71,13 @@ public class BuildingBuilder : MonoBehaviour {
     void OnMouseEnter() {
         // When the mouse enters the building UI element, set the player's state to BUILD.
         Player.Instance.SetPlayerState(EnumsManager.PlayerState.BUILD);
+        GameCursor.Instance.SetBuildCursor();
     }
 
     void OnMouseExit() {
         // When the mouse exits the building UI element, set the player's state to SHOOT.
         Player.Instance.SetPlayerState(EnumsManager.PlayerState.SHOOT);
+        GameCursor.Instance.SetDefaultCursor();
     }
 
     void OnMouseDown() {
@@ -89,6 +91,7 @@ public class BuildingBuilder : MonoBehaviour {
         // While the mouse is being dragged on the building UI element, move the current building to the mouse's current world position if the player can afford to build it.
         if (CanBuild()) {
             currentBuilding.transform.position = UtilsClass.GetMouseWorldPosition();
+            GameCursor.Instance.SetBuildCursor();
         }
     }
 
@@ -97,6 +100,7 @@ public class BuildingBuilder : MonoBehaviour {
         if (CanBuild()) {
             CoinSystem.Instance.SubstractCoin(buildCost);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUILDING_DROP);
+            GameCursor.Instance.SetDefaultCursor();
         }
     }
 }

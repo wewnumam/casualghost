@@ -53,7 +53,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Shoot() {
 		CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f); // Shake camera when shooting
-		GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
+		GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
 		SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SHOOT_WEAPON_DEFAULT); // Play shooting sound effect
 		
 		GameObject b = Instantiate(

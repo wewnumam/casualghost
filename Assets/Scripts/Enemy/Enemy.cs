@@ -47,4 +47,12 @@ public class Enemy : MonoBehaviour {
             GetComponent<HealthSystem>().TakeDamage(bulletDamage);
         }
     }
+
+    void OnMouseEnter() {
+        GameCursor.Instance.SetEnemyCursor();
+    }
+
+    void OnMouseExit() {
+        GameCursor.Instance.SetDefaultCursor();
+    }
 }
