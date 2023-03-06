@@ -7,6 +7,7 @@ public class GamePanelManager : MonoBehaviour {
     public static GamePanelManager Instance { get; private set; }
 
     [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject gameplayPanel;
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject levelTransitionPanel;
@@ -135,9 +136,11 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         optionMenuPanel.SetActive(true);
         if (GameManager.Instance.IsGameStateMainMenu()) {
+            gameplayPanel.SetActive(false);
             mainMenuPanel.SetActive(false);
         } else if (GameManager.Instance.IsGameStatePause()) {
             pauseMenuPanel.SetActive(false);
+            gameplayPanel.SetActive(false);
         }
     }
 
@@ -145,8 +148,10 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         optionMenuPanel.SetActive(false);
         if (GameManager.Instance.IsGameStateMainMenu()) {
+            gameplayPanel.SetActive(true);
             mainMenuPanel.SetActive(true);
         } else if (GameManager.Instance.IsGameStatePause()) {
+            gameplayPanel.SetActive(true);
             pauseMenuPanel.SetActive(true);
         }
     }
@@ -182,4 +187,5 @@ public class GamePanelManager : MonoBehaviour {
         PlayerPrefs.Save();
     }
 
+    public void PlayClickSFX() => SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
 }
