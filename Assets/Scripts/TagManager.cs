@@ -22,9 +22,9 @@ public class AnimationTags {
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";
     public const string PLAYER_RELOAD_TIME = "reloadTime";
-    public const string ENEMY_IDLE = "EnemyIdle";
-    public const string ENEMY_WALK = "EnemyWalk";
-    public const string ENEMY_HURT = "EnemyHurt";
+    public const string ENEMY_DEFAULT_IDLE = "EnemyDefaultIdle";
+    public const string ENEMY_DEFAULT_WALK = "EnemyDefaultWalk";
+    public const string ENEMY_DEFAULT_HURT = "EnemyDefaultHurt";
     public const string SWITCH_FIRST = "SwitchFirst";
     public const string SWITCH_SECOND = "SwitchSecond";
     public const string INVENTORY_OPEN = "InventoryOpen";

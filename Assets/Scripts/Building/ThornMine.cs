@@ -38,7 +38,7 @@ public class ThornMine : MonoBehaviour {
         canAttack = false; // Prevent attacking during the delay
         yield return new WaitForSecondsRealtime(waitForSeconds);
         if (gameObject != null) {
-            gameObject.GetComponent<Animator>().Play(AnimationTags.ENEMY_HURT);
+            gameObject.GetComponent<Enemy>().PlayEnemyHurtAnimation();
             gameObject.GetComponent<HealthSystem>().TakeDamage(damageAmount);
         }
         canAttack = true; // Allow attacking again

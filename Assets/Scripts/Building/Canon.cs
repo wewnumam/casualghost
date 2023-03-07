@@ -11,10 +11,6 @@ public class Canon : MonoBehaviour {
     [SerializeField] private GameObject bulletPrefab;
 	[SerializeField] private Transform bulletSpawnPoint;
 
-    void Start() {
-        canShoot = true;
-    }
-
     void Update() {
         // Find all GameObjects in the scene with the tag "ENEMY" and store them in an array
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
@@ -56,5 +52,11 @@ public class Canon : MonoBehaviour {
 	private IEnumerator PullTrigger(float time) {
         yield return new WaitForSeconds(time);
         canShoot = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag(Tags.ENEMY)) {
+            canShoot = true;
+        }
     }
 }

@@ -55,4 +55,24 @@ public class Enemy : MonoBehaviour {
     void OnMouseExit() {
         GameCursor.Instance.SetDefaultCursor();
     }
+
+    public bool IsEnemyTypeDefault() => enemyType == EnemyType.THE_DEFAULT;
+
+    public void PlayEnemyIdleAnimation() {
+        if (IsEnemyTypeDefault()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_IDLE);
+        }
+    }
+
+    public void PlayEnemyWalkAnimation() {
+        if (IsEnemyTypeDefault()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_WALK);
+        }
+    }
+
+    public void PlayEnemyHurtAnimation() {
+        if (IsEnemyTypeDefault()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_HURT);
+        }
+    }
 }

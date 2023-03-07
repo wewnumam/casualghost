@@ -5010,7 +5010,7 @@ GameObject:
   - component: {fileID: 8635168546628094145}
   - component: {fileID: 2280118231368176525}
   - component: {fileID: 1198757949883718331}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile
   m_TagString: BulletTypeOne
   m_Icon: {fileID: 0}

@@ -76,14 +76,14 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     public void SwitchWeapon() {
-        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
-
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
         
         if (weaponType == EnumsManager.WeaponType.DEFAULT) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_DEFAULT);
             playerShooting.WeaponSwitch(PlayerPrefsValues.WEAPON_DEFAULT);
         } else if (weaponType == EnumsManager.WeaponType.SHOTGUN && IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_SHOTGUN);
             playerShooting.WeaponSwitch(PlayerPrefsValues.WEAPON_SHOTGUN);
         }

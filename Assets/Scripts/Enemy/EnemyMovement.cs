@@ -49,9 +49,9 @@ public class EnemyMovement : MonoBehaviour {
         }
 
         if (currentSpeed == 0) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_IDLE);
+            GetComponent<Enemy>().PlayEnemyIdleAnimation();
         } else {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_WALK);
+            GetComponent<Enemy>().PlayEnemyWalkAnimation();
         }
 
         // Enemy look at target
