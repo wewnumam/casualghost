@@ -4,28 +4,21 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour {
     [Header("Shooting Properties")]
-	[SerializeField] private float pullTriggerTime = 1f;
-	private bool canShoot;
+	[SerializeField] private float pullTriggerTime;
+	private bool canShoot = true;
 
     [Header("Bullet Instantiate Properties")]
     [SerializeField] private GameObject bulletPrefab;
 	[SerializeField] private Transform bulletSpawnPoint;
 
+    private GameObject enemy;
+
     void Update() {
-        // Find all GameObjects in the scene with the tag "ENEMY" and store them in an array
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
-
         // If the canon is able to shoot and there is at least one enemy
-        if (canShoot && enemies.Length > 0) {
-
-            // Get the transform of all the enemy GameObjects
-            Transform[] enemiesTransform = UtilsClass.GetGameObjectsTransform(enemies);
-
-            // Find the closest enemy to the canon and get its transform
-            Transform enemyToAim = UtilsClass.FindClosestTransform(this.transform, enemiesTransform);
+        if (canShoot && enemy != null) {
 
             // Rotate the canon's transform to aim at the closest enemy
-            UtilsClass.AimRotation(transform, enemyToAim.position);
+            UtilsClass.AimRotation(transform, enemy.transform.position);
 
             // Play the shooting sound effect
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.CANON_SHOOT);
@@ -54,9 +47,9 @@ public class Canon : MonoBehaviour {
         canShoot = true;
     }
 
-    void OnTriggerEnter2D(Collider2D collider) {
+    void OnTriggerStay2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
-            canShoot = true;
+            enemy = collider.gameObject;
         }
     }
 }

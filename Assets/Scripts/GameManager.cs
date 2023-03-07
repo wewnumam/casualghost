@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
 
+    [Header("Environment Properties")]
+    [SerializeField] private Light directionalLight;
+
     void Awake () {
         if (Instance == null) {
             Instance = this;
@@ -66,6 +69,9 @@ public class GameManager : MonoBehaviour {
                 break;
             }
         }
+
+        directionalLight.intensity = LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].directionalLightIntensity;
+        directionalLight.color = LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].directionalLightColor;
     }
 
     // Adds up all the gems earned and resets the gameplay for the next level

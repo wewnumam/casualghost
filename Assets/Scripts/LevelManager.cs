@@ -58,11 +58,14 @@ public class Level {
     public float enemyAmount;
     public int gemsObtained;
     public List<int> spawnPrecentageByEnemyType;
+    [Range(0, 1)] public float directionalLightIntensity;
+    public Color directionalLightColor;
 
-    public Level(EnumsManager.LevelState levelState, float enemyAmount, int gemsObtained, List<int> spawnPrecentageByEnemyType) {
+    public Level(EnumsManager.LevelState levelState, float enemyAmount, int gemsObtained, List<int> spawnPrecentageByEnemyType, float directionalLightIntensity) {
         this.levelState = levelState;
         this.enemyAmount = enemyAmount;
         this.gemsObtained = gemsObtained;
         this.spawnPrecentageByEnemyType = spawnPrecentageByEnemyType;
+        this.directionalLightIntensity = directionalLightIntensity;
     }
 }
