@@ -27,7 +27,7 @@ TagManager:
   - Bullet
   - Coin
   - Root
-  - 
+  - Forest
   - 
   - 
   - 
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2651965477
+    locked: 0
+  - name: Forest
+    uniqueID: 3884995119
     locked: 0
   - name: UI
     uniqueID: 1960883
