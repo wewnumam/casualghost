@@ -12,6 +12,10 @@ public class Player : MonoBehaviour {
     [Header("UI Properties")]
     [SerializeField] private TextMesh playerInfoText;
 
+    [Header("Player Skill Properties")]
+    [SerializeField] private GameObject explosionPrefab;
+    private bool isBreathRoomActive;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour {
     }
 
     public void SetPlayerState(EnumsManager.PlayerState playerState) => this.playerState = playerState;
+    public void SetBreathRoomActive() => isBreathRoomActive = true;
     public bool IsPlayerStateShoot() => playerState == EnumsManager.PlayerState.SHOOT;
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -60,6 +65,11 @@ public class Player : MonoBehaviour {
         GetComponent<Animator>().Play(AnimationTags.PLAYER_HURT);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
         canAttacked = true; // Allow enemy attack again
+        if (isBreathRoomActive) {
+            GameObject explosion = Instantiate(explosionPrefab, transform);
+            yield return new WaitForSeconds(waitForSeconds);
+            Destroy(explosion);
+        }
 	}
 
     void SetPlayerInfo() {

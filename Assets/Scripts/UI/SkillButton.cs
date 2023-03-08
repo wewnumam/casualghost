@@ -13,7 +13,9 @@ public class SkillButton : MonoBehaviour {
         FAST_TRIGGER,
         EXPAND_COIN_COLLECTION_AREA,
         INCREASE_MAX_HEALTH,
-        INCREASE_BULLET_DAMAGE
+        INCREASE_BULLET_DAMAGE,
+        BREATH_ROOM,
+        INCREASE_SPRINT_DURATION
     }
 
     void Awake() {
@@ -37,6 +39,12 @@ public class SkillButton : MonoBehaviour {
                 break;
             case Skill.INCREASE_BULLET_DAMAGE:
                 GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseBulletDamage());
+                break;
+            case Skill.BREATH_ROOM:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.BreathRoom());
+                break;
+            case Skill.INCREASE_SPRINT_DURATION:
+                GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.IncreaseSprintDuration());
                 break;
         }
     }

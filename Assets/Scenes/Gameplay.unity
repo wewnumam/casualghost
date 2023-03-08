@@ -301,6 +301,8 @@ MonoBehaviour:
   - {fileID: 4327994734802937823, guid: f3599088bf66d854f8e0dabaedf32063, type: 3}
   - {fileID: 4327994734802937823, guid: d107b498beb39af42a9c5756d31db0d5, type: 3}
   - {fileID: 4327994734802937823, guid: 2e6148ccccea9de4da0dd11f9b30081d, type: 3}
+  - {fileID: 4327994734802937823, guid: ba70b3a0e99bf3b4fafe3df1f565c56c, type: 3}
+  - {fileID: 4327994734802937823, guid: 72dab9690ef837f41abad959ddf10f93, type: 3}
   skillParent: {fileID: 1340764704}
   speedAddBy: 4
   reloadTimeDivideBy: 2
@@ -308,6 +310,7 @@ MonoBehaviour:
   coinCollectionRadiusAddBy: 5
   maxHealthAddBy: 3
   bulletDamageAddBy: 1
+  sprintDurationAddBy: 1
 --- !u!114 &11843464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18948,6 +18951,7 @@ GameObject:
   - component: {fileID: 1908973540}
   - component: {fileID: 1908973539}
   - component: {fileID: 1908973538}
+  - component: {fileID: 1908973541}
   m_Layer: 5
   m_Name: Weapon3
   m_TagString: Untagged
@@ -19020,7 +19024,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1908973539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1908973541}
+        m_TargetAssemblyTypeName: WeaponSystem, Assembly-CSharp
+        m_MethodName: Unlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1908973541}
+        m_TargetAssemblyTypeName: WeaponSystem, Assembly-CSharp
+        m_MethodName: SwitchWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908973539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19059,6 +19087,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908973536}
   m_CullTransparentMesh: 1
+--- !u!114 &1908973541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908973536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5066449ef0fce4989f830df0829392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 2
+  unlockCost: 80
+  costInfoText: {fileID: 162983170}
 --- !u!1 &1911790325
 GameObject:
   m_ObjectHideFlags: 0
@@ -19908,7 +19951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: COMING SHOON
+  m_text: RIFLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
   m_sharedMaterial: {fileID: -3074382457947513100, guid: 18486a8a8631c744db812cd85f318a90, type: 2}

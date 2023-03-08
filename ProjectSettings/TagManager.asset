@@ -15,6 +15,7 @@ TagManager:
   - EnemyBullet
   - BuildingBuilder
   - Cannon
+  - BulletTypeTwo
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class Tags {
     public const string BANYAN = "Banyan";
     public const string ENEMY = "Enemy";
     public const string BULLET_TYPE_ONE = "BulletTypeOne";
+    public const string BULLET_TYPE_TWO = "BulletTypeTwo";
     public const string COIN = "Coin";
     public const string THORN_MINE = "ThornMine";
     public const string ROOT = "Root";
@@ -40,6 +41,7 @@ public class PlayerPrefsKeys {
     public const string IS_DECOY_UNLOCKED = "isDecoyUnlocked";
     public const string IS_CANNON_UNLOCKED = "isCannonUnlocked";
     public const string IS_SHOTGUN_UNLOCKED = "isShootgunUnlocked";
+    public const string IS_RIFLE_UNLOCKED = "isRifleUnlocked";
     public const string IS_TUTORIAL_MOVE_DONE = "isTutorialMoveDone";
     public const string IS_TUTORIAL_SHOOT_DONE = "isTutorialShootDone";
     public const string IS_TUTORIAL_COIN_DONE = "isTutorialCoinDone";
@@ -52,6 +54,7 @@ public class PlayerPrefsValues {
     public const int TRUE = 1;
     public const int WEAPON_DEFAULT = 0;
     public const int WEAPON_SHOTGUN = 1;
+    public const int WEAPON_RIFLE = 2;
 }
 
 public class SceneNames {

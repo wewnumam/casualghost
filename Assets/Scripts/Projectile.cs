@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour {
 	[SerializeField] private float flySpeed = 12.0f;
 	[SerializeField] private float lifetime = 4.0f;
 	public bool isDrawingLine = false;
+	private int rifleEnemyCollideCounter;
 
 	[Header("Hit Particle Properties")]
 	public GameObject particleHitBlood;
@@ -69,6 +70,30 @@ public class Projectile : MonoBehaviour {
 		}
 
 		Destroy(this.gameObject);
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (weaponType == WeaponType.RIFLE) {
+			if (collider.gameObject.tag == "Enemy") {
+				GameObject ps = Instantiate(
+					particleHitBlood,
+					transform.position,
+					transform.rotation
+				);
+				ps.GetComponentInChildren<ParticleSystem>().Play();
+				rifleEnemyCollideCounter++;
+			} else {
+				GameObject ps = Instantiate(
+					particleHitNonBlood,
+					transform.position,
+					transform.rotation
+				);
+				ps.GetComponentInChildren<ParticleSystem>().Play();
+			}
+		}
+
+		const int MAX_ENEMY_TO_COLLIDE = 2;
+		if (rifleEnemyCollideCounter >= MAX_ENEMY_TO_COLLIDE) Destroy(gameObject); 
 	}
 
 	private void Life() {

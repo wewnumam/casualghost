@@ -29,6 +29,9 @@ public class WeaponSystem : MonoBehaviour {
             case EnumsManager.WeaponType.SHOTGUN when IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED):
                 costInfoText.text = "";
                 break;
+            case EnumsManager.WeaponType.RIFLE when IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED):
+                costInfoText.text = "";
+                break;
             default:
                 // Otherwise, display the initial value of the cost information text
                 costInfoText.text = intialCostInfoText;
@@ -59,20 +62,22 @@ public class WeaponSystem : MonoBehaviour {
         // If the player doesn't have enough gems to unlock the building, then return
         if (!CanUnlock()) return;
 
-        if (!IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {
-            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
-
-            // Deduct the unlock cost from the player's gems
-            PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) - unlockCost);
-
-            // Hide the cost information text in the UI
-            costInfoText.text = "";
-        }
-
         // Update the player preferences based on the building type
         if (weaponType == EnumsManager.WeaponType.SHOTGUN && !IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED, PlayerPrefsValues.TRUE);
+        } else if (weaponType == EnumsManager.WeaponType.RIFLE && !IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED)) {
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_RIFLE_UNLOCKED, PlayerPrefsValues.TRUE);
+        } else {
+            return;
         }
+
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
+
+        // Deduct the unlock cost from the player's gems
+        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS) - unlockCost);
+
+        // Hide the cost information text in the UI
+        costInfoText.text = "";
     }
 
     public void SwitchWeapon() {
@@ -81,11 +86,15 @@ public class WeaponSystem : MonoBehaviour {
         if (weaponType == EnumsManager.WeaponType.DEFAULT) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_DEFAULT);
-            playerShooting.WeaponSwitch(PlayerPrefsValues.WEAPON_DEFAULT);
+            playerShooting.WeaponSwitch(EnumsManager.WeaponType.DEFAULT);
         } else if (weaponType == EnumsManager.WeaponType.SHOTGUN && IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_SHOTGUN);
-            playerShooting.WeaponSwitch(PlayerPrefsValues.WEAPON_SHOTGUN);
+            playerShooting.WeaponSwitch(EnumsManager.WeaponType.SHOTGUN);
+        } else if (weaponType == EnumsManager.WeaponType.RIFLE && IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED)) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+            PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_RIFLE);
+            playerShooting.WeaponSwitch(EnumsManager.WeaponType.RIFLE);
         }
     }
 }

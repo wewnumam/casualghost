@@ -16,6 +16,7 @@ public class SkillEnhancer : MonoBehaviour {
     [SerializeField] private float coinCollectionRadiusAddBy;
     [SerializeField] private float maxHealthAddBy;
     [SerializeField] private float bulletDamageAddBy;
+    [SerializeField] private float sprintDurationAddBy;
 
     void Awake () {
         if (Instance == null) {
@@ -43,16 +44,14 @@ public class SkillEnhancer : MonoBehaviour {
 
     public void FastReload() {
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
-        playerShooting.SetReloadTime(playerShooting.reloadTime / reloadTimeDivideBy);
-
-        Animator playerAnimator = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<Animator>();
-        playerAnimator.SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 + reloadTimeDivideBy); 
+        
+        playerShooting.FastReload(reloadTimeDivideBy);
     }
 
     public void FastTrigger() {
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
-        playerShooting.SetPullTriggerTime(playerShooting.pullTriggerTime / pullTriggerTimeDivideBy);
+        playerShooting.FastTrigger(pullTriggerTimeDivideBy);
     }
 
     public void ExpandCoinCollectionArea() {
@@ -71,6 +70,16 @@ public class SkillEnhancer : MonoBehaviour {
     public void IncreaseBulletDamage() {
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
-        playerShooting.SetBulletDamage(playerShooting.bulletDamage + bulletDamageAddBy);
+        playerShooting.IncreaseBulletDamage(bulletDamageAddBy);
+    }
+
+    public void BreathRoom() {
+        Player.Instance.SetBreathRoomActive();
+    }
+
+    public void IncreaseSprintDuration() {
+        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<PlayerMovement>();
+
+        playerMovement.IncreaseSprintDuration(sprintDurationAddBy);
     }
 }

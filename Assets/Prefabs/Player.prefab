@@ -631,10 +631,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentWeaponType: 0
-  maxRound: 5
-  _bulletDamage: 1
-  _reloadTime: 1.5
-  _pullTriggerTime: 1
+  playerWeapon:
+  - weaponType: 0
+    maxRound: 5
+    reloadTime: 1.5
+    pullTriggerTime: 1.5
+    bulletPrefab: {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
+    bulletDamage: 1
+  - weaponType: 1
+    maxRound: 1
+    reloadTime: 3
+    pullTriggerTime: 2
+    bulletPrefab: {fileID: 781906667792654230, guid: ee5b6c1c82afabc4fa3388ad16b6dd9b, type: 3}
+    bulletDamage: 0.25
+  - weaponType: 2
+    maxRound: 1
+    reloadTime: 3
+    pullTriggerTime: 1
+    bulletPrefab: {fileID: 781906667792654230, guid: 6a890ad41a3edb4d79202064a7f03a11, type: 3}
+    bulletDamage: 1
+  currentPlayerWeapon:
+    weaponType: 0
+    maxRound: 0
+    reloadTime: 0
+    pullTriggerTime: 0
+    bulletPrefab: {fileID: 0}
+    bulletDamage: 0
   bulletTypes:
   - {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
   - {fileID: 781906667792654230, guid: ee5b6c1c82afabc4fa3388ad16b6dd9b, type: 3}
@@ -757,6 +779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInfoText: {fileID: 2099510497646268816}
+  explosionPrefab: {fileID: 4216819758782068366, guid: 09a119971f358504aa27ee191fc84d3c, type: 3}
 --- !u!114 &2099510498463802632
 MonoBehaviour:
   m_ObjectHideFlags: 0

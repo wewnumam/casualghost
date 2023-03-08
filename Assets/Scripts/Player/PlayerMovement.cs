@@ -90,4 +90,8 @@ public class PlayerMovement : MonoBehaviour {
         currentSpeed = normalSpeed;
         boostSpeed = normalSpeed * 2;
     }
+
+    public void IncreaseSprintDuration(float durationAddBy) {
+        boostDuration += durationAddBy;
+    }
 }
