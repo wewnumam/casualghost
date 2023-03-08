@@ -12,9 +12,9 @@ TagManager:
   - ThornMine
   - Root
   - Decoy
-  - Canon
   - EnemyBullet
   - BuildingBuilder
+  - Cannon
   layers:
   - Default
   - TransparentFX

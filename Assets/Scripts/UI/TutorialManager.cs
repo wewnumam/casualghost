@@ -113,7 +113,7 @@ public class TutorialManager : MonoBehaviour {
         // Unlock Tutorial
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED) == PlayerPrefsValues.TRUE ||
             PlayerPrefs.GetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED) == PlayerPrefsValues.TRUE ||
-            PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED) == PlayerPrefsValues.TRUE ||
+            PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANNON_UNLOCKED) == PlayerPrefsValues.TRUE ||
             isUnlockDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE, PlayerPrefsValues.TRUE);
             if (unlockTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {

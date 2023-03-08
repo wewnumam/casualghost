@@ -13,7 +13,7 @@ public class ClearBuilding : MonoBehaviour {
         buildingsCanDestroyed.Add(Tags.THORN_MINE);
         buildingsCanDestroyed.Add(Tags.ROOT);
         buildingsCanDestroyed.Add(Tags.DECOY);
-        buildingsCanDestroyed.Add(Tags.CANON);
+        buildingsCanDestroyed.Add(Tags.CANNON);
 
         // Create an empty list to keep track of objects on collider
         objectsOnCollider = new List<GameObject>();

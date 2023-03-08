@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour {
             Transform[] decoysToFollow = UtilsClass.GetGameObjectsTransform(decoys);
             FollowTarget(UtilsClass.FindClosestTransform(this.transform, decoysToFollow));
         } else {
-            GameObject[] canons = GameObject.FindGameObjectsWithTag(Tags.CANON);
+            GameObject[] canons = GameObject.FindGameObjectsWithTag(Tags.CANNON);
             
             // Check if any canons were found 
             if (canons.Length > 0) {

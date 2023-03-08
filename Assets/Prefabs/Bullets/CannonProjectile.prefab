@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3788749783215074403}
   m_Layer: 8
-  m_Name: CanonProjectile
+  m_Name: CannonProjectile
   m_TagString: BulletTypeOne
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

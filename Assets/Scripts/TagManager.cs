@@ -11,8 +11,9 @@ public class Tags {
     public const string THORN_MINE = "ThornMine";
     public const string ROOT = "Root";
     public const string DECOY = "Decoy";
-    public const string CANON = "Canon";
+    public const string CANNON = "Cannon";
     public const string ENEMY_BULLET = "EnemyBullet";
+    public const string BUILDING_BUILDER = "BuildingBuilder";
 }
 
 public class AnimationTags {
@@ -37,7 +38,7 @@ public class PlayerPrefsKeys {
     public const string IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED = "isIntroStoryCutsceneAlreadyPlayed";
     public const string IS_THORNMINE_UNLOCKED = "isThornMineUnlocked";
     public const string IS_DECOY_UNLOCKED = "isDecoyUnlocked";
-    public const string IS_CANON_UNLOCKED = "isCanonUnlocked";
+    public const string IS_CANNON_UNLOCKED = "isCannonUnlocked";
     public const string IS_SHOTGUN_UNLOCKED = "isShootgunUnlocked";
     public const string IS_TUTORIAL_MOVE_DONE = "isTutorialMoveDone";
     public const string IS_TUTORIAL_SHOOT_DONE = "isTutorialShootDone";

@@ -32,7 +32,7 @@ public class BuildingSystem : MonoBehaviour {
             case EnumsManager.BuildingType.DECOY when IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
                 costInfoText.text = "";
                 break;
-            case EnumsManager.BuildingType.CANON when IsBuildingUnlocked(PlayerPrefsKeys.IS_CANON_UNLOCKED):
+            case EnumsManager.BuildingType.CANON when IsBuildingUnlocked(PlayerPrefsKeys.IS_CANNON_UNLOCKED):
                 costInfoText.text = "";
                 break;
             default:
@@ -54,7 +54,7 @@ public class BuildingSystem : MonoBehaviour {
 
         if (buildingType == EnumsManager.BuildingType.THORN_MINE && IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED)) return;
         if (buildingType == EnumsManager.BuildingType.DECOY && IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED)) return;
-        if (buildingType == EnumsManager.BuildingType.CANON && IsBuildingUnlocked(PlayerPrefsKeys.IS_CANON_UNLOCKED)) return;
+        if (buildingType == EnumsManager.BuildingType.CANON && IsBuildingUnlocked(PlayerPrefsKeys.IS_CANNON_UNLOCKED)) return;
 
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
 
@@ -73,7 +73,7 @@ public class BuildingSystem : MonoBehaviour {
                 PlayerPrefs.SetInt(PlayerPrefsKeys.IS_DECOY_UNLOCKED, PlayerPrefsValues.TRUE);
                 break;
             case EnumsManager.BuildingType.CANON:
-                PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANON_UNLOCKED, PlayerPrefsValues.TRUE);
+                PlayerPrefs.SetInt(PlayerPrefsKeys.IS_CANNON_UNLOCKED, PlayerPrefsValues.TRUE);
                 break;
         }
 

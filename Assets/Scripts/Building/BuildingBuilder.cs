@@ -60,7 +60,7 @@ public class BuildingBuilder : MonoBehaviour {
                 return false;
             case EnumsManager.BuildingType.DECOY when IsBuildingLocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
                 return false;
-            case EnumsManager.BuildingType.CANON when IsBuildingLocked(PlayerPrefsKeys.IS_CANON_UNLOCKED):
+            case EnumsManager.BuildingType.CANON when IsBuildingLocked(PlayerPrefsKeys.IS_CANNON_UNLOCKED):
                 return false;
         }
 

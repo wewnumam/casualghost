@@ -9,24 +9,24 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private GameObject coinPrefab;
 
     private enum EnemyType {
-        THE_DEFAULT,
-        THE_SPRINTER,
-        THE_INVULNERABLE,
-        THE_SHOOTER
+        DEFAULT,
+        RUNNER,
+        GIANT,
+        SHOOTER
     }
 
     void Start() {
         switch (enemyType) {
-            case EnemyType.THE_DEFAULT:
+            case EnemyType.DEFAULT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_DEFAULT);
                 break;
-            case EnemyType.THE_SPRINTER:
+            case EnemyType.RUNNER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_SMALL);
                 break;
-            case EnemyType.THE_INVULNERABLE:
+            case EnemyType.GIANT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_BIG);
                 break;
-            case EnemyType.THE_SHOOTER:
+            case EnemyType.SHOOTER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_DEFAULT);
                 break;
         }
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
         GameCursor.Instance.SetDefaultCursor();
     }
 
-    public bool IsEnemyTypeDefault() => enemyType == EnemyType.THE_DEFAULT;
+    public bool IsEnemyTypeDefault() => enemyType == EnemyType.DEFAULT;
 
     public void PlayEnemyIdleAnimation() {
         if (IsEnemyTypeDefault()) {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Canon : MonoBehaviour {
+public class Cannon : MonoBehaviour {
     [Header("Shooting Properties")]
 	[SerializeField] private float pullTriggerTime;
 	private bool canShoot = true;
