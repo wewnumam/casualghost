@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
-  _bulletDamage: 0.25
+  _bulletDamage: 0.5
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
@@ -10222,7 +10222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
-  _bulletDamage: 0.25
+  _bulletDamage: 0.5
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
@@ -15179,7 +15179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
-  _bulletDamage: 0.25
+  _bulletDamage: 0.5
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0

@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2518697753649405349}
   - component: {fileID: 2518697753649405354}
   - component: {fileID: 5277003085265151527}
+  - component: {fileID: -4311166916049860020}
   m_Layer: 5
   m_Name: FastTrigger
   m_TagString: Untagged
@@ -271,3 +272,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillType: 2
+--- !u!114 &-4311166916049860020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518697753649405352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4e8f38b00147e4189f55cc3301d4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  header: 
+  content: Speeds up bullet reload

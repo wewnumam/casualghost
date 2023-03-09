@@ -643,7 +643,7 @@ MonoBehaviour:
     reloadTime: 3
     pullTriggerTime: 2
     bulletPrefab: {fileID: 781906667792654230, guid: ee5b6c1c82afabc4fa3388ad16b6dd9b, type: 3}
-    bulletDamage: 0.25
+    bulletDamage: 0.5
   - weaponType: 2
     maxRound: 1
     reloadTime: 3
