@@ -58,6 +58,7 @@ public class PlayerShooting : MonoBehaviour {
         for (int i = 0; i < playerWeapon.Count; i++) {
             if (playerWeapon[i].weaponType == _currentWeaponType) {
 				currentPlayerWeapon = playerWeapon[i];
+				_roundsLeft = currentPlayerWeapon.maxRound;
 				break;
 			}
 		}

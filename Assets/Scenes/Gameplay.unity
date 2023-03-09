@@ -2263,9 +2263,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -996.3783, y: 1054.326}
+  m_AnchoredPosition: {x: -1059.2, y: 1025.5999}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: -0.015568411, y: 0.021965127}
+  m_Pivot: {x: -0.016549999, y: 0.021366663}
 --- !u!114 &158232814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22140,6 +22140,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6257333508122560108, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257333508122560108, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5f5bc32c534ff46b7ce4f07bd3bc02, type: 3}
 --- !u!1001 &6542620953332545351
@@ -22196,6 +22204,14 @@ PrefabInstance:
     - target: {fileID: 6542620954404899966, guid: a09bf52f10e38fd478fc070a49780764, type: 3}
       propertyPath: m_Name
       value: Banyan
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758918459662661173, guid: a09bf52f10e38fd478fc070a49780764, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758918459662661173, guid: a09bf52f10e38fd478fc070a49780764, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09bf52f10e38fd478fc070a49780764, type: 3}

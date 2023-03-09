@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
-public class BuildingBuilder : MonoBehaviour {
+public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDragHandler, IPointerUpHandler {
     [SerializeField] private EnumsManager.BuildingType buildingType;
 
     [Header("Instantiate Properties")]
@@ -71,26 +72,26 @@ public class BuildingBuilder : MonoBehaviour {
 
     bool IsBuildingLocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.FALSE;
 
-    void OnMouseEnter() {
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)  {
         // When the mouse enters the building UI element, set the player's state to BUILD.
         Player.Instance.SetPlayerState(EnumsManager.PlayerState.BUILD);
         GameCursor.Instance.SetBuildCursor();
     }
 
-    void OnMouseExit() {
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData) {
         // When the mouse exits the building UI element, set the player's state to SHOOT.
         Player.Instance.SetPlayerState(EnumsManager.PlayerState.SHOOT);
         GameCursor.Instance.SetDefaultCursor();
     }
 
-    void OnMouseDown() {
+    void IPointerDownHandler.OnPointerDown(PointerEventData eventData) {
         // When the mouse is pressed down on the building UI element, instantiate the building at the mouse's current world position if the player can afford to build it.
         if (CanBuild()) {
             currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity, buildingParent);
         }
     }
 
-    void OnMouseDrag() {
+    void IDragHandler.OnDrag(PointerEventData eventData) {
         // While the mouse is being dragged on the building UI element, move the current building to the mouse's current world position if the player can afford to build it.
         if (CanBuild()) {
             currentBuilding.transform.position = UtilsClass.GetMouseWorldPosition();
@@ -98,7 +99,7 @@ public class BuildingBuilder : MonoBehaviour {
         }
     }
 
-    void OnMouseUp() {
+    void IPointerUpHandler.OnPointerUp(PointerEventData eventData) {
         // When the mouse is pressed up on the building UI element, subtracts the building cost from the current coin value if the building can be built.
         if (CanBuild()) {
             CoinSystem.Instance.SubstractCoin(buildCost);

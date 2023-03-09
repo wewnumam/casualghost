@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class BuildingBody : MonoBehaviour {
     [Tooltip("The game will be over if the banyan dies")]
@@ -20,7 +21,7 @@ public class BuildingBody : MonoBehaviour {
             }
         }
 
-        SetBuildingInfo();
+        // SetBuildingInfo();
     }
 
     void SetBuildingInfo() {
@@ -38,6 +39,10 @@ public class BuildingBody : MonoBehaviour {
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
+        GetComponent<Animator>().Play("BuildingHurt");
         canAttacked = true; // Allow enemy attack again
+        if (isBanyan) {
+            CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
+        }
 	}
 }

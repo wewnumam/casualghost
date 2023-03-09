@@ -73,7 +73,9 @@ public class Player : MonoBehaviour {
 	}
 
     void SetPlayerInfo() {
-		playerInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\nBULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
+        playerInfoText.text = "";
+		// playerInfoText.text += $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\n";
+        playerInfoText.text += $"BULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
 	}
 }
 
