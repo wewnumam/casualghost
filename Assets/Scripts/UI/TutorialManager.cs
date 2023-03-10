@@ -13,7 +13,7 @@ public class TutorialManager : MonoBehaviour {
     [Header("Completion Check Properties")]
     [SerializeField] private GameObject buildingParent;
     private bool isMoveDone, isSprintDone;
-    private bool isShootDone;
+    private bool isShootDone, isReloadDone;
     private bool isCoinDone;
     private bool isBuildDone;
     private bool isUnlockDone;
@@ -44,6 +44,7 @@ public class TutorialManager : MonoBehaviour {
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE) == PlayerPrefsValues.TRUE) {
             isShootDone = true;
+            isReloadDone = true;
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_COIN_DONE) == PlayerPrefsValues.TRUE) {
@@ -58,7 +59,7 @@ public class TutorialManager : MonoBehaviour {
             isUnlockDone = true;
         }
 
-        if (isMoveDone && isSprintDone && isShootDone && isCoinDone && isBuildDone && isUnlockDone) {
+        if (isMoveDone && isSprintDone && isShootDone && isReloadDone && isCoinDone && isBuildDone && isUnlockDone) {
             Destroy(gameObject);
         }
     }
@@ -70,6 +71,10 @@ public class TutorialManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             isSprintDone = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) {
+            isReloadDone = true;
         }
     }
 
@@ -84,7 +89,7 @@ public class TutorialManager : MonoBehaviour {
         }
 
         // Shoot Tutorial
-        if (GameObject.FindGameObjectsWithTag(Tags.BULLET_TYPE_ONE).Length > 1 || isShootDone) {
+        if ((GameObject.FindGameObjectsWithTag(Tags.BULLET_TYPE_ONE).Length > 1 || isShootDone) && isReloadDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE, PlayerPrefsValues.TRUE);
             if (shootTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
