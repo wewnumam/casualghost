@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI rewardInfoText;
 
     [Header("Environment Properties")]
-    [SerializeField] private Light directionalLight;
+    [SerializeField] private Light2D directionalLight;
 
     void Awake () {
         if (Instance == null) {
