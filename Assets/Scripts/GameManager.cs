@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 
     [Header("Environment Properties")]
     [SerializeField] private Light2D directionalLight;
+    [SerializeField] private Transform environmentParent;
 
     void Awake () {
         if (Instance == null) {
@@ -64,15 +65,17 @@ public class GameManager : MonoBehaviour {
     public void ResetGameplay(EnumsManager.LevelState levelState) {
         currentTime = _playTimeInSeconds;
         SetLevelState(levelState);
+
         for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
             if (levelState == (EnumsManager.LevelState)i) {
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
+                Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
+                directionalLight.intensity = LevelManager.Instance.levels[i].directionalLightIntensity;
+                directionalLight.color = LevelManager.Instance.levels[i].directionalLightColor;
                 break;
             }
         }
-
-        directionalLight.intensity = LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].directionalLightIntensity;
-        directionalLight.color = LevelManager.Instance.levels[LevelManager.Instance.levelStateIndex].directionalLightColor;
+        
     }
 
     // Adds up all the gems earned and resets the gameplay for the next level
