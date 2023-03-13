@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CooldownArea
   - Enemy
   - BulletTypeOne
   - Coin
@@ -16,6 +15,7 @@ TagManager:
   - BuildingBuilder
   - Cannon
   - BulletTypeTwo
+  - Tree
   layers:
   - Default
   - TransparentFX

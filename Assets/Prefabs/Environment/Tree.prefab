@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8567046332476278282}
   m_Layer: 11
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.195122, y: 12.195122}
+    oldSize: {x: 11.111111, y: 11.111111}
     newSize: {x: 12.195122, y: 12.195122}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

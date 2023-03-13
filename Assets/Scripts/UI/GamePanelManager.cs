@@ -32,6 +32,8 @@ public class GamePanelManager : MonoBehaviour {
         if (mainMenuPanel.activeInHierarchy) {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
             Time.timeScale = 0f;
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
         }
         pauseMenuPanel.SetActive(false);
         levelTransitionPanel.SetActive(false);
@@ -52,6 +54,8 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             mainMenuPanel.SetActive(false);
             Time.timeScale = 1f;
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
         } else {
             SceneManager.LoadScene(SceneNames.INTRO_STORY);
         }

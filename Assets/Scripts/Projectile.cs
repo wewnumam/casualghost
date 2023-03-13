@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour {
 
 	// Destroy projectiles when they collide with objects with collision
 	void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.gameObject.tag == "Enemy") {
+		if (collision.gameObject.CompareTag(Tags.ENEMY)) {
 			GameObject ps = Instantiate(
 				particleHitBlood,
 				transform.position,
@@ -74,7 +74,7 @@ public class Projectile : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (weaponType == WeaponType.RIFLE) {
-			if (collider.gameObject.tag == "Enemy") {
+			if (collider.gameObject.CompareTag(Tags.ENEMY)) {
 				GameObject ps = Instantiate(
 					particleHitBlood,
 					transform.position,
@@ -82,13 +82,21 @@ public class Projectile : MonoBehaviour {
 				);
 				ps.GetComponentInChildren<ParticleSystem>().Play();
 				rifleEnemyCollideCounter++;
-			} else {
+			} 
+			
+			if (collider.gameObject.CompareTag(Tags.TREE) ||
+				collider.gameObject.CompareTag(Tags.BANYAN) ||
+				collider.gameObject.CompareTag(Tags.ROOT) ||
+				collider.gameObject.CompareTag(Tags.THORN_MINE) ||
+				collider.gameObject.CompareTag(Tags.DECOY) ||
+				collider.gameObject.CompareTag(Tags.CANNON)) {
 				GameObject ps = Instantiate(
 					particleHitNonBlood,
 					transform.position,
 					transform.rotation
 				);
 				ps.GetComponentInChildren<ParticleSystem>().Play();
+				Destroy(this.gameObject);
 			}
 		}
 

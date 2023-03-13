@@ -39,6 +39,8 @@ public static class EnumsManager {
     }
 
     public enum SoundEffect {
+        _BGM_MAINMENU,
+        _BGM_GAMEPLAY_1,
         BUILDING_DROP,
         BUTTON_CLICK,
         BUY_BUILDING,

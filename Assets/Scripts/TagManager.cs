@@ -15,6 +15,7 @@ public class Tags {
     public const string CANNON = "Cannon";
     public const string ENEMY_BULLET = "EnemyBullet";
     public const string BUILDING_BUILDER = "BuildingBuilder";
+    public const string TREE = "Tree";
 }
 
 public class AnimationTags {
