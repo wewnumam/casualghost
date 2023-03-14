@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour {
     [Header("Follow Target Properties")]
     private Transform[] targetToFollow;
+    private bool isCollideWithTarget;
 
     [Header("Movement Settings")]
     [SerializeField] private float _maxSpeed;
@@ -35,9 +36,20 @@ public class EnemyMovement : MonoBehaviour {
 
             FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
         }
+
+        if (isCollideWithTarget) {
+            GetComponent<Enemy>().PlayEnemyAttackAnimation();
+        } else {
+            GetComponent<Enemy>().PlayEnemyWalkAnimation();
+        }
     }
 
     void FollowTarget(Transform target) {
+        if (GetComponent<HealthSystem>().IsDie()) {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            return;
+        }
+
         // Enemy follow target
         Vector3 moveDir = (target.position - transform.position).normalized;
         GetComponent<Rigidbody2D>().AddForce(moveDir * _maxSpeed);
@@ -48,11 +60,7 @@ public class EnemyMovement : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * _maxSpeed;
         }
 
-        if (currentSpeed == 0) {
-            GetComponent<Enemy>().PlayEnemyIdleAnimation();
-        } else {
-            GetComponent<Enemy>().PlayEnemyWalkAnimation();
-        }
+        
 
         // Enemy look at target
         float angle = UtilsClass.GetAngleFromVectorFloat((target.position - transform.position).normalized);
@@ -63,5 +71,23 @@ public class EnemyMovement : MonoBehaviour {
 			localScale.x *= +1f;
 		}
 		transform.localScale = localScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        foreach (var t in targetToFollow) {
+            if (collision.gameObject.CompareTag(t.gameObject.tag)) {
+                isCollideWithTarget = true;
+                break;
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision) {
+        foreach (var t in targetToFollow) {
+            if (collision.gameObject.CompareTag(t.gameObject.tag)) {
+                isCollideWithTarget = false;
+                break;
+            }
+        }
     }
 }

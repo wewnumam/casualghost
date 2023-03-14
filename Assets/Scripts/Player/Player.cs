@@ -16,6 +16,11 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject explosionPrefab;
     private bool isBreathRoomActive;
 
+    [Header("Player Animation Properties")]
+    [SerializeField] private Animator playerBody;
+    [SerializeField] private GameObject[] playerHands;
+    [HideInInspector] public bool isAttacked;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -28,7 +33,11 @@ public class Player : MonoBehaviour {
 
     void Update() {
         if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
-            GamePanelManager.Instance.GameOver();
+            foreach (var hand in playerHands) {
+                Destroy(hand);
+            }
+            if (playerBody != null) Destroy(playerBody.gameObject);
+            GetComponent<Animator>().Play(AnimationTags.PLAYER_DIE);
         }
 
         SetPlayerInfo();
@@ -55,16 +64,18 @@ public class Player : MonoBehaviour {
     void OnCollisionStay2D(Collision2D collision) {
         // Player attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
+            collision.gameObject.GetComponent<Enemy>().PlayEnemyAttackAnimation();
 			StartCoroutine(Attacked(1f, 1f));
 		}
 	}
 
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
+        isAttacked = true;
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
-        GetComponent<Animator>().Play(AnimationTags.PLAYER_HURT);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
         canAttacked = true; // Allow enemy attack again
+        isAttacked = false;
         if (isBreathRoomActive) {
             GameObject explosion = Instantiate(explosionPrefab, transform);
             yield return new WaitForSeconds(waitForSeconds);
@@ -73,9 +84,15 @@ public class Player : MonoBehaviour {
 	}
 
     void SetPlayerInfo() {
+        if (GetComponent<HealthSystem>().IsDie()) return;
+
         playerInfoText.text = "";
 		// playerInfoText.text += $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\n";
         playerInfoText.text += $"BULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
 	}
+
+    public void SetGameOver() {
+        GamePanelManager.Instance.GameOver();
+    }
 }
 

@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Update() {
+        if (GetComponent<HealthSystem>().IsDie()) return;
+        
 		if (Input.GetKey(KeyCode.LeftShift) && !isBoosting) {
             StartCoroutine(Boost());
         }

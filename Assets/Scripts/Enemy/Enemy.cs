@@ -34,8 +34,7 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         if (GetComponent<HealthSystem>().IsDie()) {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+           PlayEnemyDieAnimation();
         }
     }
 
@@ -74,14 +73,45 @@ public class Enemy : MonoBehaviour {
     }
 
     public void PlayEnemyWalkAnimation() {
+        if (GetComponent<HealthSystem>().IsDie()) return;
+
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_WALK);
         }
     }
 
     public void PlayEnemyHurtAnimation() {
+        if (GetComponent<HealthSystem>().IsDie()) return;
+
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_HURT);
         }
+    }
+
+    public void PlayEnemyAttackAnimation() {
+        if (GetComponent<HealthSystem>().IsDie()) return;
+
+        if (IsEnemyTypeDefault()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_ATTACK);
+        }
+    }
+
+    private bool isAnimationDieCalled = false;
+    void PlayEnemyDieAnimation() {
+        if (isAnimationDieCalled) return;
+
+        if (enemyType == EnemyType.DEFAULT) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_DIE);
+        } else {
+            EnemyDie();
+        }
+
+        isAnimationDieCalled = true;
+    } 
+
+
+    public void EnemyDie() {
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

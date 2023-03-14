@@ -24,10 +24,14 @@ public class AnimationTags {
     public const string PLAYER_RELOAD = "PlayerReload";
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";
+    public const string PLAYER_DIE = "PlayerDie";
+    public const string PLAYER_AMMO_EMPTY = "PlayerAmmoEmpty";
     public const string PLAYER_RELOAD_TIME = "reloadTime";
     public const string ENEMY_DEFAULT_IDLE = "EnemyDefaultIdle";
     public const string ENEMY_DEFAULT_WALK = "EnemyDefaultWalk";
     public const string ENEMY_DEFAULT_HURT = "EnemyDefaultHurt";
+    public const string ENEMY_DEFAULT_DIE = "EnemyDefaultDie";
+    public const string ENEMY_DEFAULT_ATTACK = "EnemyDefaultAttack";
     public const string SWITCH_FIRST = "SwitchFirst";
     public const string SWITCH_SECOND = "SwitchSecond";
     public const string INVENTORY_OPEN = "InventoryOpen";

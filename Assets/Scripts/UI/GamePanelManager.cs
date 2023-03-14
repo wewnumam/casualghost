@@ -113,6 +113,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void GameOver() {
+        Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
         gameOverPanel.SetActive(true);
     }

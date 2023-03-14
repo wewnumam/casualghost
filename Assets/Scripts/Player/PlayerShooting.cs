@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour {
 	private int _roundsLeft = 0;
 	public int roundsLeft { get => _roundsLeft; }
 	private bool canShoot;
+	private bool isReload;
 
 	[Header("Bullet Instantiate Properties")]
 	[SerializeField] private GameObject[] bulletTypes;
@@ -36,9 +37,13 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 	void Update() {
+		if (_roundsLeft == 0 && !isReload && canShoot) {
+			GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_AMMO_EMPTY);
+		}
+
 		// Spawn bullet projectile when left mouse button is pressed
 		if (Input.GetMouseButtonDown(0) && GameManager.Instance.IsGameStateGameplay() && Player.Instance.IsPlayerStateShoot()) {
-			if (_roundsLeft > 0 && canShoot) {
+			if (_roundsLeft > 0 && canShoot && !isReload) {
 				Shoot();
 			}
 		}
@@ -46,8 +51,8 @@ public class PlayerShooting : MonoBehaviour {
 		if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space)) {
 			if (_roundsLeft < currentPlayerWeapon.maxRound) {
                 StartCoroutine(ReloadSequence(currentPlayerWeapon.reloadTime));
-				GetComponentInParent<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
-				GetComponentInParent<Animator>().Play(AnimationTags.PLAYER_RELOAD);
+				GetComponentInChildren<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
+				GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_RELOAD);
 			}
 		}
 		
@@ -79,8 +84,7 @@ public class PlayerShooting : MonoBehaviour {
 			b.GetComponentsInChildren<Projectile>()[i].SetBulletDamage(currentPlayerWeapon.bulletDamage); // Set bullet damage based on bullet damage property
 		}
 
-		_roundsLeft--;
-		canShoot = false;
+		
 		StartCoroutine(PullTrigger(currentPlayerWeapon.pullTriggerTime)); // Delay before player can shoot again
 	}
 
@@ -96,12 +100,16 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
     private IEnumerator ReloadSequence(float time) {
+		isReload = true;
         yield return new WaitForSeconds(time);
         _roundsLeft = currentPlayerWeapon.maxRound;
+		isReload = false;
     }
 
 	private IEnumerator PullTrigger(float time) {
+		canShoot = false;
         yield return new WaitForSeconds(time);
+		_roundsLeft--;
         canShoot = true;
     }
 
