@@ -113,6 +113,8 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void GameOver() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
         gameOverPanel.SetActive(true);

@@ -75,7 +75,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         foreach (var t in targetToFollow) {
-            if (collision.gameObject.CompareTag(t.gameObject.tag)) {
+            if (collision.gameObject.CompareTag(t.gameObject.tag) && t != null) {
                 isCollideWithTarget = true;
                 break;
             }
@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision) {
         foreach (var t in targetToFollow) {
-            if (collision.gameObject.CompareTag(t.gameObject.tag)) {
+            if (collision.gameObject.CompareTag(t.gameObject.tag) && t != null) {
                 isCollideWithTarget = false;
                 break;
             }

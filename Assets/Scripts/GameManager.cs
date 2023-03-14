@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour {
         // Initializes the gem count and starts the first level
         currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
         ResetGameplay(EnumsManager.LevelState.LEVEL_1);
+
+        SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.BGM_SLIDER), true);
+        SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.SFX_SLIDER), false);
     }
 
     void Update() {

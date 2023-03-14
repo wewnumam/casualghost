@@ -52,6 +52,8 @@ public class PlayerPrefsKeys {
     public const string IS_TUTORIAL_COIN_DONE = "isTutorialCoinDone";
     public const string IS_TUTORIAL_BUILD_DONE = "isTutorialBuildDone";
     public const string IS_TUTORIAL_UNLOCK_DONE = "isTutorialUnlockDone";
+    public const string BGM_SLIDER = "BGMSlider";
+    public const string SFX_SLIDER = "SFXSlider";
 }
 
 public class PlayerPrefsValues {

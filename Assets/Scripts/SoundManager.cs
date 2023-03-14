@@ -23,6 +23,11 @@ public class SoundManager : MonoBehaviour {
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
+            if (IsBGM(sound.soundEffect)) {
+                sound.source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("BGM")[0];
+            } else {
+                sound.source.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
+            }
         }
     }
 
@@ -46,13 +51,24 @@ public class SoundManager : MonoBehaviour {
         sound.source.Stop();
     }
 
-    public void SetVolume(float volume) {
-        audioMixer.SetFloat("Volume", volume);
+    public void SetVolume(float volume, bool isBGM) {
+        if (isBGM) {
+            audioMixer.SetFloat("BGMVolume", volume);
+        } else {
+            audioMixer.SetFloat("SFXVolume", volume);
+        }
     }
 
     private Sound GetSound(EnumsManager.SoundEffect soundEffect) {
         Sound sound = System.Array.Find(sounds, s => s.soundEffect == soundEffect);
         return sound;
+    }
+
+    private bool IsBGM(EnumsManager.SoundEffect soundEffect) {
+        return (
+            soundEffect == EnumsManager.SoundEffect._BGM_GAMEPLAY_1 ||
+            soundEffect == EnumsManager.SoundEffect._BGM_MAINMENU
+        );
     }
 }
 
