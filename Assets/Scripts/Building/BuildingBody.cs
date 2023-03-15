@@ -36,6 +36,13 @@ public class BuildingBody : MonoBehaviour {
 	}
 
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
+        if (isBanyan) {
+            SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
+                EnumsManager.SoundEffect.PLAYER_HURT_1,
+                EnumsManager.SoundEffect.PLAYER_HURT_2,
+                EnumsManager.SoundEffect.PLAYER_HURT_3
+            }));
+        }
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);

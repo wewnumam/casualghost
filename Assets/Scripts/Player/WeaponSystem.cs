@@ -60,7 +60,10 @@ public class WeaponSystem : MonoBehaviour {
 
     public void Unlock() {
         // If the player doesn't have enough gems to unlock the building, then return
-        if (!CanUnlock()) return;
+        if (!CanUnlock()) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_DISABLED);
+            return;
+        } 
 
         // Update the player preferences based on the building type
         if (weaponType == EnumsManager.WeaponType.SHOTGUN && !IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {

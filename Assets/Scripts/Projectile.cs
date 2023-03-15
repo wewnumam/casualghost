@@ -37,6 +37,14 @@ public class Projectile : MonoBehaviour {
 			// LineRenderer setup: size of 2 for start and end position each
 			lineRenderer.positionCount = 2;
 		}
+
+		if (weaponType == WeaponType.DEFAULT) {
+			SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SHOOT_WEAPON_DEFAULT);
+		} else if (weaponType == WeaponType.SHOTGUN) {
+			SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SHOOT_WEAPON_SHOTGUN);
+		} else if (weaponType == WeaponType.RIFLE) {
+			SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SHOOT_WEAPON_RIFLE);
+		}
 	}
 
 	private void Update() {

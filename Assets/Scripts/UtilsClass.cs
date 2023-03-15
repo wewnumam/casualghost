@@ -67,4 +67,8 @@ public static class UtilsClass {
 
         return gameObjectsTransfrom;
     }
+
+    public static EnumsManager.SoundEffect SuffleSFX(EnumsManager.SoundEffect[] soundEffects) {
+        return soundEffects[Random.Range(0, soundEffects.Length)];
+    } 
 }
