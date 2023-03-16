@@ -69,6 +69,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag(Tags.MIST)) {
+            StartCoroutine(Attacked(.5f, 0f));
+		}
+    }
+
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
         SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
             EnumsManager.SoundEffect.PLAYER_HURT_1,

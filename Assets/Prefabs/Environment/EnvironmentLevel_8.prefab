@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6941171365093788202}
   m_Layer: 0
-  m_Name: EnvironmentLevel_1
+  m_Name: EnvironmentLevel_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 8609739777419273341}
   - {fileID: 4967341972151094943}
   - {fileID: 6368153192774403862}
-  - {fileID: 2882596486493651969}
+  - {fileID: 6194737846483829089}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -268,7 +268,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8567046332476278283, guid: ae887dbb7187bc341b4f3900b99572f2, type: 3}
   m_PrefabInstance: {fileID: 3606195877594237076}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3794875440511416424
+--- !u!1001 &5283619977497246984
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -325,14 +325,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6233819110066564542, guid: 4551d80a3e4f6604bae29042de559167, type: 3}
       propertyPath: mistAmount
-      value: 10
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4551d80a3e4f6604bae29042de559167, type: 3}
---- !u!4 &2882596486493651969 stripped
+--- !u!4 &6194737846483829089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2065763684268325993, guid: 4551d80a3e4f6604bae29042de559167, type: 3}
-  m_PrefabInstance: {fileID: 3794875440511416424}
+  m_PrefabInstance: {fileID: 5283619977497246984}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7441292122953153712
 PrefabInstance:

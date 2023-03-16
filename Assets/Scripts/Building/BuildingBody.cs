@@ -35,6 +35,12 @@ public class BuildingBody : MonoBehaviour {
 		}
 	}
 
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.CompareTag(Tags.MIST)) {
+            StartCoroutine(Attacked(.5f, 0f));
+		}
+    }
+
 	IEnumerator Attacked(float damageAmount, float waitForSeconds) {
         if (isBanyan) {
             SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
@@ -42,14 +48,12 @@ public class BuildingBody : MonoBehaviour {
                 EnumsManager.SoundEffect.PLAYER_HURT_2,
                 EnumsManager.SoundEffect.PLAYER_HURT_3
             }));
+            CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
         }
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
         GetComponent<Animator>().Play("BuildingHurt");
         canAttacked = true; // Allow enemy attack again
-        if (isBanyan) {
-            CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
-        }
 	}
 }

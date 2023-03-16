@@ -4,9 +4,27 @@ using UnityEngine;
 
 public class Mist : MonoBehaviour {
     [SerializeField] private float _maxSpeed;
+    public bool isMoveLeft;
+    public bool isMoveRight;
+    public bool isMoveUp;
+    public bool isMoveDown;
 
     void Update() {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * _maxSpeed);
+        if (isMoveLeft) {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * _maxSpeed);
+        }
+
+        if (isMoveRight) {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * _maxSpeed);
+        }
+
+        if (isMoveUp) {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * _maxSpeed);
+        }
+
+        if (isMoveDown) {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.down * _maxSpeed);
+        }
 
         // Limit the velocity to a maximum value
         float currentSpeed = GetComponent<Rigidbody2D>().velocity.magnitude;

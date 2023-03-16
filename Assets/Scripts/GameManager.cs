@@ -72,7 +72,8 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
             if (levelState == (EnumsManager.LevelState)i) {
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
-                Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
+                GameObject environment = Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
+                Destroy(environment, playTimeInSeconds);
                 directionalLight.intensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.color = LevelManager.Instance.levels[i].directionalLightColor;
                 break;

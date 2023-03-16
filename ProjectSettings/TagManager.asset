@@ -16,6 +16,7 @@ TagManager:
   - Cannon
   - BulletTypeTwo
   - Tree
+  - Mist
   layers:
   - Default
   - TransparentFX
