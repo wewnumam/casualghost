@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Scene5
   m_EditorClassIdentifier: 
   sentences:
-  - text: Setelah 5 windu, kelima prajurit itu tewas di bawah pohon beringin, tubuh
-      mereka telah sepenuhnya terproses oleh tanah.
-  - text: Secara tidak langsung selama proses tersebut, nyawa mereka berpindah ke
-      pohon beringin yang sebelumnya telah memiliki emosi manusia.
-  background: {fileID: 21300000, guid: a6929a5ed2028984092f31d2118736e1, type: 3}
+  - text: Their last moments were spent under the tree's watchful gaze, as it recorded
+      their every emotion - joy, sadness, anger, and misery - and absorbed their
+      life force into its own.
+  background: {fileID: 21300000, guid: b9c8ed732491a2e438c4b2b14e3b6eac, type: 3}
   nextScene: {fileID: 11400000, guid: 9348bede9f8408441a5aa53d52e56fda, type: 2}
   isLastScene: 0

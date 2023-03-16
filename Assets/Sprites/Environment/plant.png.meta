@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83c6c444b342dd94a9187f8974a62d8d
+guid: c73e5e0025201c547b25aed2327892fc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tree_0
+      name: plant_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 107
-        height: 128
+        x: 94
+        y: 134
+        width: 92
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b98b208c0420cf944a29aa09922e3f05
-      internalID: 1493309922
+      spriteID: e8befaf84760ec24bba6e006dcb03dc3
+      internalID: 1410020896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree_1
+      name: plant_1
       rect:
         serializedVersion: 2
-        x: 132
-        y: 0
-        width: 89
-        height: 128
+        x: 189
+        y: 132
+        width: 100
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78677bc7fcd5fdc4ca31306bd2a07a82
-      internalID: 1325850661
+      spriteID: e1061e4227d33f947b4e8a9e869d2f43
+      internalID: -1528471201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plant_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 127
+        width: 79
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131fb89e018894f46bb7792402e60b46
+      internalID: -1707504749
       vertices: []
       indices: 
       edges: []
@@ -169,8 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tree_0: 1493309922
-      tree_1: 1325850661
+      plant_0: 1410020896
+      plant_1: -1528471201
+      plant_2: -1707504749
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

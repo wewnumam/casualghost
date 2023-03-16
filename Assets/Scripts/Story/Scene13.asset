@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d9abb482d8ab444b8cd4a566f89a026, type: 3}
-  m_Name: Scene12
+  m_Name: Scene13
   m_EditorClassIdentifier: 
   sentences:
-  - text: Ultimately, on one fateful night, the Genderuwo launched a massive attack.
-  background: {fileID: 21300000, guid: ae848600d9c1a51438acc70f5332c109, type: 3}
-  nextScene: {fileID: 11400000, guid: 2d6681f004bbcbf4786eb4d5146d218c, type: 2}
-  isLastScene: 0
+  - text: 'The outcome of this battle remained uncertain, but one thing was clear:
+      the struggle for dominance had only just begun.'
+  background: {fileID: 21300000, guid: 886b28bfa1649d244842065e42bfea0d, type: 3}
+  nextScene: {fileID: 0}
+  isLastScene: 1
