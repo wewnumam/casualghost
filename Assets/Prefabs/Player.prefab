@@ -801,6 +801,7 @@ MonoBehaviour:
   - {fileID: 2099510498033677122}
   - {fileID: 5469494357199633525}
   isAttacked: 0
+  playerLight: {fileID: 665546537}
 --- !u!114 &2099510498463802632
 MonoBehaviour:
   m_ObjectHideFlags: 0

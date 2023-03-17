@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour {
     public static Player Instance { get;  private set; }
@@ -21,6 +22,10 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject[] playerHands;
     [HideInInspector] public bool isAttacked;
 
+    [Header("Player Environment Properties")]
+    [SerializeField] private Light2D playerLight;
+    private float initialPlayerLightIntensity;
+
     void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -29,9 +34,16 @@ public class Player : MonoBehaviour {
         }
 
         playerState = EnumsManager.PlayerState.SHOOT;
+        initialPlayerLightIntensity = playerLight.intensity;
     }
 
     void Update() {
+        if (GameManager.Instance.IsGameStateMainMenu()) {
+            playerLight.intensity = 0;
+        } else {
+            playerLight.intensity = initialPlayerLightIntensity;
+        }
+
         if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DIE);
             foreach (var hand in playerHands) {

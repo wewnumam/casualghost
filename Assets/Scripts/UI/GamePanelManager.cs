@@ -52,6 +52,7 @@ public class GamePanelManager : MonoBehaviour {
     public void PlayGame() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
+            GameManager.Instance.ResetGameplay(EnumsManager.LevelState.LEVEL_1);
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             mainMenuPanel.SetActive(false);
             Time.timeScale = 1f;
