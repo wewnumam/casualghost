@@ -11,6 +11,8 @@ public class StorySceneController : MonoBehaviour {
     void Awake() => Time.timeScale = 1f;
 
     void Start() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
         bottomBar.PlayScene(currentScene);
         backgroundController.SetImage(currentScene.background);
     }
@@ -20,12 +22,18 @@ public class StorySceneController : MonoBehaviour {
             if (bottomBar.IsCompleted()) {
                 if (bottomBar.IsLastSentence()) {
                     if (currentScene.isLastScene) {
+                        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
+                        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
                         PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
                         SceneManager.LoadScene(SceneNames.GAMEPLAY);
                     } else {
                         currentScene = currentScene.nextScene;
                         bottomBar.PlayScene(currentScene);
                         backgroundController.SwitchImage(currentScene.background);
+                        if (currentScene.name == "Scene8") {
+                            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
+                            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
+                        }
                     }
                 } else {
                     bottomBar.PlayNextSentence();

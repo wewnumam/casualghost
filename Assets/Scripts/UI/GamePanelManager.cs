@@ -33,6 +33,7 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
             Time.timeScale = 0f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
         }
         pauseMenuPanel.SetActive(false);
@@ -183,6 +184,8 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void LastLevel() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
         Time.timeScale = 0f;
 
         levelTransitionPanel.SetActive(false);
