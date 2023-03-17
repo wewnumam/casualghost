@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         if (GetComponent<HealthSystem>().IsDie()) {
+            
            PlayEnemyDieAnimation();
         }
     }
@@ -108,10 +109,23 @@ public class Enemy : MonoBehaviour {
     void PlayEnemyDieAnimation() {
         if (isAnimationDieCalled) return;
 
-        if (enemyType == EnemyType.DEFAULT) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_DIE);
-        } else {
-            EnemyDie();
+        switch (enemyType) {
+            case EnemyType.DEFAULT:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
+                GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_DIE);
+                break;
+            case EnemyType.RUNNER:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_SMALL);
+                EnemyDie();
+                break;
+            case EnemyType.GIANT:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
+                EnemyDie();
+                break;
+            case EnemyType.SHOOTER:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
+                EnemyDie();
+                break;
         }
 
         isAnimationDieCalled = true;

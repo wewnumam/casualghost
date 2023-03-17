@@ -67,6 +67,8 @@ public static class EnumsManager {
         PLAYER_HURT_1,
         PLAYER_HURT_2,
         PLAYER_HURT_3,
+        PLAYER_HURT_4,
+        PLAYER_POWER_UP,
         PLAYER_SHOOT_WEAPON_DEFAULT,
         PLAYER_SHOOT_WEAPON_RIFLE,
         PLAYER_SHOOT_WEAPON_SHOTGUN,

@@ -46,7 +46,8 @@ public class BuildingBody : MonoBehaviour {
             SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
                 EnumsManager.SoundEffect.PLAYER_HURT_1,
                 EnumsManager.SoundEffect.PLAYER_HURT_2,
-                EnumsManager.SoundEffect.PLAYER_HURT_3
+                EnumsManager.SoundEffect.PLAYER_HURT_3,
+                EnumsManager.SoundEffect.PLAYER_HURT_4
             }));
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
         }

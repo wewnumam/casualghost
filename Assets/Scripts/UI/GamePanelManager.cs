@@ -114,7 +114,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void GameOver() {
         SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
-        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
         gameOverPanel.SetActive(true);
@@ -133,6 +133,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void ClaimReward() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.ClaimReward();        
         GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
@@ -169,7 +170,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void NextLevel() {
-        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_POWER_UP);
         Time.timeScale = 1f;
 
         if (LevelManager.Instance.IsLastLevel()) {
