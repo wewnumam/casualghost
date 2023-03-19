@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
     [SerializeField] private Animator playerBody;
     [SerializeField] private GameObject[] playerHands;
     [HideInInspector] public bool isAttacked;
+    [SerializeField] private GameObject powerUpParticlePrefab;
+    [HideInInspector] public bool isPowerUp;
 
     [Header("Player Environment Properties")]
     [SerializeField] private Light2D playerLight;
@@ -51,6 +53,11 @@ public class Player : MonoBehaviour {
             }
             if (playerBody != null) Destroy(playerBody.gameObject);
             GetComponent<Animator>().Play(AnimationTags.PLAYER_DIE);
+        }
+
+        if (isPowerUp) {
+            StartCoroutine(PowerUpAnimation());
+            isPowerUp = false;
         }
 
         SetPlayerInfo();
@@ -107,6 +114,12 @@ public class Player : MonoBehaviour {
             Destroy(explosion);
         }
 	}
+
+    IEnumerator PowerUpAnimation() {
+        yield return new WaitForSeconds(1f);
+        GameObject powerUp = Instantiate(powerUpParticlePrefab, transform);
+        Destroy(powerUp, 3f);
+    }
 
     void SetPlayerInfo() {
         if (GetComponent<HealthSystem>().IsDie()) return;

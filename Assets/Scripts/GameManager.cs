@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     [Header("Environment Properties")]
     [SerializeField] private Light2D directionalLight;
     [SerializeField] private Transform environmentParent;
+    private float currentDirectionalLightIntensity;
 
     void Awake () {
         if (Instance == null) {
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour {
             if (currentTime <= 0) {
                 GamePanelManager.Instance.LevelTransition();
             }
+
+            directionalLight.intensity = currentDirectionalLightIntensity;
+        } else {
+            if (!IsGameStateMainMenu()) directionalLight.intensity = 0.8f;
         }
 
         // Updates the UI text components
@@ -73,6 +78,7 @@ public class GameManager : MonoBehaviour {
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
                 GameObject environment = Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
                 Destroy(environment, playTimeInSeconds);
+                currentDirectionalLightIntensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.intensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.color = LevelManager.Instance.levels[i].directionalLightColor;
                 break;

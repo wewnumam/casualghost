@@ -801,6 +801,8 @@ MonoBehaviour:
   - {fileID: 2099510498033677122}
   - {fileID: 5469494357199633525}
   isAttacked: 0
+  powerUpParticlePrefab: {fileID: 4293073376873104698, guid: ab54ee28bc72a01448a30cd695f5ba19, type: 3}
+  isPowerUp: 0
   playerLight: {fileID: 665546537}
 --- !u!114 &2099510498463802632
 MonoBehaviour:

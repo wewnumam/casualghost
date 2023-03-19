@@ -182,6 +182,7 @@ public class GamePanelManager : MonoBehaviour {
         }
         
         levelTransitionPanel.SetActive(false);
+        GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<Player>().isPowerUp = true;
     }
 
     void LastLevel() {

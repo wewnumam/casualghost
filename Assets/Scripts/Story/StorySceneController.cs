@@ -40,6 +40,8 @@ public class StorySceneController : MonoBehaviour {
                 }
             }
         } else if (Input.GetKeyDown(KeyCode.Escape)) {
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
             SceneManager.LoadScene(SceneNames.GAMEPLAY);
         }

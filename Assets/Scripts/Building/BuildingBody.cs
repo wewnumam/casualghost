@@ -15,6 +15,7 @@ public class BuildingBody : MonoBehaviour {
     void Update() {
         if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             if (isBanyan) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DIE);
                 GamePanelManager.Instance.GameOver();
             } else {
                 Destroy(gameObject);

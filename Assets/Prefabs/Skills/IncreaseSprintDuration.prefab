@@ -70,8 +70,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1515834861, guid: 1a2eb54c84a28f142b6158d485c7b9a1, type: 3}
-  m_Type: 2
+  m_Sprite: {fileID: -1420359612, guid: 452d14bfabc11284a991fbe14df779c7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.6
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &4327994734802937821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -2052307294, guid: 1a2eb54c84a28f142b6158d485c7b9a1, type: 3}
+    m_HighlightedSprite: {fileID: 1644006471, guid: 452d14bfabc11284a991fbe14df779c7, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4e8f38b00147e4189f55cc3301d4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: 
+  header: Increase Sprint Duration
   content: Extends run duration.
 --- !u!1 &4327994735227572121
 GameObject:
@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4327994735227572126
 RectTransform:
   m_ObjectHideFlags: 0
