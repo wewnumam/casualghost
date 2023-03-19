@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour {
     private EnumsManager.LevelState levelState;
 
     [Header("Gems Properties")]
-    private int currentGems;
+    private int _currentGems;
+    public int currentGems { get => _currentGems; }
     [HideInInspector] public int gemsObtainedFromLevel;
     [HideInInspector] public int gemsObtainedFromLeftoverCoin;
     [HideInInspector] public int gemsObtainedFromLeftoverHealth;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour {
 
     void Start() {
         // Initializes the gem count and starts the first level
-        currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
+        _currentGems = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS);
 
         SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.BGM_SLIDER), true);
         SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.SFX_SLIDER), false);
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour {
 
             directionalLight.intensity = currentDirectionalLightIntensity;
         } else {
-            if (!IsGameStateMainMenu()) directionalLight.intensity = 0.8f;
+            directionalLight.intensity = 0.8f;
         }
 
         // Updates the UI text components
@@ -120,11 +121,16 @@ public class GameManager : MonoBehaviour {
             );
         }
     }
+
+    public void SetCurrentGems(int gems) {
+        _currentGems = gems;
+        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, _currentGems);
+    }
     
     // Adds the total number of gems obtained, saves the to PlayerPrefs
     public void ClaimReward() {
-        currentGems += gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth;
-        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, currentGems);
+        _currentGems += gemsObtainedFromLevel + gemsObtainedFromLeftoverCoin + gemsObtainedFromLeftoverHealth;
+        PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, _currentGems);
     }
 
     void SetTimerInfo() {
@@ -134,7 +140,8 @@ public class GameManager : MonoBehaviour {
 
     void SetLevelInfo() {
         levelInfoText[0].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
-        levelInfoText[1].text = $"WAVE: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
+        levelInfoText[1].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
+        levelInfoText[2].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
     }
 
     void SetGemsInfo() {

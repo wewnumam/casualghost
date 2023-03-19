@@ -91,6 +91,7 @@ public class GamePanelManager : MonoBehaviour {
     public void Pause() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.SetGameState(EnumsManager.GameState.PAUSE);
+        gameplayPanel.SetActive(false);
         pauseMenuPanel.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -98,6 +99,7 @@ public class GamePanelManager : MonoBehaviour {
     public void Resume() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
+        gameplayPanel.SetActive(true);
         pauseMenuPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -119,6 +121,7 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
+        gameplayPanel.SetActive(false);
         gameOverPanel.SetActive(true);
     }
 
