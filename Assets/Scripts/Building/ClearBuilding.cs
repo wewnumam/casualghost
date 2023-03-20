@@ -25,6 +25,7 @@ public class ClearBuilding : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         // If the colliding object has a specific tag, destroy all objects on the collider and the game object itself
         if (collider.gameObject.CompareTag(Tags.BULLET_TYPE_ONE) || collider.gameObject.CompareTag(Tags.BULLET_TYPE_TWO)) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.EXPLOSION);
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosion, 2f);
 

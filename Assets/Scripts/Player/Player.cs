@@ -109,6 +109,7 @@ public class Player : MonoBehaviour {
         canAttacked = true; // Allow enemy attack again
         isAttacked = false;
         if (isBreathRoomActive) {
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.EXPLOSION);
             GameObject explosion = Instantiate(explosionPrefab, transform);
             yield return new WaitForSeconds(waitForSeconds);
             Destroy(explosion);

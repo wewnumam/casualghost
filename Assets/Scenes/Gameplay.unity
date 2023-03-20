@@ -1534,43 +1534,43 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - soundEffect: 24
-    clip: {fileID: 8300000, guid: 5901e0db6e8b0a440b71c65afbd54a67, type: 3}
+    clip: {fileID: 8300000, guid: b13ae64388a025b4c87a10363feae9ec, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - soundEffect: 25
+    clip: {fileID: 8300000, guid: 5901e0db6e8b0a440b71c65afbd54a67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - soundEffect: 26
     clip: {fileID: 8300000, guid: 9ba977d6d84b2664a97bf2915f3deb37, type: 3}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundEffect: 26
+  - soundEffect: 27
     clip: {fileID: 8300000, guid: 477ccea8899204644abfbbfc25176f86, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundEffect: 27
+  - soundEffect: 28
     clip: {fileID: 8300000, guid: d1360143c77e8574aaa686b0960619de, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundEffect: 28
+  - soundEffect: 29
     clip: {fileID: 8300000, guid: c39456b6c9153994d9244f5b6d7a3ff9, type: 3}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundEffect: 29
-    clip: {fileID: 8300000, guid: 4e278856253be7d4a94c9cae89fd3019, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - soundEffect: 30
-    clip: {fileID: 8300000, guid: 53b6a7302785f284f9ee48797b2389f8, type: 3}
+    clip: {fileID: 8300000, guid: 4e278856253be7d4a94c9cae89fd3019, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -1584,16 +1584,22 @@ MonoBehaviour:
   - soundEffect: 32
     clip: {fileID: 8300000, guid: 53b6a7302785f284f9ee48797b2389f8, type: 3}
     volume: 1
-    pitch: 2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - soundEffect: 33
+    clip: {fileID: 8300000, guid: 53b6a7302785f284f9ee48797b2389f8, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
+  - soundEffect: 34
     clip: {fileID: 8300000, guid: ad88cce4ea9fc534aafd27f57c98bab4, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - soundEffect: 34
+  - soundEffect: 35
     clip: {fileID: 8300000, guid: 1c3f47c692c16d44baffc571354f86d4, type: 3}
     volume: 1
     pitch: 1
@@ -2819,9 +2825,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800.00006, y: -600.00006}
+  m_AnchoredPosition: {x: -36.7476, y: 664.62506}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: -0.015, y: -0.015}
+  m_Pivot: {x: -0.00068901747, y: 0.016615625}
 --- !u!114 &158232814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18651,7 +18657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50.000015}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: -50, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482411576

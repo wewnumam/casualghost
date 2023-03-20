@@ -63,6 +63,7 @@ public static class EnumsManager {
         ENEMY_SPAWN_BIG,
         ENEMY_SPAWN_DEFAULT,
         ENEMY_SPAWN_SMALL,
+        EXPLOSION,
         PLAYER_DIE,
         PLAYER_HURT_1,
         PLAYER_HURT_2,
