@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,6 +103,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -274,13 +286,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ruwo 1 dead sprite 1_6: -300929402
       ruwo 1 dead sprite 1_0: -945193319
       ruwo 1 dead sprite 1_1: -394565394
-      ruwo 1 dead sprite 1_3: -294431916
-      ruwo 1 dead sprite 1_5: -129767783
-      ruwo 1 dead sprite 1_4: 329175568
       ruwo 1 dead sprite 1_2: 2106184311
+      ruwo 1 dead sprite 1_3: -294431916
+      ruwo 1 dead sprite 1_4: 329175568
+      ruwo 1 dead sprite 1_5: -129767783
+      ruwo 1 dead sprite 1_6: -300929402
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
