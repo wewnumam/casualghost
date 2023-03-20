@@ -6,6 +6,7 @@ public class ClearBuilding : MonoBehaviour {
     private List<string> buildingsCanDestroyed;
     private List<GameObject> objectsOnCollider;
     private bool canDestroy; // Prevent objects from being destroyed until a certain condition is met
+    [SerializeField] private GameObject explosionPrefab;
 
     void Start() {
         // Create a new list and add tags of buildings that can be destroyed
@@ -24,7 +25,11 @@ public class ClearBuilding : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         // If the colliding object has a specific tag, destroy all objects on the collider and the game object itself
         if (collider.gameObject.CompareTag(Tags.BULLET_TYPE_ONE) || collider.gameObject.CompareTag(Tags.BULLET_TYPE_TWO)) {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 2f);
+
             canDestroy = false;
+
             foreach (var o in objectsOnCollider) {
                 Destroy(o);
             }
