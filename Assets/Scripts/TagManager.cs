@@ -17,6 +17,7 @@ public class Tags {
     public const string BUILDING_BUILDER = "BuildingBuilder";
     public const string TREE = "Tree";
     public const string MIST = "Mist";
+    public const string EXPLOSION = "Explosion";
 }
 
 public class AnimationTags {

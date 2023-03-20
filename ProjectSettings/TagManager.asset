@@ -17,6 +17,7 @@ TagManager:
   - BulletTypeTwo
   - Tree
   - Mist
+  - Explosion
   layers:
   - Default
   - TransparentFX

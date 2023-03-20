@@ -63,6 +63,10 @@ public class Enemy : MonoBehaviour {
             float bulletDamage = collider.gameObject.GetComponent<Projectile>().bulletDamage;
             GetComponent<HealthSystem>().TakeDamage(bulletDamage);
         }
+
+        if (collider.gameObject.CompareTag(Tags.EXPLOSION)) {
+            GetComponent<HealthSystem>().TakeDamage(.25f);
+        }
     }
 
     void OnMouseEnter() {
