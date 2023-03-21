@@ -126,6 +126,7 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void Reward() {
+        HighScoreSystem.Instance.SetHighScore(GameManager.Instance.GetCurrentLevelState());
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.REWARD);
         GameManager.Instance.SetGemsRewardFromCoinAndHealth();

@@ -44,6 +44,7 @@ public class AnimationTags {
 public class PlayerPrefsKeys {
     public const string GEMS = "gems";
     public const string WEAPON = "weapon";
+    public const string HIGH_SCORE = "highScore";
     public const string IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED = "isIntroStoryCutsceneAlreadyPlayed";
     public const string IS_THORNMINE_UNLOCKED = "isThornMineUnlocked";
     public const string IS_DECOY_UNLOCKED = "isDecoyUnlocked";

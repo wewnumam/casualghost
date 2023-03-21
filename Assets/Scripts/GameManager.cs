@@ -141,7 +141,8 @@ public class GameManager : MonoBehaviour {
     void SetLevelInfo() {
         levelInfoText[0].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
         levelInfoText[1].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
-        levelInfoText[2].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
+        levelInfoText[2].text = $"Current Level: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
+        levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), HighScoreSystem.Instance.currentHighScore)}";
     }
 
     void SetGemsInfo() {

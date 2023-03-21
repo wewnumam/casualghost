@@ -188,6 +188,13 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 2100000, guid: c2f3d7a498764574d8d8e7f69663a64c, type: 2}
+    attribute: m_Materials.Array.data[0]
+    path: 
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -208,6 +215,13 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 212
       customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 21
       isPPtrCurve: 1
     - serializedVersion: 2
       path: 0
@@ -246,6 +260,7 @@ AnimationClip:
     - {fileID: -394565394, guid: 50fb66b4c89c52240a2e3f4d457d89a0, type: 3}
     - {fileID: -945193319, guid: 50fb66b4c89c52240a2e3f4d457d89a0, type: 3}
     - {fileID: -945193319, guid: 50fb66b4c89c52240a2e3f4d457d89a0, type: 3}
+    - {fileID: 2100000, guid: c2f3d7a498764574d8d8e7f69663a64c, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
