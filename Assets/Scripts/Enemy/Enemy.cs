@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour {
 
     [Header("Coin Instantiate Properties")]
     [SerializeField] private GameObject coinPrefab;
+    
+    [Header("Particle Instantiate Properties")]
+    [SerializeField] private GameObject particlePrefab;
 
     private enum EnemyType {
         DEFAULT,
@@ -118,6 +121,7 @@ public class Enemy : MonoBehaviour {
     private bool isAnimationDieCalled = false;
     void PlayEnemyDieAnimation() {
         if (isAnimationDieCalled) return;
+        GameObject particle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
 
         switch (enemyType) {
             case EnemyType.DEFAULT:

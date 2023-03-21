@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
+  particlePrefab: {fileID: 4293073376873104698, guid: 783ddf3fb9d84c744b168bc1efcae2e7, type: 3}
 --- !u!114 &-6680636542770539309
 MonoBehaviour:
   m_ObjectHideFlags: 0
