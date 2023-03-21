@@ -19,6 +19,7 @@ public class HealthBar : MonoBehaviour {
     }
 
     void Update() {
+        SetMaxHealth(GetComponentInParent<HealthSystem>().maxHealth);
         SetHealth(GetComponentInParent<HealthSystem>().currentHealth);
         transform.position = GetComponentInParent<Transform>().position;
     }

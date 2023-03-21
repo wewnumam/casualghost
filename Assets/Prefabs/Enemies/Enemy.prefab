@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1419193210521235100}
   - component: {fileID: 6493536287298976960}
   - component: {fileID: -6680636542770539309}
+  - component: {fileID: 5679233497994631459}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -198,6 +199,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 2.5
+--- !u!114 &5679233497994631459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
+  m_ShapePath:
+  - {x: -0.6850815, y: -1.8546531, z: 0}
+  - {x: -0.6865387, y: -0.5035867, z: 0}
+  - {x: 0.6714649, y: -0.50542045, z: 0}
+  - {x: 0.56379795, y: -1.8783425, z: 0}
+  - {x: 0.39989662, y: -1.8661256, z: 0}
+  - {x: 0.2626238, y: -1.1636152, z: 0}
+  - {x: 0.0042295456, y: -0.792173, z: 0}
+  - {x: -0.39143753, y: -1.1959147, z: 0}
+  - {x: -0.50448513, y: -1.8661256, z: 0}
+  m_ShapePathHash: 337267087
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 227188
 --- !u!1 &7544565066094857896
 GameObject:
   m_ObjectHideFlags: 0

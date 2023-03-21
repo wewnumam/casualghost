@@ -61,8 +61,8 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.2
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 6542620954404899963}
   - component: {fileID: 5768006589599483648}
   - component: {fileID: 3714777287793524553}
+  - component: {fileID: 932891897018405376}
   m_Layer: 0
   m_Name: Banyan
   m_TagString: Banyan
@@ -476,6 +477,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBanyan: 1
   buildingInfoText: {fileID: 2848619743411938646}
+--- !u!114 &932891897018405376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542620954404899966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
+  m_ShapePath:
+  - {x: -4.9758406, y: -4.884271, z: 0}
+  - {x: -3.5288615, y: -3.7953033, z: 0}
+  - {x: -2.08665, y: -4.024226, z: 0}
+  - {x: -2.1095421, y: -3.3832428, z: 0}
+  - {x: -3.8951375, y: -3.108536, z: 0}
+  - {x: -1.9950808, y: -3.1314282, z: 0}
+  - {x: -1.9950808, y: -2.4904451, z: 0}
+  - {x: -1.9092027, y: -2.0937471, z: 0}
+  - {x: -4.640544, y: -1.8119612, z: 0}
+  - {x: 2.30574, y: -1.573384, z: 0}
+  - {x: 1.0048318, y: -2.692165, z: 0}
+  - {x: 1.4663277, y: -3.3470325, z: 0}
+  - {x: 4.334858, y: -4.35775, z: 0}
+  - {x: 0.5001743, y: -4.3218255, z: 0}
+  - {x: 0.9122348, y: -4.9170237, z: 0}
+  - {x: 2.3315537, y: -5.4893293, z: 0}
+  - {x: 0.6604202, y: -5.123054, z: 0}
+  - {x: -0.34683883, y: -4.5049634, z: 0}
+  - {x: -0.75889945, y: -4.9170237, z: 0}
+  - {x: -1.2396367, y: -4.6881013, z: 0}
+  - {x: -1.9492964, y: -5.191731, z: 0}
+  - {x: -2.1324341, y: -5.9242826, z: 0}
+  - {x: -2.4300337, y: -5.237515, z: 0}
+  - {x: -1.6059124, y: -4.436286, z: 0}
+  - {x: -3.483077, y: -4.115795, z: 0}
+  m_ShapePathHash: 561226154
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -374410
 --- !u!1001 &6542620954174550128
 PrefabInstance:
   m_ObjectHideFlags: 0

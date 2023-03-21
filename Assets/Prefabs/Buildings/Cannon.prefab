@@ -61,8 +61,8 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.2
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 6901243354990245161}
   - component: {fileID: 1926142140258470312}
   - component: {fileID: 2716545792112491870}
+  - component: {fileID: 6506453875026619706}
   m_Layer: 10
   m_Name: Cannon
   m_TagString: Cannon
@@ -447,6 +448,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBanyan: 0
   buildingInfoText: {fileID: 1901092586603434672}
+--- !u!114 &6506453875026619706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568252636758225230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
+  m_ShapePath:
+  - {x: -1.3470773, y: -0.836555, z: 0}
+  - {x: -0.87134707, y: -0.55873835, z: 0}
+  - {x: -0.8353966, y: -0.07762933, z: 0}
+  - {x: -0.3199311, y: 0.012693405, z: 0}
+  - {x: 0.24151337, y: 0.12921172, z: 0}
+  - {x: 1.2228539, y: -1.4186759, z: 0}
+  - {x: 0.049292028, y: -0.81166124, z: 0}
+  - {x: -0.15022597, y: -1.8077787, z: 0}
+  - {x: -0.6892426, y: -0.7003752, z: 0}
+  - {x: -1.2962575, y: -1.8941709, z: 0}
+  m_ShapePathHash: -347040273
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 226668
 --- !u!1 &7234297265434437092
 GameObject:
   m_ObjectHideFlags: 0

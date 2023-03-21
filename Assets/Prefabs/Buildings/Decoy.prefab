@@ -61,8 +61,8 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
+  m_ShadowIntensityEnabled: 1
+  m_ShadowIntensity: 0.2
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 2397641025541918810}
   - component: {fileID: 2397641025541918789}
   - component: {fileID: 5385411688163731544}
+  - component: {fileID: 3593199820142124133}
   m_Layer: 10
   m_Name: Decoy
   m_TagString: Decoy
@@ -297,6 +298,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBanyan: 0
   buildingInfoText: {fileID: 3068213992743457960}
+--- !u!114 &3593199820142124133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397641025541918814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
+  m_ShapePath:
+  - {x: -0.41646147, y: -1.148743, z: 0}
+  - {x: -0.43803176, y: -0.53973114, z: 0}
+  - {x: 0.21822149, y: -0.4854107, z: 0}
+  - {x: 0.19663, y: -1.2773981, z: 0}
+  - {x: 0.89763916, y: -1.5047524, z: 0}
+  - {x: 0.34421423, y: -1.5616624, z: 0}
+  - {x: 0.84184647, y: -2.6795325, z: 0}
+  - {x: 0.11061014, y: -2.091165, z: 0}
+  - {x: -0.43446618, y: -2.7608302, z: 0}
+  - {x: -0.3721717, y: -1.8419873, z: 0}
+  - {x: -0.917248, y: -2.2157538, z: 0}
+  - {x: -0.8393799, y: -1.5460885, z: 0}
+  m_ShapePathHash: -128699339
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 226808
 --- !u!1 &4876345381711719606
 GameObject:
   m_ObjectHideFlags: 0

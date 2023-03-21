@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Enemy : MonoBehaviour {
     [SerializeField] private EnemyType enemyType;
@@ -34,8 +35,13 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         if (GetComponent<HealthSystem>().IsDie()) {
-            
-           PlayEnemyDieAnimation();
+            if (GetComponent<ShadowCaster2D>() != null) {
+                GetComponent<ShadowCaster2D>().enabled = false;
+            }
+            if (GetComponent<BoxCollider2D>() != null) {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+            PlayEnemyDieAnimation();
         }
     }
 
