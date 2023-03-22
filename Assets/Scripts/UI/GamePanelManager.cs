@@ -42,6 +42,12 @@ public class GamePanelManager : MonoBehaviour {
         rewardPanel.SetActive(false);
         optionMenuPanel.SetActive(false);
         lastLevelPanel.SetActive(false);
+
+        // Skip main menu after intro story scene
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED) == PlayerPrefsValues.FALSE) {
+            PlayGame();
+            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED, PlayerPrefsValues.TRUE);
+        }
     }
 
     void Update() {
@@ -139,9 +145,12 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void ClaimReward() {
+        GemsSystem.Instance.AddGems(
+            GameManager.Instance.gemsObtainedFromLevel + 
+            GameManager.Instance.gemsObtainedFromLeftoverCoin + 
+            GameManager.Instance.gemsObtainedFromLeftoverHealth);
         SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
-        GameManager.Instance.ClaimReward();        
         GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

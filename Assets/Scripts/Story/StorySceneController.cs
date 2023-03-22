@@ -19,31 +19,32 @@ public class StorySceneController : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
-            if (bottomBar.IsCompleted()) {
-                if (bottomBar.IsLastSentence()) {
-                    if (currentScene.isLastScene) {
-                        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
-                        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
-                        PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
-                        SceneManager.LoadScene(SceneNames.GAMEPLAY);
-                    } else {
-                        currentScene = currentScene.nextScene;
-                        bottomBar.PlayScene(currentScene);
-                        backgroundController.SwitchImage(currentScene.background);
-                        if (currentScene.name == "Scene8") {
-                            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
-                            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
-                        }
-                    }
+            if (!bottomBar.IsCompleted()) return;
+            
+            if (bottomBar.IsLastSentence()) {
+                if (currentScene.isLastScene) {
+                    LoadGameplay();
                 } else {
-                    bottomBar.PlayNextSentence();
+                    currentScene = currentScene.nextScene;
+                    bottomBar.PlayScene(currentScene);
+                    backgroundController.SwitchImage(currentScene.background);
+                    if (currentScene.name == "Scene8") {
+                        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
+                        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
+                    }
                 }
+            } else {
+                bottomBar.PlayNextSentence();
             }
         } else if (Input.GetKeyDown(KeyCode.Escape)) {
-            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
-            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
-            PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
-            SceneManager.LoadScene(SceneNames.GAMEPLAY);
+            LoadGameplay();
         }
+    }
+
+    void LoadGameplay() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_MAGICAL);
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_INTRO_STORY_TENSE);
+        PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED, PlayerPrefsValues.TRUE);
+        SceneManager.LoadScene(SceneNames.GAMEPLAY);
     }
 }

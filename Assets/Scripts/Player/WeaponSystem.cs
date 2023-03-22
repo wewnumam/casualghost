@@ -13,6 +13,8 @@ public class WeaponSystem : MonoBehaviour {
     [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI costInfoText;
     private string intialCostInfoText;
+    [SerializeField] private Sprite initialImage;
+    [SerializeField] private Sprite highlightedImage;
 
     void Awake() {
         intialCostInfoText = costInfoText.text;
@@ -20,7 +22,7 @@ public class WeaponSystem : MonoBehaviour {
 
     void Update() {
         SetCostInfoText();
-        ModifyImageColorAlpha();
+        ModifyImage();
     }
 
     void SetCostInfoText() {
@@ -39,15 +41,16 @@ public class WeaponSystem : MonoBehaviour {
         }
     }
 
-    void ModifyImageColorAlpha() {
+    void ModifyImage() {
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
-        // Modify the alpha value of the image color of the building UI element based on whether the player can afford to build it.
         Color imageColor = GetComponent<Image>().color;
         if (playerShooting.currentWeaponType == weaponType) {
             imageColor.a = 0.5f;
+            GetComponent<Image>().sprite = highlightedImage;
         } else {
             imageColor.a = 1f;
+            GetComponent<Image>().sprite = initialImage;
         }
         GetComponent<Image>().color = imageColor;
     }
@@ -56,7 +59,7 @@ public class WeaponSystem : MonoBehaviour {
     bool IsWeaponUnlocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.TRUE;
 
     // Helper method for checking if the player has enough gems to unlock the building
-    bool CanUnlock() => GameManager.Instance.currentGems >= unlockCost;
+    bool CanUnlock() => GemsSystem.Instance.currentGems >= unlockCost;
 
     public void Unlock() {
         // If the player doesn't have enough gems to unlock the building, then return
@@ -77,7 +80,7 @@ public class WeaponSystem : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
 
         // Deduct the unlock cost from the player's gems
-        GameManager.Instance.SetCurrentGems(GameManager.Instance.currentGems - unlockCost);
+        GemsSystem.Instance.SubstractGems(unlockCost);
 
         // Hide the cost information text in the UI
         costInfoText.text = "";

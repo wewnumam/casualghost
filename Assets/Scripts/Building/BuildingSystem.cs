@@ -46,7 +46,7 @@ public class BuildingSystem : MonoBehaviour {
     bool IsBuildingUnlocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.TRUE;
 
     // Helper method for checking if the player has enough gems to unlock the building
-    bool CanUnlock() => GameManager.Instance.currentGems >= unlockCost;
+    bool CanUnlock() => GemsSystem.Instance.currentGems >= unlockCost;
 
     public void Unlock() {
         // If the player doesn't have enough gems to unlock the building, then return
@@ -62,7 +62,7 @@ public class BuildingSystem : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUY_BUILDING);
 
         // Deduct the unlock cost from the player's gems
-        GameManager.Instance.SetCurrentGems(GameManager.Instance.currentGems - unlockCost);
+        GemsSystem.Instance.SubstractGems(unlockCost);
 
         // Hide the cost information text in the UI
         costInfoText.text = "";
