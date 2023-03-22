@@ -27,6 +27,7 @@ public class AnimationTags {
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";
     public const string PLAYER_DIE = "PlayerDie";
+    public const string PLAYER_ECHO = "PlayerEcho";
     public const string PLAYER_AMMO_EMPTY = "PlayerAmmoEmpty";
     public const string PLAYER_POWER_UP = "PlayerPowerUp";
     public const string PLAYER_RELOAD_TIME = "reloadTime";

@@ -14,11 +14,12 @@ public class PlayerMovement : MonoBehaviour {
     private bool isBoosting = false;  // Whether the boost is currently active.
 
 	private Rigidbody2D characterPhysics;
-	private Vector2 movement;
+	[HideInInspector] public Vector2 movement;
 
 	void Start() {
 		characterPhysics = GetComponent<Rigidbody2D>();
 		currentSpeed = normalSpeed;
+        GetComponent<EchoEffect>().enabled = false;
 	}
 
 	void Update() {
@@ -76,10 +77,12 @@ public class PlayerMovement : MonoBehaviour {
 	private IEnumerator Boost() {
         isBoosting = true;
         currentSpeed = boostSpeed;
+        GetComponent<EchoEffect>().enabled = true;
 
         yield return new WaitForSeconds(boostDuration);
 
         currentSpeed = normalSpeed;
+        GetComponent<EchoEffect>().enabled = false;
 
         yield return new WaitForSeconds(boostCooldown);
 
