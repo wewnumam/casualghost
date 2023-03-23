@@ -47,7 +47,6 @@ public class Player : MonoBehaviour {
         }
 
         if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
-            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DIE);
             foreach (var hand in playerHands) {
                 Destroy(hand);
             }
@@ -129,6 +128,10 @@ public class Player : MonoBehaviour {
 		// playerInfoText.text += $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\n";
         playerInfoText.text += $"BULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
 	}
+
+    public void DieSFX() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DIE);
+    }
 
     public void SetGameOver() {
         GamePanelManager.Instance.GameOver();

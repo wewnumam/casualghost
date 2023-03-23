@@ -95,11 +95,13 @@ GameObject:
   - component: {fileID: 6493536287298976988}
   - component: {fileID: 2020238336801171443}
   - component: {fileID: 6493536287298976962}
+  - component: {fileID: 1581780070075491347}
   - component: {fileID: 6493536287298976963}
   - component: {fileID: 1419193210521235100}
   - component: {fileID: 6493536287298976960}
   - component: {fileID: -5924404030363091198}
   - component: {fileID: 6838577676824563814}
+  - component: {fileID: -2708521009188318648}
   m_Layer: 7
   m_Name: EnemySmall
   m_TagString: Enemy
@@ -163,7 +165,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d105578777941b45945849f1175fb3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -208,7 +210,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -1.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -219,7 +221,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2.5}
+  m_Size: {x: 1, y: 0.8}
+  m_EdgeRadius: 0
+--- !u!61 &1581780070075491347
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.6}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.2}
   m_EdgeRadius: 0
 --- !u!50 &6493536287298976963
 Rigidbody2D:
@@ -314,4 +342,18 @@ MonoBehaviour:
   - {x: -0.8537364, y: -2.0756762, z: 0}
   m_ShapePathHash: 409337595
   m_Mesh: {fileID: 0}
-  m_InstanceId: 227962
+  m_InstanceId: 140308
+--- !u!114 &-2708521009188318648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0

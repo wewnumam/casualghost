@@ -48,22 +48,9 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        // Enemy take damage from bullet
-        if (collision.gameObject.CompareTag(Tags.BULLET_TYPE_ONE) || collision.gameObject.CompareTag(Tags.BULLET_TYPE_TWO)) {
-            SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
-                EnumsManager.SoundEffect.ENEMY_BLOOD_1,
-                EnumsManager.SoundEffect.ENEMY_BLOOD_2,
-                EnumsManager.SoundEffect.ENEMY_BLOOD_3
-            }));
-            float bulletDamage = collision.gameObject.GetComponent<Projectile>().bulletDamage;
-            GetComponent<HealthSystem>().TakeDamage(bulletDamage);
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collider) {
         // Enemy take damage from bullet
-        if (collider.gameObject.CompareTag(Tags.BULLET_TYPE_TWO)) {
+        if (collider.gameObject.CompareTag(Tags.BULLET_TYPE_ONE) || collider.gameObject.CompareTag(Tags.BULLET_TYPE_TWO)) {
             SoundManager.Instance.PlaySound(UtilsClass.SuffleSFX(new EnumsManager.SoundEffect[] {
                 EnumsManager.SoundEffect.ENEMY_BLOOD_1,
                 EnumsManager.SoundEffect.ENEMY_BLOOD_2,

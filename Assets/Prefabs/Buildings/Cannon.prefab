@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1926142140258470312}
   - component: {fileID: 2716545792112491870}
   - component: {fileID: 6506453875026619706}
+  - component: {fileID: -3017388273427836643}
   m_Layer: 10
   m_Name: Cannon
   m_TagString: Cannon
@@ -340,8 +341,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 661204323
-  m_SortingLayer: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 973268897, guid: cf2f6c574722d764ca0824d1aeb3e3f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -387,7 +388,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25, y: 0}
+  m_Offset: {x: 0, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -398,7 +399,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 3}
+  m_Size: {x: 2.4, y: 1.4}
   m_EdgeRadius: 0
 --- !u!50 &6901243354990245161
 Rigidbody2D:
@@ -480,7 +481,21 @@ MonoBehaviour:
   - {x: -1.2962575, y: -1.8941709, z: 0}
   m_ShapePathHash: -347040273
   m_Mesh: {fileID: 0}
-  m_InstanceId: 226668
+  m_InstanceId: 151146
+--- !u!114 &-3017388273427836643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568252636758225230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
 --- !u!1 &7234297265434437092
 GameObject:
   m_ObjectHideFlags: 0

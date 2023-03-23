@@ -81,31 +81,31 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		if (weaponType == WeaponType.RIFLE) {
-			if (collider.gameObject.CompareTag(Tags.ENEMY)) {
-				GameObject ps = Instantiate(
-					particleHitBlood,
-					transform.position,
-					transform.rotation
-				);
-				ps.GetComponentInChildren<ParticleSystem>().Play();
+		if (collider.gameObject.CompareTag(Tags.ENEMY)) {
+			GameObject ps = Instantiate(
+				particleHitBlood,
+				transform.position,
+				transform.rotation
+			);
+			ps.GetComponentInChildren<ParticleSystem>().Play();
+			if (weaponType == WeaponType.RIFLE) {
 				rifleEnemyCollideCounter++;
-			} 
-			
-			if (collider.gameObject.CompareTag(Tags.TREE) ||
-				collider.gameObject.CompareTag(Tags.BANYAN) ||
-				collider.gameObject.CompareTag(Tags.ROOT) ||
-				collider.gameObject.CompareTag(Tags.THORN_MINE) ||
-				collider.gameObject.CompareTag(Tags.DECOY) ||
-				collider.gameObject.CompareTag(Tags.CANNON)) {
-				GameObject ps = Instantiate(
-					particleHitNonBlood,
-					transform.position,
-					transform.rotation
-				);
-				ps.GetComponentInChildren<ParticleSystem>().Play();
-				Destroy(this.gameObject);
+			} else {
+				Destroy(gameObject);
 			}
+		} else if (collider.gameObject.CompareTag(Tags.TREE) ||
+			collider.gameObject.CompareTag(Tags.BANYAN) ||
+			collider.gameObject.CompareTag(Tags.ROOT) ||
+			collider.gameObject.CompareTag(Tags.THORN_MINE) ||
+			collider.gameObject.CompareTag(Tags.DECOY) ||
+			collider.gameObject.CompareTag(Tags.CANNON)) {
+			GameObject ps = Instantiate(
+				particleHitNonBlood,
+				transform.position,
+				transform.rotation
+			);
+			ps.GetComponentInChildren<ParticleSystem>().Play();
+			Destroy(this.gameObject);
 		}
 
 		const int MAX_ENEMY_TO_COLLIDE = 2;
