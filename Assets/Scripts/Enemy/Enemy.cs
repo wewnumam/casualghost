@@ -41,8 +41,10 @@ public class Enemy : MonoBehaviour {
             if (GetComponent<ShadowCaster2D>() != null) {
                 GetComponent<ShadowCaster2D>().enabled = false;
             }
-            if (GetComponent<BoxCollider2D>() != null) {
-                GetComponent<BoxCollider2D>().enabled = false;
+            if (GetComponents<BoxCollider2D>() != null) {
+                foreach (var collider in GetComponents<BoxCollider2D>()) {
+                    collider.enabled = false;
+                }
             }
             PlayEnemyDieAnimation();
         }

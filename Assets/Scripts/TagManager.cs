@@ -40,6 +40,7 @@ public class AnimationTags {
     public const string SWITCH_SECOND = "SwitchSecond";
     public const string INVENTORY_OPEN = "InventoryOpen";
     public const string INVENTORY_CLOSE = "InventoryClose";
+    public const string LOADING = "Loading";
 }
 
 public class PlayerPrefsKeys {

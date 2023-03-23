@@ -73,11 +73,6 @@ public class Player : MonoBehaviour {
             CoinSystem.Instance.AddCoin(1);
 			Destroy(collision.gameObject);
 		}
-
-        // Player shoot by enemy
-        if (collision.gameObject.CompareTag(Tags.ENEMY_BULLET)) {
-            StartCoroutine(Attacked(collision.gameObject.GetComponent<Projectile>().bulletDamage, 0f));
-		}
     }
 
     void OnCollisionStay2D(Collision2D collision) {
@@ -89,6 +84,11 @@ public class Player : MonoBehaviour {
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
+        // Player shoot by enemy
+        if (collider.gameObject.CompareTag(Tags.ENEMY_BULLET)) {
+            StartCoroutine(Attacked(collider.gameObject.GetComponent<Projectile>().bulletDamage, 0f));
+		}
+
         if (collider.gameObject.CompareTag(Tags.MIST)) {
             StartCoroutine(Attacked(.5f, 0f));
 		}

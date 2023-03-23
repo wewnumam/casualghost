@@ -15,6 +15,7 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject rewardPanel;
     [SerializeField] private GameObject optionMenuPanel;
     [SerializeField] private GameObject lastLevelPanel;
+    [SerializeField] private GameObject loadingPanel;
 
     private bool isInventoryOpen = true;
     
@@ -42,9 +43,11 @@ public class GamePanelManager : MonoBehaviour {
         rewardPanel.SetActive(false);
         optionMenuPanel.SetActive(false);
         lastLevelPanel.SetActive(false);
+        loadingPanel.SetActive(false);
 
         // Skip main menu after intro story scene
-        if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED) == PlayerPrefsValues.FALSE) {
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE &&
+            PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED) == PlayerPrefsValues.FALSE) {
             PlayGame();
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED, PlayerPrefsValues.TRUE);
         }
@@ -53,17 +56,31 @@ public class GamePanelManager : MonoBehaviour {
     void Update() {
         PauseInput();
         InventoryPanel();
+
+        if (loadingPanel.activeSelf) {
+            Vector3 mainCameraPos = Camera.main.transform.position;
+            mainCameraPos.z = 0f;
+            loadingPanel.transform.position = mainCameraPos;
+        }
     }
 
     public void PlayGame() {
+        Time.timeScale = 1f;
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        loadingPanel.SetActive(true);
+        loadingPanel.GetComponent<Animator>().Play(AnimationTags.LOADING);
+        inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_CLOSE);
+        mainMenuPanel.SetActive(false);
+        Invoke("StartGame", 2f);
+    }
+
+    void StartGame() {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
             GameManager.Instance.ResetGameplay(EnumsManager.LevelState.LEVEL_1);
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
-            mainMenuPanel.SetActive(false);
-            Time.timeScale = 1f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_OPEN);
         } else {
             SceneManager.LoadScene(SceneNames.INTRO_STORY);
         }
