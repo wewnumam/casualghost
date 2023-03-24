@@ -124,11 +124,12 @@ public class GameManager : MonoBehaviour {
         levelInfoText[0].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
         levelInfoText[1].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
         levelInfoText[2].text = $"Current Level: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
-        levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), HighScoreSystem.Instance.currentHighScore)}";
+        EnumsManager.LevelState longestLevel = GetCurrentLevelState() > HighScoreSystem.Instance.currentHighScore ? GetCurrentLevelState() : HighScoreSystem.Instance.currentHighScore;
+        levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), longestLevel)}";
     }
 
     void SetRewardInfo() {
-        rewardInfoText.text = $"Gems x Level: {gemsObtainedFromLevel}\n Gems x Leftover Coin: {gemsObtainedFromLeftoverCoin}\n Gems x Leftover Health: {gemsObtainedFromLeftoverHealth}\n";
+        rewardInfoText.text = $"Level:    {gemsObtainedFromLevel,3}\nLeftover Coin:    {gemsObtainedFromLeftoverCoin,3}\nLeftover Health:    {gemsObtainedFromLeftoverHealth,3}\n";
     }
 
     // Cheat feature
