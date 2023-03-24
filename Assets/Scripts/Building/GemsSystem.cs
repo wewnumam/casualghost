@@ -38,6 +38,6 @@ public class GemsSystem : MonoBehaviour {
     }
 
     void SetGemsInfo() {
-        gemsInfoText.text = $"GEMS: {_currentGems}";
+        gemsInfoText.text = PlayerPrefs.GetInt(PlayerPrefsKeys.GEMS).ToString();
 	}
 }

@@ -226,6 +226,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void DeleteAllData() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        GemsSystem.Instance.SubstractGems(GemsSystem.Instance.currentGems);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
     }

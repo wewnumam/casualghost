@@ -29,6 +29,6 @@ public class CoinSystem : MonoBehaviour {
     }
 
     void SetCoinInfo() {
-        coinInfoText.text = $"COIN: {currentCoin}";
+        coinInfoText.text = currentCoin.ToString();
 	}
 }
