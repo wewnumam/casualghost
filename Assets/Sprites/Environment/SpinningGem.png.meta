@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 4
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -761,7 +761,7 @@ TextureImporter:
       SpinningGem_7: 40418564
       SpinningGem_18: 1221289946
       SpinningGem_23: -2064371912
-      SpinningGem_6: 210644061
+      SpinningGem_11: 483434802
       SpinningGem_19: -545987299
       SpinningGem_10: -2060195267
       SpinningGem_22: 1276251372
@@ -786,7 +786,7 @@ TextureImporter:
       SpinningGem_13: 2012828509
       SpinningGem_25: -1035957596
       SpinningGem_27: -1384101325
-      SpinningGem_11: 483434802
+      SpinningGem_6: 210644061
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

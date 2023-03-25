@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
@@ -25,11 +26,15 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI[] levelInfoText;
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
+    [SerializeField] private Slider levelProgress;
+    [SerializeField] private Slider timeProgress;
 
     [Header("Environment Properties")]
     [SerializeField] private Light2D directionalLight;
     [SerializeField] private Transform environmentParent;
     private float currentDirectionalLightIntensity;
+    [SerializeField] private Light2D[] UILights;
+    private float[] UILightsIntensity;
 
     void Awake () {
         if (Instance == null) {
@@ -42,6 +47,11 @@ public class GameManager : MonoBehaviour {
     void Start() {
         SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.BGM_SLIDER), true);
         SoundManager.Instance.SetVolume(PlayerPrefs.GetFloat(PlayerPrefsKeys.SFX_SLIDER), false);
+
+        UILightsIntensity = new float[UILights.Length];
+        for (int i = 0; i < UILights.Length; i++) {
+            UILightsIntensity[i] = UILights[i].intensity;
+        }
     }
 
     void Update() {
@@ -51,12 +61,9 @@ public class GameManager : MonoBehaviour {
             if (currentTime <= 0) {
                 GamePanelManager.Instance.LevelTransition();
             }
-
-            directionalLight.intensity = currentDirectionalLightIntensity;
-        } else {
-            // Preventing UI from getting too dark
-            directionalLight.intensity = 0.8f;
         }
+
+        SetLights();
 
         // Updates the UI text components
         SetTimerInfo();
@@ -118,6 +125,8 @@ public class GameManager : MonoBehaviour {
     void SetTimerInfo() {
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         timerText.text = $"{time:mm\\:ss}";
+        timeProgress.maxValue = playTimeInSeconds;
+        timeProgress.value = currentTime;
     }
 
     void SetLevelInfo() {
@@ -126,10 +135,33 @@ public class GameManager : MonoBehaviour {
         levelInfoText[2].text = $"Current Level: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
         EnumsManager.LevelState longestLevel = GetCurrentLevelState() > HighScoreSystem.Instance.currentHighScore ? GetCurrentLevelState() : HighScoreSystem.Instance.currentHighScore;
         levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), longestLevel)}";
+        levelProgress.maxValue = LevelManager.Instance.levelStates.Length;
+        levelProgress.value = (int)GetCurrentLevelState() + 1;
     }
 
     void SetRewardInfo() {
         rewardInfoText.text = $"Level:    {gemsObtainedFromLevel,3}\nLeftover Coin:    {gemsObtainedFromLeftoverCoin,3}\nLeftover Health:    {gemsObtainedFromLeftoverHealth,3}\n";
+    }
+
+    public void SetLights() {
+        if (IsGameStateGameplay()) {
+            directionalLight.intensity = currentDirectionalLightIntensity;
+        } else {
+            // Preventing UI from getting too dark
+            directionalLight.intensity = 0.8f;
+        }
+    }
+
+    public void TurnOnUILights(bool isTurnOn) {
+        if (isTurnOn) {
+            for (int i = 0; i < UILights.Length; i++) {
+                UILights[i].intensity = UILightsIntensity[i];
+            }
+        } else {
+            for (int i = 0; i < UILights.Length; i++) {
+                UILights[i].intensity = 0;
+            }
+        }
     }
 
     // Cheat feature

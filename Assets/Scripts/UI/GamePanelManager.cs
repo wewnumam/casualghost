@@ -32,6 +32,7 @@ public class GamePanelManager : MonoBehaviour {
         mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
+            GameManager.Instance.TurnOnUILights(false);
             Time.timeScale = 0f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
@@ -78,6 +79,7 @@ public class GamePanelManager : MonoBehaviour {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
             GameManager.Instance.ResetGameplay(EnumsManager.LevelState.LEVEL_1);
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
+            GameManager.Instance.TurnOnUILights(true);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
             inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_OPEN);

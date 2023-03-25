@@ -27,4 +27,13 @@ public class ResolutionManager : MonoBehaviour {
         // Set the resolution to the maximum supported resolution while still in windowed mode
         Screen.SetResolution(maxResolution.width, maxResolution.height, false);
     }
+
+    public void SetResolutionFullScreen() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        // Get the maximum supported resolution of the display device
+        Resolution maxResolution = Screen.currentResolution;
+
+        // Set the resolution to the maximum supported resolution while still in windowed mode
+        Screen.SetResolution(maxResolution.width, maxResolution.height, true);
+    }
 }
