@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour {
 
     [Header("UI Properties")]
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TooltipTrigger timerTooltip;
     [SerializeField] private TextMeshProUGUI[] levelInfoText;
+    [SerializeField] private TooltipTrigger levelTooltip;
     [SerializeField] private TextMeshProUGUI gemsInfoText;
     [SerializeField] private TextMeshProUGUI rewardInfoText;
     [SerializeField] private Slider levelProgress;
@@ -127,6 +129,7 @@ public class GameManager : MonoBehaviour {
         timerText.text = $"{time:mm\\:ss}";
         timeProgress.maxValue = playTimeInSeconds;
         timeProgress.value = currentTime;
+        timerTooltip.header = $"{time:mm\\:ss}";
     }
 
     void SetLevelInfo() {
@@ -137,6 +140,7 @@ public class GameManager : MonoBehaviour {
         levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), longestLevel)}";
         levelProgress.maxValue = LevelManager.Instance.levelStates.Length;
         levelProgress.value = (int)GetCurrentLevelState() + 1;
+        levelTooltip.header = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
     }
 
     void SetRewardInfo() {

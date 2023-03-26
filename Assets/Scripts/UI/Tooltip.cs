@@ -40,10 +40,10 @@ public class Tooltip : MonoBehaviour {
             layoutElement.enabled = (headerLength > characterWrapLimit || ContentLength > characterWrapLimit) ? true : false;    
         }
 
-        float pivotX = UtilsClass.GetMouseWorldPosition().x / Screen.width;
-        float pivotY = UtilsClass.GetMouseWorldPosition().y / Screen.height;
+        float pivotX = Input.mousePosition.x / Screen.width;
+        float pivotY = Input.mousePosition.y / Screen.height;
 
-        rectTransform.pivot = new Vector2(pivotX, pivotY);
+        rectTransform.pivot = new Vector2(rectTransform.pivot.x, pivotY);
         transform.position = UtilsClass.GetMouseWorldPosition();
     }
     
