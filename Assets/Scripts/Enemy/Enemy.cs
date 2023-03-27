@@ -137,6 +137,10 @@ public class Enemy : MonoBehaviour {
 
     public void EnemyDie() {
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        GameManager.Instance.AddEnemyKillCounter();
+        if (GameManager.Instance.canSpawnCollectibleItem) {
+            Instantiate(GameManager.Instance.collectibleItem, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

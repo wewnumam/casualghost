@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour {
     private float currentDirectionalLightIntensity;
     [SerializeField] private Light2D[] UILights;
     private float[] UILightsIntensity;
+    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+
+    [Header("Collectible Item Properties")]
+    [SerializeField] private int enemyKillAmountToSpawnCollectibleItem;
+    private int enemyKillCounter;
+    public GameObject collectibleItem;
+    [HideInInspector] public bool canSpawnCollectibleItem;
 
     void Awake () {
         if (Instance == null) {
@@ -86,6 +94,7 @@ public class GameManager : MonoBehaviour {
                 currentDirectionalLightIntensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.intensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.color = LevelManager.Instance.levels[i].directionalLightColor;
+                cinemachineVirtualCamera.m_Lens.OrthographicSize = LevelManager.Instance.levels[i].cameraOrthoSize;
                 break;
             }
         }
@@ -165,6 +174,16 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < UILights.Length; i++) {
                 UILights[i].intensity = 0;
             }
+        }
+    }
+
+    public void AddEnemyKillCounter() {
+        enemyKillCounter++;
+        if (enemyKillCounter >= enemyKillAmountToSpawnCollectibleItem) {
+            enemyKillCounter = 0;
+            canSpawnCollectibleItem = true;
+        } else {
+            canSpawnCollectibleItem = false;
         }
     }
 
