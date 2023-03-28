@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -6680636542770539309}
   - component: {fileID: 5679233497994631459}
   - component: {fileID: 6541820223687539929}
+  - component: {fileID: 5824471024903461321}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -82,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 40d7a89779d8064498d5e04765b6a4fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -259,7 +260,7 @@ MonoBehaviour:
   - {x: -0.50448513, y: -1.8661256, z: 0}
   m_ShapePathHash: 337267087
   m_Mesh: {fileID: 0}
-  m_InstanceId: 78734
+  m_InstanceId: 45896
 --- !u!114 &6541820223687539929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +274,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
+--- !u!114 &5824471024903461321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dda9e18f1f8478499139f0daada407f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 5136484773893588925, guid: 55e34d09c15c1b5429787f5ad68b573a, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 0}
+  offsetY: 1.5
 --- !u!1 &7544565066094857896
 GameObject:
   m_ObjectHideFlags: 0

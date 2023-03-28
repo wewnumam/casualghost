@@ -60,10 +60,13 @@ public class Enemy : MonoBehaviour {
             }));
             float bulletDamage = collider.gameObject.GetComponent<Projectile>().bulletDamage;
             GetComponent<HealthSystem>().TakeDamage(bulletDamage);
+            GetComponent<FloatingText>().InstantiateFloatingText((bulletDamage * 100).ToString(), transform);
         }
 
         if (collider.gameObject.CompareTag(Tags.EXPLOSION)) {
-            GetComponent<HealthSystem>().TakeDamage(.25f);
+            const float EXPLOSION_DAMAGE = .25f; 
+            GetComponent<HealthSystem>().TakeDamage(EXPLOSION_DAMAGE);
+            GetComponent<FloatingText>().InstantiateFloatingText((EXPLOSION_DAMAGE * 10).ToString(), transform);
         }
     }
 

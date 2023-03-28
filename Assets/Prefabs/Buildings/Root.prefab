@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 5089631465604144598}
   - component: {fileID: 3887748563084601073}
   - component: {fileID: 1889741499079770110}
+  - component: {fileID: 5538560976565879501}
   m_Layer: 10
   m_Name: Root
   m_TagString: Root
@@ -412,6 +413,21 @@ MonoBehaviour:
     rootMaterial: {fileID: 2100000, guid: ce5ec557fba72334d8dfce3b0802c203, type: 2}
   - rootSprites: {fileID: 21300000, guid: aeb43b1a30e85fb46ad16a1571d90949, type: 3}
     rootMaterial: {fileID: 2100000, guid: 691d21deb53b1d841b44df3c3d1ecc4c, type: 2}
+--- !u!114 &5538560976565879501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5889372518671993344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dda9e18f1f8478499139f0daada407f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 5136484773893588925, guid: 55e34d09c15c1b5429787f5ad68b573a, type: 3}
+  defaultColor: {r: 0.9490197, g: 0.14117648, b: 0.16078432, a: 1}
+  offsetY: 0
 --- !u!1001 &6302187623627841391
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: -5924404030363091198}
   - component: {fileID: 6838577676824563814}
   - component: {fileID: -2708521009188318648}
+  - component: {fileID: -2368947423404355355}
   m_Layer: 7
   m_Name: EnemySmall
   m_TagString: Enemy
@@ -357,3 +358,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortingOrderBase: 0
   offset: 0
+  runOnlyOnce: 0
+--- !u!114 &-2368947423404355355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dda9e18f1f8478499139f0daada407f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 5136484773893588925, guid: 55e34d09c15c1b5429787f5ad68b573a, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 0}

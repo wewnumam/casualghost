@@ -40,6 +40,7 @@ public class HealArea : MonoBehaviour {
         }
 
         foreach (var hs in filteredHealthSystems) {
+            hs.GetComponent<FloatingText>().InstantiateFloatingText((healAmount * 100).ToString(), hs.transform, new Color(0f, 1f, 0f, 1f));
             hs.Heal(healAmount);
         }
     }

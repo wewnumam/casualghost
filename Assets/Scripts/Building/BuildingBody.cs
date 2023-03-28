@@ -55,6 +55,7 @@ public class BuildingBody : MonoBehaviour {
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
+        GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), transform);
         GetComponent<Animator>().Play("BuildingHurt");
         canAttacked = true; // Allow enemy attack again
 	}
