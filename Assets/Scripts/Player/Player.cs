@@ -73,6 +73,11 @@ public class Player : MonoBehaviour {
             CoinSystem.Instance.AddCoin(1);
 			Destroy(collision.gameObject);
 		}
+
+        if (collision.gameObject.CompareTag(Tags.COLLECTIBLE_ITEM)) {
+            CollectibleItem.Instance.ActivateSkill();
+            Destroy(collision.gameObject);
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision) {

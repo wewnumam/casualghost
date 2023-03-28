@@ -18,6 +18,8 @@ public class Tags {
     public const string TREE = "Tree";
     public const string MIST = "Mist";
     public const string EXPLOSION = "Explosion";
+    public const string COLLECTIBLE_ITEM = "CollectibleItem";
+    public const string HEAL_AREA = "HealArea";
 }
 
 public class AnimationTags {

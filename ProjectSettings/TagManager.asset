@@ -18,6 +18,8 @@ TagManager:
   - Tree
   - Mist
   - Explosion
+  - HealArea
+  - CollectibleItem
   layers:
   - Default
   - TransparentFX

@@ -76,6 +76,9 @@ public class Enemy : MonoBehaviour {
     }
 
     public bool IsEnemyTypeDefault() => enemyType == EnemyType.DEFAULT;
+    public bool IsEnemyTypeRunner() => enemyType == EnemyType.RUNNER;
+    public bool IsEnemyTypeGiant() => enemyType == EnemyType.GIANT;
+    public bool IsEnemyTypeShooter() => enemyType == EnemyType.SHOOTER;
 
     public void PlayEnemyIdleAnimation() {
         if (IsEnemyTypeDefault()) {
@@ -137,9 +140,10 @@ public class Enemy : MonoBehaviour {
 
     public void EnemyDie() {
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        GameManager.Instance.AddEnemyKillCounter();
-        if (GameManager.Instance.canSpawnCollectibleItem) {
-            Instantiate(GameManager.Instance.collectibleItem, transform.position, Quaternion.identity);
+        CollectibleItem.Instance.AddEnemyKillCounter();
+        if (CollectibleItem.Instance.canSpawnCollectibleItem) {
+            GameObject collectibleItemObject = Instantiate(CollectibleItem.Instance.collectibleItemObject, transform.position, Quaternion.identity);
+            collectibleItemObject.GetComponent<SpriteRenderer>().sprite = CollectibleItem.Instance.currentItem.icon;
         }
         Destroy(gameObject);
     }

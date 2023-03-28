@@ -20,6 +20,10 @@ public static class EnumsManager {
         REWARD
     }
 
+    public enum Item {
+        HEAL_AREA
+    }
+
     public enum LevelState {
         LEVEL_1,
         LEVEL_2,

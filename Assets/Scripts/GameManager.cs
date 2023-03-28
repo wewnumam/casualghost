@@ -40,12 +40,6 @@ public class GameManager : MonoBehaviour {
     private float[] UILightsIntensity;
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
 
-    [Header("Collectible Item Properties")]
-    [SerializeField] private int enemyKillAmountToSpawnCollectibleItem;
-    private int enemyKillCounter;
-    public GameObject collectibleItem;
-    [HideInInspector] public bool canSpawnCollectibleItem;
-
     void Awake () {
         if (Instance == null) {
             Instance = this;
@@ -174,16 +168,6 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < UILights.Length; i++) {
                 UILights[i].intensity = 0;
             }
-        }
-    }
-
-    public void AddEnemyKillCounter() {
-        enemyKillCounter++;
-        if (enemyKillCounter >= enemyKillAmountToSpawnCollectibleItem) {
-            enemyKillCounter = 0;
-            canSpawnCollectibleItem = true;
-        } else {
-            canSpawnCollectibleItem = false;
         }
     }
 

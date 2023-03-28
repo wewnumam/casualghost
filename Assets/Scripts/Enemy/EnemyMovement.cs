@@ -13,6 +13,24 @@ public class EnemyMovement : MonoBehaviour {
     public void SetMaxSpeed(float maxSpeed) => _maxSpeed = maxSpeed;
 
     void Update() {
+        if (GetComponent<Enemy>().IsEnemyTypeDefault()) {
+            EnemyDefaultTarget();
+        } else if (GetComponent<Enemy>().IsEnemyTypeRunner()) {
+            EnemyRunnerTarget();
+        } else if (GetComponent<Enemy>().IsEnemyTypeGiant()) {
+            EnemyGiantTarget();
+        } else if (GetComponent<Enemy>().IsEnemyTypeShooter()) {
+            EnemyDefaultTarget();
+        }
+
+        if (isCollideWithTarget) {
+            GetComponent<Enemy>().PlayEnemyAttackAnimation();
+        } else {
+            GetComponent<Enemy>().PlayEnemyWalkAnimation();
+        }
+    }
+
+    void EnemyDefaultTarget() {
         GameObject[] decoys = GameObject.FindGameObjectsWithTag(Tags.DECOY);
 
         // Prioritize to follow decoy
@@ -36,11 +54,46 @@ public class EnemyMovement : MonoBehaviour {
 
             FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
         }
+    }
 
-        if (isCollideWithTarget) {
-            GetComponent<Enemy>().PlayEnemyAttackAnimation();
+    void EnemyRunnerTarget() {
+        GameObject[] decoys = GameObject.FindGameObjectsWithTag(Tags.DECOY);
+
+        // Prioritize to follow decoy
+        if (decoys.Length > 0) {
+            Transform[] decoysToFollow = UtilsClass.GetGameObjectsTransform(decoys);
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, decoysToFollow));
         } else {
-            GetComponent<Enemy>().PlayEnemyWalkAnimation();
+            GameObject[] canons = GameObject.FindGameObjectsWithTag(Tags.CANNON);
+            GameObject[] roots = GameObject.FindGameObjectsWithTag(Tags.ROOT);
+            
+            if (canons.Length > 0) {
+                targetToFollow = UtilsClass.GetGameObjectsTransform(canons);
+            } else if (roots.Length > 0) {
+                targetToFollow = UtilsClass.GetGameObjectsTransform(roots);
+            } else {
+                targetToFollow = new Transform[] {
+                    GameObject.FindWithTag(Tags.PLAYER).transform,
+                };
+            }
+
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
+        }
+    }
+
+    void EnemyGiantTarget() {
+        GameObject[] decoys = GameObject.FindGameObjectsWithTag(Tags.DECOY);
+
+        // Prioritize to follow decoy
+        if (decoys.Length > 0) {
+            Transform[] decoysToFollow = UtilsClass.GetGameObjectsTransform(decoys);
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, decoysToFollow));
+        } else {
+            targetToFollow = new Transform[] {
+                GameObject.FindWithTag(Tags.BANYAN).transform,
+            };
+
+            FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
         }
     }
 
