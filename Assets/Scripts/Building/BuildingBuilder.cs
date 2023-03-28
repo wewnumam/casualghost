@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDragHandler, IPointerUpHandler {
     [SerializeField] private EnumsManager.BuildingType buildingType;
@@ -19,6 +20,8 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     [Header("UI Properties")]
     private string initialTextInfo;
+    private float initialFontSize;
+    private float initialLightIntensity;
 
     [Header("Particle Properties")]
     [SerializeField] private GameObject particleDropBuilding; 
@@ -26,6 +29,8 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void Awake ()  {
         // Get the initial text of the UI element that displays information about the building.
         initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
+        initialFontSize = GetComponentInChildren<TextMeshProUGUI>().fontSize;
+        initialLightIntensity = GetComponentInChildren<Light2D>().intensity;
     }
 
     void Update() {
@@ -39,7 +44,9 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
         Color imageColor = GetComponent<Image>().color;
         if (CanBuild()) {
             imageColor.a = 1f;
+            GetComponentInChildren<Light2D>().intensity = initialLightIntensity;
         } else {
+            GetComponentInChildren<Light2D>().intensity = 0;
             imageColor.a = 0.5f;
         }
         GetComponent<Image>().color = imageColor;
@@ -49,8 +56,10 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
         // Set the text of the UI element that displays information about the building to either "LOCKED" or the initial text, depending on whether the building is locked.
         if (isBuildingLocked) {
             GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
+            GetComponentInChildren<TextMeshProUGUI>().fontSize = 24;
         } else {
             GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
+            GetComponentInChildren<TextMeshProUGUI>().fontSize = initialFontSize;
         }
     }
 
