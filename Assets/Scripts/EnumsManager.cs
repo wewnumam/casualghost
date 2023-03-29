@@ -22,7 +22,8 @@ public static class EnumsManager {
 
     public enum Item {
         HEAL_AREA,
-        FLYING_SPEAR
+        FLYING_SPEAR,
+        EXPLODE_RANDOM
     }
 
     public enum LevelState {

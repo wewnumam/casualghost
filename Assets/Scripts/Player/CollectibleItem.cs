@@ -54,6 +54,7 @@ public class CollectibleItem : MonoBehaviour {
 
         GameObject skill = Instantiate(currentItem.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
         Destroy(skill, currentItem.activateTime);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);  
     }
 
 }

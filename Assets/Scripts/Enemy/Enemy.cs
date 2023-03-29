@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour {
         if (collider.gameObject.CompareTag(Tags.EXPLOSION)) {
             const float EXPLOSION_DAMAGE = .25f; 
             GetComponent<HealthSystem>().TakeDamage(EXPLOSION_DAMAGE);
-            GetComponent<FloatingText>().InstantiateFloatingText((EXPLOSION_DAMAGE * 10).ToString(), transform);
+            GetComponent<FloatingText>().InstantiateFloatingText((EXPLOSION_DAMAGE * 100).ToString(), transform);
         }
     }
 
