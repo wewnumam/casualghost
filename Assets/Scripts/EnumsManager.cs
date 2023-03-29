@@ -21,7 +21,8 @@ public static class EnumsManager {
     }
 
     public enum Item {
-        HEAL_AREA
+        HEAL_AREA,
+        FLYING_SPEAR
     }
 
     public enum LevelState {

@@ -40,7 +40,7 @@ public class CollectibleItem : MonoBehaviour {
     public void AddEnemyKillCounter() {
         enemyKillCounter++;
         if (enemyKillCounter >= enemyKillAmountToSpawnCollectibleItem) {
-            currentItem = items[Random.Range(0, items.Length - 1)];
+            currentItem = items[Random.Range(0, items.Length)];
             canSpawnCollectibleItem = true;
             enemyKillCounter = 0;
         } else {
@@ -52,10 +52,8 @@ public class CollectibleItem : MonoBehaviour {
         maxTime = currentItem.activateTime;
         currentTime = currentItem.activateTime;
 
-        if (currentItem.itemType == EnumsManager.Item.HEAL_AREA) {
-            GameObject healArea = Instantiate(currentItem.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
-            Destroy(healArea, currentItem.activateTime);
-        }
+        GameObject skill = Instantiate(currentItem.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
+        Destroy(skill, currentItem.activateTime);
     }
 
 }
