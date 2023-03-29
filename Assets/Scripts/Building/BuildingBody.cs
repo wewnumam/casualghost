@@ -32,13 +32,13 @@ public class BuildingBody : MonoBehaviour {
     void OnCollisionStay2D(Collision2D collision) {
         // BuildingBody attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
-			StartCoroutine(Attacked(1f, 1f));
+			StartCoroutine(Attacked(collision.gameObject.GetComponent<Enemy>().damageAmount, collision.gameObject.GetComponent<Enemy>().attackSpeed));
 		}
 	}
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.MIST)) {
-            StartCoroutine(Attacked(.5f, 0f));
+            StartCoroutine(Attacked(collider.gameObject.GetComponent<Mist>().damageAmount, collider.gameObject.GetComponent<Mist>().attackSpeed));
 		}
     }
 

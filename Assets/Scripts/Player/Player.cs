@@ -84,7 +84,7 @@ public class Player : MonoBehaviour {
         // Player attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {
             collision.gameObject.GetComponent<Enemy>().PlayEnemyAttackAnimation();
-			StartCoroutine(Attacked(1f, 1f));
+			StartCoroutine(Attacked(collision.gameObject.GetComponent<Enemy>().damageAmount, collision.gameObject.GetComponent<Enemy>().attackSpeed));
 		}
 	}
 
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour {
 		}
 
         if (collider.gameObject.CompareTag(Tags.MIST)) {
-            StartCoroutine(Attacked(.5f, 0f));
+            StartCoroutine(Attacked(collider.gameObject.GetComponent<Mist>().damageAmount, collider.gameObject.GetComponent<Mist>().attackSpeed));
 		}
     }
 

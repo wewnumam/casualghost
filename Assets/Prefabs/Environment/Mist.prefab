@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxSpeed: 5
+  _damageAmount: 0.5
   isMoveLeft: 0
   isMoveRight: 0
   isMoveUp: 0

@@ -21,7 +21,12 @@ public class HealthBar : MonoBehaviour {
     void Update() {
         SetMaxHealth(GetComponentInParent<HealthSystem>().maxHealth);
         SetHealth(GetComponentInParent<HealthSystem>().currentHealth);
-        transform.position = GetComponentInParent<Transform>().position;
+        transform.position = GetComponentInParent<HealthSystem>().transform.position;
+        if (GetComponentInParent<HealthSystem>().transform.localScale.x < 0) {
+            Vector3 localScale = Vector3.one;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 
     bool HasHealthSystem() => GetComponentInParent<HealthSystem>() != null;

@@ -102,7 +102,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     void IDragHandler.OnDrag(PointerEventData eventData) {
         // While the mouse is being dragged on the building UI element, move the current building to the mouse's current world position if the player can afford to build it.
-        if (CanBuild()) {
+        if (CanBuild() && currentBuilding != null) {
             currentBuilding.transform.position = UtilsClass.GetMouseWorldPosition();
             GameCursor.Instance.SetBuildCursor();
         }

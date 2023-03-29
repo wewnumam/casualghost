@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Mist : MonoBehaviour {
     [SerializeField] private float _maxSpeed;
+    [SerializeField] private float _damageAmount;
+    public float damageAmount { get => _damageAmount; }
+    [SerializeField] private float _attackSpeed;
+    public float attackSpeed { get => _attackSpeed; }
+    
     public bool isMoveLeft;
     public bool isMoveRight;
     public bool isMoveUp;

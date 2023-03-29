@@ -5,6 +5,10 @@ using UnityEngine.Rendering.Universal;
 
 public class Enemy : MonoBehaviour {
     [SerializeField] private EnemyType enemyType;
+    [SerializeField] private float _damageAmount;
+    public float damageAmount { get => _damageAmount; }
+    [SerializeField] private float _attackSpeed;
+    public float attackSpeed { get => _attackSpeed; }
 
     [Header("Coin Instantiate Properties")]
     [SerializeField] private GameObject coinPrefab;
@@ -16,7 +20,8 @@ public class Enemy : MonoBehaviour {
         DEFAULT,
         RUNNER,
         GIANT,
-        SHOOTER
+        SHOOTER,
+        BOSS
     }
 
     void Start() {
@@ -33,6 +38,9 @@ public class Enemy : MonoBehaviour {
             case EnemyType.SHOOTER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_DEFAULT);
                 break;
+            case EnemyType.BOSS:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_BIG);
+                break;
         }
     }
 
@@ -47,6 +55,12 @@ public class Enemy : MonoBehaviour {
                 }
             }
             PlayEnemyDieAnimation();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag(Tags.TREE) && IsEnemyTypeBoss()) {
+            Destroy(collision.gameObject);
         }
     }
 
@@ -68,6 +82,15 @@ public class Enemy : MonoBehaviour {
             GetComponent<HealthSystem>().TakeDamage(EXPLOSION_DAMAGE);
             GetComponent<FloatingText>().InstantiateFloatingText((EXPLOSION_DAMAGE * 100).ToString(), transform);
         }
+
+        if (collider.gameObject.CompareTag(Tags.ROOT) ||
+            collider.gameObject.CompareTag(Tags.THORN_MINE) ||
+            collider.gameObject.CompareTag(Tags.DECOY) ||
+            collider.gameObject.CompareTag(Tags.CANNON)) {
+            if (IsEnemyTypeBoss()) {
+                Destroy(collider.gameObject);
+            }
+        }
     }
 
     void OnMouseEnter() {
@@ -82,6 +105,7 @@ public class Enemy : MonoBehaviour {
     public bool IsEnemyTypeRunner() => enemyType == EnemyType.RUNNER;
     public bool IsEnemyTypeGiant() => enemyType == EnemyType.GIANT;
     public bool IsEnemyTypeShooter() => enemyType == EnemyType.SHOOTER;
+    public bool IsEnemyTypeBoss() => enemyType == EnemyType.BOSS;
 
     public void PlayEnemyIdleAnimation() {
         if (IsEnemyTypeDefault()) {
@@ -135,6 +159,10 @@ public class Enemy : MonoBehaviour {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
                 EnemyDie();
                 break;
+            case EnemyType.BOSS:
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
+                EnemyDie();
+                break;  
         }
 
         isAnimationDieCalled = true;

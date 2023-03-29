@@ -21,6 +21,8 @@ public class EnemyMovement : MonoBehaviour {
             EnemyGiantTarget();
         } else if (GetComponent<Enemy>().IsEnemyTypeShooter()) {
             EnemyDefaultTarget();
+        } else if (GetComponent<Enemy>().IsEnemyTypeBoss()) {
+            EnemyBossTarget();
         }
 
         if (isCollideWithTarget) {
@@ -97,6 +99,14 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
 
+    void EnemyBossTarget() {
+        targetToFollow = new Transform[] {
+            GameObject.FindWithTag(Tags.BANYAN).transform,
+        };
+
+        FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
+    }
+
     void FollowTarget(Transform target) {
         if (GetComponent<HealthSystem>().IsDie()) {
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -113,17 +123,15 @@ public class EnemyMovement : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * _maxSpeed;
         }
 
-        
-
         // Enemy look at target
         float angle = UtilsClass.GetAngleFromVectorFloat((target.position - transform.position).normalized);
-        Vector3 localScale = Vector3.one;
+        // Vector3 localScale = Vector3.one;
 		if (angle > 90 && angle < 270) {
-			localScale.x *= -1f;
+			transform.localRotation = Quaternion.Euler(0, 180, 0);
 		} else {
-			localScale.x *= +1f;
+			transform.localRotation = Quaternion.Euler(0, 0, 0);
 		}
-		transform.localScale = localScale;
+		// transform.localScale = localScale;
     }
 
     void OnCollisionEnter2D(Collision2D collision) {

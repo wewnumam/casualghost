@@ -18,7 +18,7 @@ public class FloatingText : MonoBehaviour {
         currentPosition.y += offsetY;
         ft.transform.position = currentPosition;
 
-        if (parent.localScale.x < 0) {
+        if (parent.localScale.x < 0 || parent.rotation.y != 0) {
             Vector3 localScale = Vector3.one;
             localScale.x *= -1f;
             ft.transform.localScale = localScale;
