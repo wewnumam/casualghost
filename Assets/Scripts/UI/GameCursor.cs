@@ -30,7 +30,7 @@ public class GameCursor : MonoBehaviour {
 				cursorTexture.width / 2,
 				cursorTexture.height / 2
 			),
-			CursorMode.Auto
+			CursorMode.ForceSoftware
 		);
 	}
 

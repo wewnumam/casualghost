@@ -64,6 +64,7 @@ public class CollectibleItem : MonoBehaviour {
 public class Item {
     public EnumsManager.Item itemType;
     public Sprite icon;
+    public Material material;
     public float activateTime;
     public GameObject skillObject;
 }

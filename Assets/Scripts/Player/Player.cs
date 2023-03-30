@@ -132,7 +132,7 @@ public class Player : MonoBehaviour {
 
         playerInfoText.text = "";
 		// playerInfoText.text += $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\n";
-        playerInfoText.text += $"BULLET: {GetComponentInChildren<PlayerShooting>().roundsLeft.ToString()}";
+        playerInfoText.text += GetComponentInChildren<PlayerShooting>().roundsLeft.ToString();
 	}
 
     public void DieSFX() {

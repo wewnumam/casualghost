@@ -14,6 +14,7 @@ public class PlayerShooting : MonoBehaviour {
 	[Header("Shooting Properties")]
 	private int _roundsLeft = 0;
 	public int roundsLeft { get => _roundsLeft; }
+	public int maxRound;
 	private bool canShoot;
 	private bool isReload;
 
@@ -37,6 +38,8 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 	void Update() {
+		maxRound = currentPlayerWeapon.maxRound;
+		
 		if (_roundsLeft == 0 && !isReload && canShoot) {
 			GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_AMMO_EMPTY);
 		}
@@ -50,13 +53,22 @@ public class PlayerShooting : MonoBehaviour {
 		// Reload when R or Space key is pressed and there are rounds left
 		if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space)) {
 			if (_roundsLeft < currentPlayerWeapon.maxRound) {
-                StartCoroutine(ReloadSequence(currentPlayerWeapon.reloadTime));
-				GetComponentInChildren<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
-				GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_RELOAD);
+                Reload();
 			}
+		}
+
+		// Auto reload
+		if (_roundsLeft == 0) {
+            Reload();
 		}
 		
 		UtilsClass.AimRotation(transform, UtilsClass.GetMouseWorldPosition()); // Rotate player towards the mouse cursor
+	}
+
+	void Reload() {
+		StartCoroutine(ReloadSequence(currentPlayerWeapon.reloadTime));
+		GetComponentInChildren<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
+		GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_RELOAD);
 	}
 
 	void ResetPlayerWeapon() {

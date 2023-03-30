@@ -14,6 +14,8 @@ public class FlyingSpear : MonoBehaviour {
     void Update() {
         transform.position = playerTransform.position;
         transform.RotateAround(playerTransform.position, new Vector3(0, 0, -1), rotateSpeed * Time.deltaTime);
+
+        if (!GameManager.Instance.IsGameStateGameplay()) Destroy(gameObject);
     }
 
     void OnDestroy() {
