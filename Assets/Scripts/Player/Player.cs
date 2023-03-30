@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
 		}
 
         if (collision.gameObject.CompareTag(Tags.COLLECTIBLE_ITEM)) {
-            CollectibleItem.Instance.ActivateSkill();
+            CollectibleItem.Instance.ActivateSkill(collision.gameObject.GetComponent<CollectibleItemObject>().item);
             Destroy(collision.gameObject);
         }
     }

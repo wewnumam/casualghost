@@ -5389,6 +5389,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586288447241944153}
   - component: {fileID: 586288447241944158}
+  - component: {fileID: 3163182385456090759}
   m_Layer: 0
   m_Name: FlyingSpear
   m_TagString: Untagged
@@ -5432,6 +5433,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 200
+--- !u!114 &3163182385456090759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586288447241944152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cfb0fab4c067cd88eb38a740ce5e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &586288447242722421
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,7 +133,9 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
         foreach (var enemy in enemies) {
-            Destroy(enemy);
+            if (!enemy.GetComponent<Enemy>().IsEnemyTypeBoss()) {
+                Destroy(enemy);
+            }
         }
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.LEVELTRANSITION);

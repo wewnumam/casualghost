@@ -48,13 +48,13 @@ public class CollectibleItem : MonoBehaviour {
         }
     }
 
-    public void ActivateSkill() {
-        maxTime = currentItem.activateTime;
-        currentTime = currentItem.activateTime;
+    public void ActivateSkill(Item item) {
+        maxTime = item.activateTime;
+        currentTime = item.activateTime;
 
-        GameObject skill = Instantiate(currentItem.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
-        Destroy(skill, currentItem.activateTime);
-        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);  
+        GameObject skill = Instantiate(item.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
+        Destroy(skill, item.activateTime);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
     }
 
 }

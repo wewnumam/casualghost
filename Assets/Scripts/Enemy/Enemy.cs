@@ -175,6 +175,7 @@ public class Enemy : MonoBehaviour {
         if (CollectibleItem.Instance.canSpawnCollectibleItem) {
             GameObject collectibleItemObject = Instantiate(CollectibleItem.Instance.collectibleItemObject, transform.position, Quaternion.identity);
             collectibleItemObject.GetComponent<SpriteRenderer>().sprite = CollectibleItem.Instance.currentItem.icon;
+            collectibleItemObject.GetComponent<CollectibleItemObject>().item = CollectibleItem.Instance.currentItem;
         }
         Destroy(gameObject);
     }

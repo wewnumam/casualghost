@@ -8,6 +8,7 @@ public class ExplodeRandom : MonoBehaviour {
     [SerializeField] private int maxExplosion;
 
     void Start() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SKILL_EXPLODE_RANDOM);
         enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
 
         List<GameObject> explosionTarget = new List<GameObject>();
