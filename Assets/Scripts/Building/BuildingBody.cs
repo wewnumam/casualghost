@@ -29,6 +29,13 @@ public class BuildingBody : MonoBehaviour {
 		buildingInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
 	}
 
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag(Tags.ENEMY_BULLET)) {
+            StartCoroutine(Attacked(collision.gameObject.GetComponent<Projectile>().bulletDamage, 0f));
+            Destroy(collision.gameObject);
+		}    
+    }
+
     void OnCollisionStay2D(Collision2D collision) {
         // BuildingBody attacked by enemy
 		if (collision.gameObject.CompareTag(Tags.ENEMY) && canAttacked) {

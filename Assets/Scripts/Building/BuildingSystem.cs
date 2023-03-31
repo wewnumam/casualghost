@@ -28,16 +28,20 @@ public class BuildingSystem : MonoBehaviour {
         switch (buildingType) {
             case EnumsManager.BuildingType.THORN_MINE when IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED):
                 costInfoText.text = "";
+                costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.BuildingType.DECOY when IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
                 costInfoText.text = "";
+                costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.BuildingType.CANON when IsBuildingUnlocked(PlayerPrefsKeys.IS_CANNON_UNLOCKED):
                 costInfoText.text = "";
+                costInfoText.gameObject.SetActive(false);
                 break;
             default:
                 // Otherwise, display the initial value of the cost information text
                 costInfoText.text = intialCostInfoText;
+                costInfoText.gameObject.SetActive(true);
                 break;
         }
     }
@@ -66,6 +70,7 @@ public class BuildingSystem : MonoBehaviour {
 
         // Hide the cost information text in the UI
         costInfoText.text = "";
+        costInfoText.gameObject.SetActive(false);
 
         // Update the player preferences based on the building type
         switch (buildingType) {

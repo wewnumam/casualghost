@@ -30,13 +30,16 @@ public class WeaponSystem : MonoBehaviour {
         switch (weaponType) {
             case EnumsManager.WeaponType.SHOTGUN when IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED):
                 costInfoText.text = "";
+                costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.WeaponType.RIFLE when IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED):
                 costInfoText.text = "";
+                costInfoText.gameObject.SetActive(false);
                 break;
             default:
                 // Otherwise, display the initial value of the cost information text
                 costInfoText.text = intialCostInfoText;
+                costInfoText.gameObject.SetActive(true);
                 break;
         }
     }
@@ -84,6 +87,7 @@ public class WeaponSystem : MonoBehaviour {
 
         // Hide the cost information text in the UI
         costInfoText.text = "";
+        costInfoText.gameObject.SetActive(false);
     }
 
     public void SwitchWeapon() {

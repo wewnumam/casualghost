@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 3661015645573040078}
   - component: {fileID: 8853298610182048623}
   - component: {fileID: -992650657076418817}
+  - component: {fileID: -5479541599285420867}
   m_Layer: 7
   m_Name: EnemyBig
   m_TagString: Enemy
@@ -312,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7445f4531d62e49a3f3b68b323bcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 1
+  _maxSpeed: 1.5
 --- !u!114 &8853298610182048623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,3 +362,18 @@ MonoBehaviour:
   floatingTextPrefab: {fileID: 5136484773893588925, guid: 55e34d09c15c1b5429787f5ad68b573a, type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 0}
   offsetY: 0
+--- !u!114 &-5479541599285420867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493536287298976991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0

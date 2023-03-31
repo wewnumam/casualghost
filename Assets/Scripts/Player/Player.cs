@@ -92,6 +92,7 @@ public class Player : MonoBehaviour {
         // Player shoot by enemy
         if (collider.gameObject.CompareTag(Tags.ENEMY_BULLET)) {
             StartCoroutine(Attacked(collider.gameObject.GetComponent<Projectile>().bulletDamage, 0f));
+            Destroy(collider.gameObject);
 		}
 
         if (collider.gameObject.CompareTag(Tags.MIST)) {
