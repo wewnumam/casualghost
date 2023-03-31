@@ -5,6 +5,7 @@ using UnityEngine;
 public class ThornMine : MonoBehaviour {
     [Header("Health Attack Settings")]
     [SerializeField] private float damageAmount;
+    [SerializeField] private float attackSpeed;
     private bool canAttack;
 
     [Header("Move Attack Settings")]
@@ -23,7 +24,7 @@ public class ThornMine : MonoBehaviour {
     void OnTriggerStay2D(Collider2D collider) {
         // Attack enemy
         if (collider.gameObject.CompareTag(Tags.ENEMY) && canAttack) {
-            StartCoroutine(AttackEnemy(collider.gameObject, 1f));
+            StartCoroutine(AttackEnemy(collider.gameObject, attackSpeed));
         }
     }
 
@@ -40,6 +41,7 @@ public class ThornMine : MonoBehaviour {
         if (gameObject != null) {
             gameObject.GetComponent<Enemy>().PlayEnemyHurtAnimation();
             gameObject.GetComponent<HealthSystem>().TakeDamage(damageAmount);
+            gameObject.GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), gameObject.transform);
         }
         canAttack = true; // Allow attacking again
     }

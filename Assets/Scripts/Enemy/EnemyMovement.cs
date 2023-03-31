@@ -68,11 +68,14 @@ public class EnemyMovement : MonoBehaviour {
         } else {
             GameObject[] canons = GameObject.FindGameObjectsWithTag(Tags.CANNON);
             GameObject[] roots = GameObject.FindGameObjectsWithTag(Tags.ROOT);
+            GameObject[] thornmine = GameObject.FindGameObjectsWithTag(Tags.THORN_MINE);
             
             if (canons.Length > 0) {
                 targetToFollow = UtilsClass.GetGameObjectsTransform(canons);
             } else if (roots.Length > 0) {
                 targetToFollow = UtilsClass.GetGameObjectsTransform(roots);
+            } else if (thornmine.Length > 0) {
+                targetToFollow = UtilsClass.GetGameObjectsTransform(thornmine);
             } else {
                 targetToFollow = new Transform[] {
                     GameObject.FindWithTag(Tags.PLAYER).transform,

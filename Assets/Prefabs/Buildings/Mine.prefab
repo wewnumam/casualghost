@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: -5400842771439190819}
   - component: {fileID: 6335038646216612277}
   - component: {fileID: 3253927266968934197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mine
   m_TagString: ThornMine
   m_Icon: {fileID: 0}
@@ -259,4 +259,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 0.25
+  attackSpeed: 1
   moveSpeedDivideBy: 2

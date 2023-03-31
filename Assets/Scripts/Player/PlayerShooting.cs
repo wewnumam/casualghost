@@ -51,14 +51,14 @@ public class PlayerShooting : MonoBehaviour {
 			}
 		}
 		// Reload when R or Space key is pressed and there are rounds left
-		if (Input.GetKey(KeyCode.R) || Input.GetKey(KeyCode.Space)) {
-			if (_roundsLeft < currentPlayerWeapon.maxRound) {
+		if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Space)) {
+			if (_roundsLeft < currentPlayerWeapon.maxRound && !isReload) {
                 Reload();
 			}
 		}
 
 		// Auto reload
-		if (_roundsLeft == 0) {
+		if (_roundsLeft == 0 && !isReload) {
             Reload();
 		}
 		
@@ -82,6 +82,7 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 	void Shoot() {
+		StartCoroutine(PullTrigger(currentPlayerWeapon.pullTriggerTime)); // Delay before player can shoot again
 		CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f); // Shake camera when shooting
 		GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
 		
@@ -94,9 +95,6 @@ public class PlayerShooting : MonoBehaviour {
 		for (int i = 0; i < b.transform.childCount; i++) {
 			b.GetComponentsInChildren<Projectile>()[i].SetBulletDamage(currentPlayerWeapon.bulletDamage); // Set bullet damage based on bullet damage property
 		}
-
-		
-		StartCoroutine(PullTrigger(currentPlayerWeapon.pullTriggerTime)); // Delay before player can shoot again
 	}
 
 	// Setters for properties that can be modified at runtime
@@ -113,14 +111,14 @@ public class PlayerShooting : MonoBehaviour {
     private IEnumerator ReloadSequence(float time) {
 		isReload = true;
         yield return new WaitForSeconds(time);
-        _roundsLeft = currentPlayerWeapon.maxRound;
 		isReload = false;
+        _roundsLeft = currentPlayerWeapon.maxRound;
     }
 
 	private IEnumerator PullTrigger(float time) {
+		_roundsLeft--;
 		canShoot = false;
         yield return new WaitForSeconds(time);
-		_roundsLeft--;
         canShoot = true;
     }
 

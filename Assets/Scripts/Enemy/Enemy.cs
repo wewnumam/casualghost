@@ -91,6 +91,11 @@ public class Enemy : MonoBehaviour {
                 Destroy(collider.gameObject);
             }
         }
+
+        if (collider.gameObject.CompareTag(Tags.THORN_MINE) && IsEnemyTypeRunner()) {
+            Destroy(collider.gameObject);
+            PlayEnemyDieAnimation();
+        }
     }
 
     void OnMouseEnter() {
