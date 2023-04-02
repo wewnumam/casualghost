@@ -77,11 +77,12 @@ public class GameManager : MonoBehaviour {
 
     // Sets the timer and level state, and starts the corresponding level
     public void ResetGameplay(EnumsManager.LevelState levelState) {
-        currentTime = _playTimeInSeconds;
         SetLevelState(levelState);
 
         for (int i = 0; i < LevelManager.Instance.levels.Count; i++) {
             if (levelState == (EnumsManager.LevelState)i) {
+                _playTimeInSeconds = LevelManager.Instance.levels[i].playTimeInSeconds;
+                currentTime = _playTimeInSeconds;
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
                 GameObject environment = Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
                 Destroy(environment, playTimeInSeconds);
@@ -139,8 +140,13 @@ public class GameManager : MonoBehaviour {
         levelInfoText[0].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())} DONE!";
         levelInfoText[1].text = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
         levelInfoText[2].text = $"Current Level: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
-        EnumsManager.LevelState longestLevel = GetCurrentLevelState() > HighScoreSystem.Instance.currentHighScore ? GetCurrentLevelState() : HighScoreSystem.Instance.currentHighScore;
-        levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), longestLevel)}";
+        if (GetCurrentLevelState() > HighScoreSystem.Instance.currentHighScore) {
+            levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";
+            levelInfoText[4].gameObject.SetActive(true);
+        } else {
+            levelInfoText[3].text = $"Longest Level: {Enum.GetName(typeof(EnumsManager.LevelState), HighScoreSystem.Instance.currentHighScore)}";
+            levelInfoText[4].gameObject.SetActive(false);
+        }
         levelProgress.maxValue = LevelManager.Instance.levelStates.Length;
         levelProgress.value = (int)GetCurrentLevelState() + 1;
         levelTooltip.header = $"{Enum.GetName(typeof(EnumsManager.LevelState), GetCurrentLevelState())}";

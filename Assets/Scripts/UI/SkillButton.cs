@@ -20,6 +20,7 @@ public class SkillButton : MonoBehaviour {
 
     void Awake() {
         GetComponent<Button>().onClick.AddListener(() => GamePanelManager.Instance.NextLevel());
+        GetComponent<Button>().onClick.AddListener(() => SkillEnhancer.Instance.AddSkillInfoToList(GetComponent<Image>(), GetComponent<TooltipTrigger>()));
 
         switch (skillType) {
             case Skill.SPEED_UP:

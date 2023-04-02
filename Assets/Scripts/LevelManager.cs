@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour {
 
     public void StartLevel(float enemyAmount) {
         for (int i = 0; i < enemyAmount; i++) {
-            StartCoroutine(SpawnEnemy(Random.Range(0, GameManager.Instance.playTimeInSeconds * 0.9f)));
+            StartCoroutine(SpawnEnemy(Random.Range(0, GameManager.Instance.playTimeInSeconds * 0.8f)));
         }
     }
 
@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour {
 [System.Serializable]
 public class Level {
     public EnumsManager.LevelState levelState;
+    public float playTimeInSeconds;
     public float enemyAmount;
     public int gemsObtained;
     public List<int> spawnPrecentageByEnemyType;

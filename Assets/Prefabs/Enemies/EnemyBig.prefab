@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9183306680690452486
 Transform:
   m_ObjectHideFlags: 0
@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2616678028545533219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 2, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalPosition: {x: 0.75, y: 2, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6493536287298976989}
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d5847d7a8fcdda94990c142cb95ec5b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ SpriteRenderer:
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bceeb670bb626a46930d2f3d4965521, type: 3}
+  m_Sprite: {fileID: 1479860763, guid: a3936a13f3d47594aa508dce92ffdb92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,18 +211,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2}
+  m_Offset: {x: -0.1, y: -2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 8.333333, y: 8.333333}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8, y: 0.75}
+  m_Size: {x: 3, y: 1.8}
   m_EdgeRadius: 0
 --- !u!61 &8572266814753616056
 BoxCollider2D:
@@ -237,18 +237,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.10790539, y: -0.1358118}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 8.333333, y: 8.333333}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.6}
+  m_Size: {x: 3.4437027, y: 5.9878902}
   m_EdgeRadius: 0
 --- !u!50 &6493536287298976963
 Rigidbody2D:
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7611bf7a437d3d489f82346d65259b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
+  _maxHealth: 6
 --- !u!114 &6493536287298976960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,19 +334,19 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_ShapePath:
-  - {x: -1.8833289, y: -1.9962642, z: 0}
-  - {x: -0.905921, y: -0.8629267, z: 0}
-  - {x: 1.3707504, y: -0.8629267, z: 0}
-  - {x: 1.1847076, y: -2.2704961, z: 0}
-  - {x: 0.4979353, y: -2.3018522, z: 0}
-  - {x: 0.3497696, y: -1.5230896, z: 0}
-  - {x: -0.028449535, y: -1.184327, z: 0}
-  - {x: -0.33697176, y: -1.6425345, z: 0}
-  - {x: -0.4609127, y: -2.3018517, z: 0}
-  - {x: -1.5159383, y: -2.2572515, z: 0}
-  m_ShapePathHash: -63125799
+  - {x: -1.4823952, y: -2.0128531, z: 0}
+  - {x: -1.4644036, y: -1.2073245, z: 0}
+  - {x: 0.7069473, y: -0.83085805, z: 0}
+  - {x: 1.1277142, y: -3.125497, z: 0}
+  - {x: -0.22104836, y: -3.0930357, z: 0}
+  - {x: -0.08642149, y: -2.3829818, z: 0}
+  - {x: -0.6148567, y: -1.6590374, z: 0}
+  - {x: -1.1249046, y: -2.4142094, z: 0}
+  - {x: -0.95423937, y: -3.1023438, z: 0}
+  - {x: -1.9231343, y: -3.122007, z: 0}
+  m_ShapePathHash: 998888369
   m_Mesh: {fileID: 0}
-  m_InstanceId: 138526
+  m_InstanceId: 41062
 --- !u!114 &-992650657076418817
 MonoBehaviour:
   m_ObjectHideFlags: 0

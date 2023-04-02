@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillEnhancer : MonoBehaviour {
     public static SkillEnhancer Instance { get; private set; }
@@ -8,6 +9,7 @@ public class SkillEnhancer : MonoBehaviour {
     [Header("Skill Button Instantiate Properties")]
     [SerializeField] List<GameObject> skills;
     [SerializeField] Transform skillParent;
+    [SerializeField] Transform skillList;
 
     [Header("Enhancer Properties")]
     [SerializeField] private float speedAddBy;
@@ -24,6 +26,13 @@ public class SkillEnhancer : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+    }
+
+    public void AddSkillInfoToList(Image skillImage, TooltipTrigger tooltipTrigger) {
+        GameObject skill = Instantiate(skillImage.gameObject, skillList);
+        skill.AddComponent<BoxCollider2D>();
+        skill.GetComponent<BoxCollider2D>().isTrigger = true;
+        Destroy(skill.GetComponent<SkillButton>());
     }
 
     public void InstantiateRandomSkill() {

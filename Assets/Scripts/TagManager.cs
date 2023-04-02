@@ -38,6 +38,11 @@ public class AnimationTags {
     public const string ENEMY_DEFAULT_HURT = "EnemyDefaultHurt";
     public const string ENEMY_DEFAULT_DIE = "EnemyDefaultDie";
     public const string ENEMY_DEFAULT_ATTACK = "EnemyDefaultAttack";
+    public const string ENEMY_BIG_IDLE = "EnemyBigIdle";
+    public const string ENEMY_BIG_WALK = "EnemyBigWalk";
+    public const string ENEMY_BIG_HURT = "EnemyBigHurt";
+    public const string ENEMY_BIG_DIE = "EnemyBigDie";
+    public const string ENEMY_BIG_ATTACK = "EnemyBigAttack";
     public const string SWITCH_FIRST = "SwitchFirst";
     public const string SWITCH_SECOND = "SwitchSecond";
     public const string INVENTORY_OPEN = "InventoryOpen";
