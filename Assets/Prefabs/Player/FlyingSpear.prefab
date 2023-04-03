@@ -5105,6 +5105,7 @@ GameObject:
   - component: {fileID: 5933528093658901327}
   - component: {fileID: 7300650195713709922}
   - component: {fileID: 4264698750804150354}
+  - component: {fileID: 2767029139888655873}
   m_Layer: 8
   m_Name: Projectile (6)
   m_TagString: BulletTypeOne
@@ -5169,8 +5170,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5239,6 +5240,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &2767029139888655873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447633533779432360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &452890124968548815
 GameObject:
   m_ObjectHideFlags: 0
@@ -5458,6 +5474,7 @@ GameObject:
   - component: {fileID: 586288447242722377}
   - component: {fileID: 586288447242722376}
   - component: {fileID: 586288447242722379}
+  - component: {fileID: 1922508846132969292}
   m_Layer: 8
   m_Name: Projectile (1)
   m_TagString: BulletTypeOne
@@ -5522,9 +5539,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5592,6 +5609,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &1922508846132969292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586288447242722421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &586288447563642584
 GameObject:
   m_ObjectHideFlags: 0
@@ -10417,6 +10449,7 @@ GameObject:
   - component: {fileID: 586288447745526485}
   - component: {fileID: 586288447745526484}
   - component: {fileID: 586288447745526487}
+  - component: {fileID: 4334812140449946143}
   m_Layer: 8
   m_Name: Projectile (3)
   m_TagString: BulletTypeOne
@@ -10481,9 +10514,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10551,6 +10584,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &4334812140449946143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586288447745526481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &586288447828764864
 GameObject:
   m_ObjectHideFlags: 0
@@ -16269,6 +16317,7 @@ GameObject:
   - component: {fileID: 586288448919938769}
   - component: {fileID: 586288448919938768}
   - component: {fileID: 586288448919938771}
+  - component: {fileID: 5102486043205351900}
   m_Layer: 8
   m_Name: Projectile (2)
   m_TagString: BulletTypeOne
@@ -16333,9 +16382,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16403,6 +16452,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &5102486043205351900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586288448919938781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &586288448926001045
 GameObject:
   m_ObjectHideFlags: 0
@@ -21508,6 +21572,7 @@ GameObject:
   - component: {fileID: 7444798282176050976}
   - component: {fileID: 5741693797590246711}
   - component: {fileID: 6932453703395478904}
+  - component: {fileID: 507447478182808545}
   m_Layer: 8
   m_Name: Projectile (7)
   m_TagString: BulletTypeOne
@@ -21572,9 +21637,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21642,6 +21707,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &507447478182808545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779933287499692431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &960074735530716913
 GameObject:
   m_ObjectHideFlags: 0
@@ -21655,6 +21735,7 @@ GameObject:
   - component: {fileID: 4854265726741367165}
   - component: {fileID: 3126037186108823226}
   - component: {fileID: 962134396144819925}
+  - component: {fileID: 4905684507580880375}
   m_Layer: 8
   m_Name: Projectile (4)
   m_TagString: BulletTypeOne
@@ -21719,9 +21800,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21789,6 +21870,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &4905684507580880375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960074735530716913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &1797570537806241027
 GameObject:
   m_ObjectHideFlags: 0
@@ -26754,6 +26850,7 @@ GameObject:
   - component: {fileID: 2146082138223710265}
   - component: {fileID: 8483296447747443573}
   - component: {fileID: 8844219051371184707}
+  - component: {fileID: 607157659906702492}
   m_Layer: 8
   m_Name: Projectile
   m_TagString: BulletTypeOne
@@ -26818,9 +26915,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -26888,6 +26985,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &607157659906702492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3646786543123903919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &3949782875419017210
 GameObject:
   m_ObjectHideFlags: 0
@@ -37389,6 +37501,7 @@ GameObject:
   - component: {fileID: 1539498428272448086}
   - component: {fileID: 8450817738018848178}
   - component: {fileID: 2783412808722185363}
+  - component: {fileID: 4135912844279029818}
   m_Layer: 8
   m_Name: Projectile (5)
   m_TagString: BulletTypeOne
@@ -37453,8 +37566,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -37523,6 +37636,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &4135912844279029818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960782839874578759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &6262618522099034865
 GameObject:
   m_ObjectHideFlags: 0

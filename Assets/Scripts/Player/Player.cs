@@ -125,7 +125,7 @@ public class Player : MonoBehaviour {
     IEnumerator PowerUpAnimation() {
         yield return new WaitForSeconds(1f);
         GameObject powerUp = Instantiate(powerUpParticlePrefab, transform);
-        Destroy(powerUp, 3f);
+        Destroy(powerUp, 5f);
     }
 
     void SetPlayerInfo() {

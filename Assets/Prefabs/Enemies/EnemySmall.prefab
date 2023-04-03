@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sortingOrderBase: 0
-  offset: 0
+  offset: 2
   runOnlyOnce: 0
 --- !u!114 &-2368947423404355355
 MonoBehaviour:

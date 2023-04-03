@@ -27,7 +27,7 @@ public class EnemyShooter : MonoBehaviour {
             Transform targetToAim = UtilsClass.FindClosestTransform(this.transform, targetToShoot);
 
             // Rotate the enemy's transform to aim at the closest target
-            UtilsClass.AimRotation(transform, targetToAim.position);
+            UtilsClass.AimRotation(transform, targetToAim.position + new Vector3(0, -2, 0));
 
              // Play the shooting sound effect
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SHOOT);

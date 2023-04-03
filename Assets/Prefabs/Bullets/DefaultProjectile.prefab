@@ -5010,6 +5010,7 @@ GameObject:
   - component: {fileID: 8635168546628094145}
   - component: {fileID: 2280118231368176525}
   - component: {fileID: 1198757949883718331}
+  - component: {fileID: 1502870391386817960}
   m_Layer: 8
   m_Name: Projectile
   m_TagString: BulletTypeOne
@@ -5074,9 +5075,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1643001819
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: db6892701e750a04fb313c5e253bfab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5144,6 +5145,21 @@ MonoBehaviour:
   isDrawingLine: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
+--- !u!114 &1502870391386817960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6378750004686056791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderBase: 0
+  offset: 0
+  runOnlyOnce: 0
 --- !u!1 &6687371310097704706
 GameObject:
   m_ObjectHideFlags: 0

@@ -166,8 +166,7 @@ public class Enemy : MonoBehaviour {
                 break;
             case EnemyType.GIANT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
-                GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_IDLE);
-                EnemyDie();
+                GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_DIE);
                 break;
             case EnemyType.SHOOTER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
@@ -187,7 +186,7 @@ public class Enemy : MonoBehaviour {
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
         CollectibleItem.Instance.AddEnemyKillCounter();
         if (CollectibleItem.Instance.canSpawnCollectibleItem) {
-            GameObject collectibleItemObject = Instantiate(CollectibleItem.Instance.collectibleItemObject, transform.position, Quaternion.identity);
+            GameObject collectibleItemObject = Instantiate(CollectibleItem.Instance.collectibleItemObject, transform.position + Vector3.down, Quaternion.identity);
             collectibleItemObject.GetComponent<SpriteRenderer>().sprite = CollectibleItem.Instance.currentItem.icon;
             collectibleItemObject.GetComponent<SpriteRenderer>().material = CollectibleItem.Instance.currentItem.material;
             collectibleItemObject.GetComponent<CollectibleItemObject>().item = CollectibleItem.Instance.currentItem;

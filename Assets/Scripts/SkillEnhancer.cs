@@ -40,9 +40,18 @@ public class SkillEnhancer : MonoBehaviour {
             Destroy(child.gameObject);
         }
 
-        Instantiate(skills[Random.Range(0, skills.Count)], skillParent);
-        Instantiate(skills[Random.Range(0, skills.Count)], skillParent);
-        Instantiate(skills[Random.Range(0, skills.Count)], skillParent);
+        // Shuffle the list to ensure randomness
+        for (int i = skills.Count - 1; i > 0; i--) {
+            int j = UnityEngine.Random.Range(0, i + 1);
+            GameObject temp = skills[i];
+            skills[i] = skills[j];
+            skills[j] = temp;
+        }
+
+        // Get the first 3 values from the shuffled list
+        for (int i = 0; i < 3; i++) {
+            Instantiate(skills[i], skillParent);
+        }
     }
 
     public void SpeedUp() {
