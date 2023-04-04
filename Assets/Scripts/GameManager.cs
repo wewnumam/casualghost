@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour {
         // Updates the game timer and checks the game state to trigger level transitions or game over
         if (IsGameStateGameplay()) {
             currentTime -= Time.deltaTime;
-            if (currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) {
+            if ((currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) || currentTime <= -20) {
                 GamePanelManager.Instance.LevelTransition();
             }
         }
