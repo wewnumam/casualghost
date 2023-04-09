@@ -32,6 +32,7 @@ public class ThornMine : MonoBehaviour {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             // Restore the enemy's initial speed
             collider.GetComponent<EnemyMovement>().SetMaxSpeed(initialSpeed);
+            GetComponent<Animator>().Play(AnimationTags.THORN_MINE_IDLE);
         }
     }
 
@@ -42,6 +43,7 @@ public class ThornMine : MonoBehaviour {
             gameObject.GetComponent<Enemy>().PlayEnemyHurtAnimation();
             gameObject.GetComponent<HealthSystem>().TakeDamage(damageAmount);
             gameObject.GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), gameObject.transform);
+            GetComponent<Animator>().Play(AnimationTags.THORN_MINE_ATTACK);
         }
         canAttack = true; // Allow attacking again
     }

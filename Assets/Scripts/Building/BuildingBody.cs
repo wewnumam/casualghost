@@ -63,7 +63,11 @@ public class BuildingBody : MonoBehaviour {
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
         GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), transform);
-        GetComponent<Animator>().Play("BuildingHurt");
+        if (gameObject.tag == Tags.DECOY) {
+            GetComponent<Animator>().Play(AnimationTags.DECOY_ATTACKED);
+        } else {
+            GetComponent<Animator>().Play(AnimationTags.BUILDING_HURT);
+        }
         canAttacked = true; // Allow enemy attack again
 	}
 }

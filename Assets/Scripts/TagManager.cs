@@ -48,6 +48,10 @@ public class AnimationTags {
     public const string INVENTORY_OPEN = "InventoryOpen";
     public const string INVENTORY_CLOSE = "InventoryClose";
     public const string LOADING = "Loading";
+    public const string BUILDING_HURT = "BuildingHurt";
+    public const string DECOY_ATTACKED = "DecoyAttacked";
+    public const string THORN_MINE_IDLE = "ThornMineIdle";
+    public const string THORN_MINE_ATTACK = "ThornMineAttack";
 }
 
 public class PlayerPrefsKeys {

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d3df7b6a5ff0ba42a120415ea12c99b
+guid: 82e42edddd6b5734abc2a6c8136190d7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,43 +129,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Breath Room_0
+      name: decoy 1 attacked sprite 1_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 128
-        height: 128
+        x: 0
+        y: 0
+        width: 1000
+        height: 1000
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bc74461ba0a46344983b28e4ef11743
-      internalID: 1560864515
+      spriteID: 517379576bea99e44950d37e7ea9d75e
+      internalID: 1804619844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Breath Room_1
+      name: decoy 1 attacked sprite 1_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 8
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5465772, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c39acae19e2203469edd8931a372685
-      internalID: 1796042963
+      spriteID: 5e1b832cce8eb654e959e7ad0cb31b1b
+      internalID: -1735191733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.53044266, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b3ad73f98d337a4daf496098079f545
+      internalID: -2056781046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5155422, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22b90a599671e743a5aff8a06445fbb
+      internalID: 1323165132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.54662746, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0167aa1e8215d464cbf44632c373bf23
+      internalID: 118017256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.56186473, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee20f5cc048bb4b459782755e24ce430
+      internalID: 1521409505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.48401758, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbed4769821ce74da3963e7679e35f4
+      internalID: -691766138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decoy 1 attacked sprite 1_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.48436132, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a166dab44d10074fb657503938ff08a
+      internalID: -1510135589
       vertices: []
       indices: 
       edges: []
@@ -181,8 +307,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Breath Room_1: 1796042963
-      Breath Room_0: 1560864515
+      decoy 1 attacked sprite 1_0: 1804619844
+      decoy 1 attacked sprite 1_4: 118017256
+      decoy 1 attacked sprite 1_5: 1521409505
+      decoy 1 attacked sprite 1_2: -2056781046
+      decoy 1 attacked sprite 1_1: -1735191733
+      decoy 1 attacked sprite 1_7: -1510135589
+      decoy 1 attacked sprite 1_6: -691766138
+      decoy 1 attacked sprite 1_3: 1323165132
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

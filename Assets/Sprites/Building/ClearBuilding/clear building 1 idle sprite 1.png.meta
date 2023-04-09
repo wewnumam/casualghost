@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 86cd4d15a8e8cb24aaafdae848270de1
+guid: d8f5a3fc049733b428100541bd54db44
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,274 +129,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpingShiningCoin_0
+      name: clear building 1 idle sprite 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.48824808, y: 0.4099017}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc656562890a12844b9bc7cc30e458c3
-      internalID: 2039043395
+      spriteID: e44b373fc806c1b4a8072e08f7bc7181
+      internalID: 302876967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_1
+      name: clear building 1 idle sprite 1_1
       rect:
         serializedVersion: 2
-        x: 8
+        x: 1000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.4929331, y: 0.40858993}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d48caabf11f3d438d28d2111439e62
-      internalID: -1221291433
+      spriteID: 6408305a2efb333449670b980a83565d
+      internalID: -466659480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_2
+      name: clear building 1 idle sprite 1_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 2000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.51574826, y: 0.4100745}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ee42fc0918ffb7419f0067ea05725b0
-      internalID: -2026664426
+      spriteID: 136fda7627d731f48875795d8e96b5b1
+      internalID: -97469529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_3
+      name: clear building 1 idle sprite 1_3
       rect:
         serializedVersion: 2
-        x: 24
+        x: 3000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5035437, y: 0.40921187}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70fda986015853c4fb5831a887766ee3
-      internalID: 1311219656
+      spriteID: df485f225cca9414184f160cb0fb7199
+      internalID: -1898191614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_4
+      name: clear building 1 idle sprite 1_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 4000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.51970506, y: 0.40941858}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1596a965029924eb7cd7d265a5809f
-      internalID: 1286504296
+      spriteID: 8c846b248bf8d76419594fe4d9e157f4
+      internalID: -1237147952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_5
+      name: clear building 1 idle sprite 1_5
       rect:
         serializedVersion: 2
-        x: 40
+        x: 5000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.52592874, y: 0.40966117}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc9fd6cf961a1544292809eccdb94511
-      internalID: -1227352340
+      spriteID: 2150384b6a14c9144b9b7f2a6118d4cf
+      internalID: 1145310558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_6
+      name: clear building 1 idle sprite 1_6
       rect:
         serializedVersion: 2
-        x: 48
+        x: 6000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.54825634, y: 0.409775}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488eddd994c54d94e95c79806577e009
-      internalID: 1374147277
+      spriteID: 2fae5a4cbdf80cb478f63164db736477
+      internalID: 2008325935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_7
+      name: clear building 1 idle sprite 1_7
       rect:
         serializedVersion: 2
-        x: 56
+        x: 7000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5352817, y: 0.40986782}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08a3ed6375b7fe843af908019c20dd8e
-      internalID: 34662369
+      spriteID: 41e711913f3de664da03b025d8421acd
+      internalID: -1235570973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_8
+      name: clear building 1 idle sprite 1_8
       rect:
         serializedVersion: 2
-        x: 64
+        x: 8000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.519834, y: 0.40971804}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8f4dd384fccead46a3a0be6127afb17
-      internalID: 723861220
+      spriteID: f811d63db83675f4aac9108b800b1e31
+      internalID: -1238992110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_9
+      name: clear building 1 idle sprite 1_9
       rect:
         serializedVersion: 2
-        x: 72
+        x: 9000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5433799, y: 0.4099037}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d713b6869d6c8a14292d627b63d3dbe1
-      internalID: 98048348
+      spriteID: 641ee162d3e6d7c458b02a96e49b6fbe
+      internalID: 578466724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_10
+      name: clear building 1 idle sprite 1_10
       rect:
         serializedVersion: 2
-        x: 80
+        x: 10000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.48867482, y: 0.40984988}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a18fd53dead6254e9a46edc9dacfba6
-      internalID: -1394601057
+      spriteID: 2a251f9eddb8be348a047a76be483bf1
+      internalID: 892381980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_11
+      name: clear building 1 idle sprite 1_11
       rect:
         serializedVersion: 2
-        x: 88
+        x: 11000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.47354394, y: 0.40922645}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0867bb69e644f1b45a6e17fd6ebec068
-      internalID: 1214327665
+      spriteID: 2c2770db56bd167459e20c7c46670a98
+      internalID: -1673682422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_12
+      name: clear building 1 idle sprite 1_12
       rect:
         serializedVersion: 2
-        x: 96
+        x: 12000
         y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.5203848, y: 0.40968794}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1da6ccee2325ede4f9d8b5d683ab8104
-      internalID: -951494796
+      spriteID: d71a6aa5aeab72c49965c6691cc50d86
+      internalID: 1901822455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clear building 1 idle sprite 1_13
+      rect:
+        serializedVersion: 2
+        x: 13000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.54692775, y: 0.4101249}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e208791c568c5a44f8806dd18b0e2559
+      internalID: 1523211520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clear building 1 idle sprite 1_14
+      rect:
+        serializedVersion: 2
+        x: 14000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.4920547, y: 0.40892693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e46fd8a1d0d68e459c49ab8c6d5e3c4
+      internalID: -2054275554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: clear building 1 idle sprite 1_15
+      rect:
+        serializedVersion: 2
+        x: 15000
+        y: 0
+        width: 1000
+        height: 1000
+      alignment: 9
+      pivot: {x: 0.47799608, y: 0.40892693}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143377f1928c6d94bb9ab450114e0ece
+      internalID: -431881742
       vertices: []
       indices: 
       edges: []
@@ -412,40 +475,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpingShiningCoin_22: 887724986
-      JumpingShiningCoin_12: -951494796
-      JumpingShiningCoin_33: -1802422869
-      JumpingShiningCoin_26: -1043323515
-      JumpingShiningCoin_6: 1374147277
-      JumpingShiningCoin_17: -1943435376
-      JumpingShiningCoin_23: 103504508
-      JumpingShiningCoin_8: 723861220
-      JumpingShiningCoin_13: 1247711941
-      JumpingShiningCoin_24: -599970643
-      JumpingShiningCoin_9: 98048348
-      JumpingShiningCoin_25: -753106758
-      JumpingShiningCoin_4: 1286504296
-      JumpingShiningCoin_21: -1173272395
-      JumpingShiningCoin_10: -1394601057
-      JumpingShiningCoin_28: -545130744
-      JumpingShiningCoin_11: 1214327665
-      JumpingShiningCoin_14: -1848518306
-      JumpingShiningCoin_0: 2039043395
-      JumpingShiningCoin_5: -1227352340
-      JumpingShiningCoin_20: 1965002643
-      JumpingShiningCoin_31: 1961364833
-      JumpingShiningCoin_16: 649263327
-      JumpingShiningCoin_29: -960225651
-      JumpingShiningCoin_3: 1311219656
-      JumpingShiningCoin_2: -2026664426
-      JumpingShiningCoin_18: 807226564
-      JumpingShiningCoin_7: 34662369
-      JumpingShiningCoin_19: -1698231745
-      JumpingShiningCoin_27: -1188271453
-      JumpingShiningCoin_15: -299409109
-      JumpingShiningCoin_32: -924969499
-      JumpingShiningCoin_30: 97636725
-      JumpingShiningCoin_1: -1221291433
+      clear building 1 idle sprite 1_11: -1673682422
+      clear building 1 idle sprite 1_13: 1523211520
+      clear building 1 idle sprite 1_7: -1235570973
+      clear building 1 idle sprite 1_9: 578466724
+      clear building 1 idle sprite 1_1: -466659480
+      clear building 1 idle sprite 1_2: -97469529
+      clear building 1 idle sprite 1_15: -431881742
+      clear building 1 idle sprite 1_5: 1145310558
+      clear building 1 idle sprite 1_14: -2054275554
+      clear building 1 idle sprite 1_8: -1238992110
+      clear building 1 idle sprite 1_0: 302876967
+      clear building 1 idle sprite 1_12: 1901822455
+      clear building 1 idle sprite 1_3: -1898191614
+      clear building 1 idle sprite 1_6: 2008325935
+      clear building 1 idle sprite 1_10: 892381980
+      clear building 1 idle sprite 1_4: -1237147952
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
