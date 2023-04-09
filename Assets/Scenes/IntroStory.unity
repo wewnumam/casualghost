@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[hit SPACE or Mouse Left to next] [hit ESC to skip story]'
+  m_text: '[hit SPACE to next] [hit ESC to skip story]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
   m_sharedMaterial: {fileID: -3074382457947513100, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
@@ -1349,8 +1349,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
