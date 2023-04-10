@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8496608654901934832}
   - component: {fileID: 4465149803016662664}
   - component: {fileID: 62233318015878606}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnvirontmentPFXNear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2349,11 +2349,11 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2406,7 +2406,7 @@ ParticleSystem:
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
-      m_Bits: 12544
+      m_Bits: 12546
     influenceList: []
   ClampVelocityModule:
     enabled: 0
@@ -3794,7 +3794,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -4875,7 +4875,7 @@ GameObject:
   - component: {fileID: 864853628729095745}
   - component: {fileID: 643334955972083604}
   - component: {fileID: 7663146198075485481}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnvirontmentPFXFarest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7212,11 +7212,11 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -7269,7 +7269,7 @@ ParticleSystem:
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
-      m_Bits: 12544
+      m_Bits: 12546
     influenceList: []
   ClampVelocityModule:
     enabled: 0
@@ -8657,7 +8657,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -9702,7 +9702,7 @@ GameObject:
   - component: {fileID: 286559592994632373}
   - component: {fileID: 6261553484943535764}
   - component: {fileID: 9187679827352915456}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnvirontmentPFXNearest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12039,11 +12039,11 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -12096,7 +12096,7 @@ ParticleSystem:
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
-      m_Bits: 12544
+      m_Bits: 12546
     influenceList: []
   ClampVelocityModule:
     enabled: 0
@@ -13484,7 +13484,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -14529,7 +14529,7 @@ GameObject:
   - component: {fileID: 3000118864949022935}
   - component: {fileID: 3350773833444857923}
   - component: {fileID: 6645509240527949449}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnvirontmentPFXFar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16866,11 +16866,11 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -16923,7 +16923,7 @@ ParticleSystem:
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
-      m_Bits: 12544
+      m_Bits: 12546
     influenceList: []
   ClampVelocityModule:
     enabled: 0
@@ -18311,7 +18311,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0
@@ -19356,7 +19356,7 @@ GameObject:
   - component: {fileID: 998438397578478237}
   - component: {fileID: 8821967549414484939}
   - component: {fileID: 433299547115277203}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnvirontmentPFXMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21693,11 +21693,11 @@ ParticleSystem:
     randomizePerFrame: 0
   ExternalForcesModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -21750,7 +21750,7 @@ ParticleSystem:
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
-      m_Bits: 12544
+      m_Bits: 12546
     influenceList: []
   ClampVelocityModule:
     enabled: 0
@@ -23138,7 +23138,7 @@ ParticleSystem:
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 2
     inside: 1
     outside: 0

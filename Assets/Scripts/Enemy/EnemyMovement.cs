@@ -138,6 +138,13 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag(Tags.TREE)) {
+            if (!GetComponent<Enemy>().IsEnemyTypeBoss()) {
+                StartCoroutine(collision.gameObject.GetComponent<Tree>().HideTreeTemporary(collision.gameObject, 2f));
+                collision.gameObject.GetComponent<Tree>().SwitchToDarkTree();
+            }
+        }
+
         if (targetToFollow == null) return;
 
         foreach (var t in targetToFollow) {
@@ -147,6 +154,8 @@ public class EnemyMovement : MonoBehaviour {
             }
         }
     }
+
+    
 
     void OnCollisionExit2D(Collision2D collision) {
         if (targetToFollow == null) return;

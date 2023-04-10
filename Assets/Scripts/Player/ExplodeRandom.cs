@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class ExplodeRandom : MonoBehaviour {
     [SerializeField] private GameObject explosionPrefab;
@@ -9,6 +10,7 @@ public class ExplodeRandom : MonoBehaviour {
 
     void Start() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SKILL_EXPLODE_RANDOM);
+        CameraShaker.Instance.ShakeOnce(5f, 5f, 1f, 3f);
         enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
 
         List<GameObject> explosionTarget = new List<GameObject>();

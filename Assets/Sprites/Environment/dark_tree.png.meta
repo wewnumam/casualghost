@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 83c6c444b342dd94a9187f8974a62d8d
+guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tree_0
+      name: dark_tree_0
       rect:
         serializedVersion: 2
         x: 7
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b98b208c0420cf944a29aa09922e3f05
-      internalID: 1493309922
+      spriteID: 8485149b1d25a8848aa0d98a80a736fd
+      internalID: 79181857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree_1
+      name: dark_tree_1
       rect:
         serializedVersion: 2
         x: 132
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78677bc7fcd5fdc4ca31306bd2a07a82
-      internalID: 1325850661
+      spriteID: dea6257dddee1d84499bf08c7a6d837d
+      internalID: 1345161271
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tree_0: 1493309922
-      tree_1: 1325850661
+      dark_tree_1: 1345161271
+      dark_tree_0: 79181857
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

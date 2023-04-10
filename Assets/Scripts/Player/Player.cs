@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
             isPowerUp = false;
         }
 
-        SetPlayerInfo();
+        // SetPlayerInfo();
     }
 
     public void SetPlayerState(EnumsManager.PlayerState playerState) => this.playerState = playerState;
