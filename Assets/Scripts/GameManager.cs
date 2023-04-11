@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI rewardInfoText;
     [SerializeField] private Slider levelProgress;
     [SerializeField] private Slider timeProgress;
+    [SerializeField] private TextMeshProUGUI countdownText;
 
     [Header("Environment Properties")]
     [SerializeField] private Light2D directionalLight;
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Light2D[] UILights;
     private float[] UILightsIntensity;
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    private Coroutine zoomRoutine;
 
     void Awake () {
         if (Instance == null) {
@@ -62,6 +65,9 @@ public class GameManager : MonoBehaviour {
         // Updates the game timer and checks the game state to trigger level transitions or game over
         if (IsGameStateGameplay()) {
             currentTime -= Time.deltaTime;
+            if (Mathf.FloorToInt(currentTime) == Mathf.FloorToInt(playTimeInSeconds) - 7) {
+                StartCoroutine(Countdown(countdownText));
+            }
             if ((currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) || currentTime <= -20) {
                 GamePanelManager.Instance.LevelTransition();
             }
@@ -89,11 +95,43 @@ public class GameManager : MonoBehaviour {
                 currentDirectionalLightIntensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.intensity = LevelManager.Instance.levels[i].directionalLightIntensity;
                 directionalLight.color = LevelManager.Instance.levels[i].directionalLightColor;
-                cinemachineVirtualCamera.m_Lens.OrthographicSize = LevelManager.Instance.levels[i].cameraOrthoSize;
+                if (zoomRoutine != null) StopCoroutine(zoomRoutine);
+                zoomRoutine = StartCoroutine(CameraZoom(LevelManager.Instance.levels[i].cameraOrthoSize));
                 break;
             }
         }
         
+    }
+
+    IEnumerator CameraZoom(float targetSize) {
+        yield return new WaitForSeconds(2f);
+        const float MAX_ORTHOGRAPHIC_SIZE = 50;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1f) {
+            cinemachineVirtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(targetSize, MAX_ORTHOGRAPHIC_SIZE, elapsedTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        while (elapsedTime > 0) {
+            cinemachineVirtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(targetSize, MAX_ORTHOGRAPHIC_SIZE, elapsedTime);
+            elapsedTime -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    IEnumerator Countdown(TextMeshProUGUI textMesh) {
+        textMesh.gameObject.SetActive(true);
+        textMesh.text = "READY";
+        yield return new WaitForSeconds(2f);
+        textMesh.text = "3";
+        yield return new WaitForSeconds(1f);
+        textMesh.text = "2";
+        yield return new WaitForSeconds(1f);
+        textMesh.text = "1";
+        yield return new WaitForSeconds(1f);
+        textMesh.gameObject.SetActive(false);
     }
 
     // Adds up all the gems earned and resets the gameplay for the next level
