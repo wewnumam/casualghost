@@ -52,6 +52,7 @@ public class Player : MonoBehaviour {
             }
             if (playerBody != null) Destroy(playerBody.gameObject);
             GetComponent<Animator>().Play(AnimationTags.PLAYER_DIE);
+            GetComponent<PlayerMovement>().enabled = false;
         }
 
         if (isPowerUp) {

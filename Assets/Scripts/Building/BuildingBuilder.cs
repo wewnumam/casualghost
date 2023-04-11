@@ -22,6 +22,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private string initialTextInfo;
     private float initialFontSize;
     private float initialLightIntensity;
+    private HorizontalLayoutGroup costContainer;
 
     [Header("Particle Properties")]
     [SerializeField] private GameObject particleDropBuilding; 
@@ -31,6 +32,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
         initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
         initialFontSize = GetComponentInChildren<TextMeshProUGUI>().fontSize;
         initialLightIntensity = GetComponentInChildren<Light2D>().intensity;
+        costContainer = GetComponentInChildren<HorizontalLayoutGroup>();
     }
 
     void Update() {
@@ -55,9 +57,13 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void SetLockedInfoText() {
         // Set the text of the UI element that displays information about the building to either "LOCKED" or the initial text, depending on whether the building is locked.
         if (isBuildingLocked) {
+            GetComponentInChildren<HorizontalLayoutGroup>().padding.left = 0;
+            GetComponentInChildren<HorizontalLayoutGroup>().spacing= -30;
             GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
-            GetComponentInChildren<TextMeshProUGUI>().fontSize = 24;
+            GetComponentInChildren<TextMeshProUGUI>().fontSize = 22;
         } else {
+            GetComponentInChildren<HorizontalLayoutGroup>().padding.left = 40;
+            GetComponentInChildren<HorizontalLayoutGroup>().spacing = 0;
             GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
             GetComponentInChildren<TextMeshProUGUI>().fontSize = initialFontSize;
         }
