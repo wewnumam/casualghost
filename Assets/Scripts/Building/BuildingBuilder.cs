@@ -103,6 +103,12 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
         // When the mouse is pressed down on the building UI element, instantiate the building at the mouse's current world position if the player can afford to build it.
         if (CanBuild()) {
             currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity, buildingParent);
+            Color tempColor = currentBuilding.GetComponent<SpriteRenderer>().color;
+            tempColor.a = 0.25f;
+            currentBuilding.GetComponent<SpriteRenderer>().color = tempColor;
+            if (currentBuilding.GetComponent<BoxCollider2D>() != null && !currentBuilding.GetComponent<BoxCollider2D>().isTrigger) {
+                currentBuilding.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 
@@ -126,6 +132,14 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
 				transform.rotation
 			);
 			ps.GetComponentInChildren<ParticleSystem>().Play();
+            if (currentBuilding != null) {
+                Color tempColor = currentBuilding.GetComponent<SpriteRenderer>().color;
+                tempColor.a = 1f;
+                currentBuilding.GetComponent<SpriteRenderer>().color = tempColor;
+                if (currentBuilding.GetComponent<BoxCollider2D>() != null && !currentBuilding.GetComponent<BoxCollider2D>().isTrigger) {
+                    currentBuilding.GetComponent<BoxCollider2D>().enabled = true;
+                }
+            }
         }
     }
 }

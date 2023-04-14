@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
     private float[] UILightsIntensity;
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     private Coroutine zoomRoutine;
+    public bool hasBGMGameplayBeenCalled { get; private set; }
 
     void Awake () {
         if (Instance == null) {
@@ -60,13 +61,20 @@ public class GameManager : MonoBehaviour {
             UILightsIntensity[i] = UILights[i].intensity;
         }
     }
-
     void Update() {
         // Updates the game timer and checks the game state to trigger level transitions or game over
         if (IsGameStateGameplay()) {
             currentTime -= Time.deltaTime;
             if (Mathf.FloorToInt(currentTime) == Mathf.FloorToInt(playTimeInSeconds) - 7) {
                 StartCoroutine(Countdown(countdownText));
+            }
+            if (Mathf.FloorToInt(currentTime) == Mathf.FloorToInt(playTimeInSeconds) - 10 && !hasBGMGameplayBeenCalled) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+                hasBGMGameplayBeenCalled = true;
+            }
+            if (Mathf.FloorToInt(currentTime) == 20) {
+                SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+                hasBGMGameplayBeenCalled = false;
             }
             if ((currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) || currentTime <= -20) {
                 GamePanelManager.Instance.LevelTransition();

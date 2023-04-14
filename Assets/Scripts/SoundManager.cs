@@ -66,6 +66,7 @@ public class SoundManager : MonoBehaviour {
 
     private bool IsBGM(EnumsManager.SoundEffect soundEffect) {
         return (
+            soundEffect == EnumsManager.SoundEffect._AMBIENCE_FOREST ||
             soundEffect == EnumsManager.SoundEffect._BGM_CREDIT_PANEL ||
             soundEffect == EnumsManager.SoundEffect._BGM_GAME_OVER ||
             soundEffect == EnumsManager.SoundEffect._BGM_GAMEPLAY_1 ||

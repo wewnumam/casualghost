@@ -18,6 +18,7 @@ public class HealthSystem : MonoBehaviour {
 
     public bool IsAlive() => _currentHealth > 0f;
     public bool IsDie() => _currentHealth <= 0f;
+    public bool IsDying() => _currentHealth <= _maxHealth * 0.3f;
 
     public void TakeDamage(float damageAmount) {
         if (IsAlive()) {

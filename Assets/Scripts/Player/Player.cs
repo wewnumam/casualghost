@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
     [Header("Player Environment Properties")]
     [SerializeField] private Light2D playerLight;
     private float initialPlayerLightIntensity;
+    private bool hasPlayerDyingSFXBeenCalled; 
 
     void Awake() {
         if (Instance == null) {
@@ -58,6 +59,17 @@ public class Player : MonoBehaviour {
         if (isPowerUp) {
             StartCoroutine(PowerUpAnimation());
             isPowerUp = false;
+        }
+
+        if (!GetComponent<HealthSystem>().IsDying() && !GameObject.FindGameObjectWithTag(Tags.BANYAN).GetComponent<HealthSystem>().IsDying()) {
+            PostProcessingEffect.Instance.ResetDyingEffect();
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect.PLAYER_DYING);
+            hasPlayerDyingSFXBeenCalled = false;
+        } else {
+            if (!hasPlayerDyingSFXBeenCalled) {
+                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DYING);
+                hasPlayerDyingSFXBeenCalled = true;
+            }
         }
 
         // SetPlayerInfo();
@@ -112,6 +124,9 @@ public class Player : MonoBehaviour {
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
 		GetComponent<HealthSystem>().TakeDamage(damageAmount);
+        if (GetComponent<HealthSystem>().IsDying()) {
+            PostProcessingEffect.Instance.DyingEffect(damageAmount / 10);
+        }
         GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), transform);
         canAttacked = true; // Allow enemy attack again
         isAttacked = false;

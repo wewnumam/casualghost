@@ -45,6 +45,7 @@ public static class EnumsManager {
     }
 
     public enum SoundEffect {
+        _AMBIENCE_FOREST,
         _BGM_CREDIT_PANEL,
         _BGM_GAME_OVER,
         _BGM_GAMEPLAY_1,
@@ -71,6 +72,7 @@ public static class EnumsManager {
         ENEMY_SPAWN_SMALL,
         EXPLOSION,
         PLAYER_DIE,
+        PLAYER_DYING,
         PLAYER_HURT_1,
         PLAYER_HURT_2,
         PLAYER_HURT_3,
@@ -83,7 +85,8 @@ public static class EnumsManager {
         PLAYER_SKILL_FLYING_SPEAR,
         PLAYER_SKILL_HEAL_AREA,
         REWARD_PANEL,
-        TUTORIAL_DONE
+        TUTORIAL_DONE,
+        WIND
     }
 
     public enum WeaponType {

@@ -34,6 +34,7 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
             GameManager.Instance.TurnOnUILights(false);
             Time.timeScale = 0f;
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
@@ -81,7 +82,7 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
             GameManager.Instance.TurnOnUILights(true);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
-            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
             inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_OPEN);
         } else {
             SceneManager.LoadScene(SceneNames.INTRO_STORY);
@@ -144,10 +145,12 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     public void GameOver() {
+        SoundManager.Instance.StopSound(EnumsManager.SoundEffect.PLAYER_DYING);
         SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
+        PostProcessingEffect.Instance.ResetDyingEffect();
         gameplayPanel.SetActive(false);
         gameOverPanel.SetActive(true);
     }
@@ -157,6 +160,7 @@ public class GamePanelManager : MonoBehaviour {
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.REWARD);
         GameManager.Instance.SetGemsRewardFromCoinAndHealth();
+        PostProcessingEffect.Instance.ResetDyingEffect();
         pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         levelTransitionPanel.SetActive(false);

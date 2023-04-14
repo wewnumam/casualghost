@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tree : MonoBehaviour {
-    [SerializeField] private Sprite[] treeSprites;
-    [SerializeField] private Sprite[] darkTreeSprites;
-    public bool isDarked;
+    [SerializeField] private TreeSprites[] treeSprites;
+    public int treeSpritesIndex;
 
     void Awake() {
-        GetComponent<SpriteRenderer>().sprite = treeSprites[Random.Range(0, treeSprites.Length)];
+        treeSpritesIndex = Random.Range(0, treeSprites.Length);
+        GetComponent<SpriteRenderer>().sprite = treeSprites[treeSpritesIndex].treeSprites;
     }
 
     public IEnumerator HideTreeTemporary(GameObject gameObject, float waitForSeconds) {
@@ -18,9 +18,16 @@ public class Tree : MonoBehaviour {
     }
 
     public void SwitchToDarkTree() {
-        if (!isDarked) {
-            isDarked = true;
-            GetComponent<SpriteRenderer>().sprite = darkTreeSprites[Random.Range(0, darkTreeSprites.Length)];
+        if (!treeSprites[treeSpritesIndex].isDarked) {
+            treeSprites[treeSpritesIndex].isDarked = true;
+            GetComponent<SpriteRenderer>().sprite = treeSprites[treeSpritesIndex].darkTreeSprites;
         }
     }
+}
+
+[System.Serializable]
+public class TreeSprites {
+    public Sprite treeSprites;
+    public Sprite darkTreeSprites;
+    public bool isDarked;
 }

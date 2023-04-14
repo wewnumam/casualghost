@@ -58,6 +58,9 @@ public class BuildingBody : MonoBehaviour {
                 EnumsManager.SoundEffect.PLAYER_HURT_4
             }));
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
+            if (GetComponent<HealthSystem>().IsDying()) {
+                PostProcessingEffect.Instance.DyingEffect(damageAmount / 10);
+            }
         }
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);

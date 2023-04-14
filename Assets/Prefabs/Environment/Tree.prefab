@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8567046332476278281}
   - component: {fileID: 8567046332476278282}
   - component: {fileID: 2632173725641253663}
-  - component: {fileID: -9113595213327036425}
+  - component: {fileID: 2657057083747554054}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 1493309922, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -148,14 +148,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSprites:
-  - {fileID: 1493309922, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
-  - {fileID: 1325850661, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
-  - {fileID: -1528471201, guid: c73e5e0025201c547b25aed2327892fc, type: 3}
-  darkTreeSprites:
-  - {fileID: 79181857, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
-  - {fileID: 1345161271, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
-  isDarked: 0
---- !u!114 &-9113595213327036425
+  - treeSprites: {fileID: 1493309922, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
+    darkTreeSprites: {fileID: 79181857, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
+    isDarked: 0
+  - treeSprites: {fileID: 1325850661, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
+    darkTreeSprites: {fileID: 1345161271, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
+    isDarked: 0
+  - treeSprites: {fileID: 1410020896, guid: c73e5e0025201c547b25aed2327892fc, type: 3}
+    darkTreeSprites: {fileID: 717743176, guid: b8c39552902d6ff418f2c19f898312e4, type: 3}
+    isDarked: 0
+  - treeSprites: {fileID: -1528471201, guid: c73e5e0025201c547b25aed2327892fc, type: 3}
+    darkTreeSprites: {fileID: 717743176, guid: b8c39552902d6ff418f2c19f898312e4, type: 3}
+    isDarked: 0
+  treeSpritesIndex: 0
+--- !u!114 &2657057083747554054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,9 +170,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8567046332476278285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd0c2182a5e75040aabb7eea4194be2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderBase: 0
-  offset: 2
-  runOnlyOnce: 1
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7b3eb1d00
+  m_ShapePath:
+  - {x: -0.117837675, y: -3.0020673, z: 0}
+  - {x: -0.2557345, y: -2.2462347, z: 0}
+  - {x: 0.670846, y: -2.249055, z: 0}
+  - {x: 0.31771946, y: -2.9889476, z: 0}
+  m_ShapePathHash: -242799116
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 159636
