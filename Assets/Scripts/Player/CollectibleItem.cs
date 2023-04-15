@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CollectibleItem : MonoBehaviour {
     public static CollectibleItem Instance { get; private set; }
 
+    public Sprite branchSprite;
+    public Material branchMaterial;
     [SerializeField] private Item[] items;
     [HideInInspector] public Item currentItem;
     [SerializeField] private int enemyKillAmountToSpawnCollectibleItem;
@@ -56,7 +58,6 @@ public class CollectibleItem : MonoBehaviour {
         Destroy(skill, item.activateTime);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
     }
-
 }
 
 

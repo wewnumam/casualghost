@@ -4,9 +4,9 @@ using UnityEngine;
 
 [ExecuteInEditMode()]
 public class PositionRendererSorter : MonoBehaviour {
-    [SerializeField] private int sortingOrderBase;
-    [SerializeField] private int offset;
-    [SerializeField] private bool runOnlyOnce;
+    public int sortingOrderBase;
+    public int offset;
+    public bool runOnlyOnce;
     private SpriteRenderer spriteRenderer;
 
     void Awake() {
