@@ -115,6 +115,8 @@ public class Enemy : MonoBehaviour {
     public void PlayEnemyIdleAnimation() {
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_IDLE);
+        } else if (IsEnemyTypeRunner()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_IDLE);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_IDLE);
         }
@@ -125,6 +127,8 @@ public class Enemy : MonoBehaviour {
 
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_WALK);
+        } else if (IsEnemyTypeRunner()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_WALK);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_WALK);
         }
@@ -135,6 +139,8 @@ public class Enemy : MonoBehaviour {
 
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_HURT);
+        } else if (IsEnemyTypeRunner()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_HURT);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_HURT);
         }
@@ -145,6 +151,8 @@ public class Enemy : MonoBehaviour {
 
         if (IsEnemyTypeDefault()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_ATTACK);
+        } else if (IsEnemyTypeRunner()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_ATTACK);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_ATTACK);
         }
@@ -162,7 +170,7 @@ public class Enemy : MonoBehaviour {
                 break;
             case EnemyType.RUNNER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_SMALL);
-                EnemyDie();
+                GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_DIE);
                 break;
             case EnemyType.GIANT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);

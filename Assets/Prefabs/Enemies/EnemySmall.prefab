@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2825129085373500768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.8, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: bb95ba4be1760b244a883c32c3ffcead, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,8 +166,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2d105578777941b45945849f1175fb3e, type: 3}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 1373577925, guid: f8adddbdd06a52c4492d2d5ac0d2b2bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,11 +211,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.7}
+  m_Offset: {x: 0, y: -1.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 4.444444, y: 4.448785}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -237,18 +237,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6}
+  m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 4.444444, y: 4.448785}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.2}
+  m_Size: {x: 1, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &6493536287298976963
 Rigidbody2D:
@@ -334,18 +334,13 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_ShapePath:
-  - {x: -1.3336906, y: -1.8047601, z: 0}
-  - {x: -0.5472226, y: -1.0860732, z: 0}
-  - {x: 0.60493183, y: -1.0717089, z: 0}
-  - {x: 0.58375454, y: -1.6588131, z: 0}
-  - {x: -0.059119225, y: -2.0656977, z: 0}
-  - {x: -0.2163496, y: -1.8920534, z: 0}
-  - {x: -0.19534254, y: -1.4806969, z: 0}
-  - {x: -0.5012026, y: -1.7946312, z: 0}
-  - {x: -0.8537364, y: -2.0756762, z: 0}
-  m_ShapePathHash: 409337595
+  - {x: -0.39759922, y: -0.8729041, z: 0}
+  - {x: 0.30843258, y: -0.86249983, z: 0}
+  - {x: 0.3449726, y: -1.6464514, z: 0}
+  - {x: -0.6365366, y: -1.6463274, z: 0}
+  m_ShapePathHash: -46697399
   m_Mesh: {fileID: 0}
-  m_InstanceId: 140308
+  m_InstanceId: 42216
 --- !u!114 &-2708521009188318648
 MonoBehaviour:
   m_ObjectHideFlags: 0

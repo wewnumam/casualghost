@@ -148,7 +148,10 @@ public class EnemyMovement : MonoBehaviour {
         if (targetToFollow == null) return;
 
         foreach (var t in targetToFollow) {
-            if (collision.gameObject.CompareTag(t.gameObject.tag) && t != null) {
+            if ((collision.gameObject.CompareTag(t.gameObject.tag) || 
+                collision.gameObject.CompareTag(Tags.ROOT) ||
+                collision.gameObject.CompareTag(Tags.DECOY) ||
+                collision.gameObject.CompareTag(Tags.CANNON)) && t != null) {
                 isCollideWithTarget = true;
                 break;
             }
@@ -161,7 +164,10 @@ public class EnemyMovement : MonoBehaviour {
         if (targetToFollow == null) return;
         
         foreach (var t in targetToFollow) {
-            if (collision.gameObject.CompareTag(t.gameObject.tag) && t != null) {
+            if ((collision.gameObject.CompareTag(t.gameObject.tag) ||
+                collision.gameObject.CompareTag(Tags.ROOT) ||
+                collision.gameObject.CompareTag(Tags.DECOY) ||
+                collision.gameObject.CompareTag(Tags.CANNON)) && t != null) {
                 isCollideWithTarget = false;
                 break;
             }
