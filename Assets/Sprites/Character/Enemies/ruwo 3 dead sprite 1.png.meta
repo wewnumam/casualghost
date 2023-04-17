@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 89c31a2f8e52ef445a2b3c0e74291dbc
+guid: cb86f1eec6e2ae84786822e5f172ccea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 225
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,6 +102,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tutorial_0
+      name: ruwo 3 dead sprite 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a434bfbaa40394040a6953baf17b990f
-      internalID: -806233161
+      spriteID: 3750fa98432a8074d89149cd27cfa7cd
+      internalID: -1860661520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_1
+      name: ruwo 3 dead sprite 1_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -152,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2c1a09a701c39149926d1d776c1beba
-      internalID: -743106482
+      spriteID: b80144e126374294eb33131850a9be6e
+      internalID: -394408114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_2
+      name: ruwo 3 dead sprite 1_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -173,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ca9ce03128c47747bd023e48506e911
-      internalID: 1485307197
+      spriteID: 65d157449bae3d54e9e4079395415d5d
+      internalID: -1637398600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_3
+      name: ruwo 3 dead sprite 1_3
       rect:
         serializedVersion: 2
         x: 3000
@@ -194,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08228b2aeaf69684a997f1024aa809cc
-      internalID: 1228585464
+      spriteID: 1faf7018018313346bf2a38731da7f67
+      internalID: 1935169120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tutorial_4
+      name: ruwo 3 dead sprite 1_4
       rect:
         serializedVersion: 2
         x: 4000
@@ -215,8 +227,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ffa708808067314390e387f0d3805ec
-      internalID: -1884976735
+      spriteID: 3f09693311c39aa4e91f88414a533c30
+      internalID: -587843340
       vertices: []
       indices: 
       edges: []
@@ -232,11 +244,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tutorial_0: -806233161
-      tutorial_1: -743106482
-      tutorial_3: 1228585464
-      tutorial_4: -1884976735
-      tutorial_2: 1485307197
+      ruwo 3 dead sprite 1_0: -1860661520
+      ruwo 3 dead sprite 1_4: -587843340
+      ruwo 3 dead sprite 1_2: -1637398600
+      ruwo 3 dead sprite 1_3: 1935169120
+      ruwo 3 dead sprite 1_1: -394408114
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
