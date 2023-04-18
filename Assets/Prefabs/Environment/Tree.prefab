@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
   m_SortingOrder: -2
-  m_Sprite: {fileID: 1493309922, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
+  m_Sprite: {fileID: 1249389369, guid: c2fad2e2f555663408852d38792d9044, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,16 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeSprites:
-  - treeSprites: {fileID: 1493309922, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
+  - treeSprites: {fileID: 1249389369, guid: c2fad2e2f555663408852d38792d9044, type: 3}
     darkTreeSprites: {fileID: 79181857, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
     isDarked: 0
-  - treeSprites: {fileID: 1325850661, guid: 83c6c444b342dd94a9187f8974a62d8d, type: 3}
+  - treeSprites: {fileID: 1318993048, guid: c2fad2e2f555663408852d38792d9044, type: 3}
     darkTreeSprites: {fileID: 1345161271, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
     isDarked: 0
-  - treeSprites: {fileID: 1410020896, guid: c73e5e0025201c547b25aed2327892fc, type: 3}
+  - treeSprites: {fileID: 113340767, guid: 93b503706b7d8124d9a2f40720aa11a3, type: 3}
     darkTreeSprites: {fileID: 717743176, guid: b8c39552902d6ff418f2c19f898312e4, type: 3}
     isDarked: 0
-  - treeSprites: {fileID: -1528471201, guid: c73e5e0025201c547b25aed2327892fc, type: 3}
+  - treeSprites: {fileID: 1732651093, guid: 93b503706b7d8124d9a2f40720aa11a3, type: 3}
     darkTreeSprites: {fileID: 717743176, guid: b8c39552902d6ff418f2c19f898312e4, type: 3}
     isDarked: 0
   treeSpritesIndex: 0
@@ -187,4 +187,4 @@ MonoBehaviour:
   - {x: 0.31771946, y: -2.9889476, z: 0}
   m_ShapePathHash: -242799116
   m_Mesh: {fileID: 0}
-  m_InstanceId: 159636
+  m_InstanceId: 55162

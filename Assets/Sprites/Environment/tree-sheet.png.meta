@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c73e5e0025201c547b25aed2327892fc
+guid: c2fad2e2f555663408852d38792d9044
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,7 +114,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -129,43 +129,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_0
+      name: tree-sheet_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 134
-        width: 92
-        height: 151
-      alignment: 9
-      pivot: {x: 0.5627376, y: 0.4472142}
+        x: 7
+        y: 0
+        width: 107
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8befaf84760ec24bba6e006dcb03dc3
-      internalID: 1410020896
+      spriteID: 0fb8125f87dad644d9ecfec280ac9b58
+      internalID: 1249389369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: plant_1
+      name: tree-sheet_1
       rect:
         serializedVersion: 2
-        x: 189
-        y: 132
-        width: 100
-        height: 143
-      alignment: 9
-      pivot: {x: 0.52359086, y: 0.4815021}
+        x: 132
+        y: 0
+        width: 89
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1061e4227d33f947b4e8a9e869d2f43
-      internalID: -1528471201
+      spriteID: bf6861ce3542fc74bab4e30e3fec9e54
+      internalID: 1318993048
       vertices: []
       indices: 
       edges: []
@@ -181,9 +181,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      plant_0: 1410020896
-      plant_1: -1528471201
-      plant_2: -1707504749
+      tree-sheet_0: 1249389369
+      tree-sheet_1: 1318993048
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
