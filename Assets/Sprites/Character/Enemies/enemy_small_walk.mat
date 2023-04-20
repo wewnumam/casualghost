@@ -61,5 +61,5 @@ Material:
     - _DissolveProgress: 1
     - _DissolveTileSize: 64
     m_Colors:
-    - _Color: {r: 1024, g: 0, b: 0, a: 1}
+    - _Color: {r: 1023.9999, g: 17.228697, b: 0, a: 1}
   m_BuildTextureStacks: []

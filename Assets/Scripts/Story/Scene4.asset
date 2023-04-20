@@ -15,6 +15,6 @@ MonoBehaviour:
   sentences:
   - text: Despite the favorable surroundings, their wounds festered and they fell
       into a state of paralysis, their bodies consumed by an unknown force.
-  background: {fileID: 21300000, guid: a6929a5ed2028984092f31d2118736e1, type: 3}
+  background: {fileID: -1818007176, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 5b3439df14f1c1141bf94a8571b29358, type: 2}
   isLastScene: 0

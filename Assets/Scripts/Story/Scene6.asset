@@ -17,6 +17,6 @@ MonoBehaviour:
       of its own. '
   - text: It protected itself from natural disasters with the ingenuity of a human
       mind, and animals would often seek its shade and protection.
-  background: {fileID: 21300000, guid: 391a76b40bc4d894b8558f6a43fbbc10, type: 3}
+  background: {fileID: -1956899645, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 12da86579d05b224ea538ffa064bc1ef, type: 2}
   isLastScene: 0

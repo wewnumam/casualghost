@@ -15,6 +15,6 @@ MonoBehaviour:
   sentences:
   - text: 'The outcome of this battle remained uncertain, but one thing was clear:
       the struggle for dominance had only just begun.'
-  background: {fileID: 21300000, guid: 886b28bfa1649d244842065e42bfea0d, type: 3}
+  background: {fileID: -1475643803, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 0}
   isLastScene: 1

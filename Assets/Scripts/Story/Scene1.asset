@@ -15,6 +15,6 @@ MonoBehaviour:
   sentences:
   - text: 'Centuries ago, five Majapahit warriors fled the horrors of war and stumbled
       upon a banyan tree in the heart of the jungle. '
-  background: {fileID: 21300000, guid: 1886a2b3da10f424d8ded2b62879acde, type: 3}
+  background: {fileID: 886536569, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 0edb2eb5512250347993f4b7275361b1, type: 2}
   isLastScene: 0

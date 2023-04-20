@@ -15,6 +15,6 @@ MonoBehaviour:
   sentences:
   - text: Exhausted and wounded, they found refuge under its sheltering branches,
       unaware of the tree's mystical power.
-  background: {fileID: 21300000, guid: bd9c066bd039252419b83f8bd880539a, type: 3}
+  background: {fileID: -55655446, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 3495ee2235e95894d8afa9d5fec4b884, type: 2}
   isLastScene: 0

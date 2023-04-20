@@ -18,6 +18,6 @@ MonoBehaviour:
       resting place.
   - text: Their legacy lived on through the banyan tree, a living monument to their
       sacrifice and the endurance of the human spirit.
-  background: {fileID: 0}
+  background: {fileID: -1368778157, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 76bf0b5c771f02c44961707feb36d4af, type: 2}
   isLastScene: 0

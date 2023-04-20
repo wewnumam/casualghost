@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c91362bd114f9b24fb1ff87840894500
+guid: 94544778005bb9444bd1e406c2955c5e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -102,6 +102,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,274 +129,274 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_0
+      name: introstory_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f03ce878f036946b273d839ab545e1
-      internalID: -1754211570
+      spriteID: 389dcee803c7b194eb4f085a8e6341d3
+      internalID: 886536569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_1
+      name: introstory_1
       rect:
         serializedVersion: 2
-        x: 8
+        x: 1600
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d5720f8f3c90dc4cb7117d5c9658e9e
-      internalID: 614865362
+      spriteID: c816f05004bc94c43984ca36957958f2
+      internalID: -55655446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_2
+      name: introstory_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 3200
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e93f3c3c6fbb3f34f8ea5ce0dce0dce0
-      internalID: -408761346
+      spriteID: be78dcdcc70b04f4c8c5060eb6190bec
+      internalID: 2048292948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_3
+      name: introstory_3
       rect:
         serializedVersion: 2
-        x: 24
+        x: 4800
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2956f7fd97dbdfb48a7daa50a4b21d87
-      internalID: 681375385
+      spriteID: 61aeca1825cdb2545ace21f9dd1ae41b
+      internalID: -1818007176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_4
+      name: introstory_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 6400
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2aa701c5d4cf9746bae136c5a80d296
-      internalID: -1321336137
+      spriteID: 34ea7f306a6fcd346b90c735337a26c7
+      internalID: -948430964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_5
+      name: introstory_5
       rect:
         serializedVersion: 2
-        x: 40
+        x: 8000
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 364cfb8cd1c7ea1419163403bc4d161d
-      internalID: 247758124
+      spriteID: f96350c67e698c14fb5f0aa5cd15eb9a
+      internalID: -1956899645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_6
+      name: introstory_6
       rect:
         serializedVersion: 2
-        x: 48
+        x: 9600
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5034a49e65370646aafba14705a76fb
-      internalID: 235383476
+      spriteID: e1a6791b0753c0345be666b9c90bb606
+      internalID: -1368778157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_7
+      name: introstory_7
       rect:
         serializedVersion: 2
-        x: 56
+        x: 11200
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa1576d59aaa5bd47b5efbc2829c828e
-      internalID: -1024017191
+      spriteID: c1616be02e6adeb48a7f2c6ada4b348b
+      internalID: 1784310187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_8
+      name: introstory_8
       rect:
         serializedVersion: 2
-        x: 64
+        x: 12800
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 332de8ecf91d1a240b4130c9de37b777
-      internalID: -275935851
+      spriteID: 339b694297179d84fba0cc5f4ba515ca
+      internalID: 398571041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_9
+      name: introstory_9
       rect:
         serializedVersion: 2
-        x: 72
+        x: 14400
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37723516db5b97e44bd8dfce64553c86
-      internalID: -197280488
+      spriteID: b34919563bfd6144e92b1c06656e2b28
+      internalID: 1201898636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_10
+      name: introstory_10
       rect:
         serializedVersion: 2
-        x: 80
+        x: 16000
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aedbca9b638a0f4f9e622581795d236
-      internalID: -2020142879
+      spriteID: 5d53c62eb86a3e6448fa98d08987e156
+      internalID: 870728710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_11
+      name: introstory_11
       rect:
         serializedVersion: 2
-        x: 88
+        x: 17600
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df792ed9b90b4334591de958a419a73b
-      internalID: -780859959
+      spriteID: 08aaca8759c9059428ddcfc8cc429d0e
+      internalID: 394069691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpingShiningCoin_emission_12
+      name: introstory_12
       rect:
         serializedVersion: 2
-        x: 96
+        x: 19200
         y: 0
-        width: 7
-        height: 8
+        width: 1600
+        height: 900
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d8dbee422a460419402858e819ddba
-      internalID: -990019176
+      spriteID: ea0e0eccaa75aec419937b41cd39019d
+      internalID: -1475643803
       vertices: []
       indices: 
       edges: []
@@ -400,40 +412,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      JumpingShiningCoin_emission_32: -1376422891
-      JumpingShiningCoin_emission_9: -197280488
-      JumpingShiningCoin_emission_2: -408761346
-      JumpingShiningCoin_emission_21: -231244856
-      JumpingShiningCoin_emission_10: -2020142879
-      JumpingShiningCoin_emission_1: 614865362
-      JumpingShiningCoin_emission_4: -1321336137
-      JumpingShiningCoin_emission_26: 1623698894
-      JumpingShiningCoin_emission_28: 1650150602
-      JumpingShiningCoin_emission_0: -1754211570
-      JumpingShiningCoin_emission_16: -651051386
-      JumpingShiningCoin_emission_7: -1024017191
-      JumpingShiningCoin_emission_13: -574296368
-      JumpingShiningCoin_emission_5: 247758124
-      JumpingShiningCoin_emission_11: -780859959
-      JumpingShiningCoin_emission_12: -990019176
-      JumpingShiningCoin_emission_8: -275935851
-      JumpingShiningCoin_emission_14: -1160881997
-      JumpingShiningCoin_emission_20: 244463189
-      JumpingShiningCoin_emission_3: 681375385
-      JumpingShiningCoin_emission_29: 2013657344
-      JumpingShiningCoin_emission_6: 235383476
-      JumpingShiningCoin_emission_18: -664793508
-      JumpingShiningCoin_emission_22: 370928095
-      JumpingShiningCoin_emission_24: -282223369
-      JumpingShiningCoin_emission_17: -489286927
-      JumpingShiningCoin_emission_15: -1809772388
-      JumpingShiningCoin_emission_19: 1141168066
-      JumpingShiningCoin_emission_23: -790466251
-      JumpingShiningCoin_emission_27: -92005398
-      JumpingShiningCoin_emission_31: 940698544
-      JumpingShiningCoin_emission_25: 1079001846
-      JumpingShiningCoin_emission_33: 190619615
-      JumpingShiningCoin_emission_30: 1447336029
+      introstory_6: -1368778157
+      introstory_5: -1956899645
+      introstory_0: 886536569
+      introstory_2: 2048292948
+      introstory_7: 1784310187
+      introstory_4: -948430964
+      introstory_3: -1818007176
+      introstory_1: -55655446
+      introstory_8: 398571041
+      introstory_9: 1201898636
+      introstory_11: 394069691
+      introstory_10: 870728710
+      introstory_12: -1475643803
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

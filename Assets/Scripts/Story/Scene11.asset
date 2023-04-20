@@ -15,6 +15,6 @@ MonoBehaviour:
   sentences:
   - text: As the Genderuwo became more aggressive in their attempts to take over
       the banyan tree's land, the banyan tree's defense mechanisms were tested.
-  background: {fileID: 21300000, guid: b63e7ee519dbb874bb52f2e88445c3bb, type: 3}
+  background: {fileID: 870728710, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: ed361a074c78bb4459d7b53025b71bef, type: 2}
   isLastScene: 0

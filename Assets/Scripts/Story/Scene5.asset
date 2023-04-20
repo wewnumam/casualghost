@@ -16,6 +16,6 @@ MonoBehaviour:
   - text: Their last moments were spent under the tree's watchful gaze, as it recorded
       their every emotion - joy, sadness, anger, and misery - and absorbed their
       life force into its own.
-  background: {fileID: 21300000, guid: b9c8ed732491a2e438c4b2b14e3b6eac, type: 3}
+  background: {fileID: -948430964, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: 9348bede9f8408441a5aa53d52e56fda, type: 2}
   isLastScene: 0

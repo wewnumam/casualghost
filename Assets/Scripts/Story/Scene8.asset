@@ -19,6 +19,6 @@ MonoBehaviour:
       had settled, notorious for their violent and destructive tendencies. '
   - text: The Genderuwo's forest had a different aura from other forest regions,
       with a sense of darkness and discomfort that permeated the air.
-  background: {fileID: 21300000, guid: 0d7433827f83d1441ae748574c78c1f7, type: 3}
+  background: {fileID: 1784310187, guid: 94544778005bb9444bd1e406c2955c5e, type: 3}
   nextScene: {fileID: 11400000, guid: db757e33f7de411438bd16fd8482f5ed, type: 2}
   isLastScene: 0
