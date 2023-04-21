@@ -63,6 +63,7 @@ public class PlayerPrefsKeys {
     public const string GEMS = "gems";
     public const string WEAPON = "weapon";
     public const string HIGH_SCORE = "highScore";
+    public const string WIN_COUNTER = "winCounter";
     public const string IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED = "isIntroStoryCutsceneAlreadyPlayed";
     public const string IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED = "isIntroStoryCutsceneToGameplayCalled";
     public const string IS_THORNMINE_UNLOCKED = "isThornMineUnlocked";

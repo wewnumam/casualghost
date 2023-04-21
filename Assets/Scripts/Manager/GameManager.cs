@@ -69,11 +69,11 @@ public class GameManager : MonoBehaviour {
                 StartCoroutine(Countdown(countdownText));
             }
             if (Mathf.FloorToInt(currentTime) == Mathf.FloorToInt(playTimeInSeconds) - 10 && !hasBGMGameplayBeenCalled) {
-                SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+                SoundManager.Instance.PlaySound(UtilsClass.GetGameplayBGM());
                 hasBGMGameplayBeenCalled = true;
             }
             if (Mathf.FloorToInt(currentTime) == 20) {
-                SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+                SoundManager.Instance.StopSound(UtilsClass.GetGameplayBGM());
                 hasBGMGameplayBeenCalled = false;
             }
             if ((currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) || currentTime <= -20) {

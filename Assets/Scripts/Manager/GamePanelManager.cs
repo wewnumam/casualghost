@@ -35,7 +35,7 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.TurnOnUILights(false);
             Time.timeScale = 0f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
-            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            SoundManager.Instance.StopSound(UtilsClass.GetGameplayBGM());
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
         }
@@ -146,7 +146,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void GameOver() {
         SoundManager.Instance.StopSound(EnumsManager.SoundEffect.PLAYER_DYING);
-        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+        SoundManager.Instance.StopSound(UtilsClass.GetGameplayBGM());
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_GAME_OVER);
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEOVER);
@@ -224,12 +224,13 @@ public class GamePanelManager : MonoBehaviour {
     }
 
     void LastLevel() {
-        SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+        SoundManager.Instance.StopSound(UtilsClass.GetGameplayBGM());
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
         Time.timeScale = 0f;
 
         levelTransitionPanel.SetActive(false);
         lastLevelPanel.SetActive(true);
+        PlayerPrefs.SetInt(PlayerPrefsKeys.WIN_COUNTER, PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) + 1);
     }
 
     public void DeleteAllData() {

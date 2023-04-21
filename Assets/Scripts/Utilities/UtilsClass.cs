@@ -70,5 +70,19 @@ public static class UtilsClass {
 
     public static EnumsManager.SoundEffect SuffleSFX(EnumsManager.SoundEffect[] soundEffects) {
         return soundEffects[Random.Range(0, soundEffects.Length)];
-    } 
+    }
+
+    public static EnumsManager.SoundEffect GetGameplayBGM() {
+        EnumsManager.SoundEffect gameplayBGM = EnumsManager.SoundEffect._BGM_GAMEPLAY_1;
+
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) % 3 == 0) {
+            gameplayBGM = EnumsManager.SoundEffect._BGM_GAMEPLAY_1;
+        } else if (PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) % 3 == 1) {
+            gameplayBGM = EnumsManager.SoundEffect._BGM_GAMEPLAY_2;
+        } else if (PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) % 3 == 2) {
+            gameplayBGM = EnumsManager.SoundEffect._BGM_GAMEPLAY_3;
+        }
+
+        return gameplayBGM;
+    }
 }
