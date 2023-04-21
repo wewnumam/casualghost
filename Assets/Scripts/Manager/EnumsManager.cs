@@ -39,6 +39,10 @@ public static class EnumsManager {
         LEVEL_10
     }
 
+    public enum Mission {
+        TUTORIAL_COMPLETTION
+    }
+
     public enum PlayerState {
         SHOOT,
         BUILD

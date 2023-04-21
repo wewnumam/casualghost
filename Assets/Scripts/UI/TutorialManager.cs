@@ -17,13 +17,13 @@ public class TutorialManager : MonoBehaviour {
     private bool isCoinDone;
     private bool isBuildDone;
     private bool isUnlockDone;
+    private int progressValue;
 
     void Start() {
         PlayerPrefsCheck();
     }
 
     void Update() {
-        PlayerPrefsCheck();
         PlayerInput();
         TutorialCompletionCheck();
     }
@@ -40,28 +40,38 @@ public class TutorialManager : MonoBehaviour {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_MOVE_DONE) == PlayerPrefsValues.TRUE) {
             isMoveDone = true;
             isSprintDone = true;
+            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE) == PlayerPrefsValues.TRUE) {
             isShootDone = true;
             isReloadDone = true;
+            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_COIN_DONE) == PlayerPrefsValues.TRUE) {
             isCoinDone = true;
+            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_BUILD_DONE) == PlayerPrefsValues.TRUE) {
             isBuildDone = true;
+            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE) == PlayerPrefsValues.TRUE) {
             isUnlockDone = true;
+            UpdateMissionProgress();
         }
 
         if (isMoveDone && isSprintDone && isShootDone && isReloadDone && isCoinDone && isBuildDone && isUnlockDone) {
             Destroy(gameObject);
         }
+    }
+
+    void UpdateMissionProgress() {
+        progressValue++;
+        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION, progressValue);
     }
 
     void PlayerInput() {
@@ -84,6 +94,7 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_MOVE_DONE, PlayerPrefsValues.TRUE);
             if (moveTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+                UpdateMissionProgress();
             }
             moveTutorial.SetActive(false);
         }
@@ -93,6 +104,7 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE, PlayerPrefsValues.TRUE);
             if (shootTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+                UpdateMissionProgress();
             }
             shootTutorial.SetActive(false);
         }
@@ -102,6 +114,7 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_COIN_DONE, PlayerPrefsValues.TRUE);
             if (coinTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+                UpdateMissionProgress();
             }
             coinTutorial.SetActive(false);
         }
@@ -111,6 +124,7 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_BUILD_DONE, PlayerPrefsValues.TRUE);
             if (buildTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+                UpdateMissionProgress();
             }
             buildTutorial.SetActive(false);
         }
@@ -123,6 +137,7 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE, PlayerPrefsValues.TRUE);
             if (unlockTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
+                UpdateMissionProgress();
             }
             unlockTutorial.SetActive(false);
         }
