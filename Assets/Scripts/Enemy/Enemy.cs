@@ -119,6 +119,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_IDLE);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_IDLE);
+        } else if (IsEnemyTypeShooter()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_IDLE);
         }
     }
 
@@ -131,6 +133,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_WALK);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_WALK);
+        } else if (IsEnemyTypeShooter()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_WALK);
         }
     }
 
@@ -143,6 +147,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_HURT);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_HURT);
+        } else if (IsEnemyTypeShooter()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_HURT);
         }
     }
 
@@ -155,6 +161,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_ATTACK);
         } else if (IsEnemyTypeGiant()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_ATTACK);
+        } else if (IsEnemyTypeShooter()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
         }
     }
 
@@ -178,7 +186,6 @@ public class Enemy : MonoBehaviour {
                 break;
             case EnemyType.SHOOTER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
-                EnemyDie();
                 break;
             case EnemyType.BOSS:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
@@ -191,6 +198,9 @@ public class Enemy : MonoBehaviour {
 
 
     public void EnemyDie() {
+        if (IsEnemyTypeShooter()) {
+            GameObject particle = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        }
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
         CollectibleItem.Instance.AddEnemyKillCounter();
         if (CollectibleItem.Instance.canSpawnCollectibleItem) {

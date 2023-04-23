@@ -49,7 +49,14 @@ public class EnemyShooter : MonoBehaviour {
 
     // Delays the shooting cooldown, waiting for a certain period of time
 	private IEnumerator PullTrigger(float time) {
+        GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
         yield return new WaitForSeconds(time);
         canShoot = true;
+        yield return new WaitForSeconds(time / 2);
+        if (GetComponentInParent<HealthSystem>().IsAlive()) {
+            GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_WALK);
+        } else {
+            GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_DIE);
+        }
     }
 }

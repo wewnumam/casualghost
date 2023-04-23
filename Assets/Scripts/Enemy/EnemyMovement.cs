@@ -28,7 +28,9 @@ public class EnemyMovement : MonoBehaviour {
         if (isCollideWithTarget) {
             GetComponent<Enemy>().PlayEnemyAttackAnimation();
         } else {
-            GetComponent<Enemy>().PlayEnemyWalkAnimation();
+            if (!GetComponent<Enemy>().IsEnemyTypeShooter()) {
+                GetComponent<Enemy>().PlayEnemyWalkAnimation();
+            }
         }
     }
 
