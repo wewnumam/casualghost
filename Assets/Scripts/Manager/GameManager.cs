@@ -161,6 +161,7 @@ public class GameManager : MonoBehaviour {
 
     public bool IsGameStateMainMenu() => gameState == EnumsManager.GameState.MAINMENU;
     public bool IsGameStateGameplay() => gameState == EnumsManager.GameState.GAMEPLAY;
+    public bool IsGameStateLevelTransition() => gameState == EnumsManager.GameState.LEVELTRANSITION;
     public bool IsGameStatePause() => gameState == EnumsManager.GameState.PAUSE;
 
     // Obtain gems from leftover coin and health

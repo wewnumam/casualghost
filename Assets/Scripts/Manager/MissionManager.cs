@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour {
     [SerializeField] private GameObject listTemplate;
     public List<Mission> missions;
     [SerializeField] private Slider missionProgress;
+    [SerializeField] private TextMeshProUGUI missionProgressText;
     private int missionProgressMaxValue;
     private int missionProgressValue;
 
@@ -43,6 +44,7 @@ public class MissionManager : MonoBehaviour {
         }
         missionProgress.maxValue = missionProgressMaxValue;
         missionProgress.value = missionProgressValue;
+        missionProgressText.text = $"{missionProgressValue}%";
     }
 
     public void UpdateMissionProgress(EnumsManager.Mission missionTag, int addBy = 1) {
@@ -62,6 +64,7 @@ public class MissionManager : MonoBehaviour {
             missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (m.value / m.maxValue));
         }
         missionProgress.value = missionProgressValue;
+        missionProgressText.text = $"{missionProgressValue}%";
     }
 
     string GetPlayerPrefsKeyByTag(EnumsManager.Mission missionTag) {

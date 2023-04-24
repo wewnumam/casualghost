@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GamePanelManager : MonoBehaviour {
     public static GamePanelManager Instance { get; private set; }
@@ -16,6 +17,7 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject optionMenuPanel;
     [SerializeField] private GameObject lastLevelPanel;
     [SerializeField] private GameObject loadingPanel;
+    private GameObject lastLevelMessage;
 
     private bool isInventoryOpen = true;
     
@@ -232,6 +234,26 @@ public class GamePanelManager : MonoBehaviour {
         lastLevelPanel.SetActive(true);
 
         MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS);
+    }
+
+    public void OpenCreditPanel() {
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        lastLevelPanel.SetActive(true);
+        GameManager.Instance.TurnOnUILights(false);
+        if (!LevelManager.Instance.IsLastLevel()) {
+            lastLevelMessage = lastLevelPanel.gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0].gameObject;
+            lastLevelMessage.SetActive(false);
+        }
+    }
+
+    public void CloseCreditPanel() {
+        lastLevelMessage.SetActive(true);
+        SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        lastLevelPanel.SetActive(false);
+        GameManager.Instance.TurnOnUILights(true);
+        if (LevelManager.Instance.IsLastLevel()) {
+            Reward();
+        }
     }
 
     public void DeleteAllData() {
