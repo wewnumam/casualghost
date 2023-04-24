@@ -40,7 +40,11 @@ public static class EnumsManager {
     }
 
     public enum Mission {
-        TUTORIAL_COMPLETTION
+        TUTORIAL_COMPLETTION,
+        NUMBER_OF_ENEMIES_KILLED,
+        NUMBER_OF_GEMS_CLAIMED,
+        NUMBER_OF_LEVELS_PLAYED,
+        NUMBER_OF_GAME_WINS
     }
 
     public enum PlayerState {

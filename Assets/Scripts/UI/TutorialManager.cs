@@ -40,28 +40,24 @@ public class TutorialManager : MonoBehaviour {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_MOVE_DONE) == PlayerPrefsValues.TRUE) {
             isMoveDone = true;
             isSprintDone = true;
-            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_SHOOT_DONE) == PlayerPrefsValues.TRUE) {
             isShootDone = true;
             isReloadDone = true;
-            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_COIN_DONE) == PlayerPrefsValues.TRUE) {
             isCoinDone = true;
-            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_BUILD_DONE) == PlayerPrefsValues.TRUE) {
             isBuildDone = true;
-            UpdateMissionProgress();
         }
 
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE) == PlayerPrefsValues.TRUE) {
             isUnlockDone = true;
-            UpdateMissionProgress();
+            unlockTutorial.SetActive(false);
         }
 
         if (isMoveDone && isSprintDone && isShootDone && isReloadDone && isCoinDone && isBuildDone && isUnlockDone) {
@@ -70,8 +66,7 @@ public class TutorialManager : MonoBehaviour {
     }
 
     void UpdateMissionProgress() {
-        progressValue++;
-        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION, progressValue);
+        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION);
     }
 
     void PlayerInput() {
@@ -135,11 +130,11 @@ public class TutorialManager : MonoBehaviour {
             PlayerPrefs.GetInt(PlayerPrefsKeys.IS_CANNON_UNLOCKED) == PlayerPrefsValues.TRUE ||
             isUnlockDone) {
             PlayerPrefs.SetInt(PlayerPrefsKeys.IS_TUTORIAL_UNLOCK_DONE, PlayerPrefsValues.TRUE);
-            if (unlockTutorial.activeSelf && GameManager.Instance.IsGameStateGameplay()) {
+            if (unlockTutorial.activeSelf) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
                 UpdateMissionProgress();
+                unlockTutorial.SetActive(false);
             }
-            unlockTutorial.SetActive(false);
         }
     }
 }

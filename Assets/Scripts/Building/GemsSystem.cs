@@ -26,6 +26,8 @@ public class GemsSystem : MonoBehaviour {
     public void AddGems(int amount) {
         _currentGems += amount;
         PlayerPrefs.SetInt(PlayerPrefsKeys.GEMS, _currentGems);
+
+        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED, amount);
     }
 
     public void SubstractGems(int amount) {

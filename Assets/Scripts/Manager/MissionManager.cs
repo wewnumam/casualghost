@@ -28,32 +28,57 @@ public class MissionManager : MonoBehaviour {
             Destroy(child.gameObject);
         }
 
+        missionProgressMaxValue = 100;
+        missionProgressValue = 0;
         foreach (var mission in missions) {
+            mission.value = PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(mission.missionTag));
+            missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (mission.value / mission.maxValue));
+
             GameObject missionList = Instantiate(listTemplate, parent);
             missionList.GetComponentsInChildren<TextMeshProUGUI>()[0].text = mission.missionTitle;
             missionList.GetComponentInChildren<Slider>().maxValue = mission.maxValue;
             missionList.GetComponentInChildren<Slider>().value = mission.value;
             missionList.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{mission.value}/{mission.maxValue}";
             mission.missionList = missionList;
-            missionProgressMaxValue += (int)mission.maxValue;
         }
         missionProgress.maxValue = missionProgressMaxValue;
+        missionProgress.value = missionProgressValue;
     }
 
-    public void UpdateMissionProgress(EnumsManager.Mission missionTag, float value) {
+    public void UpdateMissionProgress(EnumsManager.Mission missionTag, int addBy = 1) {
+        int valueCounter = PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(missionTag));
+        valueCounter += addBy;
+        PlayerPrefs.SetInt(GetPlayerPrefsKeyByTag(missionTag), valueCounter);
+
         Mission mission = missions.Find(m => m.missionTag == missionTag);
         if (mission.missionList != null) {
-            mission.value = value;
-            mission.missionList.GetComponentInChildren<Slider>().value = value;
+            mission.value = valueCounter;
+            mission.missionList.GetComponentInChildren<Slider>().value = valueCounter;
             mission.missionList.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{mission.value}/{mission.maxValue}";
         }
 
         missionProgressValue = 0;
         foreach (var m in missions) {
-            missionProgressValue += (int)m.value;
+            missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (m.value / m.maxValue));
         }
         missionProgress.value = missionProgressValue;
     }
+
+    string GetPlayerPrefsKeyByTag(EnumsManager.Mission missionTag) {
+        string playerPrefsKey = "";
+        if (missionTag ==  EnumsManager.Mission.TUTORIAL_COMPLETTION) {
+            playerPrefsKey = PlayerPrefsKeys.TUTORIAL_COMPLETED_COUNTER;
+        } else if (missionTag ==  EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED) {
+            playerPrefsKey = PlayerPrefsKeys.ENEMY_KILLED_COUNTER;
+        } else if (missionTag ==  EnumsManager.Mission.NUMBER_OF_GAME_WINS) {
+            playerPrefsKey = PlayerPrefsKeys.WIN_COUNTER;
+        } else if (missionTag ==  EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED) {
+            playerPrefsKey = PlayerPrefsKeys.GEMS_CLAIMED_COUNTER;
+        } else if (missionTag ==  EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED) {
+            playerPrefsKey = PlayerPrefsKeys.LEVEL_PLAYED_COUNTER;
+        }
+        return playerPrefsKey;
+}
 }
 
 [System.Serializable]

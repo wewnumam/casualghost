@@ -70,6 +70,10 @@ public class PlayerPrefsKeys {
     public const string WEAPON = "weapon";
     public const string HIGH_SCORE = "highScore";
     public const string WIN_COUNTER = "winCounter";
+    public const string TUTORIAL_COMPLETED_COUNTER = "tutorialCompletedCounter";
+    public const string ENEMY_KILLED_COUNTER = "enemyKilledCounter";
+    public const string GEMS_CLAIMED_COUNTER = "gemsClaimedCounter";
+    public const string LEVEL_PLAYED_COUNTER = "levelPlayedCounter";
     public const string IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED = "isIntroStoryCutsceneAlreadyPlayed";
     public const string IS_INTRO_STORY_CUTSCENE_TO_GAMEPLAY_CALLED = "isIntroStoryCutsceneToGameplayCalled";
     public const string IS_THORNMINE_UNLOCKED = "isThornMineUnlocked";

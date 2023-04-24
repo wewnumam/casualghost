@@ -209,6 +209,9 @@ public class Enemy : MonoBehaviour {
             collectibleItemObject.GetComponent<SpriteRenderer>().material = CollectibleItem.Instance.currentItem.material;
             collectibleItemObject.GetComponent<CollectibleItemObject>().item = CollectibleItem.Instance.currentItem;
         }
+
+        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED);
+
         Destroy(gameObject);
     }
 }

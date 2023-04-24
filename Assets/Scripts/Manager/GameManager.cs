@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour {
             }
             if ((currentTime <= 0 && GameObject.FindGameObjectsWithTag(Tags.ENEMY).Length <= 0) || currentTime <= -20) {
                 GamePanelManager.Instance.LevelTransition();
+
+                MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED);
             }
         }
 

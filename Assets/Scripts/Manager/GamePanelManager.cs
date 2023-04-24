@@ -230,7 +230,8 @@ public class GamePanelManager : MonoBehaviour {
 
         levelTransitionPanel.SetActive(false);
         lastLevelPanel.SetActive(true);
-        PlayerPrefs.SetInt(PlayerPrefsKeys.WIN_COUNTER, PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) + 1);
+
+        MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS);
     }
 
     public void DeleteAllData() {
