@@ -20,11 +20,13 @@ public class Tags {
     public const string EXPLOSION = "Explosion";
     public const string COLLECTIBLE_ITEM = "CollectibleItem";
     public const string HEAL_AREA = "HealArea";
+    public const string COLLECTIBLE_ITEM_BAR = "CollectibleItemBar";
 }
 
 public class AnimationTags {
     public const string PLAYER_IDLE = "PlayerIdle";
     public const string PLAYER_WALK = "PlayerWalk";
+    public const string PLAYER_WALK_TYPE_TWO = "PlayerWalkTypeTwo";
     public const string PLAYER_RELOAD = "PlayerReload";
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";
@@ -81,6 +83,8 @@ public class PlayerPrefsKeys {
     public const string IS_CANNON_UNLOCKED = "isCannonUnlocked";
     public const string IS_SHOTGUN_UNLOCKED = "isShootgunUnlocked";
     public const string IS_RIFLE_UNLOCKED = "isRifleUnlocked";
+    public const string IS_PLAYER_TYPE_TWO_UNLOCKED = "isPlayerTypeTwoUnlocked";
+    public const string IS_PLAYER_TYPE_THREE_UNLOCKED = "isPlayerTypeThreeUnlocked";
     public const string IS_TUTORIAL_MOVE_DONE = "isTutorialMoveDone";
     public const string IS_TUTORIAL_SHOOT_DONE = "isTutorialShootDone";
     public const string IS_TUTORIAL_COIN_DONE = "isTutorialCoinDone";

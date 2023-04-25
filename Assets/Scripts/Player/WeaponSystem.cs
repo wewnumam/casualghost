@@ -45,6 +45,8 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     void ModifyImage() {
+        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
+
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
 
         Color imageColor = GetComponent<Image>().color;
@@ -91,6 +93,7 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     public void SwitchWeapon() {
+        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
         PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
         
         if (weaponType == EnumsManager.WeaponType.DEFAULT) {

@@ -28,12 +28,15 @@ public class CollectibleItem : MonoBehaviour {
     }
 
     void Update() {
+        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
+
+        progressBar = GameObject.FindGameObjectWithTag(Tags.COLLECTIBLE_ITEM_BAR).GetComponent<Slider>();
+            
         if (currentTime <= 0) {
             currentTime = 0;
-            progressBar.gameObject.SetActive(false);
+            progressBar.value = 0;
         } else {
             currentTime -= Time.deltaTime;
-            progressBar.gameObject.SetActive(true);
             progressBar.maxValue = maxTime;
             progressBar.value = currentTime;
         }

@@ -391,7 +391,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 990aef19d4ab56e4595d113d1b918e25, type: 2}
+  - {fileID: 2100000, guid: 7b28e9dc9a31b364094fbccc7aced143, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -923,19 +923,19 @@ MonoBehaviour:
     maxRound: 5
     reloadTime: 1.5
     pullTriggerTime: 1.5
-    bulletPrefab: {fileID: 781906667792654230, guid: 89b5c5dbdcb975d68a81867c728fd064, type: 3}
+    bulletPrefab: {fileID: 781906667792654230, guid: a51a2ab57520d7a43bd1c4a6b9a4656b, type: 3}
     bulletDamage: 1
   - weaponType: 1
     maxRound: 3
     reloadTime: 3
     pullTriggerTime: 2
-    bulletPrefab: {fileID: 781906667792654230, guid: ee5b6c1c82afabc4fa3388ad16b6dd9b, type: 3}
+    bulletPrefab: {fileID: 781906667792654230, guid: cd9c5c1f57170ca4ca2d19eb087161ab, type: 3}
     bulletDamage: 0.5
   - weaponType: 2
     maxRound: 2
     reloadTime: 2.5
     pullTriggerTime: 1
-    bulletPrefab: {fileID: 781906667792654230, guid: 6a890ad41a3edb4d79202064a7f03a11, type: 3}
+    bulletPrefab: {fileID: 781906667792654230, guid: 1b82a77a9ff06754fa78719f9823cb52, type: 3}
     bulletDamage: 2
   currentPlayerWeapon:
     weaponType: 0
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 2651818198955959761}
   - component: {fileID: 1317236536024336222}
   m_Layer: 6
-  m_Name: Player
+  m_Name: PlayerTypeTwo
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbd2181441376d4a8f0ca017dc58ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerType: 0
+  _playerType: 1
   playerInfoText: {fileID: 2099510497646268816}
   explosionPrefab: {fileID: 4216819758782068366, guid: 09a119971f358504aa27ee191fc84d3c, type: 3}
   playerBody: {fileID: 1473625840449949728}
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBetweenSpawns: 0.1
-  echo: {fileID: 8420296948602088217, guid: e7aee3ffe2b58b94885d1ed3168b81ac, type: 3}
+  echo: {fileID: 8420296948602088217, guid: 95753a1393f3b1f4e8ebfd85c547cbc1, type: 3}
 --- !u!58 &8084116614742148950
 CircleCollider2D:
   m_ObjectHideFlags: 0

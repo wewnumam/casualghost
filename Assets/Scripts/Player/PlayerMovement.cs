@@ -45,7 +45,11 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (horizontal != 0 || vertical != 0) {
-            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK);
+            if (GetComponent<Player>().IsPlayerTypeDefault()) {
+                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK);
+            } else if (GetComponent<Player>().IsPlayerTypeTwo()) {
+                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_TYPE_TWO);
+            }
         } else {
             playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
         }

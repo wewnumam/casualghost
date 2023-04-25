@@ -20,6 +20,7 @@ TagManager:
   - Explosion
   - HealArea
   - CollectibleItem
+  - CollectibleItemBar
   layers:
   - Default
   - TransparentFX

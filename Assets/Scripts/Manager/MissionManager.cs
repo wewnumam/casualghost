@@ -14,7 +14,8 @@ public class MissionManager : MonoBehaviour {
     [SerializeField] private Slider missionProgress;
     [SerializeField] private TextMeshProUGUI missionProgressText;
     private int missionProgressMaxValue;
-    private int missionProgressValue;
+    private int _missionProgressValue;
+    public int missionProgressValue { get => _missionProgressValue; }
 
     void Awake () {
         if (Instance == null) {
@@ -30,10 +31,10 @@ public class MissionManager : MonoBehaviour {
         }
 
         missionProgressMaxValue = 100;
-        missionProgressValue = 0;
+        _missionProgressValue = 0;
         foreach (var mission in missions) {
             mission.value = PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(mission.missionTag));
-            missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (mission.value / mission.maxValue));
+            _missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (mission.value / mission.maxValue));
 
             GameObject missionList = Instantiate(listTemplate, parent);
             missionList.GetComponentsInChildren<TextMeshProUGUI>()[0].text = mission.missionTitle;
@@ -43,8 +44,8 @@ public class MissionManager : MonoBehaviour {
             mission.missionList = missionList;
         }
         missionProgress.maxValue = missionProgressMaxValue;
-        missionProgress.value = missionProgressValue;
-        missionProgressText.text = $"{missionProgressValue}%";
+        missionProgress.value = _missionProgressValue;
+        missionProgressText.text = $"{_missionProgressValue}%";
     }
 
     public void UpdateMissionProgress(EnumsManager.Mission missionTag, int addBy = 1) {
@@ -59,12 +60,12 @@ public class MissionManager : MonoBehaviour {
             mission.missionList.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{mission.value}/{mission.maxValue}";
         }
 
-        missionProgressValue = 0;
+        _missionProgressValue = 0;
         foreach (var m in missions) {
-            missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (m.value / m.maxValue));
+            _missionProgressValue += (int)((missionProgressMaxValue / missions.Count) * (m.value / m.maxValue));
         }
-        missionProgress.value = missionProgressValue;
-        missionProgressText.text = $"{missionProgressValue}%";
+        missionProgress.value = _missionProgressValue;
+        missionProgressText.text = $"{_missionProgressValue}%";
     }
 
     string GetPlayerPrefsKeyByTag(EnumsManager.Mission missionTag) {

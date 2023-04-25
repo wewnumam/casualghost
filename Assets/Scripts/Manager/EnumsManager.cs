@@ -52,6 +52,12 @@ public static class EnumsManager {
         BUILD
     }
 
+    public enum PlayerType {
+        DEFAULT,
+        TYPE_TWO,
+        TYPE_THREE
+    }
+
     public enum SoundEffect {
         _AMBIENCE_FOREST,
         _BGM_CREDIT_PANEL,

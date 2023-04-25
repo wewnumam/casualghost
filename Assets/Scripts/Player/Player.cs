@@ -6,6 +6,9 @@ using UnityEngine.Rendering.Universal;
 public class Player : MonoBehaviour {
     public static Player Instance { get;  private set; }
 
+    [SerializeField] private EnumsManager.PlayerType _playerType;
+    public EnumsManager.PlayerType playerType { get => _playerType; }
+
     [Header("Player State Properties")]
     private EnumsManager.PlayerState playerState;
     private bool canAttacked = true;
@@ -78,6 +81,9 @@ public class Player : MonoBehaviour {
     public void SetPlayerState(EnumsManager.PlayerState playerState) => this.playerState = playerState;
     public void SetBreathRoomActive() => isBreathRoomActive = true;
     public bool IsPlayerStateShoot() => playerState == EnumsManager.PlayerState.SHOOT;
+    public bool IsPlayerTypeDefault() => _playerType == EnumsManager.PlayerType.DEFAULT;
+    public bool IsPlayerTypeTwo() => _playerType == EnumsManager.PlayerType.TYPE_TWO;
+    public bool IsPlayerTypeThree() => _playerType == EnumsManager.PlayerType.TYPE_THREE;
 
     void OnCollisionEnter2D(Collision2D collision) {
         // Player collect coin
