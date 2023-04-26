@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheatFeature : MonoBehaviour {
     [SerializeField] private float fastForwardPlayTimeBy;
     [SerializeField] private int addCoinAmount;
+    [SerializeField] private int addMissionProgressAmount;
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Minus)) {
@@ -25,6 +26,10 @@ public class CheatFeature : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.RightBracket)) {
             HealBanyan();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0)) {
+            MissionManager.Instance.AddMissionProgress(addMissionProgressAmount);
         }
     }
 

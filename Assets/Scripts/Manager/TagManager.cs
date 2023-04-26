@@ -27,6 +27,7 @@ public class AnimationTags {
     public const string PLAYER_IDLE = "PlayerIdle";
     public const string PLAYER_WALK = "PlayerWalk";
     public const string PLAYER_WALK_TYPE_TWO = "PlayerWalkTypeTwo";
+    public const string PLAYER_WALK_TYPE_THREE = "PlayerWalkTypeThree";
     public const string PLAYER_RELOAD = "PlayerReload";
     public const string PLAYER_SHOOT = "PlayerShoot";
     public const string PLAYER_HURT = "PlayerHurt";

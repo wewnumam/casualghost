@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour {
                 playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK);
             } else if (GetComponent<Player>().IsPlayerTypeTwo()) {
                 playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_TYPE_TWO);
+            } else if (GetComponent<Player>().IsPlayerTypeThree()) {
+                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_TYPE_THREE);
             }
         } else {
             playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);

@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     private Coroutine zoomRoutine;
     public bool hasBGMGameplayBeenCalled { get; private set; }
+    public GameObject explosionPrefabNormal;
+    public GameObject explosionPrefabBlood;
 
     void Awake () {
         if (Instance == null) {

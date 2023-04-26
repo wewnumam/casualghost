@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour {
 	[SerializeField] private float lifetime = 4.0f;
 	public bool isDrawingLine = false;
 	private int rifleEnemyCollideCounter;
+	[SerializeField] private bool hasExplosion;
 
 	[Header("Hit Particle Properties")]
 	public GameObject particleHitBlood;
@@ -88,6 +89,9 @@ public class Projectile : MonoBehaviour {
 				transform.rotation
 			);
 			ps.GetComponentInChildren<ParticleSystem>().Play();
+			if (hasExplosion) {
+				ProjectileExplosion(GameManager.Instance.explosionPrefabBlood);
+			}
 			if (weaponType == WeaponType.RIFLE) {
 				rifleEnemyCollideCounter++;
 			} else {
@@ -105,6 +109,9 @@ public class Projectile : MonoBehaviour {
 				transform.rotation
 			);
 			ps.GetComponentInChildren<ParticleSystem>().Play();
+			if (hasExplosion) {
+				ProjectileExplosion(GameManager.Instance.explosionPrefabNormal);
+			}
 			Destroy(this.gameObject);
 		}
 
@@ -129,5 +136,14 @@ public class Projectile : MonoBehaviour {
 
 		lineRenderer.SetPosition(0, spawnPoint);
 		lineRenderer.SetPosition(1, transform.position);
+	}
+
+	void ProjectileExplosion(GameObject explosionPrefab) {
+		if (SoundManager.Instance.GetSound(EnumsManager.SoundEffect.EXPLOSION).source.isPlaying) {
+			SoundManager.Instance.StopSound(EnumsManager.SoundEffect.EXPLOSION);
+		}
+		SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.EXPLOSION);
+		GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+		Destroy(explosion, 2f);
 	}
 }

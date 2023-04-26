@@ -59,7 +59,7 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
-    private Sound GetSound(EnumsManager.SoundEffect soundEffect) {
+    public Sound GetSound(EnumsManager.SoundEffect soundEffect) {
         Sound sound = System.Array.Find(sounds, s => s.soundEffect == soundEffect);
         return sound;
     }

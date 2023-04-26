@@ -82,7 +82,24 @@ public class MissionManager : MonoBehaviour {
             playerPrefsKey = PlayerPrefsKeys.LEVEL_PLAYED_COUNTER;
         }
         return playerPrefsKey;
-}
+    }
+
+    public void ResetMissionProgress() {
+        UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION, PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(EnumsManager.Mission.TUTORIAL_COMPLETTION)) * -1);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED, PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED)) * -1);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS, PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(EnumsManager.Mission.NUMBER_OF_GAME_WINS)) * -1);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED, PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED)) * -1);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED, PlayerPrefs.GetInt(GetPlayerPrefsKeyByTag(EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED)) * -1);
+    }
+
+    // Cheat feature
+    public void AddMissionProgress(int amount) {
+        UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED, amount * 10);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED, amount * 10);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED, amount / 2);
+    }
 }
 
 [System.Serializable]
