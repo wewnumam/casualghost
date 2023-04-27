@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour {
     public void SetMaxSpeed(float maxSpeed) => _maxSpeed = maxSpeed;
 
     void Update() {
+        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
+        
         if (GetComponent<Enemy>().IsEnemyTypeDefault()) {
             EnemyDefaultTarget();
         } else if (GetComponent<Enemy>().IsEnemyTypeRunner()) {

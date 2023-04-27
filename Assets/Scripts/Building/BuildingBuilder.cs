@@ -37,6 +37,8 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     void Update() {
         // Update the image color and locked info text of the building UI element every frame.
+        initialTextInfo = (buildCost + (buildCost * LevelManager.Instance.GetCurrentLevelAdjustment().increaseBuildCostPercentage / 100)).ToString();
+        GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
         ModifyImageColorAlpha();
         SetLockedInfoText();
     }
@@ -82,7 +84,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         // If the building is not locked and the player can afford to build it, return true.
         isBuildingLocked = false;
-        return CoinSystem.Instance.GetCurrentCoin() >= buildCost;
+        return CoinSystem.Instance.GetCurrentCoin() >= buildCost + (buildCost * LevelManager.Instance.GetCurrentLevelAdjustment().increaseBuildCostPercentage / 100);
     } 
 
     bool IsBuildingLocked(string playerPrefsKey) => PlayerPrefs.GetInt(playerPrefsKey) == PlayerPrefsValues.FALSE;

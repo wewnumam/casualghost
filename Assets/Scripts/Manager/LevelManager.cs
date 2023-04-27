@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour {
     public List<Level> levels;
     [HideInInspector] public EnumsManager.LevelState[] levelStates;
     [HideInInspector] public int levelStateIndex;
+    public List<LevelAdjusment> levelAdjusmentsByWin;
 
     [Header("Enemy Porperties")]
     [SerializeField] private Transform enemyParent;
@@ -26,6 +27,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void StartLevel(float enemyAmount) {
+        enemyAmount += enemyAmount * GetCurrentLevelAdjustment().increaseEnemyInPercentage / 100;
         for (int i = 0; i < enemyAmount; i++) {
             StartCoroutine(SpawnEnemy(Random.Range(10, GameManager.Instance.playTimeInSeconds * 0.8f)));
         }
@@ -50,6 +52,13 @@ public class LevelManager : MonoBehaviour {
     }
 
     public bool IsLastLevel() => levelStateIndex >= levelStates.Length - 1;
+
+    public LevelAdjusment GetCurrentLevelAdjustment() {
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER) >= levelAdjusmentsByWin.Count - 1) {
+            return levelAdjusmentsByWin[levelAdjusmentsByWin.Count - 1];
+        }
+        return levelAdjusmentsByWin[PlayerPrefs.GetInt(PlayerPrefsKeys.WIN_COUNTER)];
+    }
 }
 
 [System.Serializable]
@@ -63,4 +72,11 @@ public class Level {
     public Color directionalLightColor;
     public GameObject environment;
     public float cameraOrthoSize = 18;
+}
+
+[System.Serializable]
+public class LevelAdjusment {
+    public int increaseEnemyInPercentage;
+    public int enemyKillAmountToSpawnCollectibleItem;
+    public int increaseBuildCostPercentage;
 }

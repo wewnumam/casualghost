@@ -320,6 +320,7 @@ MonoBehaviour:
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
+  hasExplosion: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
 --- !u!114 &8156506214070818797
@@ -10527,6 +10528,7 @@ MonoBehaviour:
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
+  hasExplosion: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
 --- !u!114 &7618927896113211131
@@ -15642,6 +15644,7 @@ MonoBehaviour:
   flySpeed: 50
   lifetime: 2
   isDrawingLine: 0
+  hasExplosion: 0
   particleHitBlood: {fileID: 4293073376873104698, guid: 59475bb3a30d172c7b12166b0d5ddb67, type: 3}
   particleHitNonBlood: {fileID: 533861126932571405, guid: 66db7f18a82ac6175856824c05ab34ca, type: 3}
 --- !u!114 &9020794937680815879
@@ -15711,7 +15714,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7b3eb1d00
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -15962,7 +15965,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7b3eb1d00
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -16073,7 +16076,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7b3eb1d00
+  m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

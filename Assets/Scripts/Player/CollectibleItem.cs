@@ -25,9 +25,11 @@ public class CollectibleItem : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
     }
 
     void Update() {
+        enemyKillAmountToSpawnCollectibleItem = LevelManager.Instance.GetCurrentLevelAdjustment().enemyKillAmountToSpawnCollectibleItem;
         if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
 
         progressBar = GameObject.FindGameObjectWithTag(Tags.COLLECTIBLE_ITEM_BAR).GetComponent<Slider>();
