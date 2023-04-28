@@ -10,9 +10,11 @@ public class EnemyShooter : MonoBehaviour {
     [Header("Bullet Instantiate Properties")]
     [SerializeField] private GameObject bulletPrefab;
 	[SerializeField] private Transform bulletSpawnPoint;
+    private float initialMaxSpeed;
     
     void Start() {
         canShoot = true;
+        initialMaxSpeed = GetComponentInParent<EnemyMovement>().maxSpeed;
     }
 
     void Update() {
@@ -50,6 +52,7 @@ public class EnemyShooter : MonoBehaviour {
     // Delays the shooting cooldown, waiting for a certain period of time
 	private IEnumerator PullTrigger(float time) {
         GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
+        GetComponentInParent<EnemyMovement>().SetMaxSpeed(0);
         yield return new WaitForSeconds(time);
         canShoot = true;
         yield return new WaitForSeconds(time / 2);
@@ -58,5 +61,6 @@ public class EnemyShooter : MonoBehaviour {
         } else {
             GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_DIE);
         }
+        GetComponentInParent<EnemyMovement>().SetMaxSpeed(initialMaxSpeed);
     }
 }

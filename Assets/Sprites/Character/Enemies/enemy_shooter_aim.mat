@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: enemy_shooter_aim
+  m_Shader: {fileID: -6465566751694194690, guid: 75d534fee6d83d84eb717c09eca663af, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DissolveNoise:
+        m_Texture: {fileID: 2800000, guid: ec56768a5d9c527e8811b82ff3662c3c, type: 3}
+        m_Scale: {x: 5, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 2800000, guid: bafaf386b6efede42af2b8065e90d808, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a8e4418b74d69f247a9692777d1ad5e9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ba9f3d3160b44bf3ae4fe50db8065ec7_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 4abd2f51c80384d4c8ea59adec6cb38c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_4c36a2ede2074c0fbd5c46267689b729_Out_0:
+        m_Texture: {fileID: 2800000, guid: fd07e4a7b5ea6b74980cd0fa436acf10, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_59c703ac173d4a2d9566c61f5466baeb_Out_0:
+        m_Texture: {fileID: 2800000, guid: d49f0f4e3d7197c45a397bc6f6a4742e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _DissolveProgress: 1
+    - _DissolveTileSize: 64
+    m_Colors:
+    - _Color: {r: 578.25885, g: 0, b: 766.9961, a: 1}
+  m_BuildTextureStacks: []

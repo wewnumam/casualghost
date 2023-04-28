@@ -127,7 +127,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.50822777, y: 0.46709108}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3cb171ee15297944b5e8a05ddaf2f33
+      internalID: -1317314684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_1
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.53085256, y: 0.46143484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1caa88380cc605f4dae2d258ea315f8c
+      internalID: -240908134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_2
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.4866311, y: 0.45989224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52932ada19453a54db74b31198d1df4e
+      internalID: 133138976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.4866311, y: 0.46040642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b17c1e6e1a7f943813530873b24bcd
+      internalID: 1768993514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_4
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.46400633, y: 0.46246326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5b1f27f4d08f704987920ac865b2bfe
+      internalID: 1294547635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_5
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.51439846, y: 0.45989224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb7835f5ee66cea4cac57218d398fa21
+      internalID: -2024585556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_6
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.4670918, y: 0.46349165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0824f8f9432c71543bc21d2508a203f3
+      internalID: -494196309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_7
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.46092138, y: 0.46349165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09505d73ceabf4d429bc78b4d72d721b
+      internalID: 1992361723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_8
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.42595604, y: 0.46092063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25feaf5f1bcd764dbadfd33c0d5f453
+      internalID: -1606065692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_9
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.44343847, y: 0.46194905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d640f1c019934de4bb47acb158518c88
+      internalID: 718669346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_10
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.47429103, y: 0.46040642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1420323d2b403e547be2cc61fd0c971a
+      internalID: -961764949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ruwo 4 aim sprite 1_11
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 0
+        width: 1000
+        height: 2000
+      alignment: 9
+      pivot: {x: 0.5318818, y: 0.46554846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def60b9be5ec13b42a8559e1c0bdffff
+      internalID: -1262534727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +390,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ruwo 4 aim sprite 1_1: -240908134
+      ruwo 4 aim sprite 1_2: 133138976
+      ruwo 4 aim sprite 1_7: 1992361723
+      ruwo 4 aim sprite 1_8: -1606065692
+      ruwo 4 aim sprite 1_11: -1262534727
+      ruwo 4 aim sprite 1_0: -1317314684
+      ruwo 4 aim sprite 1_4: 1294547635
+      ruwo 4 aim sprite 1_6: -494196309
+      ruwo 4 aim sprite 1_3: 1768993514
+      ruwo 4 aim sprite 1_5: -2024585556
+      ruwo 4 aim sprite 1_9: 718669346
+      ruwo 4 aim sprite 1_10: -961764949
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
