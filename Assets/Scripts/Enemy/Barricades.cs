@@ -12,9 +12,6 @@ public class Barricades : MonoBehaviour {
 
     private Rigidbody2D[] rigidbody2Ds;
 
-    void Start() {
-    }
-
     void Update() {
         rigidbody2Ds = GetComponentsInChildren<Rigidbody2D>();
         
@@ -45,7 +42,7 @@ public class Barricades : MonoBehaviour {
 
     void AddForce(Vector2 force) {
         for (int i = 0; i < transform.childCount; i++) {
-            if (rigidbody2Ds[i] != null) {
+            if (rigidbody2Ds[i] != null && rigidbody2Ds[i].GetComponent<HealthSystem>().IsAlive()) {
                 rigidbody2Ds[i].AddForce(force);
             }
         }
