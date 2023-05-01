@@ -60,15 +60,10 @@ public class PlayerSystem : MonoBehaviour {
     public void SwitchPlayer(GameObject playerPrefab) {
         if (IsUnlocked()) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
-            ReplacePlayer(playerPrefab);
+            PlayerManager.Instance.ReplacePlayer(playerPrefab);
             ModifyImage();
         } else {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_DISABLED);
         }
-    }
-
-    void ReplacePlayer(GameObject replaceBy) {
-        Destroy(GameObject.FindGameObjectWithTag(Tags.PLAYER));
-        GameObject newPlayer = Instantiate(replaceBy, new Vector3(0, -10, 0), Quaternion.identity);
     }
 }
