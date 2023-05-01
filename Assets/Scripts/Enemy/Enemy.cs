@@ -121,6 +121,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_IDLE);
         } else if (IsEnemyTypeShooter()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_IDLE);
+        } else if (IsEnemyTypeBoss()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_IDLE);
         }
     }
 
@@ -135,6 +137,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_WALK);
         } else if (IsEnemyTypeShooter()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_WALK);
+        } else if (IsEnemyTypeBoss()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_WALK);
         }
     }
 
@@ -149,6 +153,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_HURT);
         } else if (IsEnemyTypeShooter()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_HURT);
+        } else if (IsEnemyTypeBoss()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_HURT);
         }
     }
 
@@ -163,6 +169,8 @@ public class Enemy : MonoBehaviour {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_ATTACK);
         } else if (IsEnemyTypeShooter()) {
             GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
+        } else if (IsEnemyTypeBoss()) {
+            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_ATTACK);
         }
     }
 
@@ -189,7 +197,7 @@ public class Enemy : MonoBehaviour {
                 break;
             case EnemyType.BOSS:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
-                EnemyDie();
+                GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_DIE);
                 break;  
         }
 

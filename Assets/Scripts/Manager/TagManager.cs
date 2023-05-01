@@ -57,6 +57,11 @@ public class AnimationTags {
     public const string ENEMY_SHOOTER_DIE = "EnemyShooterDie";
     public const string ENEMY_SHOOTER_AIM = "EnemyShooterAim";
     public const string ENEMY_SHOOTER_SHOOT = "EnemyShooterShoot";
+    public const string ENEMY_BOSS_IDLE = "EnemyBossIdle";
+    public const string ENEMY_BOSS_WALK = "EnemyBossWalk";
+    public const string ENEMY_BOSS_HURT = "EnemyBossHurt";
+    public const string ENEMY_BOSS_DIE = "EnemyBossDie";
+    public const string ENEMY_BOSS_ATTACK = "EnemyBossAttack";
     public const string SWITCH_FIRST = "SwitchFirst";
     public const string SWITCH_SECOND = "SwitchSecond";
     public const string INVENTORY_OPEN = "InventoryOpen";

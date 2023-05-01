@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 171015799797716754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 50, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5103558467966388794}
@@ -64,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7ab60806ca5986549af1f64d766d0f50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: -1643001819
   m_SortingLayer: 2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 0bceeb670bb626a46930d2f3d4965521, type: 3}
+  m_Sprite: {fileID: -282146429, guid: 387f1b52f73976b469844110fba76744, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,18 +129,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.75}
+  m_Offset: {x: -0.20059013, y: -1.8783772}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.95, y: 1}
+  m_Size: {x: 1.9018593, y: 1.9307351}
   m_EdgeRadius: 0
 --- !u!61 &3365581384071404405
 BoxCollider2D:
@@ -155,18 +155,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.21663666, y: 0.016046882}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 10.24, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 4.6}
+  m_Size: {x: 2.2407074, y: 6.044244}
   m_EdgeRadius: 0
 --- !u!50 &171015799797716750
 Rigidbody2D:
@@ -252,19 +252,13 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 9ff87b5b00000000632d692725c8119e2f5290e7
   m_ShapePath:
-  - {x: -1.8833289, y: -1.9962642, z: 0}
-  - {x: -0.905921, y: -0.8629267, z: 0}
-  - {x: 1.3707504, y: -0.8629267, z: 0}
-  - {x: 1.1847076, y: -2.2704961, z: 0}
-  - {x: 0.4979353, y: -2.3018522, z: 0}
-  - {x: 0.3497696, y: -1.5230896, z: 0}
-  - {x: -0.028449535, y: -1.184327, z: 0}
-  - {x: -0.33697176, y: -1.6425345, z: 0}
-  - {x: -0.4609127, y: -2.3018517, z: 0}
-  - {x: -1.5159383, y: -2.2572515, z: 0}
-  m_ShapePathHash: -63125799
+  - {x: -1.3203869, y: -2.9215057, z: 0}
+  - {x: -1.0270844, y: -0.3637421, z: 0}
+  - {x: 0.018911362, y: -0.36611146, z: 0}
+  - {x: 0.4354477, y: -2.9565387, z: 0}
+  m_ShapePathHash: 1063399393
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2138
+  m_InstanceId: 122266
 --- !u!114 &3061137487240531250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +314,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8940335626905636590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 2, z: 0}
+  m_LocalPosition: {x: -0.2, y: 2.5, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -477,6 +471,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 504561009277671457, guid: c05e6b7b3c24cb442b84f307578d6f4f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 504561009277671463, guid: c05e6b7b3c24cb442b84f307578d6f4f, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
@@ -507,7 +505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 504561010239976199, guid: c05e6b7b3c24cb442b84f307578d6f4f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 504561011018274068, guid: c05e6b7b3c24cb442b84f307578d6f4f, type: 3}
       propertyPath: m_SizeDelta.x
