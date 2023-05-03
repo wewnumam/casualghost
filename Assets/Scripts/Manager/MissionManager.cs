@@ -95,7 +95,7 @@ public class MissionManager : MonoBehaviour {
     // Cheat feature
     public void AddMissionProgress(int amount) {
         UpdateMissionProgress(EnumsManager.Mission.TUTORIAL_COMPLETTION);
-        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED, amount * 10);
+        UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED, (int)(Mathf.Round((amount * 10) / 100) * 100));
         UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS);
         UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GEMS_CLAIMED, amount * 10);
         UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_LEVELS_PLAYED, amount / 2);

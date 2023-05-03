@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private Transform enemyParent;
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<Transform> enemySpawners;
+    private List<IEnumerator> spawnEnemyCoroutine;
+    private IEnumerator currentRoutine;
 
     void Awake () {
         if (Instance == null) {
@@ -28,9 +30,22 @@ public class LevelManager : MonoBehaviour {
 
     public void StartLevel(float enemyAmount) {
         enemyAmount += enemyAmount * GetCurrentLevelAdjustment().increaseEnemyInPercentage / 100;
+        spawnEnemyCoroutine = new List<IEnumerator>();
         for (int i = 0; i < enemyAmount; i++) {
-            StartCoroutine(SpawnEnemy(Random.Range(10, GameManager.Instance.playTimeInSeconds * 0.8f)));
+            spawnEnemyCoroutine.Add(SpawnEnemy(Random.Range(10, GameManager.Instance.playTimeInSeconds * 0.8f)));
         }
+
+        foreach (var c in spawnEnemyCoroutine) {
+            StartCoroutine(c);
+        }
+    }
+
+    public void StopSpawnEnemy() {
+        foreach (var c in spawnEnemyCoroutine) {
+            StopCoroutine(c);
+        }
+
+        spawnEnemyCoroutine.Clear();
     }
 
     IEnumerator SpawnEnemy(float waitForSeconds) {

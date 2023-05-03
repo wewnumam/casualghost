@@ -11,6 +11,10 @@ public static class EnumsManager {
         CANON
     }
 
+    public enum DefenseType {
+        FREE_CANNONS,
+    }
+
     public enum GameState {
         MAINMENU,
         GAMEPLAY,

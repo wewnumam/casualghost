@@ -37,7 +37,9 @@ public class GamePanelManager : MonoBehaviour {
             GameManager.Instance.TurnOnUILights(false);
             Time.timeScale = 0f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
-            SoundManager.Instance.StopSound(UtilsClass.GetGameplayBGM());
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_2);
+            SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_3);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_MAINMENU);
         }
@@ -134,6 +136,7 @@ public class GamePanelManager : MonoBehaviour {
 
     public void LevelTransition() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
+        LevelManager.Instance.StopSpawnEnemy();
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
         foreach (var enemy in enemies) {
             if (!enemy.GetComponent<Enemy>().IsEnemyTypeBoss()) {

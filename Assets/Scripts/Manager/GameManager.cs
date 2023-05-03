@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour {
                 _playTimeInSeconds = LevelManager.Instance.levels[i].playTimeInSeconds;
                 currentTime = _playTimeInSeconds;
                 LevelManager.Instance.StartLevel(LevelManager.Instance.levels[i].enemyAmount);
+                DestroyAllChildren(environmentParent.gameObject);
                 GameObject environment = Instantiate(LevelManager.Instance.levels[i].environment, environmentParent);
                 Destroy(environment, playTimeInSeconds);
                 currentDirectionalLightIntensity = LevelManager.Instance.levels[i].directionalLightIntensity;
@@ -225,6 +226,14 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < UILights.Length; i++) {
                 UILights[i].intensity = 0;
             }
+        }
+    }
+
+    public void DestroyAllChildren(GameObject parentObject) {
+        int childCount = parentObject.transform.childCount;
+        for (int i = childCount - 1; i >= 0; i--) {
+            GameObject childObject = parentObject.transform.GetChild(i).gameObject;
+            Destroy(childObject);
         }
     }
 
