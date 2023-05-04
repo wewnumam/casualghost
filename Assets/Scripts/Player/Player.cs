@@ -9,6 +9,13 @@ public class Player : MonoBehaviour {
     [SerializeField] private EnumsManager.PlayerType _playerType;
     public EnumsManager.PlayerType playerType { get => _playerType; }
 
+    [Header("Caching Components")]
+    public HealthSystem healthSystem;
+    public FloatingText floatingText;
+    public Animator animator;
+    public PlayerMovement playerMovement;
+    
+
     [Header("Player State Properties")]
     private EnumsManager.PlayerState playerState;
     private bool canAttacked = true;
@@ -50,13 +57,13 @@ public class Player : MonoBehaviour {
             playerLight.intensity = initialPlayerLightIntensity;
         }
 
-        if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
+        if (healthSystem.IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             foreach (var hand in playerHands) {
                 Destroy(hand);
             }
             if (playerBody != null) Destroy(playerBody.gameObject);
-            GetComponent<Animator>().Play(AnimationTags.PLAYER_DIE);
-            GetComponent<PlayerMovement>().enabled = false;
+            animator.Play(AnimationTags.PLAYER_DIE);
+            playerMovement.enabled = false;
         }
 
         if (isPowerUp) {
@@ -64,7 +71,7 @@ public class Player : MonoBehaviour {
             isPowerUp = false;
         }
 
-        if (!GetComponent<HealthSystem>().IsDying() && !GameObject.FindGameObjectWithTag(Tags.BANYAN).GetComponent<HealthSystem>().IsDying()) {
+        if (!healthSystem.IsDying() && !GameObject.FindGameObjectWithTag(Tags.BANYAN).GetComponent<HealthSystem>().IsDying()) {
             PostProcessingEffect.Instance.ResetDyingEffect();
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect.PLAYER_DYING);
             hasPlayerDyingSFXBeenCalled = false;
@@ -129,11 +136,11 @@ public class Player : MonoBehaviour {
         isAttacked = true;
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
-		GetComponent<HealthSystem>().TakeDamage(damageAmount);
-        if (GetComponent<HealthSystem>().IsDying()) {
+		healthSystem.TakeDamage(damageAmount);
+        if (healthSystem.IsDying()) {
             PostProcessingEffect.Instance.DyingEffect(damageAmount / 10);
         }
-        GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), transform);
+        floatingText.InstantiateFloatingText((damageAmount * 100).ToString(), transform);
         canAttacked = true; // Allow enemy attack again
         isAttacked = false;
         if (isBreathRoomActive) {
@@ -151,10 +158,10 @@ public class Player : MonoBehaviour {
     }
 
     void SetPlayerInfo() {
-        if (GetComponent<HealthSystem>().IsDie()) return;
+        if (healthSystem.IsDie()) return;
 
         playerInfoText.text = "";
-		// playerInfoText.text += $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}\n";
+		// playerInfoText.text += $"HEALTH: {healthSystem.currentHealth.ToString()}\n";
         playerInfoText.text += GetComponentInChildren<PlayerShooting>().roundsLeft.ToString();
 	}
 

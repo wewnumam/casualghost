@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private EnemyMovement enemyMovement;
+
     [Header("Shooting Properties")]
 	[SerializeField] private float pullTriggerTime = 2f;
 	private bool canShoot;
@@ -12,16 +16,16 @@ public class EnemyShooter : MonoBehaviour {
 	[SerializeField] private Transform bulletSpawnPoint;
     private float initialMaxSpeed;
     
-    void Start() {
+    void Awake() {
         canShoot = true;
-        initialMaxSpeed = GetComponentInParent<EnemyMovement>().maxSpeed;
+        initialMaxSpeed = enemyMovement.maxSpeed;
     }
 
     void Update() {
         // Store GameObjects in the scene with the tag "PLAYER" and "BANYAN" in a Transform array
         Transform[] targetToShoot = new Transform[] {
-            GameObject.FindGameObjectWithTag(Tags.PLAYER).transform,
-            GameObject.FindGameObjectWithTag(Tags.BANYAN).transform
+            Player.Instance.transform,
+            Player.Instance.transform
         };
 
         if (canShoot) {
@@ -51,16 +55,16 @@ public class EnemyShooter : MonoBehaviour {
 
     // Delays the shooting cooldown, waiting for a certain period of time
 	private IEnumerator PullTrigger(float time) {
-        GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
-        GetComponentInParent<EnemyMovement>().SetMaxSpeed(0);
+        enemy.animator.Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
+        enemyMovement.SetMaxSpeed(0);
         yield return new WaitForSeconds(time);
         canShoot = true;
         yield return new WaitForSeconds(time / 2);
-        if (GetComponentInParent<HealthSystem>().IsAlive()) {
-            GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_WALK);
+        if (enemy.healthSystem.IsAlive()) {
+            enemy.animator.Play(AnimationTags.ENEMY_SHOOTER_WALK);
         } else {
-            GetComponentInParent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_DIE);
+            enemy.animator.Play(AnimationTags.ENEMY_SHOOTER_DIE);
         }
-        GetComponentInParent<EnemyMovement>().SetMaxSpeed(initialMaxSpeed);
+        enemyMovement.SetMaxSpeed(initialMaxSpeed);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class UtilsClass {
-    public static Vector3 GetMouseWorldPosition() {
+    public static Vector3 GetMouseWorldPosition(Camera worldCamera) {
         Vector3 vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
         vec.z = 0f;
         return vec;

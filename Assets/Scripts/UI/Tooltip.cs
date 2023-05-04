@@ -44,7 +44,11 @@ public class Tooltip : MonoBehaviour {
         float pivotY = Input.mousePosition.y / Screen.height;
 
         rectTransform.pivot = new Vector2(rectTransform.pivot.x, pivotY);
-        transform.position = UtilsClass.GetMouseWorldPosition();
+        if (Application.isEditor) {
+            transform.position = UtilsClass.GetMouseWorldPosition(Camera.main);
+        } else {
+            transform.position = UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera);
+        }
     }
     
 }

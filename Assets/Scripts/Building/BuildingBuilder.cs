@@ -9,6 +9,12 @@ using UnityEngine.Rendering.Universal;
 public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDragHandler, IPointerUpHandler {
     [SerializeField] private EnumsManager.BuildingType buildingType;
 
+    [Header("Caching Components")]
+    [SerializeField] private Image image;
+    [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] private Light2D light2D;
+    [SerializeField] private HorizontalLayoutGroup horizontalLayoutGroup;
+
     [Header("Instantiate Properties")]
     [SerializeField] private GameObject building;
     [SerializeField] private Transform buildingParent;
@@ -22,52 +28,55 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private string initialTextInfo;
     private float initialFontSize;
     private float initialLightIntensity;
-    private HorizontalLayoutGroup costContainer;
 
     [Header("Particle Properties")]
     [SerializeField] private GameObject particleDropBuilding; 
 
     void Awake ()  {
+        image = GetComponent<Image>();
+        textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+        light2D = GetComponentInChildren<Light2D>();
+        horizontalLayoutGroup = GetComponentInChildren<HorizontalLayoutGroup>();
+
         // Get the initial text of the UI element that displays information about the building.
-        initialTextInfo = GetComponentInChildren<TextMeshProUGUI>().text;
-        initialFontSize = GetComponentInChildren<TextMeshProUGUI>().fontSize;
-        initialLightIntensity = GetComponentInChildren<Light2D>().intensity;
-        costContainer = GetComponentInChildren<HorizontalLayoutGroup>();
+        initialTextInfo = textMeshProUGUI.text;
+        initialFontSize = textMeshProUGUI.fontSize;
+        initialLightIntensity = light2D.intensity;
     }
 
     void Update() {
         // Update the image color and locked info text of the building UI element every frame.
         initialTextInfo = (buildCost + (buildCost * LevelManager.Instance.GetCurrentLevelAdjustment().increaseBuildCostPercentage / 100)).ToString();
-        GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
+        textMeshProUGUI.text = initialTextInfo;
         ModifyImageColorAlpha();
         SetLockedInfoText();
     }
 
     void ModifyImageColorAlpha() {
         // Modify the alpha value of the image color of the building UI element based on whether the player can afford to build it.
-        Color imageColor = GetComponent<Image>().color;
+        Color imageColor = image.color;
         if (CanBuild()) {
             imageColor.a = 1f;
-            GetComponentInChildren<Light2D>().intensity = initialLightIntensity;
+            light2D.intensity = initialLightIntensity;
         } else {
-            GetComponentInChildren<Light2D>().intensity = 0;
+            light2D.intensity = 0;
             imageColor.a = 0.5f;
         }
-        GetComponent<Image>().color = imageColor;
+        image.color = imageColor;
     }
 
     void SetLockedInfoText() {
         // Set the text of the UI element that displays information about the building to either "LOCKED" or the initial text, depending on whether the building is locked.
         if (isBuildingLocked) {
-            GetComponentInChildren<HorizontalLayoutGroup>().padding.left = 0;
-            GetComponentInChildren<HorizontalLayoutGroup>().spacing= -30;
-            GetComponentInChildren<TextMeshProUGUI>().text = "LOCKED";
-            GetComponentInChildren<TextMeshProUGUI>().fontSize = 22;
+            horizontalLayoutGroup.padding.left = 0;
+            horizontalLayoutGroup.spacing= -30;
+            textMeshProUGUI.text = "LOCKED";
+            textMeshProUGUI.fontSize = 22;
         } else {
-            GetComponentInChildren<HorizontalLayoutGroup>().padding.left = 40;
-            GetComponentInChildren<HorizontalLayoutGroup>().spacing = 0;
-            GetComponentInChildren<TextMeshProUGUI>().text = initialTextInfo;
-            GetComponentInChildren<TextMeshProUGUI>().fontSize = initialFontSize;
+            horizontalLayoutGroup.padding.left = 40;
+            horizontalLayoutGroup.spacing = 0;
+            textMeshProUGUI.text = initialTextInfo;
+            textMeshProUGUI.fontSize = initialFontSize;
         }
     }
 
@@ -104,7 +113,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData) {
         // When the mouse is pressed down on the building UI element, instantiate the building at the mouse's current world position if the player can afford to build it.
         if (CanBuild()) {
-            currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(), Quaternion.identity, buildingParent);
+            currentBuilding = Instantiate(building, UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera), Quaternion.identity, buildingParent);
             Color tempColor = currentBuilding.GetComponent<SpriteRenderer>().color;
             tempColor.a = 0.25f;
             currentBuilding.GetComponent<SpriteRenderer>().color = tempColor;
@@ -117,7 +126,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void IDragHandler.OnDrag(PointerEventData eventData) {
         // While the mouse is being dragged on the building UI element, move the current building to the mouse's current world position if the player can afford to build it.
         if (CanBuild() && currentBuilding != null) {
-            currentBuilding.transform.position = UtilsClass.GetMouseWorldPosition();
+            currentBuilding.transform.position = UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera);
             GameCursor.Instance.SetBuildCursor();
         }
     }
@@ -130,7 +139,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
             GameCursor.Instance.SetDefaultCursor();
             GameObject ps = Instantiate(
 				particleDropBuilding,
-				UtilsClass.GetMouseWorldPosition(),
+				UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera),
 				transform.rotation
 			);
 			ps.GetComponentInChildren<ParticleSystem>().Play();

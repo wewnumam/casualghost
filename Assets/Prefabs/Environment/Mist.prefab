@@ -122,10 +122,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 5
   _damageAmount: 0.5
+  _attackSpeed: 0
   isMoveLeft: 0
   isMoveRight: 0
   isMoveUp: 0
   isMoveDown: 0
+  rigidbody2D: {fileID: 4602385814041022405}
 --- !u!58 &4602385814041022404
 CircleCollider2D:
   m_ObjectHideFlags: 0

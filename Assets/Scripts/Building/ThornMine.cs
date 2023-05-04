@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThornMine : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private Animator animator;
+    private Enemy enemy;
+
     [Header("Health Attack Settings")]
     [SerializeField] private float damageAmount;
     [SerializeField] private float attackSpeed;
@@ -24,6 +28,7 @@ public class ThornMine : MonoBehaviour {
     void OnTriggerStay2D(Collider2D collider) {
         // Attack enemy
         if (collider.gameObject.CompareTag(Tags.ENEMY) && canAttack) {
+            
             StartCoroutine(AttackEnemy(collider.gameObject, attackSpeed));
         }
     }
@@ -32,18 +37,19 @@ public class ThornMine : MonoBehaviour {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             // Restore the enemy's initial speed
             collider.GetComponent<EnemyMovement>().SetMaxSpeed(initialSpeed);
-            GetComponent<Animator>().Play(AnimationTags.THORN_MINE_IDLE);
+            animator.Play(AnimationTags.THORN_MINE_IDLE);
         }
     }
 
     IEnumerator AttackEnemy(GameObject gameObject, float waitForSeconds) {
+        enemy = gameObject.GetComponent<Enemy>();
         canAttack = false; // Prevent attacking during the delay
         yield return new WaitForSecondsRealtime(waitForSeconds);
         if (gameObject != null) {
-            gameObject.GetComponent<Enemy>().PlayEnemyHurtAnimation();
-            gameObject.GetComponent<HealthSystem>().TakeDamage(damageAmount);
-            gameObject.GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), gameObject.transform);
-            GetComponent<Animator>().Play(AnimationTags.THORN_MINE_ATTACK);
+            enemy.PlayEnemyHurtAnimation();
+            enemy.healthSystem.TakeDamage(damageAmount);
+            enemy.floatingText.InstantiateFloatingText((damageAmount * 100).ToString(), gameObject.transform);
+            animator.Play(AnimationTags.THORN_MINE_ATTACK);
         }
         canAttack = true; // Allow attacking again
     }

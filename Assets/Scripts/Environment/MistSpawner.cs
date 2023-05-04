@@ -29,27 +29,28 @@ public class MistSpawner : MonoBehaviour {
     IEnumerator SpawnMist(float waitForSeconds) {
         yield return new WaitForSeconds(waitForSeconds);
         Transform spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
-        GameObject mist = Instantiate(mistPrefab, spawnPosition);
+        GameObject mistObject = Instantiate(mistPrefab, spawnPosition);
+        Mist mist = mistObject.GetComponent<Mist>();
         if (spawnPosition == north) {
-            mist.GetComponent<Mist>().isMoveDown = true;
+            mist.isMoveDown = true;
         } else if (spawnPosition == northEast) {
-            mist.GetComponent<Mist>().isMoveDown = true;
-            mist.GetComponent<Mist>().isMoveLeft = true;
+            mist.isMoveDown = true;
+            mist.isMoveLeft = true;
         } else if (spawnPosition == east) {
-            mist.GetComponent<Mist>().isMoveLeft = true;
+            mist.isMoveLeft = true;
         } else if (spawnPosition == southEast) {
-            mist.GetComponent<Mist>().isMoveUp = true;
-            mist.GetComponent<Mist>().isMoveLeft = true;
+            mist.isMoveUp = true;
+            mist.isMoveLeft = true;
         } else if (spawnPosition == south) {
-            mist.GetComponent<Mist>().isMoveUp = true;
+            mist.isMoveUp = true;
         } else if (spawnPosition == southWest) {
-            mist.GetComponent<Mist>().isMoveUp = true;
-            mist.GetComponent<Mist>().isMoveRight = true;
+            mist.isMoveUp = true;
+            mist.isMoveRight = true;
         } else if (spawnPosition == west) {
-            mist.GetComponent<Mist>().isMoveRight = true;
+            mist.isMoveRight = true;
         } else if (spawnPosition == northWest) {
-            mist.GetComponent<Mist>().isMoveDown = true;
-            mist.GetComponent<Mist>().isMoveRight = true;
+            mist.isMoveDown = true;
+            mist.isMoveRight = true;
         }
     }
 }

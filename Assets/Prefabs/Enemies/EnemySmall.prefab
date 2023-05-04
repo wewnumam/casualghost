@@ -299,6 +299,13 @@ MonoBehaviour:
   enemyType: 1
   _damageAmount: 0.25
   _attackSpeed: 0.25
+  healthSystem: {fileID: 1419193210521235100}
+  shadowCaster2D: {fileID: 6838577676824563814}
+  floatingText: {fileID: -2368947423404355355}
+  animator: {fileID: 2020238336801171443}
+  boxCollider2Ds:
+  - {fileID: 6493536287298976962}
+  - {fileID: 1581780070075491347}
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
   particlePrefab: {fileID: 4293073376873104698, guid: 783ddf3fb9d84c744b168bc1efcae2e7, type: 3}
 --- !u!114 &-5924404030363091198
@@ -313,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7445f4531d62e49a3f3b68b323bcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 6493536287298976960}
+  rigidbody2D: {fileID: 6493536287298976963}
   _maxSpeed: 7
 --- !u!114 &6838577676824563814
 MonoBehaviour:
@@ -340,7 +349,7 @@ MonoBehaviour:
   - {x: -0.6365366, y: -1.6463274, z: 0}
   m_ShapePathHash: -46697399
   m_Mesh: {fileID: 0}
-  m_InstanceId: 42216
+  m_InstanceId: 73010
 --- !u!114 &-2708521009188318648
 MonoBehaviour:
   m_ObjectHideFlags: 0

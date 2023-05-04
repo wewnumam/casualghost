@@ -198,6 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5d450c90593234681ed091b7a4ab8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 2324728461730443966}
+  enemyMovement: {fileID: 833955541886858464}
   pullTriggerTime: 2
   bulletPrefab: {fileID: 781906667792654230, guid: d77c5ff6bb3e74f43aa6ad7f3d38ecf9, type: 3}
   bulletSpawnPoint: {fileID: 4482874024179598461}
@@ -480,6 +482,13 @@ MonoBehaviour:
   enemyType: 3
   _damageAmount: 1
   _attackSpeed: 1
+  healthSystem: {fileID: 8458341612162530762}
+  shadowCaster2D: {fileID: 8026916285375086388}
+  floatingText: {fileID: -1268052776981258666}
+  animator: {fileID: 277892204413082335}
+  boxCollider2Ds:
+  - {fileID: 2899214022033596091}
+  - {fileID: 5977978020802782934}
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
   particlePrefab: {fileID: 4293073376873104698, guid: 783ddf3fb9d84c744b168bc1efcae2e7, type: 3}
 --- !u!114 &833955541886858464
@@ -494,6 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7445f4531d62e49a3f3b68b323bcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 2324728461730443966}
+  rigidbody2D: {fileID: 5677351273909216239}
   _maxSpeed: 2.5
 --- !u!114 &8026916285375086388
 MonoBehaviour:
@@ -528,7 +539,7 @@ MonoBehaviour:
   - {x: -0.31278652, y: -1.6417499, z: 0}
   m_ShapePathHash: -404058155
   m_Mesh: {fileID: 0}
-  m_InstanceId: 52956
+  m_InstanceId: 73168
 --- !u!114 &-1268052776981258666
 MonoBehaviour:
   m_ObjectHideFlags: 0

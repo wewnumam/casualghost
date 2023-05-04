@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private new Rigidbody2D rigidbody2D;
+
     [Header("Follow Target Properties")]
     private Transform[] targetToFollow;
     private bool isCollideWithTarget;
@@ -13,25 +17,25 @@ public class EnemyMovement : MonoBehaviour {
     public void SetMaxSpeed(float maxSpeed) => _maxSpeed = maxSpeed;
 
     void Update() {
-        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
+        if (Player.Instance == null) return;
         
-        if (GetComponent<Enemy>().IsEnemyTypeDefault()) {
+        if (enemy.IsEnemyTypeDefault()) {
             EnemyDefaultTarget();
-        } else if (GetComponent<Enemy>().IsEnemyTypeRunner()) {
+        } else if (enemy.IsEnemyTypeRunner()) {
             EnemyRunnerTarget();
-        } else if (GetComponent<Enemy>().IsEnemyTypeGiant()) {
+        } else if (enemy.IsEnemyTypeGiant()) {
             EnemyGiantTarget();
-        } else if (GetComponent<Enemy>().IsEnemyTypeShooter()) {
+        } else if (enemy.IsEnemyTypeShooter()) {
             EnemyDefaultTarget();
-        } else if (GetComponent<Enemy>().IsEnemyTypeBoss()) {
+        } else if (enemy.IsEnemyTypeBoss()) {
             EnemyBossTarget();
         }
 
         if (isCollideWithTarget) {
-            GetComponent<Enemy>().PlayEnemyAttackAnimation();
+            enemy.PlayEnemyAttackAnimation();
         } else {
-            if (!GetComponent<Enemy>().IsEnemyTypeShooter()) {
-                GetComponent<Enemy>().PlayEnemyWalkAnimation();
+            if (!enemy.IsEnemyTypeShooter()) {
+                enemy.PlayEnemyWalkAnimation();
             }
         }
     }
@@ -49,12 +53,12 @@ public class EnemyMovement : MonoBehaviour {
             // Check if any canons were found 
             if (canons.Length > 0) {
                 targetToFollow = UtilsClass.GetGameObjectsTransform(canons, 2);
-                targetToFollow[canons.Length] = GameObject.FindWithTag(Tags.PLAYER).transform;
-                targetToFollow[canons.Length + 1] = GameObject.FindWithTag(Tags.BANYAN).transform;
+                targetToFollow[canons.Length] = Player.Instance.transform;
+                targetToFollow[canons.Length + 1] = BanyanDefenseManager.Instance.transform;
             } else {
                 targetToFollow = new Transform[] {
-                    GameObject.FindWithTag(Tags.PLAYER).transform,
-                    GameObject.FindWithTag(Tags.BANYAN).transform
+                    Player.Instance.transform,
+                    BanyanDefenseManager.Instance.transform
                 };
             }
 
@@ -82,7 +86,7 @@ public class EnemyMovement : MonoBehaviour {
                 targetToFollow = UtilsClass.GetGameObjectsTransform(thornmine);
             } else {
                 targetToFollow = new Transform[] {
-                    GameObject.FindWithTag(Tags.PLAYER).transform,
+                    Player.Instance.transform,
                 };
             }
 
@@ -99,7 +103,7 @@ public class EnemyMovement : MonoBehaviour {
             FollowTarget(UtilsClass.FindClosestTransform(this.transform, decoysToFollow));
         } else {
             targetToFollow = new Transform[] {
-                GameObject.FindWithTag(Tags.BANYAN).transform,
+                BanyanDefenseManager.Instance.transform,
             };
 
             FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
@@ -108,26 +112,26 @@ public class EnemyMovement : MonoBehaviour {
 
     void EnemyBossTarget() {
         targetToFollow = new Transform[] {
-            GameObject.FindWithTag(Tags.BANYAN).transform,
+            BanyanDefenseManager.Instance.transform,
         };
 
         FollowTarget(UtilsClass.FindClosestTransform(this.transform, targetToFollow));
     }
 
     void FollowTarget(Transform target) {
-        if (GetComponent<HealthSystem>().IsDie()) {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        if (enemy.healthSystem.IsDie()) {
+            rigidbody2D.velocity = Vector2.zero;
             return;
         }
 
         // Enemy follow target
         Vector3 moveDir = (target.position - transform.position).normalized;
-        GetComponent<Rigidbody2D>().AddForce(moveDir * _maxSpeed);
+        rigidbody2D.AddForce(moveDir * _maxSpeed);
 
         // Limit the velocity to a maximum value
-        float currentSpeed = GetComponent<Rigidbody2D>().velocity.magnitude;
+        float currentSpeed = rigidbody2D.velocity.magnitude;
         if (currentSpeed > _maxSpeed) {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * _maxSpeed;
+            rigidbody2D.velocity = rigidbody2D.velocity.normalized * _maxSpeed;
         }
 
         // Enemy look at target
@@ -143,8 +147,8 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag(Tags.TREE)) {
-            if (!GetComponent<Enemy>().IsEnemyTypeBoss()) {
-                StartCoroutine(collision.gameObject.GetComponent<Tree>().HideTreeTemporary(collision.gameObject, 2f));
+            if (!enemy.IsEnemyTypeBoss()) {
+                StartCoroutine(collision.gameObject.GetComponent<Tree>().HideTreeTemporary(2f));
                 collision.gameObject.GetComponent<Tree>().SwitchToDarkTree();
             }
         }

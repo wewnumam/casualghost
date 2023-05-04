@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850f3b71172485f639f78607dd09c7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handAnimator: {fileID: 173133512173495613}
   _currentWeaponType: 0
   playerWeapon:
   - weaponType: 0
@@ -971,6 +972,7 @@ MonoBehaviour:
   - {fileID: 1721632175077892500}
   fullBullet: {fileID: 21300000, guid: 64fd2e8a963637d46b0824bcf2fc5fd9, type: 3}
   emptyBullet: {fileID: 21300000, guid: 6d397a9962eab384d8b246afac8049e9, type: 3}
+  playerShooting: {fileID: 2099510498033677127}
 --- !u!1 &2099510498463802679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerType: 1
+  healthSystem: {fileID: 8197944234116281196}
+  floatingText: {fileID: 1317236536024336222}
+  animator: {fileID: 2651818198955959761}
+  playerMovement: {fileID: 2099510498463802632}
   playerInfoText: {fileID: 2099510497646268816}
   explosionPrefab: {fileID: 4216819758782068366, guid: 09a119971f358504aa27ee191fc84d3c, type: 3}
   playerBody: {fileID: 1473625840449949728}
@@ -1143,6 +1149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c63273d0885f3b18879b3e64cbf98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2099510498463802633}
+  bodyAnimator: {fileID: 1473625840449949728}
+  echoEffect: {fileID: 6933569872765918871}
   playerBody: {fileID: 908095965710897333}
   normalSpeed: 8
   boostSpeed: 16

@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tree : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private new Collider2D collider2D;
+
     [SerializeField] private TreeSprites[] treeSprites;
     public int treeSpritesIndex;
 
     void Awake() {
         treeSpritesIndex = Random.Range(0, treeSprites.Length);
-        GetComponent<SpriteRenderer>().sprite = treeSprites[treeSpritesIndex].treeSprites;
+        spriteRenderer.sprite = treeSprites[treeSpritesIndex].treeSprites;
     }
 
-    public IEnumerator HideTreeTemporary(GameObject gameObject, float waitForSeconds) {
-        gameObject.GetComponent<Collider2D>().enabled = false;
+    public IEnumerator HideTreeTemporary(float waitForSeconds) {
+        collider2D.enabled = false;
         yield return new WaitForSeconds(waitForSeconds);
-        if (gameObject != null) gameObject.GetComponent<Collider2D>().enabled = true;
+        collider2D.enabled = true;
     }
 
     public void SwitchToDarkTree() {
         if (!treeSprites[treeSpritesIndex].isDarked) {
             treeSprites[treeSpritesIndex].isDarked = true;
-            GetComponent<SpriteRenderer>().sprite = treeSprites[treeSpritesIndex].darkTreeSprites;
+            spriteRenderer.sprite = treeSprites[treeSpritesIndex].darkTreeSprites;
         }
     }
 }

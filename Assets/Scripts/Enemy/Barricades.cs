@@ -12,9 +12,11 @@ public class Barricades : MonoBehaviour {
 
     private Rigidbody2D[] rigidbody2Ds;
 
-    void Update() {
+    private void Awake() {
         rigidbody2Ds = GetComponentsInChildren<Rigidbody2D>();
-        
+    }
+
+    void Update() {
         if (isMoveLeft) {
             AddForce(Vector2.left * _maxSpeed);
         }

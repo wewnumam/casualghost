@@ -27,15 +27,15 @@ public class BuildingSystem : MonoBehaviour {
          // If the building type is THORN_MINE and it is already unlocked, then hide the cost information text
         switch (buildingType) {
             case EnumsManager.BuildingType.THORN_MINE when IsBuildingUnlocked(PlayerPrefsKeys.IS_THORNMINE_UNLOCKED):
-                costInfoText.text = "";
+                costInfoText.text = string.Empty;
                 costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.BuildingType.DECOY when IsBuildingUnlocked(PlayerPrefsKeys.IS_DECOY_UNLOCKED):
-                costInfoText.text = "";
+                costInfoText.text = string.Empty;
                 costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.BuildingType.CANON when IsBuildingUnlocked(PlayerPrefsKeys.IS_CANNON_UNLOCKED):
-                costInfoText.text = "";
+                costInfoText.text = string.Empty;
                 costInfoText.gameObject.SetActive(false);
                 break;
             default:
@@ -69,7 +69,7 @@ public class BuildingSystem : MonoBehaviour {
         GemsSystem.Instance.SubstractGems(unlockCost);
 
         // Hide the cost information text in the UI
-        costInfoText.text = "";
+        costInfoText.text = string.Empty;
         costInfoText.gameObject.SetActive(false);
 
         // Update the player preferences based on the building type

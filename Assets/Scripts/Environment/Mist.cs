@@ -14,27 +14,30 @@ public class Mist : MonoBehaviour {
     public bool isMoveUp;
     public bool isMoveDown;
 
+    [Header("Caching Components")]
+    [SerializeField] private new Rigidbody2D rigidbody2D;
+
     void Update() {
         if (isMoveLeft) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * _maxSpeed);
+            rigidbody2D.AddForce(Vector2.left * _maxSpeed);
         }
 
         if (isMoveRight) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * _maxSpeed);
+            rigidbody2D.AddForce(Vector2.right * _maxSpeed);
         }
 
         if (isMoveUp) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * _maxSpeed);
+            rigidbody2D.AddForce(Vector2.up * _maxSpeed);
         }
 
         if (isMoveDown) {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.down * _maxSpeed);
+            rigidbody2D.AddForce(Vector2.down * _maxSpeed);
         }
 
         // Limit the velocity to a maximum value
-        float currentSpeed = GetComponent<Rigidbody2D>().velocity.magnitude;
+        float currentSpeed = rigidbody2D.velocity.magnitude;
         if (currentSpeed > _maxSpeed) {
-            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * _maxSpeed;
+            rigidbody2D.velocity = rigidbody2D.velocity.normalized * _maxSpeed;
         }
     }
 }

@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour {
     [SerializeField] private float moveSpeed;
+    
+    [Header("Caching Components")]
+    [SerializeField] private AreaEffector2D areaEffector2D;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private new ParticleSystem particleSystem;
+    private Vector3 currentPosition;
+    private Vector3 currentLocalScale;
 
-    private void Start() {
-        if (GetComponent<AreaEffector2D>().forceMagnitude < 0) {
-            GetComponent<SpriteRenderer>().flipX = true;
-            Vector3 currentLocalScale = GetComponentInChildren<ParticleSystem>().transform.localScale;
+    private void Awake() {
+        if (areaEffector2D.forceMagnitude < 0) {
+            spriteRenderer.flipX = true;
+            currentLocalScale = particleSystem.transform.localScale;
             currentLocalScale.x *= -1; 
-            GetComponentInChildren<ParticleSystem>().transform.localScale = currentLocalScale;
+            particleSystem.transform.localScale = currentLocalScale;
         }
     }
 
     void Update() {
-        Vector3 currentPosition = transform.position;
-        if (GetComponent<AreaEffector2D>().forceMagnitude > 0) {
+        currentPosition = transform.position;
+        if (areaEffector2D.forceMagnitude > 0) {
             currentPosition.x += moveSpeed * Time.deltaTime;
         } else {
             currentPosition.x -= moveSpeed * Time.deltaTime;

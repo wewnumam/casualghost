@@ -9,12 +9,14 @@ public class CollectibleItemObject : MonoBehaviour {
     void Awake() {
         GameObject branch = Instantiate(new GameObject("Branch"), transform.position, Quaternion.identity);
         branch.AddComponent<SpriteRenderer>();
-        branch.GetComponent<SpriteRenderer>().sprite = CollectibleItem.Instance.branchSprite;
-        branch.GetComponent<SpriteRenderer>().material = CollectibleItem.Instance.branchMaterial;
-        branch.GetComponent<SpriteRenderer>().sortingLayerName = "Character";
+        SpriteRenderer spriteRenderer = branch.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = CollectibleItem.Instance.branchSprite;
+        spriteRenderer.material = CollectibleItem.Instance.branchMaterial;
+        spriteRenderer.sortingLayerName = "Character";
         branch.AddComponent<PositionRendererSorter>();
-        branch.GetComponent<PositionRendererSorter>().offset = 2;
-        branch.GetComponent<PositionRendererSorter>().runOnlyOnce = true;
+        PositionRendererSorter positionRendererSorter = branch.GetComponent<PositionRendererSorter>();
+        positionRendererSorter.offset = 2;
+        positionRendererSorter.runOnlyOnce = true;
         Destroy(branch, lifeTime);
         Destroy(gameObject, lifeTime);    
     }

@@ -20,7 +20,7 @@ public class GameCursor : MonoBehaviour {
 	}
 
 	void Update() {
-		transform.position = UtilsClass.GetMouseWorldPosition();	
+		transform.position = UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera);	
 	}
 
 	void SetCursor(Texture2D cursorTexture) {

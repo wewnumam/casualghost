@@ -5,12 +5,16 @@ using UnityEngine;
 public class BanyanDefenseManager : MonoBehaviour  {
     public static BanyanDefenseManager Instance { get; private set; }
 
+    [Header("Caching Components")]
+    public HealthSystem healthSystem;
+
     [Header("Banyan Defense Button Instantiate Properties")]
     [SerializeField] private int enemyKillAmountToSpawnCollectibleItem;
     [SerializeField] private List<GameObject> banyanDefenseButton;
     public GameObject buttonCanvas;
     [SerializeField] private Transform buttonContainer;
     public Transform parentBanyanDefenseObject;
+    private int killByCurrentMultiple;
 
     void Awake () {
         if (Instance == null) {
@@ -26,7 +30,11 @@ public class BanyanDefenseManager : MonoBehaviour  {
     }
 
     void Update() {
-        if (PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER) % enemyKillAmountToSpawnCollectibleItem == 0 && !buttonCanvas.activeSelf) {
+        if (PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER) > 1 &&
+            PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER) % enemyKillAmountToSpawnCollectibleItem == 0 && 
+            !buttonCanvas.activeSelf &&
+            PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER) != killByCurrentMultiple) {
+            killByCurrentMultiple = PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER);
             buttonCanvas.SetActive(true);
         }
     }

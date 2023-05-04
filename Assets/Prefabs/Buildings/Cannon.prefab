@@ -448,6 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbad22661d70e847a9fc86372e85a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSystem: {fileID: 1926142140258470312}
+  floatingText: {fileID: -5902679959270948653}
+  animator: {fileID: 4264616661286508693}
   isBanyan: 0
   buildingInfoText: {fileID: 1901092586603434672}
 --- !u!114 &6506453875026619706
@@ -482,7 +485,7 @@ MonoBehaviour:
   - {x: -1.2962575, y: -1.8941709, z: 0}
   m_ShapePathHash: -347040273
   m_Mesh: {fileID: 0}
-  m_InstanceId: 151146
+  m_InstanceId: 54228
 --- !u!114 &-3017388273427836643
 MonoBehaviour:
   m_ObjectHideFlags: 0

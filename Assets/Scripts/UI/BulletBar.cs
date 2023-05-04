@@ -11,9 +11,12 @@ public class BulletBar : MonoBehaviour {
     [SerializeField] private Sprite fullBullet;
     [SerializeField] private Sprite emptyBullet;
 
+    [Header("Caching Components")]
+    [SerializeField] private PlayerShooting playerShooting;
+
     void Update() {
-        maxRound = GetComponent<PlayerShooting>().maxRound;
-        roundsLeft = GetComponent<PlayerShooting>().roundsLeft;
+        maxRound = playerShooting.maxRound;
+        roundsLeft = playerShooting.roundsLeft;
 
         for (int i = 0; i < bullets.Length; i++) {
             if (i < roundsLeft) {

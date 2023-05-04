@@ -4,6 +4,11 @@ using UnityEngine;
 using EZCameraShake;
 
 public class BuildingBody : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private HealthSystem healthSystem;
+    [SerializeField] private FloatingText floatingText;
+    [SerializeField] private Animator animator;
+
     [Tooltip("The game will be over if the banyan dies")]
     [SerializeField] private bool isBanyan;
 
@@ -13,7 +18,7 @@ public class BuildingBody : MonoBehaviour {
     private bool canAttacked = true;
 
     void Update() {
-        if (GetComponent<HealthSystem>().IsDie() && GameManager.Instance.IsGameStateGameplay()) {
+        if (healthSystem.IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             if (isBanyan) {
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_DIE);
                 GamePanelManager.Instance.GameOver();
@@ -26,7 +31,7 @@ public class BuildingBody : MonoBehaviour {
     }
 
     void SetBuildingInfo() {
-		buildingInfoText.text = $"HEALTH: {GetComponent<HealthSystem>().currentHealth.ToString()}";
+		buildingInfoText.text = $"HEALTH: {healthSystem.currentHealth.ToString()}";
 	}
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -58,18 +63,18 @@ public class BuildingBody : MonoBehaviour {
                 EnumsManager.SoundEffect.PLAYER_HURT_4
             }));
             CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f);
-            if (GetComponent<HealthSystem>().IsDying()) {
+            if (healthSystem.IsDying()) {
                 PostProcessingEffect.Instance.DyingEffect(damageAmount / 10);
             }
         }
         canAttacked = false; // Prevent enemy attack during the delay
         yield return new WaitForSeconds(waitForSeconds);
-		GetComponent<HealthSystem>().TakeDamage(damageAmount);
-        GetComponent<FloatingText>().InstantiateFloatingText((damageAmount * 100).ToString(), transform);
+		healthSystem.TakeDamage(damageAmount);
+        floatingText.InstantiateFloatingText((damageAmount * 100).ToString(), transform);
         if (gameObject.tag == Tags.DECOY) {
-            GetComponent<Animator>().Play(AnimationTags.DECOY_ATTACKED);
+            animator.Play(AnimationTags.DECOY_ATTACKED);
         } else {
-            GetComponent<Animator>().Play(AnimationTags.BUILDING_HURT);
+            animator.Play(AnimationTags.BUILDING_HURT);
         }
         canAttacked = true; // Allow enemy attack again
 	}

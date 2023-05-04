@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    [Header("Caching Components")]
+    [SerializeField] private Player player;
+    [SerializeField] private Animator bodyAnimator;
+    [SerializeField] private EchoEffect echoEffect;
+
 	[Header("Movement Properties")]
     [SerializeField] private GameObject playerBody;
 	[SerializeField] private float normalSpeed = 8f;  // The normal movement speed.
@@ -19,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start() {
 		characterPhysics = GetComponent<Rigidbody2D>();
 		currentSpeed = normalSpeed;
-        GetComponent<EchoEffect>().enabled = false;
+        echoEffect.enabled = false;
 	}
 
 	void Update() {
@@ -37,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Mathf.Approximately(horizontal, 0f) && Mathf.Approximately(vertical, 0f)) {
             // Player is not moving, set movement vector to zero
             movement = Vector2.zero;
-            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
+            bodyAnimator.Play(AnimationTags.PLAYER_IDLE);
         }
         else {
             // Player is moving, set movement vector based on input
@@ -45,19 +50,19 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (horizontal != 0 || vertical != 0) {
-            if (GetComponent<Player>().IsPlayerTypeDefault()) {
-                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK);
-            } else if (GetComponent<Player>().IsPlayerTypeTwo()) {
-                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_TYPE_TWO);
-            } else if (GetComponent<Player>().IsPlayerTypeThree()) {
-                playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_WALK_TYPE_THREE);
+            if (player.IsPlayerTypeDefault()) {
+                bodyAnimator.Play(AnimationTags.PLAYER_WALK);
+            } else if (player.IsPlayerTypeTwo()) {
+                bodyAnimator.Play(AnimationTags.PLAYER_WALK_TYPE_TWO);
+            } else if (player.IsPlayerTypeThree()) {
+                bodyAnimator.Play(AnimationTags.PLAYER_WALK_TYPE_THREE);
             }
         } else {
-            playerBody.GetComponent<Animator>().Play(AnimationTags.PLAYER_IDLE);
+            bodyAnimator.Play(AnimationTags.PLAYER_IDLE);
         }
         
         // Player look at mouse
-        float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition() - transform.position).normalized);
+        float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera) - transform.position).normalized);
         Vector3 localScale = Vector3.one;
         if (angle > 90 && angle < 270) {
             localScale.x *= -1f;
@@ -83,12 +88,12 @@ public class PlayerMovement : MonoBehaviour {
 	private IEnumerator Boost() {
         isBoosting = true;
         currentSpeed = boostSpeed;
-        GetComponent<EchoEffect>().enabled = true;
+        echoEffect.enabled = true;
 
         yield return new WaitForSeconds(boostDuration);
 
         currentSpeed = normalSpeed;
-        GetComponent<EchoEffect>().enabled = false;
+        echoEffect.enabled = false;
 
         yield return new WaitForSeconds(boostCooldown);
 

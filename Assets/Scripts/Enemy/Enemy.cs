@@ -10,6 +10,13 @@ public class Enemy : MonoBehaviour {
     [SerializeField] private float _attackSpeed;
     public float attackSpeed { get => _attackSpeed; }
 
+    [Header("Caching Components")]
+    public HealthSystem healthSystem;
+    public ShadowCaster2D shadowCaster2D;
+    public FloatingText floatingText;
+    public Animator animator;
+    public BoxCollider2D[] boxCollider2Ds;
+
     [Header("Coin Instantiate Properties")]
     [SerializeField] private GameObject coinPrefab;
     
@@ -45,12 +52,12 @@ public class Enemy : MonoBehaviour {
     }
 
     void Update() {
-        if (GetComponent<HealthSystem>().IsDie()) {
-            if (GetComponent<ShadowCaster2D>() != null) {
-                GetComponent<ShadowCaster2D>().enabled = false;
+        if (healthSystem.IsDie()) {
+            if (shadowCaster2D != null) {
+                shadowCaster2D.enabled = false;
             }
-            if (GetComponents<BoxCollider2D>() != null) {
-                foreach (var collider in GetComponents<BoxCollider2D>()) {
+            if (boxCollider2Ds != null) {
+                foreach (var collider in boxCollider2Ds) {
                     collider.enabled = false;
                 }
             }
@@ -73,14 +80,14 @@ public class Enemy : MonoBehaviour {
                 EnumsManager.SoundEffect.ENEMY_BLOOD_3
             }));
             float bulletDamage = collider.gameObject.GetComponent<Projectile>().bulletDamage;
-            GetComponent<HealthSystem>().TakeDamage(bulletDamage);
-            GetComponent<FloatingText>().InstantiateFloatingText((bulletDamage * 100).ToString(), transform);
+            healthSystem.TakeDamage(bulletDamage);
+            floatingText.InstantiateFloatingText((bulletDamage * 100).ToString(), transform);
         }
 
         if (collider.gameObject.CompareTag(Tags.EXPLOSION)) {
             const float EXPLOSION_DAMAGE = .25f; 
-            GetComponent<HealthSystem>().TakeDamage(EXPLOSION_DAMAGE);
-            GetComponent<FloatingText>().InstantiateFloatingText((EXPLOSION_DAMAGE * 100).ToString(), transform);
+            healthSystem.TakeDamage(EXPLOSION_DAMAGE);
+            floatingText.InstantiateFloatingText((EXPLOSION_DAMAGE * 100).ToString(), transform);
         }
 
         if (collider.gameObject.CompareTag(Tags.ROOT) ||
@@ -114,63 +121,63 @@ public class Enemy : MonoBehaviour {
 
     public void PlayEnemyIdleAnimation() {
         if (IsEnemyTypeDefault()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_IDLE);
+            animator.Play(AnimationTags.ENEMY_DEFAULT_IDLE);
         } else if (IsEnemyTypeRunner()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_IDLE);
+            animator.Play(AnimationTags.ENEMY_SMALL_IDLE);
         } else if (IsEnemyTypeGiant()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_IDLE);
+            animator.Play(AnimationTags.ENEMY_BIG_IDLE);
         } else if (IsEnemyTypeShooter()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_IDLE);
+            animator.Play(AnimationTags.ENEMY_SHOOTER_IDLE);
         } else if (IsEnemyTypeBoss()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_IDLE);
+            animator.Play(AnimationTags.ENEMY_BOSS_IDLE);
         }
     }
 
     public void PlayEnemyWalkAnimation() {
-        if (GetComponent<HealthSystem>().IsDie()) return;
+        if (healthSystem.IsDie()) return;
 
         if (IsEnemyTypeDefault()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_WALK);
+            animator.Play(AnimationTags.ENEMY_DEFAULT_WALK);
         } else if (IsEnemyTypeRunner()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_WALK);
+            animator.Play(AnimationTags.ENEMY_SMALL_WALK);
         } else if (IsEnemyTypeGiant()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_WALK);
+            animator.Play(AnimationTags.ENEMY_BIG_WALK);
         } else if (IsEnemyTypeShooter()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_WALK);
+            animator.Play(AnimationTags.ENEMY_SHOOTER_WALK);
         } else if (IsEnemyTypeBoss()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_WALK);
+            animator.Play(AnimationTags.ENEMY_BOSS_WALK);
         }
     }
 
     public void PlayEnemyHurtAnimation() {
-        if (GetComponent<HealthSystem>().IsDie()) return;
+        if (healthSystem.IsDie()) return;
 
         if (IsEnemyTypeDefault()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_HURT);
+            animator.Play(AnimationTags.ENEMY_DEFAULT_HURT);
         } else if (IsEnemyTypeRunner()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_HURT);
+            animator.Play(AnimationTags.ENEMY_SMALL_HURT);
         } else if (IsEnemyTypeGiant()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_HURT);
+            animator.Play(AnimationTags.ENEMY_BIG_HURT);
         } else if (IsEnemyTypeShooter()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_HURT);
+            animator.Play(AnimationTags.ENEMY_SHOOTER_HURT);
         } else if (IsEnemyTypeBoss()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_HURT);
+            animator.Play(AnimationTags.ENEMY_BOSS_HURT);
         }
     }
 
     public void PlayEnemyAttackAnimation() {
-        if (GetComponent<HealthSystem>().IsDie()) return;
+        if (healthSystem.IsDie()) return;
 
         if (IsEnemyTypeDefault()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_ATTACK);
+            animator.Play(AnimationTags.ENEMY_DEFAULT_ATTACK);
         } else if (IsEnemyTypeRunner()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_ATTACK);
+            animator.Play(AnimationTags.ENEMY_SMALL_ATTACK);
         } else if (IsEnemyTypeGiant()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_ATTACK);
+            animator.Play(AnimationTags.ENEMY_BIG_ATTACK);
         } else if (IsEnemyTypeShooter()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
+            animator.Play(AnimationTags.ENEMY_SHOOTER_SHOOT);
         } else if (IsEnemyTypeBoss()) {
-            GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_ATTACK);
+            animator.Play(AnimationTags.ENEMY_BOSS_ATTACK);
         }
     }
 
@@ -182,22 +189,22 @@ public class Enemy : MonoBehaviour {
         switch (enemyType) {
             case EnemyType.DEFAULT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
-                GetComponent<Animator>().Play(AnimationTags.ENEMY_DEFAULT_DIE);
+                animator.Play(AnimationTags.ENEMY_DEFAULT_DIE);
                 break;
             case EnemyType.RUNNER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_SMALL);
-                GetComponent<Animator>().Play(AnimationTags.ENEMY_SMALL_DIE);
+                animator.Play(AnimationTags.ENEMY_SMALL_DIE);
                 break;
             case EnemyType.GIANT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
-                GetComponent<Animator>().Play(AnimationTags.ENEMY_BIG_DIE);
+                animator.Play(AnimationTags.ENEMY_BIG_DIE);
                 break;
             case EnemyType.SHOOTER:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_DEFAULT);
                 break;
             case EnemyType.BOSS:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_DIE_BIG);
-                GetComponent<Animator>().Play(AnimationTags.ENEMY_BOSS_DIE);
+                animator.Play(AnimationTags.ENEMY_BOSS_DIE);
                 break;  
         }
 

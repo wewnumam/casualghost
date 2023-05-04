@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8567046332476278283
 Transform:
@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed2fe40c56a0384bb69909458e7ca31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8567046332476278284}
+  collider2D: {fileID: 8567046332476278281}
   treeSprites:
   - treeSprites: {fileID: 1249389369, guid: c2fad2e2f555663408852d38792d9044, type: 3}
     darkTreeSprites: {fileID: 79181857, guid: 2dfeaf4ea9acbbc40a7c5c149ec8fab5, type: 3}
@@ -187,4 +189,4 @@ MonoBehaviour:
   - {x: 0.31771946, y: -2.9889476, z: 0}
   m_ShapePathHash: -242799116
   m_Mesh: {fileID: 0}
-  m_InstanceId: 55162
+  m_InstanceId: 78226

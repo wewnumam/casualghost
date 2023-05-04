@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.Universal;
@@ -8,6 +9,9 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
+
+    [Header("Caching Components")]
+    public Camera mainCamera;
 
     [Header("State Properties")]
     private EnumsManager.GameState gameState;
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Slider levelProgress;
     [SerializeField] private Slider timeProgress;
     [SerializeField] private TextMeshProUGUI countdownText;
+    private StringBuilder timerTextBuilder = new StringBuilder();
 
     [Header("Environment Properties")]
     [SerializeField] private Light2D directionalLight;
@@ -174,18 +179,20 @@ public class GameManager : MonoBehaviour {
         // Prevent obtain gems from leftover health at level 1
         if (levelState != EnumsManager.LevelState.LEVEL_1) {
             gemsObtainedFromLeftoverHealth = (int)(
-                GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>().currentHealth +
-                GameObject.FindWithTag(Tags.BANYAN).GetComponent<HealthSystem>().currentHealth
+                Player.Instance.healthSystem.currentHealth +
+                BanyanDefenseManager.Instance.healthSystem.currentHealth
             );
         }
     }
 
     void SetTimerInfo() {
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        timerText.text = $"{time:mm\\:ss}";
+        timerTextBuilder.Length = 0;
+        timerTextBuilder.Append($"{time:mm\\:ss}");
+        timerText.text = timerTextBuilder.ToString();
         timeProgress.maxValue = playTimeInSeconds;
         timeProgress.value = currentTime;
-        timerTooltip.header = $"{time:mm\\:ss}";
+        timerTooltip.header = timerTextBuilder.ToString();
     }
 
     void SetLevelInfo() {
@@ -232,8 +239,7 @@ public class GameManager : MonoBehaviour {
     public void DestroyAllChildren(GameObject parentObject) {
         int childCount = parentObject.transform.childCount;
         for (int i = childCount - 1; i >= 0; i--) {
-            GameObject childObject = parentObject.transform.GetChild(i).gameObject;
-            Destroy(childObject);
+            Destroy(parentObject.transform.GetChild(i).gameObject);
         }
     }
 

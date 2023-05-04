@@ -29,11 +29,11 @@ public class WeaponSystem : MonoBehaviour {
          // If the building type is THORN_MINE and it is already unlocked, then hide the cost information text
         switch (weaponType) {
             case EnumsManager.WeaponType.SHOTGUN when IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED):
-                costInfoText.text = "";
+                costInfoText.text = string.Empty;
                 costInfoText.gameObject.SetActive(false);
                 break;
             case EnumsManager.WeaponType.RIFLE when IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED):
-                costInfoText.text = "";
+                costInfoText.text = string.Empty;
                 costInfoText.gameObject.SetActive(false);
                 break;
             default:
@@ -88,7 +88,7 @@ public class WeaponSystem : MonoBehaviour {
         GemsSystem.Instance.SubstractGems(unlockCost);
 
         // Hide the cost information text in the UI
-        costInfoText.text = "";
+        costInfoText.text = string.Empty;
         costInfoText.gameObject.SetActive(false);
     }
 

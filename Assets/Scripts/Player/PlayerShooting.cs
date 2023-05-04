@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using EZCameraShake;
 
 public class PlayerShooting : MonoBehaviour {
+	[Header("Caching Components")]
+    [SerializeField] private Animator handAnimator;
+	
 	[Header("Weapon Properties")]
     [SerializeField] private EnumsManager.WeaponType _currentWeaponType = EnumsManager.WeaponType.DEFAULT;
     public EnumsManager.WeaponType currentWeaponType { get => _currentWeaponType; }
@@ -41,7 +44,7 @@ public class PlayerShooting : MonoBehaviour {
 		maxRound = currentPlayerWeapon.maxRound;
 		
 		if (_roundsLeft == 0 && !isReload && canShoot) {
-			GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_AMMO_EMPTY);
+			handAnimator.Play(AnimationTags.PLAYER_AMMO_EMPTY);
 		}
 
 		// Spawn bullet projectile when left mouse button is pressed
@@ -62,13 +65,13 @@ public class PlayerShooting : MonoBehaviour {
             Reload();
 		}
 		
-		UtilsClass.AimRotation(transform, UtilsClass.GetMouseWorldPosition()); // Rotate player towards the mouse cursor
+		UtilsClass.AimRotation(transform, UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera)); // Rotate player towards the mouse cursor
 	}
 
 	void Reload() {
 		StartCoroutine(ReloadSequence(currentPlayerWeapon.reloadTime));
-		GetComponentInChildren<Animator>().SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
-		GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_RELOAD);
+		handAnimator.SetFloat(AnimationTags.PLAYER_RELOAD_TIME, 1 / currentPlayerWeapon.reloadTime); 
+		handAnimator.Play(AnimationTags.PLAYER_RELOAD);
 	}
 
 	void ResetPlayerWeapon() {
@@ -84,7 +87,7 @@ public class PlayerShooting : MonoBehaviour {
 	void Shoot() {
 		StartCoroutine(PullTrigger(currentPlayerWeapon.pullTriggerTime)); // Delay before player can shoot again
 		CameraShaker.Instance.ShakeOnce(10f, 10f, 0f, .25f); // Shake camera when shooting
-		GetComponentInChildren<Animator>().Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
+		handAnimator.Play(AnimationTags.PLAYER_SHOOT); // Play shooting animation
 		
 		GameObject b = Instantiate(
 			currentPlayerWeapon.bulletPrefab, // Instantiate bullet of current weapon type

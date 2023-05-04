@@ -394,6 +394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbad22661d70e847a9fc86372e85a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSystem: {fileID: 5089631465604144598}
+  floatingText: {fileID: 5538560976565879501}
+  animator: {fileID: 1428801212070364968}
   isBanyan: 0
   buildingInfoText: {fileID: 8997113787756068384}
 --- !u!114 &1889741499079770110

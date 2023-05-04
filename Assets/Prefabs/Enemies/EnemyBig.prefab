@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9183306680690452486
 Transform:
   m_ObjectHideFlags: 0
@@ -299,6 +299,13 @@ MonoBehaviour:
   enemyType: 2
   _damageAmount: 1.5
   _attackSpeed: 1
+  healthSystem: {fileID: 1419193210521235100}
+  shadowCaster2D: {fileID: 8853298610182048623}
+  floatingText: {fileID: -992650657076418817}
+  animator: {fileID: 2020238336801171443}
+  boxCollider2Ds:
+  - {fileID: 6493536287298976962}
+  - {fileID: 8572266814753616056}
   coinPrefab: {fileID: 4852293239853005644, guid: 0d0cce85896bd594599e9e6f525f7381, type: 3}
   particlePrefab: {fileID: 4293073376873104698, guid: 783ddf3fb9d84c744b168bc1efcae2e7, type: 3}
 --- !u!114 &3661015645573040078
@@ -313,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7445f4531d62e49a3f3b68b323bcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 6493536287298976960}
+  rigidbody2D: {fileID: 6493536287298976963}
   _maxSpeed: 1.5
 --- !u!114 &8853298610182048623
 MonoBehaviour:
@@ -346,7 +355,7 @@ MonoBehaviour:
   - {x: -1.9231343, y: -3.122007, z: 0}
   m_ShapePathHash: 998888369
   m_Mesh: {fileID: 0}
-  m_InstanceId: 103216
+  m_InstanceId: 72270
 --- !u!114 &-992650657076418817
 MonoBehaviour:
   m_ObjectHideFlags: 0

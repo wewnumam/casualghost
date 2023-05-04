@@ -22,7 +22,7 @@ public class PlayerSystem : MonoBehaviour {
 
     void Start() {
         if (IsUnlocked()) {
-            costInfoText.text = "";
+            costInfoText.text = string.Empty;
             costInfoText.gameObject.SetActive(false);
         }    
     }
@@ -34,7 +34,7 @@ public class PlayerSystem : MonoBehaviour {
 
     void SetCostInfoText() {
         if (IsUnlocked()) {
-            costInfoText.text = "";
+            costInfoText.text = string.Empty;
             costInfoText.gameObject.SetActive(false);
         } else {
             costInfoText.text = intialCostInfoText;

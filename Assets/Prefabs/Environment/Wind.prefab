@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  areaEffector2D: {fileID: 2590750112449202940}
+  spriteRenderer: {fileID: 4922872267024402728}
+  particleSystem: {fileID: 1566150131705774803}
 --- !u!114 &6138260871204092577
 MonoBehaviour:
   m_ObjectHideFlags: 0

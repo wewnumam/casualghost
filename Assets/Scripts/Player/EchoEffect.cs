@@ -12,7 +12,7 @@ public class EchoEffect : MonoBehaviour {
 
         if (timeBetweenSpawns <= 0) {
             GameObject instance = Instantiate(echo, transform.position, Quaternion.identity);
-            float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition() - instance.transform.position).normalized);
+            float angle = UtilsClass.GetAngleFromVectorFloat((UtilsClass.GetMouseWorldPosition(GameManager.Instance.mainCamera) - instance.transform.position).normalized);
             Vector3 localScale = Vector3.one;
             if (angle > 90 && angle < 270) {
                 localScale.x *= -1f;
