@@ -16,6 +16,14 @@ public class ThornMine : MonoBehaviour {
     [SerializeField] private float moveSpeedDivideBy;
     private float initialSpeed;
 
+    void Awake() {
+        GameManager.Instance.currentThornMine.Add(gameObject);    
+    }
+
+    void OnDestroy() {
+        GameManager.Instance.currentThornMine.Remove(gameObject);  
+    }
+
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag(Tags.ENEMY)) {
             canAttack = true;

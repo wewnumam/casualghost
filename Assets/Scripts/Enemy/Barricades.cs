@@ -34,10 +34,12 @@ public class Barricades : MonoBehaviour {
         }
 
         // Limit the velocity to a maximum value
-        for (int i = 0; i < transform.childCount; i++) {    
-            float currentSpeed = rigidbody2Ds[i].velocity.magnitude;
-            if (currentSpeed > _maxSpeed && rigidbody2Ds[i] != null) {
-                rigidbody2Ds[i].velocity = rigidbody2Ds[i].velocity.normalized * _maxSpeed;
+        for (int i = 0; i < transform.childCount; i++) {
+            if (rigidbody2Ds[i] != null) {
+                float currentSpeed = rigidbody2Ds[i].velocity.magnitude;
+                if (currentSpeed > _maxSpeed) {
+                    rigidbody2Ds[i].velocity = rigidbody2Ds[i].velocity.normalized * _maxSpeed;
+                }
             }
         }
     }

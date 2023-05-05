@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1283919680014533139}
   - component: {fileID: 8298891197427030534}
   m_Layer: 0
-  m_Name: FreeCannonsButton
+  m_Name: FreeThornMinesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
         m_MethodName: InstantiatePrefab
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3512409133639553450, guid: f118b422538f49e48b8ef27e074ee47c, type: 3}
+          m_ObjectArgument: {fileID: 3512409133639553450, guid: a749bc99c41e7e942946edb15c2b09d1, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4e8f38b00147e4189f55cc3301d4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  header: Free Cannons
+  header: Free ThornMine
   content: 
 --- !u!1 &3415053582764795419
 GameObject:
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Free Cannons
+  m_text: Free Mines
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18486a8a8631c744db812cd85f318a90, type: 2}
   m_sharedMaterial: {fileID: -3074382457947513100, guid: 18486a8a8631c744db812cd85f318a90, type: 2}

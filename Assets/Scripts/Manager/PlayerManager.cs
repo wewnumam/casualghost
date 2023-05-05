@@ -18,9 +18,8 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void ReplacePlayer(GameObject replaceBy) {
-        GameObject player = GameObject.FindGameObjectWithTag(Tags.PLAYER);
-        if (player != null) {
-            Destroy(player);
+        if (Player.Instance != null) {
+            Destroy(Player.Instance.gameObject);
         }
         GameObject newPlayer = Instantiate(replaceBy, new Vector3(0, -10, 0), Quaternion.identity);
         PlayerPrefs.SetInt(PlayerPrefsKeys.PLAYER, (int)newPlayer.GetComponent<Player>().playerType);

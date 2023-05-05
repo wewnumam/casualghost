@@ -35,6 +35,7 @@ public class BanyanDefenseManager : MonoBehaviour  {
             !buttonCanvas.activeSelf &&
             PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER) != killByCurrentMultiple) {
             killByCurrentMultiple = PlayerPrefs.GetInt(PlayerPrefsKeys.ENEMY_KILLED_COUNTER);
+            InstantiateRandomButton();
             buttonCanvas.SetActive(true);
         }
     }

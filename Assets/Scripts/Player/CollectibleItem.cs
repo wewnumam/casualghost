@@ -30,7 +30,7 @@ public class CollectibleItem : MonoBehaviour {
 
     void Update() {
         enemyKillAmountToSpawnCollectibleItem = LevelManager.Instance.GetCurrentLevelAdjustment().enemyKillAmountToSpawnCollectibleItem;
-        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
+        if (Player.Instance == null) return;
 
         progressBar = GameObject.FindGameObjectWithTag(Tags.COLLECTIBLE_ITEM_BAR).GetComponent<Slider>();
             
@@ -59,7 +59,7 @@ public class CollectibleItem : MonoBehaviour {
         maxTime = item.activateTime;
         currentTime = item.activateTime;
 
-        GameObject skill = Instantiate(item.skillObject, GameObject.FindGameObjectWithTag(Tags.PLAYER).transform);
+        GameObject skill = Instantiate(item.skillObject, Player.Instance.transform);
         Destroy(skill, item.activateTime);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.TUTORIAL_DONE);
     }

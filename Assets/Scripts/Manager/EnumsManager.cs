@@ -13,6 +13,8 @@ public static class EnumsManager {
 
     public enum DefenseType {
         FREE_CANNONS,
+        FREE_ROOTS,
+        FREE_THORNMINES
     }
 
     public enum GameState {

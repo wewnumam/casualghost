@@ -1127,6 +1127,8 @@ MonoBehaviour:
   floatingText: {fileID: 1317236536024336222}
   animator: {fileID: 2651818198955959761}
   playerMovement: {fileID: 2099510498463802632}
+  playerShooting: {fileID: 2099510498033677127}
+  coinCollection: {fileID: 8084116614742148950}
   playerInfoText: {fileID: 2099510497646268816}
   explosionPrefab: {fileID: 4216819758782068366, guid: 09a119971f358504aa27ee191fc84d3c, type: 3}
   playerBody: {fileID: 1473625840449949728}

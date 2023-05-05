@@ -10,7 +10,7 @@ public class HealArea : MonoBehaviour {
 
     void Start() {
         healthSystems = new List<HealthSystem>();
-        healthSystems.Add(GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<HealthSystem>());
+        healthSystems.Add(Player.Instance.healthSystem);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SKILL_HEAL_AREA);
     }
 

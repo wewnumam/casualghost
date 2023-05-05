@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour {
     }
 
     void Start() {
+        GameManager.Instance.currentEnemies.Add(gameObject);
+
         switch (enemyType) {
             case EnemyType.DEFAULT:
                 SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.ENEMY_SPAWN_DEFAULT);
@@ -62,6 +64,11 @@ public class Enemy : MonoBehaviour {
                 }
             }
             PlayEnemyDieAnimation();
+            if (animator.GetCurrentAnimatorClipInfoCount(0) > 0) {
+                if (animator.GetCurrentAnimatorClipInfo(0)[0].clip.name == AnimationTags.ENEMY_SMALL_IDLE) {
+                    EnemyDie();
+                }
+            }
         }
     }
 
@@ -226,6 +233,7 @@ public class Enemy : MonoBehaviour {
         }
 
         MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED);
+        GameManager.Instance.currentEnemies.Remove(gameObject);
 
         Destroy(gameObject);
     }

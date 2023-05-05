@@ -299,6 +299,7 @@ MonoBehaviour:
   enemyType: 2
   _damageAmount: 1.5
   _attackSpeed: 1
+  enemyMovement: {fileID: 3661015645573040078}
   healthSystem: {fileID: 1419193210521235100}
   shadowCaster2D: {fileID: 8853298610182048623}
   floatingText: {fileID: -992650657076418817}
@@ -355,7 +356,7 @@ MonoBehaviour:
   - {x: -1.9231343, y: -3.122007, z: 0}
   m_ShapePathHash: 998888369
   m_Mesh: {fileID: 0}
-  m_InstanceId: 72270
+  m_InstanceId: 300410
 --- !u!114 &-992650657076418817
 MonoBehaviour:
   m_ObjectHideFlags: 0

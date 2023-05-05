@@ -45,12 +45,10 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     void ModifyImage() {
-        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
-
-        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
+        if (Player.Instance == null) return;
 
         Color imageColor = GetComponent<Image>().color;
-        if (playerShooting.currentWeaponType == weaponType) {
+        if (Player.Instance.playerShooting.currentWeaponType == weaponType) {
             imageColor.a = 0.5f;
             GetComponent<Image>().sprite = highlightedImage;
         } else {
@@ -93,21 +91,19 @@ public class WeaponSystem : MonoBehaviour {
     }
 
     public void SwitchWeapon() {
-        if (GameObject.FindGameObjectWithTag(Tags.PLAYER) == null) return;
-        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
-        
+        if (Player.Instance == null) return;
         if (weaponType == EnumsManager.WeaponType.DEFAULT) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_DEFAULT);
-            playerShooting.WeaponSwitch(EnumsManager.WeaponType.DEFAULT);
+            Player.Instance.playerShooting.WeaponSwitch(EnumsManager.WeaponType.DEFAULT);
         } else if (weaponType == EnumsManager.WeaponType.SHOTGUN && IsWeaponUnlocked(PlayerPrefsKeys.IS_SHOTGUN_UNLOCKED)) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_SHOTGUN);
-            playerShooting.WeaponSwitch(EnumsManager.WeaponType.SHOTGUN);
+            Player.Instance.playerShooting.WeaponSwitch(EnumsManager.WeaponType.SHOTGUN);
         } else if (weaponType == EnumsManager.WeaponType.RIFLE && IsWeaponUnlocked(PlayerPrefsKeys.IS_RIFLE_UNLOCKED)) {
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
             PlayerPrefs.SetInt(PlayerPrefsKeys.WEAPON, PlayerPrefsValues.WEAPON_RIFLE);
-            playerShooting.WeaponSwitch(EnumsManager.WeaponType.RIFLE);
+            Player.Instance.playerShooting.WeaponSwitch(EnumsManager.WeaponType.RIFLE);
         }
     }
 }

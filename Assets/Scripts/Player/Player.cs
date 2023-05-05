@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
     public FloatingText floatingText;
     public Animator animator;
     public PlayerMovement playerMovement;
+    public PlayerShooting playerShooting;
+    public CircleCollider2D coinCollection;
     
 
     [Header("Player State Properties")]
@@ -71,7 +73,7 @@ public class Player : MonoBehaviour {
             isPowerUp = false;
         }
 
-        if (!healthSystem.IsDying() && !GameObject.FindGameObjectWithTag(Tags.BANYAN).GetComponent<HealthSystem>().IsDying()) {
+        if (!healthSystem.IsDying() && !BanyanDefenseManager.Instance.healthSystem.IsDying()) {
             PostProcessingEffect.Instance.ResetDyingEffect();
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect.PLAYER_DYING);
             hasPlayerDyingSFXBeenCalled = false;

@@ -7,7 +7,7 @@ public class FlyingSpear : MonoBehaviour {
     private Transform playerTransform;
 
     void Awake() {
-        playerTransform = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
+        playerTransform = Player.Instance.transform;
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.PLAYER_SKILL_FLYING_SPEAR);
     }
 

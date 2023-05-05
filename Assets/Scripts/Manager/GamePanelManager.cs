@@ -34,7 +34,7 @@ public class GamePanelManager : MonoBehaviour {
         mainMenuPanel.SetActive(true);
         if (mainMenuPanel.activeInHierarchy) {
             GameManager.Instance.SetGameState(EnumsManager.GameState.MAINMENU);
-            GameManager.Instance.TurnOnUILights(false);
+            UIManager.Instance.TurnOnUILights(false);
             Time.timeScale = 0f;
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_GAMEPLAY_1);
@@ -84,7 +84,7 @@ public class GamePanelManager : MonoBehaviour {
         if (PlayerPrefs.GetInt(PlayerPrefsKeys.IS_INTRO_STORY_CUTSCENE_ALREADY_PLAYED) == PlayerPrefsValues.TRUE) {
             GameManager.Instance.ResetGameplay(EnumsManager.LevelState.LEVEL_1);
             GameManager.Instance.SetGameState(EnumsManager.GameState.GAMEPLAY);
-            GameManager.Instance.TurnOnUILights(true);
+            UIManager.Instance.TurnOnUILights(true);
             SoundManager.Instance.StopSound(EnumsManager.SoundEffect._BGM_MAINMENU);
             SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._AMBIENCE_FOREST);
             inventoryPanel.GetComponent<Animator>().Play(AnimationTags.INVENTORY_OPEN);
@@ -137,8 +137,7 @@ public class GamePanelManager : MonoBehaviour {
     public void LevelTransition() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         LevelManager.Instance.StopSpawnEnemy();
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
-        foreach (var enemy in enemies) {
+        foreach (var enemy in GameManager.Instance.currentEnemies) {
             if (!enemy.GetComponent<Enemy>().IsEnemyTypeBoss()) {
                 Destroy(enemy);
             }
@@ -165,6 +164,7 @@ public class GamePanelManager : MonoBehaviour {
         Time.timeScale = 0f;
         GameManager.Instance.SetGameState(EnumsManager.GameState.REWARD);
         GameManager.Instance.SetGemsRewardFromCoinAndHealth();
+        UIManager.Instance.SetRewardInfo();
         PostProcessingEffect.Instance.ResetDyingEffect();
         pauseMenuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
@@ -225,7 +225,7 @@ public class GamePanelManager : MonoBehaviour {
         }
         
         levelTransitionPanel.SetActive(false);
-        GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<Player>().isPowerUp = true;
+        Player.Instance.isPowerUp = true;
     }
 
     void LastLevel() {
@@ -242,7 +242,7 @@ public class GamePanelManager : MonoBehaviour {
     public void OpenCreditPanel() {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         lastLevelPanel.SetActive(true);
-        GameManager.Instance.TurnOnUILights(false);
+        UIManager.Instance.TurnOnUILights(false);
         if (!LevelManager.Instance.IsLastLevel()) {
             lastLevelMessage = lastLevelPanel.gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0].gameObject;
             lastLevelMessage.SetActive(false);
@@ -253,7 +253,7 @@ public class GamePanelManager : MonoBehaviour {
         lastLevelMessage.SetActive(true);
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         lastLevelPanel.SetActive(false);
-        GameManager.Instance.TurnOnUILights(true);
+        UIManager.Instance.TurnOnUILights(true);
         if (LevelManager.Instance.IsLastLevel()) {
             Reward();
         }

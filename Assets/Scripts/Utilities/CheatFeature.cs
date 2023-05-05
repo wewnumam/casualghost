@@ -42,19 +42,16 @@ public class CheatFeature : MonoBehaviour {
     }
 
     void ClearAllEnemyOnScren() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.ENEMY);
-        foreach (var enemy in enemies) {
-            Destroy(enemy.gameObject);
+        foreach (var enemy in GameManager.Instance.currentEnemies) {
+            Destroy(enemy);
         }
     }
 
     void HealPlayer() {
-        HealthSystem playerHealthSystem = GameObject.FindWithTag(Tags.PLAYER).GetComponent<HealthSystem>();
-        playerHealthSystem.Heal(playerHealthSystem.maxHealth - playerHealthSystem.currentHealth);
+        Player.Instance.healthSystem.Heal(Player.Instance.healthSystem.maxHealth - Player.Instance.healthSystem.currentHealth);
     }
 
     void HealBanyan() {
-        HealthSystem banyanHealthSystem = GameObject.FindWithTag(Tags.BANYAN).GetComponent<HealthSystem>();
-        banyanHealthSystem.Heal(banyanHealthSystem.maxHealth - banyanHealthSystem.currentHealth);
+        BanyanDefenseManager.Instance.healthSystem.Heal(BanyanDefenseManager.Instance.healthSystem.maxHealth - BanyanDefenseManager.Instance.healthSystem.currentHealth);
     }
 }

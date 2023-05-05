@@ -17,6 +17,16 @@ public class BuildingBody : MonoBehaviour {
 
     private bool canAttacked = true;
 
+    void Awake() {
+        if (gameObject.CompareTag(Tags.DECOY)) {
+            GameManager.Instance.currentDecoys.Add(gameObject);
+        } else if (gameObject.CompareTag(Tags.CANNON)) {
+            GameManager.Instance.currentCannons.Add(gameObject);
+        } else if (gameObject.CompareTag(Tags.ROOT)) {
+            GameManager.Instance.currentRoots.Add(gameObject);
+        }
+    }
+
     void Update() {
         if (healthSystem.IsDie() && GameManager.Instance.IsGameStateGameplay()) {
             if (isBanyan) {
@@ -28,6 +38,16 @@ public class BuildingBody : MonoBehaviour {
         }
 
         // SetBuildingInfo();
+    }
+
+    void OnDestroy() {
+        if (gameObject.CompareTag(Tags.DECOY)) {
+            GameManager.Instance.currentDecoys.Remove(gameObject);
+        } else if (gameObject.CompareTag(Tags.CANNON)) {
+            GameManager.Instance.currentCannons.Remove(gameObject);
+        } else if (gameObject.CompareTag(Tags.ROOT)) {
+            GameManager.Instance.currentRoots.Remove(gameObject);
+        }
     }
 
     void SetBuildingInfo() {

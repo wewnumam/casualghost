@@ -55,40 +55,28 @@ public class SkillEnhancer : MonoBehaviour {
     }
 
     public void SpeedUp() {
-        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<PlayerMovement>();
-
-        playerMovement.SpeedUp(speedAddBy);
+        Player.Instance.playerMovement.SpeedUp(speedAddBy);
     }
 
     public void FastReload() {
-        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
-        
-        playerShooting.FastReload(reloadTimeDivideBy);
+        Player.Instance.playerShooting.FastReload(reloadTimeDivideBy);
     }
 
     public void FastTrigger() {
-        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
-
-        playerShooting.FastTrigger(pullTriggerTimeDivideBy);
+        Player.Instance.playerShooting.FastTrigger(pullTriggerTimeDivideBy);
     }
 
     public void ExpandCoinCollectionArea() {
-        CircleCollider2D playerCollider = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<CircleCollider2D>();
-
-        playerCollider.radius += coinCollectionRadiusAddBy; 
+        Player.Instance.coinCollection.radius += coinCollectionRadiusAddBy; 
     }
 
     public void IncreaseMaxHealth() {
-        HealthSystem playerHealthSystem = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<HealthSystem>();
-
-        playerHealthSystem.SetMaxHealth(playerHealthSystem.maxHealth + maxHealthAddBy);
-        playerHealthSystem.SetCurrentHealth(playerHealthSystem.maxHealth);
+        Player.Instance.healthSystem.SetMaxHealth(Player.Instance.healthSystem.maxHealth + maxHealthAddBy);
+        Player.Instance.healthSystem.SetCurrentHealth(Player.Instance.healthSystem.maxHealth);
     }
 
     public void IncreaseBulletDamage() {
-        PlayerShooting playerShooting = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponentInChildren<PlayerShooting>();
-
-        playerShooting.IncreaseBulletDamage(bulletDamageAddBy);
+        Player.Instance.playerShooting.IncreaseBulletDamage(bulletDamageAddBy);
     }
 
     public void BreathRoom() {
@@ -96,8 +84,6 @@ public class SkillEnhancer : MonoBehaviour {
     }
 
     public void IncreaseSprintDuration() {
-        PlayerMovement playerMovement = GameObject.FindGameObjectWithTag(Tags.PLAYER).GetComponent<PlayerMovement>();
-
-        playerMovement.IncreaseSprintDuration(sprintDurationAddBy);
+        Player.Instance.playerMovement.IncreaseSprintDuration(sprintDurationAddBy);
     }
 }

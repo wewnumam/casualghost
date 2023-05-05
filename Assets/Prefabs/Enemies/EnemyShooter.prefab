@@ -183,7 +183,7 @@ SpriteRenderer:
   m_Size: {x: 3.065, y: 2.305}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &4894945017793225589
@@ -482,6 +482,7 @@ MonoBehaviour:
   enemyType: 3
   _damageAmount: 1
   _attackSpeed: 1
+  enemyMovement: {fileID: 833955541886858464}
   healthSystem: {fileID: 8458341612162530762}
   shadowCaster2D: {fileID: 8026916285375086388}
   floatingText: {fileID: -1268052776981258666}
@@ -539,7 +540,7 @@ MonoBehaviour:
   - {x: -0.31278652, y: -1.6417499, z: 0}
   m_ShapePathHash: -404058155
   m_Mesh: {fileID: 0}
-  m_InstanceId: 73168
+  m_InstanceId: 300752
 --- !u!114 &-1268052776981258666
 MonoBehaviour:
   m_ObjectHideFlags: 0
