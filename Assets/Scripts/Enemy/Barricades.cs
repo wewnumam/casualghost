@@ -10,11 +10,7 @@ public class Barricades : MonoBehaviour {
     public bool isMoveUp;
     public bool isMoveDown;
 
-    private Rigidbody2D[] rigidbody2Ds;
-
-    private void Awake() {
-        rigidbody2Ds = GetComponentsInChildren<Rigidbody2D>();
-    }
+    [SerializeField] private List<Rigidbody2D> rigidbody2Ds;
 
     void Update() {
         if (isMoveLeft) {
@@ -32,22 +28,20 @@ public class Barricades : MonoBehaviour {
         if (isMoveDown) {
             AddForce(Vector2.down * _maxSpeed);
         }
-
-        // Limit the velocity to a maximum value
-        for (int i = 0; i < transform.childCount; i++) {
-            if (rigidbody2Ds[i] != null) {
-                float currentSpeed = rigidbody2Ds[i].velocity.magnitude;
-                if (currentSpeed > _maxSpeed) {
-                    rigidbody2Ds[i].velocity = rigidbody2Ds[i].velocity.normalized * _maxSpeed;
-                }
-            }
-        }
     }
 
     void AddForce(Vector2 force) {
-        for (int i = 0; i < transform.childCount; i++) {
-            if (rigidbody2Ds[i] != null && rigidbody2Ds[i].GetComponent<HealthSystem>().IsAlive()) {
-                rigidbody2Ds[i].AddForce(force);
+        foreach (Rigidbody2D rb in rigidbody2Ds) {
+            if (rb != null) {
+                if (rb.GetComponent<HealthSystem>().IsAlive()) {
+                    rb.AddForce(force);
+
+                    // Limit the velocity to a maximum value
+                    float currentSpeed = rb.velocity.magnitude;
+                    if (currentSpeed > _maxSpeed) {
+                        rb.velocity = rb.velocity.normalized * _maxSpeed;
+                    }
+                }
             }
         }
     }

@@ -72,6 +72,10 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    void OnDestroy() {
+        GameManager.Instance.currentEnemies.Remove(gameObject);    
+    }
+
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag(Tags.TREE) && IsEnemyTypeBoss()) {
             Destroy(collision.gameObject);
@@ -233,7 +237,6 @@ public class Enemy : MonoBehaviour {
         }
 
         MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_ENEMIES_KILLED);
-        GameManager.Instance.currentEnemies.Remove(gameObject);
 
         Destroy(gameObject);
     }

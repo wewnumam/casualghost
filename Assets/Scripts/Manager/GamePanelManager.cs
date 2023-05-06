@@ -17,7 +17,7 @@ public class GamePanelManager : MonoBehaviour {
     [SerializeField] private GameObject optionMenuPanel;
     [SerializeField] private GameObject lastLevelPanel;
     [SerializeField] private GameObject loadingPanel;
-    private GameObject lastLevelMessage;
+    [SerializeField] private GameObject lastLevelMessage;
 
     private bool isInventoryOpen = true;
     
@@ -138,8 +138,10 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect.BUTTON_CLICK);
         LevelManager.Instance.StopSpawnEnemy();
         foreach (var enemy in GameManager.Instance.currentEnemies) {
-            if (!enemy.GetComponent<Enemy>().IsEnemyTypeBoss()) {
-                Destroy(enemy);
+            if (enemy != null) {
+                if (!enemy.GetComponent<Enemy>().IsEnemyTypeBoss()) {
+                    Destroy(enemy);
+                }
             }
         }
         Time.timeScale = 0f;
@@ -244,7 +246,6 @@ public class GamePanelManager : MonoBehaviour {
         lastLevelPanel.SetActive(true);
         UIManager.Instance.TurnOnUILights(false);
         if (!LevelManager.Instance.IsLastLevel()) {
-            lastLevelMessage = lastLevelPanel.gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0].gameObject;
             lastLevelMessage.SetActive(false);
         }
     }
