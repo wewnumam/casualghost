@@ -55,7 +55,7 @@ public class BuildingBuilder : MonoBehaviour, IPointerEnterHandler, IPointerExit
     void ModifyImageColorAlpha() {
         // Modify the alpha value of the image color of the building UI element based on whether the player can afford to build it.
         Color imageColor = image.color;
-        if (CanBuild()) {
+        if (CanBuild() && GameManager.Instance.IsGameStateGameplay()) {
             imageColor.a = 1f;
             light2D.intensity = initialLightIntensity;
         } else {

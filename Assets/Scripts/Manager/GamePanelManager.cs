@@ -235,10 +235,9 @@ public class GamePanelManager : MonoBehaviour {
         SoundManager.Instance.PlaySound(EnumsManager.SoundEffect._BGM_CREDIT_PANEL);
         Time.timeScale = 0f;
 
-        levelTransitionPanel.SetActive(false);
-        lastLevelPanel.SetActive(true);
-
         MissionManager.Instance.UpdateMissionProgress(EnumsManager.Mission.NUMBER_OF_GAME_WINS);
+
+        OpenCreditPanel();
     }
 
     public void OpenCreditPanel() {
