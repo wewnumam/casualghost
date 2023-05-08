@@ -104,7 +104,9 @@ public class Enemy : MonoBehaviour {
         if (collider.gameObject.CompareTag(Tags.ROOT) ||
             collider.gameObject.CompareTag(Tags.THORN_MINE) ||
             collider.gameObject.CompareTag(Tags.DECOY) ||
-            collider.gameObject.CompareTag(Tags.CANNON)) {
+            collider.gameObject.CompareTag(Tags.CANNON) ||
+            collider.gameObject.CompareTag(Tags.PUDDLE) ||
+            collider.gameObject.CompareTag(Tags.TRAP_ROOT)) {
             if (IsEnemyTypeBoss()) {
                 Destroy(collider.gameObject);
             }

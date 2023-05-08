@@ -21,6 +21,8 @@ public class Tags {
     public const string COLLECTIBLE_ITEM = "CollectibleItem";
     public const string HEAL_AREA = "HealArea";
     public const string COLLECTIBLE_ITEM_BAR = "CollectibleItemBar";
+    public const string PUDDLE = "Puddle";
+    public const string TRAP_ROOT = "TrapRoot";
 }
 
 public class AnimationTags {

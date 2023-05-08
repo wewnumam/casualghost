@@ -21,6 +21,8 @@ TagManager:
   - HealArea
   - CollectibleItem
   - CollectibleItemBar
+  - Puddle
+  - TrapRoot
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,9 @@ public static class EnumsManager {
     public enum DefenseType {
         FREE_CANNONS,
         FREE_ROOTS,
-        FREE_THORNMINES
+        FREE_THORNMINES,
+        PUDDLES,
+        TRAP_ROOTS
     }
 
     public enum GameState {

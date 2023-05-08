@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DissolveNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Emission:
         m_Texture: {fileID: 2800000, guid: ac2e0dc3ab72e7c4bba98aed43381911, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -41,7 +45,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _DissolvePower: 1
     m_Colors:
-    - _Color: {r: 0, g: 23.968628, b: 0, a: 0}
+    - _Color: {r: 0, g: 766.9961, b: 0, a: 0}
   m_BuildTextureStacks: []
