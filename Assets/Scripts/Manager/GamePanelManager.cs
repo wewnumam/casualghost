@@ -62,6 +62,7 @@ public class GamePanelManager : MonoBehaviour {
     void Update() {
         PauseInput();
         InventoryPanel();
+        Huds();
 
         if (loadingPanel.activeSelf) {
             Vector3 mainCameraPos = Camera.main.transform.position;
@@ -104,6 +105,12 @@ public class GamePanelManager : MonoBehaviour {
             Pause();
         } else if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.IsGameStatePause() && !optionMenuPanel.activeSelf) {
             Resume();
+        }
+    }
+
+    void Huds() {
+        if (Input.GetKeyDown(KeyCode.H)) {
+            UIManager.Instance.HideHuds();
         }
     }
 

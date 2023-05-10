@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour {
     private string currentLevelText;
     [SerializeField] private Light2D[] UILights;
     private float[] UILightsIntensity;
+    [SerializeField] private GameObject[] huds;
 
     void Awake () {
         if (Instance == null) {
@@ -111,6 +112,16 @@ public class UIManager : MonoBehaviour {
         } else {
             for (int i = 0; i < UILights.Length; i++) {
                 UILights[i].intensity = 0;
+            }
+        }
+    }
+
+    public void HideHuds() {
+        for (int i = 0; i < huds.Length; i++) {
+            if (huds[i].activeSelf) {
+                huds[i].SetActive(false);
+            } else {
+                huds[i].SetActive(true);
             }
         }
     }
